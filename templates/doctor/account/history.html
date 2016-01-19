@@ -1,0 +1,25 @@
+{% extends 'doctor/account/base_account.html' %}
+{% load i18n %}
+{% load static %}
+{% block account_content %}
+        <div>
+            <table class="table">
+                <thead>
+                    <tr class="head-color rounded-th">
+                        <th>Time Stamp</th>
+                        <th>Activity Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in history_records %}
+                        <tr>
+                            <td>{{ record.record_date }} </td>
+                            <td>{{ record.type.get_name_display }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+{% endblock %}

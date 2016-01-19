@@ -1,0 +1,139 @@
+{% extends 'patient/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
+{% endblock %}
+{% block dashboard_content %}
+    <div class="tag-box tag-box-v6 rounded-2x row">
+        <div class="pull-left head col-md-4 col-sm-6 row">
+            <h2><strong>{% trans 'Help & Support' %}</strong></h2>
+        </div>
+        <div class="col-sm-10 help">
+            <ul class="list-unstyled">
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse"
+                       data-parent="#accordion-1" aria-expanded="false"
+                            href="#collapse-One">
+                        <em>
+                            <strong>{% trans "How do I contact eHealth's customer service?" %}</strong>
+                        </em>
+                    </a>
+                    <div id="collapse-One" class="panel-collapse collapse" aria-expanded="false">
+                        <div class="panel-body">
+                                {% trans 'You may contact Customer Service toll free at 888-632-2738. You may also email us at' %}
+                                <a href="mailto:customerservice@aHealth.com">customerservice@aHealth.com</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Two">
+                        <em>
+                            <strong>{% trans 'Why should I use eHealth?' %}</strong>
+                        </em>
+                     </a>
+                    <div id="collapse-Two" class="panel-collapse collapse" aria-expanded="false">
+                        <div class="panel-body">
+                                        fjhhhhhhhhlfdkjhldfkjh;lfd
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Three">
+                        <em>
+                            <strong>{% trans 'Does eHealth have doctors in my area?' %}</strong>
+                        </em>
+                    </a>
+                    <div id="collapse-Three" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                     <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Four">
+                        <em>
+                            <strong>{% trans 'Can I add my doctor or therapist to your network?' %}</strong>
+                        </em>
+                      </a>
+                    <div id="collapse-Four" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Five">
+                        <em>
+                            <strong>{% trans 'Will you keep my information confidential?' %}</strong>
+                        </em>
+                     </a>
+                    <div id="collapse-Five" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Six">
+                        <em>
+                            <strong>{% trans 'What happens after my consultation with the eHealth doctor or therapist?' %}</strong>
+                        </em>
+                     </a>
+                    <div id="collapse-Six" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Seven">
+                        <em>
+                            <strong>{% trans 'Will I receive a prescription fro the doctor following my consult?' %}</strong>
+                        </em>
+                    </a>
+                    <div id="collapse-Seven" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Eight">
+                        <em>
+                            <strong>{% trans 'Do your doctors or therapists refer to other doctors or facilities ?' %}</strong>
+                        </em>
+                    </a>
+                    <div id="collapse-Eight" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-square color-red"></i>
+                    <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Nine">
+                        <em>
+                            <strong>{% trans 'Do members have to pay it a face-to-face appointment is required?' %}</strong>
+                        </em>
+                    </a>
+                    <div id="collapse-Nine" class="panel-collapse collapse" aria-expanded="false">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

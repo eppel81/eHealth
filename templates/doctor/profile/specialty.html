@@ -1,0 +1,57 @@
+{% extends 'doctor/profile/base_profile.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+{#    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">#}
+{% endblock %}
+{% block account_content %}
+    <br>
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="col">Specialty</th>
+                <th scope="col">Is Primary</th>
+                <th scope="col"></th>
+            </tr>
+
+            {% for specialty in specialties %}
+            <tr>
+                <td>{{ specialty.specialty }}</td>
+
+                <td>
+                    {% if specialty.primary %}
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    {% else %}
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    {% endif %}
+                </td>
+
+                <td>
+                    <a href={% url 'doctor:specialty_delete' specialty.id %}>
+                        <button class="btn-u">
+                            Delete
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            <form class="form-inline" role="form" action="{% url 'doctor:specialty' %}" method="post">
+                    {% csrf_token %}
+            {{ from.non_field_errors }}
+            <tr>
+                {% for item in form %}
+                    <td>{{ item }}
+                    {{ item.errors }}</td>
+                {% endfor %}
+                <td>
+                    <button type="submit" class="btn btn-u">Add</button>
+                </td>
+            </tr>
+            </form>
+        </tbody>
+    </table>
+
+{% endblock %}
+

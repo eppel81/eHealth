@@ -1,0 +1,68 @@
+{% extends 'patient/dashboard/my_health/base_my_health.html' %}
+{% load i18n %}
+{% load static %}
+{% block health_content %}
+    <div class="row">
+        <div class="tag-box tag-box-v6 rounded-2x margin-h-ft">
+            <div>
+                <h3>My family history</h3>
+                <h5>
+                    Does anyone in your family have a history of the following? (Check all that apply)
+                </h5>
+            </div>
+            <form class="form" role="form" action="{% url 'patient:my_family_history' %}{% if request.GET.app_process %}?next={% url 'patient:appointment_process' %}{% endif %}"
+                  method="post">
+                <div class="col-sm-6">
+                    {% csrf_token %}
+                        <table class="table">
+                            <thead>
+                                <tr class="head-color rounded-th">
+                                    <th>Conditions</th>
+                                    <th>Relationship</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in form %}
+                                    {% if not forloop.counter|divisibleby:2 %}
+                                        <tr>
+                                            <td class="width-td">{{ item.label_tag }}</td>
+                                            <td>{{ item }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                </div>
+                <div class="col-sm-6">
+                    <table class="table">
+                            <thead>
+                                <tr class="head-color rounded-th">
+                                    <th>Conditions</th>
+                                    <th>Relationship</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in form %}
+                                    {% if forloop.counter|divisibleby:2 %}
+                                        <tr>
+                                            <td class="width-td">{{ item.label_tag }}</td>
+                                            <td>{{ item }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                </div>
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-default">
+                        {% if request.GET.app_process %}
+                            {% trans 'Next' %}
+                        {% else %}
+                            {% trans 'Save' %}
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

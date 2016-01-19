@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block button_menu %}
+         <!-- Toggle get grouped for better mobile display -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+            </button>
+            <!-- End Toggle -->
+
+{% endblock %}
+{% block header %}
+
+      <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li class="page-scroll active">
+                        <a href="#">
+                            {% trans 'Home' %}
+                        </a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#patients">
+                            {% trans 'Patients' %}
+                        </a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#solutions">
+                            {% trans 'Telehealth Solutions' %}
+                        </a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#news">
+                            {% trans 'Latest News' %}
+                        </a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">
+                            {% trans 'About Us' %}
+                        </a>
+                    </li>
+                </ul>
+            </div><!--/end container-->
+        </div><!--/navbar-collapse-->
+{% endblock %}
+{% block content %}
+
+
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
+                    <!-- MAIN IMAGE -->
+                    <img src="{% static 'ehealth/img/home1.jpg' %}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption revolution-ch1 sft start"
+                        data-x="center"
+                        data-hoffset="0"
+                        data-y="100"
+                        data-speed="1500"
+                        data-start="500"
+                        data-easing="Back.easeInOut"
+                        data-endeasing="Power1.easeIn"
+                        data-endspeed="300">
+                        {% trans 'The best doctors' %}
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption revolution-ch2 sft"
+                        data-x="center"
+                        data-hoffset="0"
+                        data-y="190"
+                        data-speed="1400"
+                        data-start="2000"
+                        data-easing="Power4.easeOut"
+                        data-endspeed="300"
+                        data-endeasing="Power1.easeIn"
+                        data-captionhidden="off"
+                        style="z-index: 6">
+                        <!--{% trans 'Cómodamente desde tu casa' %}<br/>-->
+                        <!--{% trans 'Como si estuvieras en la consulta' %}-->
+                        {% trans 'Comfortably from home' %}<br/>
+                        {% trans 'As if you were in the office' %}
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption sft"
+                        data-x="center"
+                        data-hoffset="0"
+                        data-y="310"
+                        data-speed="1600"
+                        data-start="2800"
+                        data-easing="Power4.easeOut"
+                        data-endspeed="300"
+                        data-endeasing="Power1.easeIn"
+                        data-captionhidden="off"
+                        style="z-index: 6">
+                        <a href="{% url 'account_signup' %}" class="btn-u btn-brd btn-brd-hover btn-u-light">{% trans 'Get Started' %}</a>
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+    <!--=== End Slider ===-->
+
+    <!--=== Content Part ===-->
+
+    <!-- Patients -->
+    <div class="one-page-inner one-default" id="patients">
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'ehealth/img/patients.jpg' %}" class="img-responsive margin-bottom-10" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h2>{% trans 'Ten una visita con el doctor ahora' %}</h2>
+                    <p>Ducimus qui blanditiis praesentium voluptatum deleniti atque cupiditate non provident, similique sunt in culpa qui officia ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p><br>
+
+                    <a href="{% url 'account_login' %}" class="btn-u btn-u btn-u-red"><i class="fa fa-thumbs-up"></i> Accede</a>
+                </div>
+            </div>
+
+            <div class="row content-boxes-v2">
+                <div class="col-md-4 md-margin-bottom-30">
+                    <h3 class="heading-sm">
+                        <i class="icon-custom rounded-x icon-sm icon-bg-u fa fa-lightbulb-o"></i>
+                        <span>Fusce condimentum</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. </p>
+                </div>
+                <div class="col-md-4 md-margin-bottom-30">
+                    <h3 class="heading-sm">
+                        <i class="icon-custom rounded-x icon-sm icon-bg-blue fa fa-bullhorn"></i>
+                        <span>Voluptatum deleniti</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. </p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="heading-sm">
+                        <i class="icon-custom rounded-x icon-sm icon-bg-red icon-line icon-rocket"></i>
+                        <span>Libero magna</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="one-page-inner one-default" id="news">
+        <div class="container content">
+            <div class="row margin-bottom-40" id="news">
+                <!-- Posts -->
+                <div class="col-md-12 posts">
+                    <div class="headline"><h3>{% trans 'Últimas noticias' %}</h3></div>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img alt="" src="{% static 'img/sliders/elastislide/6.jpg' %}"></a></dt>
+                        <dd>
+                            <p><a href="#">Las peliculeras intervenciones quirúrgicas a distancia, con robots manejados por control remoto, seguirán siendo raras, pero las condiciones para que la llamada telemedicina o e-salud —el tratamiento a distancia de enfermedades mediante el uso de las tecnologías de la información y la comunicación (TIC)— entre en nuestras vidas ya están dadas. Así lo confirman las grandes consultoras del sector de la sanidad. En su último informe, BBC Research anuncia que el emergente sector, que incluye áreas como los diagnósticos por Internet, el seguimiento de pacientes o la cooperación entre profesionales, casi se triplicará en seis años al pasar de 9.800 millones de dólares (7.840 millones de euros) de ventas mundiales en 2010 a los 27.300 millones en 2016.</a></p>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img alt="" src="{% static 'img/sliders/elastislide/10.jpg' %}"></a></dt>
+                        <dd>
+                            <p><a href="#">Las peliculeras intervenciones quirúrgicas a distancia, con robots manejados por control remoto, seguirán siendo raras, pero las condiciones para que la llamada telemedicina o e-salud —el tratamiento a distancia de enfermedades mediante el uso de las tecnologías de la información y la comunicación (TIC)— entre en nuestras vidas ya están dadas. Así lo confirman las grandes consultoras del sector de la sanidad. En su último informe, BBC Research anuncia que el emergente sector, que incluye áreas como los diagnósticos por Internet, el seguimiento de pacientes o la cooperación entre profesionales, casi se triplicará en seis años al pasar de 9.800 millones de dólares (7.840 millones de euros) de ventas mundiales en 2010 a los 27.300 millones en 2016.</a></p>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img alt="" src="{% static 'img/sliders/elastislide/11.jpg' %}"></a></dt>
+                        <dd>
+                            <p><a href="#">Las peliculeras intervenciones quirúrgicas a distancia, con robots manejados por control remoto, seguirán siendo raras, pero las condiciones para que la llamada telemedicina o e-salud —el tratamiento a distancia de enfermedades mediante el uso de las tecnologías de la información y la comunicación (TIC)— entre en nuestras vidas ya están dadas. Así lo confirman las grandes consultoras del sector de la sanidad. En su último informe, BBC Research anuncia que el emergente sector, que incluye áreas como los diagnósticos por Internet, el seguimiento de pacientes o la cooperación entre profesionales, casi se triplicará en seis años al pasar de 9.800 millones de dólares (7.840 millones de euros) de ventas mundiales en 2010 a los 27.300 millones en 2016.</a></p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+    	</div><!--/row-->
+    	<!-- End Info Blokcs -->
+    </div>
+
+    <div class="container content">
+        <div class="clearfix margin-bottom-30"></div>
+        <div class="shadow-wrapper">
+            <div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+                <h2>{% trans '¿Quienes somos?' %}</h2>
+                <p>EspidiDoctor, una plataforma dirigida en exclusiva a los profesionales de la salud para enseñarles a sacar provecho de todas las ventajas que ofrecen las nuevas tecnologías. Y lo más importante, cómo aplicarlas de forma práctica en tu entorno profesional gracias al Curso Médico Acreditado: Herramientas en Internet para médicos.</p>
+            </div>
+        </div>
+
+        <div class="clearfix margin-bottom-40"></div>
+
+        <!--&lt;!&ndash; Service Blocks &ndash;&gt;-->
+        <!--<div class="margin-bottom-20"></div>-->
+        <!--<div class="row margin-bottom-40">-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="service-block service-block-default">-->
+                    <!--<i class="icon-custom rounded-x icon-bg-dark fa fa-lightbulb-o"></i>-->
+                    <!--<h2 class="heading-md">Creative Ideas</h2>-->
+                    <!--<p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="service-block service-block-default">-->
+                    <!--<i class="icon-custom rounded-x icon-bg-dark fa fa-compress"></i>-->
+                    <!--<h2 class="heading-md">Fully Responsive</h2>-->
+                    <!--<p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="service-block service-block-default">-->
+                    <!--<i class="icon-custom rounded-x icon-bg-dark icon-line icon-rocket"></i>-->
+                    <!--<h2 class="heading-md">Launch Ready</h2>-->
+                    <!--<p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="service-block service-block-default">-->
+                    <!--<i class="icon-custom rounded-x icon-bg-dark icon-line icon-support"></i>-->
+                    <!--<h2 class="heading-md">Dedicated Support</h2>-->
+                    <!--<p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; End Service Blokcs &ndash;&gt;-->
+
+    </div><!--/container-->
+{% endblock %}

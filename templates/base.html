@@ -1,0 +1,324 @@
+{% load i18n %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    {% load static %}
+    <title>eHealth{% block title %}{% if title %} - {{ title }}{% endif %}{% endblock %}</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="{% static 'css/headers/header-default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footers/footer-v1.css' %}">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{% static 'plugins/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/line-icons/line-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/revolution-slider/rs-plugin/css/settings.css' %}" type="text/css" media="screen">
+    <!--[if lt IE 9]><link rel="stylesheet" href="{% static 'plugins/revolution-slider/rs-plugin/css/settings-ie8.css' %}" type="text/css" media="screen"><![endif]-->
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!-- JS Global Compulsory -->
+    <script type="text/javascript" src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/jquery/jquery-migrate.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block links %}
+    {% endblock %}
+</head>
+
+<body>
+<div class="wrapper">
+    <!--=== Header ===-->
+    <div class="header">
+        <div class="container">
+            <!-- Logo -->
+            <a class="logo" href="{% url 'utils:home' %}">
+                <img src="{% static 'ehealth/img/logo.gif' %}" alt="Logo">
+            </a>
+            <!-- End Logo -->
+
+            <!-- Topbar -->
+            <div class="topbar">
+                <ul class="loginbar pull-right">
+
+                    <li class="hoverSelector">
+                        <i class="fa fa-globe"></i>
+                        <a>Languages</a>
+                        <ul class="languages anyclass hoverSelectorBlock">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for lang in languages %}
+                                <li class="{% if lang.code == LANGUAGE_CODE %}active{% endif %}">
+                                    <a href="#" data-lang="{{ lang.code }}">
+                                        {{ lang.name_local }}
+                                        {% if lang.code == LANGUAGE_CODE %}
+                                            <i class="fa fa-check"></i>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            <form action="{% url 'set_language' %}" method="post" class="hidden">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ request.path|slice:"3:" }}" />
+                                <select name="language">
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                            {{ language.name_local }} ({{ language.code }})
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="Go" />
+                            </form>
+                        </ul>
+                    </li>
+                    <li class="topbar-devider"></li>
+                    <li><a href="#">{% trans 'Help' %}</a></li>
+                    <li class="topbar-devider"></li>
+                    {% if user.is_authenticated %}
+                    <li class="hoverSelector">
+                        {% if request.session.type_user == 'patient' %}
+
+                                {% if user.patient.photo %}
+                                    <img src="{{ user.patient.photo.url }}" class="rounded-x full-height"/>
+                                {% else %}
+                                    <img src="{% static 'img/user_man.jpg' %}" class="rounded-x full-height" />
+                                {% endif %}
+                        {% elif request.session.type_user == 'doctor' %}
+
+                                {% if user.doctor.photo %}
+                                    <img src="{{ user.doctor.photo.url }}" class="rounded-x full-height" />
+                                {% else %}
+                                    {% if doctor.gender %}
+                                        <img class="rounded-x full-height" src="{% static 'img/doctor_man.jpg' %}">
+                                    {% else %}
+                                        <img class="rounded-x full-height" src="{% static 'img/doctor_woman.png' %}">
+                                    {% endif %}
+                                {% endif %}
+                        {% endif %}
+                        {% if user.first_name %}
+                            {{ user.first_name }}{{ user.second_name }}
+                        {% else %}
+                            {{ user.username }}
+                        {% endif %}
+                        <ul class="languages hoverSelectorBlock">
+                            <li>
+                                <a
+                                    {% if request.session.type_user == 'patient' %}
+                                        href="{% url 'patient:my_account' %}">
+                                    {% elif request.session.type_user == 'doctor' %}
+                                        href="{% url 'doctor:my_account' %}">
+                                    {% endif %}
+                                      <img src="{% static 'img/my_account.ico' %}" class="rounded-x" />
+                                    {% trans 'My Account' %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'account_logout' %}" class="navbar-link">
+                                    <img src="{% static 'img/logoff.jpg' %}" class="rounded-x" />
+                                    {% trans 'LogOut' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                        <!--<li class="topbar-devider"></li>-->
+
+                    {% else %}
+                            <li><a href="{% url 'account_login' %}">{% trans 'LogIn' %}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- End Topbar -->
+
+            {% block button_menu %}{% endblock %}
+        </div><!--/end container-->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        {% block header %}
+            <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li class="page-scroll">
+                            <br/>
+                            <br/>
+                        </li>
+                    </ul>
+                </div><!--/end container-->
+        </div><!--/navbar-collapse-->
+        {% endblock %}
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <!--=== Footer Version 1 ===-->
+    <div class="footer-v1">
+        <!--<div class="footer">-->
+            <!--<div class="container">-->
+                <!--<div class="row">-->
+                     <!--About-->
+                    <!--<div class="col-md-3 md-margin-bottom-40">-->
+                        <!--<a href="index.html"><img id="logo-footer" class="footer-logo" src="/assets/img/logo2-default.png" alt=""></a>-->
+                        <!--<p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>-->
+                        <!--<p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>-->
+                    <!--</div>&lt;!&ndash;/col-md-3&ndash;&gt;-->
+                    <!--&lt;!&ndash; End About &ndash;&gt;-->
+
+                     <!--Latest-->
+                    <!--<div class="col-md-3 md-margin-bottom-40">-->
+                        <!--<div class="posts">-->
+                            <!--<div class="headline"><h2>Latest Posts</h2></div>-->
+                            <!--<ul class="list-unstyled latest-list">-->
+                                <!--<li>-->
+                                    <!--<a href="#">Incredible content</a>-->
+                                    <!--<small>May 8, 2014</small>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Best shoots</a>-->
+                                    <!--<small>June 23, 2014</small>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">New Terms and Conditions</a>-->
+                                    <!--<small>September 15, 2014</small>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>&lt;!&ndash;/col-md-3&ndash;&gt;-->
+                     <!--End Latest-->
+
+                     <!--Link List-->
+                    <!--<div class="col-md-3 md-margin-bottom-40">-->
+                        <!--<div class="headline"><h2>Useful Links</h2></div>-->
+                        <!--<ul class="list-unstyled link-list">-->
+                            <!--<li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>-->
+                            <!--<li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>-->
+                            <!--<li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>-->
+                            <!--<li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>-->
+                            <!--<li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>-->
+                        <!--</ul>-->
+                    <!--</div>&lt;!&ndash;/col-md-3&ndash;&gt;-->
+                    <!--&lt;!&ndash; End Link List &ndash;&gt;-->
+
+                    <!--&lt;!&ndash; Address &ndash;&gt;-->
+                    <!--<div class="col-md-3 map-img md-margin-bottom-40">-->
+                        <!--<div class="headline"><h2>Contact Us</h2></div>-->
+                        <!--<address class="md-margin-bottom-40">-->
+                            <!--25, Lorem Lis Street, Orange <br />-->
+                            <!--California, US <br />-->
+                            <!--Phone: 800 123 3456 <br />-->
+                            <!--Fax: 800 123 3456 <br />-->
+                            <!--Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>-->
+                        <!--</address>-->
+                    <!--</div>&lt;!&ndash;/col-md-3&ndash;&gt;-->
+                     <!--End Address-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash;/footer&ndash;&gt;-->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            2015 &copy; {% trans 'All Rights Reserved.' %}
+                           <!--<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>-->
+                        </p>
+                    </div>
+
+                    <!--&lt;!&ndash; Social Links &ndash;&gt;-->
+                    <!--<div class="col-md-6">-->
+                        <!--<ul class="footer-socials list-inline">-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">-->
+                                    <!--<i class="fa fa-facebook"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">-->
+                                    <!--<i class="fa fa-skype"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">-->
+                                    <!--<i class="fa fa-google-plus"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">-->
+                                    <!--<i class="fa fa-linkedin"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">-->
+                                    <!--<i class="fa fa-pinterest"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">-->
+                                    <!--<i class="fa fa-twitter"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">-->
+                                    <!--<i class="fa fa-dribbble"></i>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; End Social Links &ndash;&gt;-->
+                </div>
+            </div>
+        </div><!--/copyright-->
+    </div>
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{% static 'plugins/back-to-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/smoothScroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/owl-carousel/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/owl-carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/revolution-slider.js' %}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        OwlCarousel.initOwlCarousel();
+        RevolutionSlider.initRSfullWidth();
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="{% static 'plugins/respond.js' %}"></script>
+    <script src="{% static 'plugins/html5shiv.js' %}"></script>
+    <script src="{% static 'plugins/placeholder-IE-fixes.js' %}"></script>
+<![endif]-->
+
+{% block js %}{% endblock %}
+
+</body>
+</html>

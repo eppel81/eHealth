@@ -1,0 +1,126 @@
+{% load i18n %}
+{% load static %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/appointment_times.js' %}"></script>
+{% endblock %}
+<div class="modal-dialog modal-lg doctor-info">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+            <div class="profile-info row">
+                <div class="easy-block-v3 no-border">
+                    {% if doctor.photo %}
+                        <img class="img-responsive img-bordered full-width" src="{{ doctor.photo.url }}" alt="">
+                    {% else %}
+                        {% if doctor.gender %}
+                            <img class="img-responsive img-bordered full-width" src="{% static 'img/doctor_man.jpg' %}" alt="">
+                        {% else %}
+                            <img class="img-responsive img-bordered full-width" src="{% static 'img/doctor_woman.png' %}" alt="">
+                        {% endif %}
+                    {% endif %}
+                    <div class="inner-faq-b">
+                        <h3>
+                            {{ doctor.user.first_name }} {{ doctor.user.last_name }}
+                        </h3>
+                        <div>
+                            {% with specialities=doctor.doctorspecialty_set.all %}
+                                {% for speciality in specialities %}
+                                    <span class="label label-light rounded">{% trans speciality.specialty.name %}</span>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <div class="appointment">
+                            <h4>
+                                Appointment Type:
+                                {% if doctor.phone_appointment or doctor.video_appointment %}
+                                    {% if doctor.phone_appointment %}
+                                        <span class="glyphicon glyphicon-headphones"></span>
+                                            {% trans 'Phone' %}
+                                    {% endif %}
+                                    {% if doctor.video_appointment %}
+                                        <span class="glyphicon glyphicon-facetime-video"></span>
+                                            {% trans 'Video' %}
+                                    {% endif %}
+                                {% else %}
+                                    {% trans 'No Appointment' %}
+                                {% endif %}
+                            </h4>
+
+                        </div>
+                    </div>
+
+                        <div class="when">
+                            <div class="col-sm-2 col-md-1">
+                                <h4>When:</h4>
+                            </div>
+                            {% if appointment_date.exists %}
+                                <div class="col-sm-4 col-md-4">
+                                    <select class="form-control appointment-date">
+                                          {% for date in appointment_date %}
+                                            <option data-url="{% url 'patient:date_appointment' pk=date.id %}">
+                                                {{ date.appointment_date }}
+                                            </option>
+                                          {% endfor %}
+                                    </select>
+                                </div>
+                            {% else %}
+                                <div class="col-sm-4">
+                                    <h4>{% trans 'Not available' %}</h4>
+                                </div>
+                            {% endif %}
+                            <div class="times col-sm-6 col-md-9"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body row">
+            <div class="col-sm-6">
+                <h2 class="bordered-bottom">{% trans 'Location' %}</h2>
+                <div>
+                    <h4>{{ doctor.country }}, {{ doctor.city }}</h4>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h2 class="bordered-bottom">Languages Spoken</h2>
+                <div>
+                    {% with languages=doctor.languages %}
+                        {% if languages.exists %}
+                            <ul class="list-inline">
+                                {% for language in languages.all %}
+                                    <li>
+                                        <h4>
+                                            {{ language.name }}
+                                            {% if forloop.last == False %} , {% endif %}
+                                        </h4>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <h4>{% trans 'No Languages' %}</h4>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <h2 class="bordered-bottom">Qualifications</h2>
+                {% with qualifications=doctor.licensed_state.all %}
+                    {% if qualifications.exists %}
+                        {% for qualification in qualifications %}
+                            <ul class="list list-group">
+                                <li>
+                                    <h4>{{ qualification.name }}</h4>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                    {% else %}
+                        <h4>{% trans 'No Qualifications' %}</h4>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div  id="appointment-request" class="modal fade" role="dialog" aria-hidden="true"
+        tabindex="-1">
+</div>

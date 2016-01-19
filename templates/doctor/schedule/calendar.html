@@ -1,0 +1,104 @@
+{% extends 'doctor/schedule/base_schedule.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/style_my_health.css' %}"/>
+    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap-datepicker3.min.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/chosen.min.css' %}">
+{% endblock %}
+{% block account_content %}
+    <div class="row">
+        <div id="sandbox-container" class="col-xs-3"></div>
+        <div class="search col-xs-9">
+            <form class="form-inline" role="form" action="{% url 'doctor:time' %}?next={{ request.path }}" method="post">
+                <div class="form-group col-md-5">
+                    {% csrf_token %}
+                    <input type="hidden" name="current_date" value="{{ rows.name }}">
+                    <select name="appointment_time" id="appointment_time" multiple style="width:350px;"
+                            data-placeholder="Choose time...">
+                        {% for time in times %}
+                            <option value="{{ time }}">{{ time }}</option>
+                        {% endfor %}
+                    </select>
+                    <small>{% trans "Hold Ctrl + click to add multiple" %}</small>
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-default">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table" style="margin-top: 15px;">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th width="20%">{{ rows.name }}</th>
+            <th width="60%">Scheduled</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for time in rows.times %}
+            <tr>
+                <td>
+                    {{ time.name }}
+                </td>
+                <td>
+                    {% if not time.free %}
+                        <a href="#" data-appointment="{{ time.appointment.id }}" data-toggle="modal" data-target="#info_modal">
+                        {% if time.appointment.patient.user.first_name %}
+                            Patient: {{ time.appointment.patient.user.first_name }} {{ time.appointment.patient.user.second_name }}
+                        {% else %}
+                            Patient: {{ time.appointment.patient.user.username }}
+                        {% endif %}
+                        <br>
+                        Type: {{ time.appointment.get_appointment_type_display }} Reason: {{ time.appointment.reason.name }}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if time.free %}
+                        <a class="btn btn-danger" href="{% url 'doctor:timedel' current_date time.id %}">Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-labelledby="InfoModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="InfoModalLabel">Patient info</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        var calendar_language = "{{ language }}";
+        var calendar_url = "{% url 'doctor:calendar' %}";
+        var calendar_current_date = "2016-10-11";
+        var info_url = "{% url "doctor:appointments" %}";
+        {% if current_date %}
+            calendar_current_date = "{{ current_date }}";
+        {% endif %}
+    </script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/locales/bootstrap-datepicker.'|add:language|add:'.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datapicker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chosen.jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/doctor_appointemts.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'doctor/account/base_account.html' %}
+{% load i18n %}
+{% load static %}
+{% block account_content %}
+    <form class="form-horizontal" role="form" action="{% url 'doctor:payment' %}" method="post">
+    {% csrf_token %}
+        <div class="col-md-9">
+            <div class="profile-body">
+                <div class="profile-info">
+                        {% for item in form %}
+                        <div class="form-group">
+                                {{ item.errors }}
+                            <label class="col-sm-2 control-label">{{ item.label }}</label>
+                            <div class="col-sm-10">
+                                {{item}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn-u btn-u-lg">Save</button>
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'patient/base_dashboard.html' %}
+{% load i18n %}
+{% block messages %}
+    {% if error %}
+       <div class="col-sm-12 alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4>{% trans 'This time is already taken' %}</h4>
+            <p>
+                {% trans 'You must change time of appointment at' %}
+                <a href="#">
+                    {% trans 'Consultation history' %}
+                </a>
+            </p>
+       </div>
+    {% else %}
+        {% include 'form_messages.html' %}
+    {% endif %}
+{% endblock %}
+{% block dashboard_content %}
+    {% include 'doctor/ajax/patient_details.html' %}
+    <div class="col-sm-10 ">
+        {% if not taken %}
+            <form class="form" role="form" method="post" action="{% url 'patient:confirmation' %}">
+                {% csrf_token %}
+
+                <button type="submit"
+                    class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block pull-right">
+                    {% trans 'Apply' %}
+                </button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

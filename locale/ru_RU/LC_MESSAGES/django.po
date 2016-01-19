@@ -1,0 +1,488 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-11 12:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: doctor/views.py:18 doctor/views.py:79 patient/views.py:19
+#: patient/views.py:46
+msgid "Dashboard"
+msgstr "Дашбоард"
+
+#: doctor/views.py:20 doctor/views.py:54 doctor/views.py:309
+msgid "Calendar"
+msgstr "Календарь"
+
+#: doctor/views.py:22
+msgid "Case"
+msgstr "История болезней"
+
+#: doctor/views.py:24 doctor/views.py:85 patient/views.py:25
+#: patient/views.py:223 templates/doctor/dashboard.html:48
+#: templates/patient/dashboard.html:84
+msgid "Message Center"
+msgstr "Центр сообщений"
+
+#: doctor/views.py:26 patient/views.py:27 templates/doctor/dashboard.html:78
+#: templates/patient/dashboard.html:114
+#: templates/patient/dashboard/help_support.html:10
+msgid "Help & Support"
+msgstr "Поддержка"
+
+#: doctor/views.py:45 doctor/views.py:179
+msgid "Specialty"
+msgstr "Специализация"
+
+#: doctor/views.py:47 doctor/views.py:210
+msgid "Work Experience"
+msgstr "Опыт работы"
+
+#: doctor/views.py:56 doctor/views.py:234
+msgid "Appointments"
+msgstr "Встречи"
+
+#: doctor/views.py:63 doctor/views.py:150 patient/views.py:236
+#: patient/views.py:299
+msgid "Account Details"
+msgstr "Профиль"
+
+#: doctor/views.py:65
+msgid "Payment information"
+msgstr "Оплата"
+
+#: doctor/views.py:67 doctor/views.py:138
+msgid "Payment History"
+msgstr "История оплат"
+
+#: doctor/views.py:69
+msgid "Change password"
+msgstr "Сменить пароль"
+
+#: doctor/views.py:71 patient/views.py:248
+msgid "Account history"
+msgstr "История аккаунта"
+
+#: doctor/views.py:91 patient/views.py:229 templates/base.html:71
+msgid "Help"
+msgstr "Помощь"
+
+#: doctor/views.py:96 patient/views.py:255 templates/base.html:108
+#: templates/doctor/dashboard.html:92 templates/patient/dashboard.html:128
+msgid "My Account"
+msgstr "Мой аккаунт"
+
+#: doctor/views.py:116
+msgid "Payment"
+msgstr "Оплата"
+
+#: doctor/views.py:118
+msgid "Payment information updated"
+msgstr "Информация о оплате обновлена"
+
+#: doctor/views.py:151 patient/views.py:300
+msgid "Account details updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:180
+msgid "Specialties updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:211
+msgid "Work experience updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:355
+msgid "Time updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:393
+msgid "Appointment reschedule"
+msgstr "Перенос встречи"
+
+#: doctor/views.py:395
+msgid "Appointment updated"
+msgstr "Изменения сохранены"
+
+#: ehealth/settings.py:118
+msgid "English"
+msgstr "Английский"
+
+#: ehealth/settings.py:119
+msgid "Spanish"
+msgstr "Испанский"
+
+#: patient/forms.py:17 patient/forms.py:25
+msgid "Email"
+msgstr "Почтовый адрес"
+
+#: patient/forms.py:19 patient/forms.py:20 patient/forms.py:27
+#: patient/forms.py:28
+msgid "Password"
+msgstr "Пароль"
+
+#: patient/forms.py:31
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: patient/forms.py:32
+msgid "Confirm Password"
+msgstr "Подтвердите пароль"
+
+#: patient/forms.py:33
+msgid "Enter the same password as above, for verification."
+msgstr "Введите такой же пароль, как выше для проверки"
+
+#: patient/forms.py:40
+msgid "Do you have any health conditions?"
+msgstr "Есть ли у вас какие-либо ограничения по здоровью?"
+
+#: patient/forms.py:42
+msgid "Are you currently taking any medication?"
+msgstr "Сейчас принимаете какие-нибудь лекарства?"
+
+#: patient/forms.py:44
+msgid "Do you have any health surgeries?"
+msgstr "Были у вас какие-нибудь операции?"
+
+#: patient/forms.py:66
+msgid "Upload New Document"
+msgstr "Загрузить новый документ"
+
+#: patient/forms.py:67
+msgid "Document Type"
+msgstr "Тип документа"
+
+#: patient/forms.py:76
+msgid "Height"
+msgstr "Рост"
+
+#: patient/forms.py:78
+msgid "Weight"
+msgstr "Вес"
+
+#: patient/forms.py:103
+msgid "Select"
+msgstr "Выбор"
+
+#: patient/forms.py:130
+msgid "Photo"
+msgstr "Фото"
+
+#: patient/views.py:21 patient/views.py:59 templates/patient/dashboard.html:48
+msgid "Talk to a doctor"
+msgstr "Выбрать доктора"
+
+#: patient/views.py:23 patient/views.py:81 templates/patient/dashboard.html:98
+msgid "My health"
+msgstr "Моё здоровье"
+
+#: patient/views.py:34 patient/views.py:89
+msgid "My Health History"
+msgstr ""
+
+#: patient/views.py:36
+msgid "My Lifestyle"
+msgstr ""
+
+#: patient/views.py:38 patient/views.py:179
+msgid "My Family History"
+msgstr ""
+
+#: patient/views.py:91
+msgid "My health records updated"
+msgstr ""
+
+#: patient/views.py:115
+msgid "Records updated"
+msgstr ""
+
+#: patient/views.py:138
+msgid "Lifestyle information updated"
+msgstr ""
+
+#: patient/views.py:181
+msgid "Family history updated"
+msgstr ""
+
+#: patient/views.py:240
+msgid "Billing information"
+msgstr ""
+
+#: patient/views.py:244
+msgid "Login & Password"
+msgstr ""
+
+#: patient/views.py:268
+msgid "Change Password"
+msgstr ""
+
+#: patient/views.py:276
+msgid "Billing Information"
+msgstr ""
+
+#: patient/views.py:277
+msgid "Billing information updated"
+msgstr ""
+
+#: patient/views.py:346
+msgid "AppointmentRequest"
+msgstr ""
+
+#: templates/about.html:22 templates/home.html:68 templates/terms.html:22
+msgid "The best doctors"
+msgstr ""
+
+#: templates/about.html:37 templates/home.html:83 templates/terms.html:37
+msgid "Cómodamente desde tu casa"
+msgstr ""
+
+#: templates/about.html:38 templates/home.html:84 templates/terms.html:38
+msgid "Como si estuvieras en la consulta"
+msgstr ""
+
+#: templates/about.html:39 templates/home.html:85 templates/terms.html:39
+msgid "Comfortably from home"
+msgstr ""
+
+#: templates/about.html:40 templates/home.html:86 templates/terms.html:40
+msgid "As if you were in the office"
+msgstr ""
+
+#: templates/about.html:55 templates/home.html:101 templates/terms.html:55
+msgid "Get Started"
+msgstr ""
+
+#: templates/about.html:73 templates/home.html:41
+msgid "About Us"
+msgstr ""
+
+#: templates/about.html:111 templates/home.html:189 templates/terms.html:111
+msgid "¿Quienes somos?"
+msgstr ""
+
+#: templates/account/login.html:9
+msgid "Sign In"
+msgstr ""
+
+#: templates/account/login.html:18
+msgid "Don't Have Account? Click"
+msgstr ""
+
+#: templates/account/login.html:18
+msgid "Sign Up"
+msgstr ""
+
+#: templates/account/login.html:18
+msgid "to registration"
+msgstr ""
+
+#: templates/account/login.html:56
+msgid "Always stay signed in"
+msgstr ""
+
+#: templates/account/login.html:72
+msgid "Log In"
+msgstr ""
+
+#: templates/base.html:114
+msgid "LogOut"
+msgstr ""
+
+#: templates/base.html:124
+msgid "LogIn"
+msgstr ""
+
+#: templates/base.html:219
+msgid "All Rights Reserved."
+msgstr ""
+
+#: templates/doctor/dashboard.html:62
+msgid "Profile"
+msgstr ""
+
+#: templates/doctor/dashboard.html:105 templates/patient/dashboard.html:141
+msgid "Notifications"
+msgstr ""
+
+#: templates/doctor/dashboard.html:110 templates/patient/dashboard.html:146
+msgid "You have"
+msgstr ""
+
+#: templates/doctor/dashboard.html:110 templates/patient/dashboard.html:146
+msgid "new message(s)"
+msgstr ""
+
+#: templates/doctor/dashboard/help_support.html:35
+msgid "Help and support"
+msgstr ""
+
+#: templates/home.html:21
+msgid "Home"
+msgstr ""
+
+#: templates/home.html:26
+msgid "Patients"
+msgstr ""
+
+#: templates/home.html:31
+msgid "Telehealth Solutions"
+msgstr ""
+
+#: templates/home.html:36
+msgid "Latest News"
+msgstr ""
+
+#: templates/home.html:121
+msgid "Ten una visita con el doctor ahora"
+msgstr ""
+
+#: templates/home.html:160
+msgid "Últimas noticias"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:38
+msgid "Phone"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:42
+msgid "Video"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:45
+msgid "No Appointment"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:68
+msgid "Not available"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:78
+msgid "Location"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:99
+msgid "No Languages"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:116
+msgid "No Qualifications"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:20
+msgid "How do I contact eHealth's customer service?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:25
+msgid ""
+"You may contact Customer Service toll free at 888-632-2738. You may also "
+"email us at"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:36
+msgid "Why should I use eHealth?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:51
+msgid "Does eHealth have doctors in my area?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:64
+msgid "Can I add my doctor or therapist to your network?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:77
+msgid "Will you keep my information confidential?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:90
+msgid ""
+"What happens after my consultation with the eHealth doctor or therapist?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:103
+msgid "Will I receive a prescription fro the doctor following my consult?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:116
+msgid "Do your doctors or therapists refer to other doctors or facilities ?"
+msgstr ""
+
+#: templates/patient/dashboard/help_support.html:129
+msgid "Do members have to pay it a face-to-face appointment is required?"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_health_history.html:22
+msgid "My Health Conditions"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_health_history.html:26
+msgid "My Medications"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_health_history.html:30
+msgid "My Surgeries"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_records.html:5
+msgid "My Records"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_records.html:12
+msgid "My files"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_records.html:36
+msgid "Delete"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_records.html:43
+msgid "No previous documents found"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_records.html:69
+msgid ""
+"Only .txt, .pdf, .doc, .docx, .csx, .xls, .xlsx, .gif, .png, .pjpeg formats "
+"are allowed"
+msgstr ""
+
+#: templates/patient/dashboard/my_health/my_records.html:88
+msgid "Upload Document"
+msgstr ""
+
+#: templates/patient/dashboard/schedule_time.html:23
+msgid "No appointment time"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:39
+msgid "If your issue is an emergency, please dial"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:41
+msgid ""
+"or go to the nearest emergency room. We does not offer emergency services"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:83
+msgid "Available"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:88
+msgid "Schedule"
+msgstr ""
+
+#: templates/terms.html:73
+msgid "Terms and conditions"
+msgstr ""

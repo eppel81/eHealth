@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div class="row">
+    <!--<div class="tag-box tag-box-v6 rounded-2x margin-h-ft">-->
+        <div class="row">
+            <ul class="col-sm-12 process-menu list-inline"
+                    style="margin-left: 0px;">
+                 {% for item in process %}
+                    <li class="col-sm-3 list-group-item "
+                            style="text-align: center;
+                            border-color: lightgrey;">
+                        <a href="{{ item.href }}?app_process=true"
+                                class="proc {% if item.finished %}no-active{% endif %}" >
+                                {% if item == active_proc %}
+                                    <strong>{{ item.title }}</strong>
+                                {% else %}
+                                    {{ item.title }}
+                                {% endif %}
+                            <span class="badge rounded-2x
+                             {% if item.finished %} badge-red{% else %}badge-light {% endif %}">
+                                {{ item.number }}
+                            </span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    <!--</div>-->
+</div>

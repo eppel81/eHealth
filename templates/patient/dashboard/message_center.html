@@ -1,0 +1,10 @@
+{% extends 'patient/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
+{% endblock %}
+{% block dashboard_content %}
+    <h1>{% trans 'Message Center' %}</h1>
+
+{% endblock %}

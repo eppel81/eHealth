@@ -1,0 +1,63 @@
+{% extends 'patient/dashboard/my_health/base_my_health.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "Consultation History" %}
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/consultation_edit.js' %}"></script>
+    <script src="http://www.appelsiini.net/projects/chained/jquery.chained.remote.min.js" ></script>
+{% endblock %}
+{% block tabs_content %}
+        <form class="appointment-request form-horizontal" method="post" action="">
+            <div class="modal-body">
+                {% csrf_token %}
+                    {% for item in form %}
+                    {% with errors=item.errors %}
+                        <div class="form-group {% if errors %}has-error{% endif %}">
+                            <div class="col-sm-2 col-sm-offset-1">
+                                {{ item.label_tag }}
+                            </div>
+                            <div class="col-sm-8"
+                                    {% if item.html_name == 'doctor' %}
+                                        data-url="{% url 'patient:doctor_date' %}"
+                                    {% endif %}
+                                    {% if item.html_name == 'appointment_date' %}
+                                        data-url="{% url 'patient:doctor_time' %}"
+                                    {% endif %}>
+                                {{ item }}
+                                {% if errors %}
+                                    {% for error in errors %}
+                                            <span class="help-block">{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endwith %}
+                    {% endfor %}
+
+                    {% with errors=form.non_field_errors %}
+                        {% if errors %}
+                            <div class="has-error">
+                                {% for error in errors %}
+                                    <p class="help-block">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+            </div>
+            <div class="col-sm-offset-1 col-sm-10 ">
+                <button type="submit" class="btn btn-default pull-right">
+                    {% trans 'Save' %}
+                </button>
+            </div>
+        </form>
+
+
+{% endblock %}
+{#{% block js %}#}
+{#    <script type="text/javascript">#}
+{#        var info_url = "{% url "doctor:appointments" %}";#}
+{#    </script>#}
+{#    <script type="text/javascript" src="{% static 'js/doctor_appointemts.js' %}"></script>#}
+{#{% endblock %}#}

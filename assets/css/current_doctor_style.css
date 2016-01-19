@@ -1,0 +1,26 @@
+.no-border {
+    border: none;
+}
+
+.bordered-bottom{
+    border-bottom: 1px solid green;
+}
+
+.appointment span{
+    background-color: #72C02C;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding-top: 5px;
+    text-align: center;
+}
+
+select:hover,
+select:active{
+    border-color: green;
+}
+
+
+.when{
+    margin-top: 5px;
+}

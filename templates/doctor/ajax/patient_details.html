@@ -1,0 +1,93 @@
+{% load static %}
+<div class="col-md-12">
+    <div class="row">
+        <label class="col-sm-7 control-label">Patient:</label>
+        <div class="col-sm-5 text-center">
+            {{ name }}
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-7 control-label">Type:</label>
+        <div class="col-sm-5 text-center">
+            {{ type }}
+        </div>
+    </div>
+    {% if weight %}
+        <div class="row">
+            <label class="col-sm-12 control-label text-center">Lifestyle</label>
+        </div>
+        <div class="row">
+            <label class="col-sm-7 control-label">Weight:</label>
+            <div class="col-sm-5 text-center">
+                {{ weight }}
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-7 control-label">Height:</label>
+            <div class="col-sm-5 text-center">
+                {{ height_ft }} ft {{ height_in }} in
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-12 control-label text-center">History</label>
+        </div>
+        {% for key, value in questions.items %}
+            <div class="row">
+                <label class="col-sm-7 control-label">{{ key }}</label>
+                <div class="col-sm-5 text-center">
+                    {{ value }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if health_conditions %}
+        <div class="row">
+            <label class="col-sm-7 control-label">Health conditions:</label>
+            <div class="col-sm-5 text-center">
+                {{ health_conditions }}
+            </div>
+        </div>
+    {% endif %}
+    {% if medications %}
+        <div class="row">
+            <label class="col-sm-7 control-label">Medications:</label>
+            <div class="col-sm-5 text-center">
+                {{ medications }}
+            </div>
+        </div>
+    {% endif %}
+    {% if surgeries %}
+        <div class="row">
+            <label class="col-sm-7 control-label">Surgeries:</label>
+            <div class="col-sm-5 text-center">
+                {{ surgeries }}
+            </div>
+        </div>
+    {% endif %}
+    {% if family %}
+        <div class="row">
+            <label class="col-sm-12 control-label text-center">Family History</label>
+        </div>
+        {% for key, value in family.items %}
+            <div class="row">
+                <label class="col-sm-7 control-label">{{ key }}</label>
+                <div class="col-sm-5 text-center">
+                    {{ value }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if files %}
+        <div class="row">
+            <label class="col-sm-12 control-label text-center">Patient Files</label>
+        </div>
+        {% for key, value in files.items %}
+            <div class="row">
+                <label class="col-sm-7 control-label"><a href={% static key %}>{{ key }}</a></label>
+                <div class="col-sm-5 text-center">
+                    {{ value }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>

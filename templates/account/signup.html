@@ -1,0 +1,107 @@
+{% extends 'account/base_login.html' %}
+{% block title %}- SignUp{% endblock %}
+{% block content %}
+    <div class="reg-block">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="reg-block-header">
+                <h2>Sign Up</h2>
+                <!--
+                <ul class="social-icons text-center">
+                    <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+                    <li><a class="rounded-x social_twitter" data-original-title="Twitter" href="#"></a></li>
+                    <li><a class="rounded-x social_googleplus" data-original-title="Google Plus" href="#"></a></li>
+                    <li><a class="rounded-x social_linkedin" data-original-title="Linkedin" href="#"></a></li>
+                </ul>
+                -->
+                <p>Already Signed Up? Click <a class="color-green" href="{% url 'account_login' %}">Sign In</a> to login your account.</p>
+            </div>
+
+            <!--
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Username">
+            </div>
+            -->
+                {% with errors=form.email.errors %}
+                    <div class="{% if errors %}has-error{% endif %}">
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            {{ form.email }}
+                        </div>
+                        {% if errors %}
+                            {% for error in errors %}
+                                <p class="help-block">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endwith %}
+
+
+
+                {% with errors=form.password1.errors %}
+                    <div class="{% if errors %}has-error{% endif %}">
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            {{ form.password1 }}
+                        </div>
+                        {% if errors %}
+                            {% for error in errors %}
+                                <p class="help-block">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                   </div>
+                {% endwith %}
+
+
+                {% with errors=form.password2.errors %}
+                    <div class="{% if errors %}has-error{% endif %}">
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                            {{ form.password2 }}
+                        </div>
+                        {% if errors %}
+                            {% for error in errors %}
+                                <p class="help-block">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                   </div>
+                {% endwith %}
+
+            <hr>
+
+            {% with errors=form.terms.errors %}
+                <div class="has-error">
+                    <div class="checkbox">
+                        <label>
+                            <!--<input type="checkbox">-->
+                            {{ form.terms }}
+                            I read <a target="_blank" href="{% url 'utils:terms_conditions' %}">Terms and Conditions</a>
+                        </label>
+                    </div>
+                    {% if errors %}
+                        {% for error in errors %}
+                            <p class="help-block">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endwith %}
+
+            {% with errors=form.non_field_errors %}
+                    {% if errors %}
+                        <div class="has-error">
+                        {% for error in errors %}
+                            <p class="help-block">{{ error }}</p>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+            {% endwith %}
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <button type="submit" class="btn-u btn-block">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

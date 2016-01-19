@@ -1,0 +1,116 @@
+{% extends 'doctor/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+{% block dashboard_content %}
+            <!-- Profile Content -->
+            <div class="col-md-9">
+                <div class="profile-body">
+
+                    <div class="profile-info">
+
+                            <div class="easy-block-v3 service-or equal-height-column">
+                                <div class="service-bg"></div>
+                                {% if user.doctor %}
+                                    {% with doctor=user.doctor %}
+                                        {% if doctor.photo %}
+                                            <img src="{{ doctor.photo.url }}">
+                                        {% else %}
+                                            <img src="{% static 'img/user_man.jpg' %}">
+                                        {% endif %}
+                                    {% endwith %}
+                                {% else %}
+                                    <img src="{% static 'img/user_man.jpg' %}">
+                                {% endif %}
+                                <div class="inner-faq-b">
+                                    <p>Welcome</p>
+                                    <a href="{% url 'doctor:my_account' %}">
+                                        <h3>
+                                            {% if user.first_name %}
+                                                {{ user.first_name }} {{ user.last_name }}
+                                            {% else %}
+                                                {{ user.username }}
+                                            {% endif %}
+                                        </h3>
+                                    </a>
+                                </div>
+                            </div>
+
+                    </div>
+
+                    <div class="row equal-height-columns margin-bottom-40">
+                         <div class="col-sm-6">
+
+                                <div class="easy-block-v3 service-or equal-height-column">
+                                    <div class="service-bg"></div>
+                                    <img src="{% static 'img/message.png' %}"/>
+                                    <div class="inner-faq-b">
+                                        <a href="{% url 'doctor:messages' %}">
+                                            <h3>{% trans 'Message Center' %}</h3>
+                                        </a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                                <div class="easy-block-v3 service-or equal-height-column">
+                                    <div class="service-bg"></div>
+                                    <img src="{% static 'img/health.png' %}"/>
+                                    <div class="inner-faq-b">
+                                        <a href="{% url 'doctor:specialty' %}">
+                                            <h3>{% trans 'Profile' %}</h3>
+                                        </a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                    <div class="row equal-height-columns margin-bottom-40">
+                        <div class="col-sm-6">
+
+                                <div class="easy-block-v3 service-or equal-height-column">
+                                    <div class="service-bg"></div>
+                                    <img src="{% static 'img/help.png' %}"/>
+                                    <div class="inner-faq-b">
+                                        <a href="{% url 'doctor:help' %}">
+                                            <h3>{% trans 'Help & Support' %}</h3>
+                                        </a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                                <div class="easy-block-v3 service-or equal-height-column">
+                                    <div class="service-bg"></div>
+                                    <img src="{% static 'img/my_account.ico' %}"/>
+                                    <div class="inner-faq-b">
+                                        <a href="{% url 'doctor:my_account' %}">
+                                            <h3>{% trans 'My Account' %}</h3>
+                                        </a>
+                                        <p>Manage your account information, including payment, sign-in and more.</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Profile Content -->
+
+            <!--Notification-->
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i>{% trans 'Notifications' %}</h2>
+                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                            <div class="overflow-h">
+                                <span>{% trans 'You have' %} <strong>0 {% trans 'new message(s)' %}</strong></span>
+                                <a href="{% url 'doctor:messages' %}"><small>Ver todos</small></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+{% endblock %}

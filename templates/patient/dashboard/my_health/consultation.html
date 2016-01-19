@@ -1,0 +1,73 @@
+{% extends 'patient/dashboard/my_health/base_my_health.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "My Records" %}
+{% endblock %}
+{% block tabs_content %}
+    <table class="table" style="margin-top: 15px;">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th >Date</th>
+            <th >Doctor</th>
+            <th >Reason</th>
+            <th >Comments</th>
+            <th >Appointment Type</th>
+            <th >Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for appointment in appointments %}
+            <tr>
+                <td>
+                    {{ appointment.appointment_date.appointment_date }} {{ appointment.appointment_time.name }}
+                </td>
+                <td>
+                    {% if appointment.doctor.user.first_name %}
+                        {{ appointment.doctor.user.first_name }} {{ appointment.doctor.user.second_name }}
+                    {% else %}
+                        {{ appointment.doctor.user.username }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ appointment.reason.name }}
+                </td>
+                <td>
+                    {{ appointment.comments }}
+                </td>
+                <td>
+                    {% if appointment.appointment_type == 'p' %}
+                        <span class="glyphicon glyphicon-headphones"></span>
+                        {% trans 'Phone' %}
+                    {% else %}
+                        {% if appointment.appointment_type == 'v' %}
+                            <span class="glyphicon glyphicon-facetime-video"></span>
+                                            {% trans 'Video' %}
+                        {% endif %}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ appointment.status }}
+                </td>
+                <td align="right">
+                    {% with a=appointment %}
+                        {% if a.appointment_status != a.STATUS_COMPLETE %}
+                            {% if a.appointment_status == a.STATUS_DOCTOR_RESCHEDULE %}
+                                <a class="btn btn-success" href="{% url 'patient:consultation_status' a.id a.STATUS_PATIENT_APPROVE %}">Accept</a>
+                            {% endif %}
+                            <a class="btn btn-warning" href="{% url 'patient:consultation_edit' a.id  %}">Edit</a>
+                            {% if a.appointment_status != a.STATUS_PATIENT_CANCEL %}
+                                <a class="btn btn-danger" href="{% url 'patient:consultation_status' a.id a.STATUS_PATIENT_CANCEL %}">Cancel</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endwith %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+

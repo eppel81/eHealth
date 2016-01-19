@@ -1,0 +1,94 @@
+{% extends 'patient/account/base_account.html' %}
+{% load i18n %}
+{% load static %}
+{% block js %}
+    <script src="{% static 'js/photo_check.js' %}"></script>
+{% endblock %}
+{% block account_content %}
+    <div>
+        <div class="photo-error">
+
+        </div>
+        <div class="alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4>{% trans 'Your photo is too large!' %}</h4>
+            <p>{% trans "The maximum photo's size is 2Mb. Please, choose another photo" %}</p>
+        </div>
+        <form class="form-horizontal" role="form" action="{% url 'patient:my_account' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row col-sm-offset-1">
+
+                <div class="user col-sm-7 col-md-8">
+                    {% for field in user_form %}
+                        {% with errors=field.errors %}
+                            <div class="form-group {% if errors %}has-error{% endif %}">
+                                <div class="col-sm-3">
+                                    {{ field.label_tag }}
+                                </div>
+                                <div class="col-sm-9">
+                                    {{ field }}
+                                    {% if errors %}
+                                        {% for error in errors %}
+                                            <span class="help-block">{{ error }}</span>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <br/>
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+                <div class="col-sm-5 col-md-4">
+                    {% if detail_form.instance.photo %}
+                        <img class="photo" src="{{ detail_form.instance.photo.url }}"/>
+                    {% else %}
+                        <img src="{% static 'img/user_man.jpg' %}"/>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row col-sm-offset-1">
+                <div class="col-sm-12">
+                {% for field in detail_form %}
+                    {% with errors=field.errors %}
+                        <div class="form-group">
+                            <div class="col-sm-3 col-md-2">
+                                {{ field.label_tag }}
+                            </div>
+                            <div class="col-sm-9 col-md-9">
+                                {{ field }}
+                                {% if errors %}
+                                    {% for error in errors %}
+                                        <span class="help-block">{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+                </div>
+            </div>
+
+            {% with errors=user_form.non_field_errors detail_errors=detail_form.non_field_errors %}
+                {% if errors or detail_errors %}
+                    <div class="has-error">
+                    {% for error in errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                    {% for error in detail_errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group pull-right">
+                <button id="update" type="submit" class="btn-u btn-u-red rounded-2x button-margin">
+                    Update
+                </button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

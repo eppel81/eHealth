@@ -1,0 +1,82 @@
+{% extends 'doctor/schedule/base_schedule.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
+{% endblock %}
+{% block account_content %}
+    <br>
+    <table class="table" style="margin-top: 15px;">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th width="15%">Date</th>
+            <th width="18%">Patient</th>
+            <th width="20%">Reason</th>
+            <th width="15%">Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for appointment in appointments %}
+            <tr>
+                <td>
+                    {{ appointment.appointment_date.appointment_date }} {{ appointment.appointment_time.name }}
+                </td>
+                <td>
+                    {% if appointment.patient.user.first_name %}
+                        {{ appointment.patient.user.first_name }} {{ appointment.patient.user.second_name }}
+                    {% else %}
+                        {{ appointment.patient.user.username }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ appointment.reason.name }}
+                </td>
+                <td>
+                    {{ appointment.status }}
+                </td>
+                <td>
+                    {% with a=appointment %}
+                        <button type="button" class="btn btn-primary" data-appointment="{{ a.id }}" data-toggle="modal" data-target="#info_modal">
+                          Info
+                        </button>
+                        {% if a.appointment_status == a.STATUS_NEW or a.appointment_status == a.STATUS_PATIENT_RESCHEDULE %}
+                            <a class="btn btn-success" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_APPROVE %}">Accept</a>
+                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>
+                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>
+                        {% elif a.appointment_status == a.STATUS_DOCTOR_APPROVE or a.appointment_status == a.STATUS_PATIENT_APPROVE or a.appointment_status == a.STATUS_DOCTOR_RESCHEDULE %}
+                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>
+                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>
+                        {% endif %}
+                    {% endwith %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-labelledby="InfoModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="InfoModalLabel">Patient info</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+        var info_url = "{% url "doctor:appointments" %}";
+    </script>
+    <script type="text/javascript" src="{% static 'js/doctor_appointemts.js' %}"></script>
+{% endblock %}

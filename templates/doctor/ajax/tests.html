@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load static %}
+<div class="form-group">
+            <label class="col-sm-2 control-label">Test:</label>
+    <table class="table">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th width="5%">№</th>
+            <th width="50%">Test</th>
+            <th width="25%">Record date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for test in tests %}
+            <tr>
+            <td>
+                   {{ forloop.counter }}
+                </td>
+                <td>
+                    {{ test.test }}
+                </td>
+                <td>
+                     {{ test.record_date }}
+                </td>
+
+                <td>
+                    <a class="btn btn-success" id="id_test_del" onclick="delTest({{ test.id }})">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+                    <a class="btn btn-success" id="id_add_test" onclick="addTest()">Add new test</a>
+

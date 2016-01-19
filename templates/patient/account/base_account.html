@@ -1,0 +1,54 @@
+{% extends 'patient/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/style_my_health.css' %}"/>
+{% endblock %}
+{% block messages %}
+    <div class="row">
+        <div class="col-sm-12">
+            {% include 'form_messages.html' %}
+        </div>
+    </div>
+{% endblock %}
+{% block dashboard_content %}
+    <div class="tag-box tag-box-v6 rounded-2x row">
+            <!--Left Sidebar-->
+            <div class="text-center">
+                <div class="row">
+                    {% for item in tabs %}
+                        <div class="col-sm-3">
+                                <div>
+                                    <a href="{{ item.href }}">
+                                        <img src="{% static item.img %}" class="icons rounded-2x by_center" />
+                                        {% if item == active_tab %}
+                                            <strong>{{ item.header }}</strong>
+                                        {% else %}
+                                            {{ item.header }}
+                                        {% endif %}
+                                    </a>
+                                </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--End Left Sidebar-->
+
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="head col-md-4 col-sm-6 margin-bottom-40">
+                    <h1><strong>
+                        {{ active_tab.header }}
+                    </strong></h1>
+                </div>
+                <div class="col-sm-10">
+                    <div class="col-sm-offset-3 col-sm-8">
+                        {% include 'form_messages.html' %}
+                    </div>
+                    {% block account_content %}{% endblock %}
+                </div>
+            </div>
+
+    </div><!--/container-->
+{% endblock %}

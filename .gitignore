@@ -1,0 +1,12 @@
+db.sqlite3
+*.swp
+*.py[co]
+*~
+.idea/
+run
+logs
+local_settings.py
+report.txt
+migrations
+merge.sh
+media/

@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+    <table class="table" style="margin-top: 15px;">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th width="20%">Patient</th>
+            <th width="30%">Reason</th>
+            <th width="15%">Create date</th>
+            <th width="15%">Update date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for case in object_list %}
+            <tr>
+                <td>
+                    {% if case.patient.user.first_name %}
+                        {{ case.patient.user.first_name }} {{ case.patient.user.second_name }}
+                    {% else %}
+                        {{ case.patient.user.username }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ case.reason.name }}
+                </td>
+                <td>
+                    {{ case.created_date }}
+                </td>
+                <td>
+                    {{ case.updated_date }}
+                </td>
+                <td>
+                    <a class="btn btn-success" href="{% url 'doctor:view_case' case.id %}">View</a>
+{#                    {% with a=appointment %}#}
+{#                        <button type="button" class="btn btn-primary" data-appointment="{{ a.id }}" data-toggle="modal" data-target="#info_modal">#}
+{#                          Info#}
+{#                        </button>#}
+{#                        {% if a.appointment_status == a.STATUS_NEW or a.appointment_status == a.STATUS_PATIENT_RESCHEDULE %}#}
+{#                            <a class="btn btn-success" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_APPROVE %}">Accept</a>#}
+{#                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>#}
+{#                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>#}
+{#                        {% elif a.appointment_status == a.STATUS_DOCTOR_APPROVE or a.appointment_status == a.STATUS_PATIENT_APPROVE or a.appointment_status == a.STATUS_DOCTOR_RESCHEDULE %}#}
+{#                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>#}
+{#                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>#}
+{#                        {% endif %}#}
+{#                    {% endwith %}#}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+                    <a class="btn btn-success" href="{% url 'doctor:new_case' %}">Add new case</a>
+
+
+
+
+
+

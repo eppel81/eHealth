@@ -1,0 +1,93 @@
+{% extends 'patient/dashboard/my_health/base_my_health.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "My Records" %}
+{% endblock %}
+{% block tabs_content %}
+    <div class="files">
+        <a  class="accordion-toggle collapsed" data-toggle="collapse"
+                               data-parent="#accordion-1" aria-expanded="false"
+                                    href="#collapse-Files">
+                <h3>{% trans 'My files' %} <span class="caret"></span></h3>
+
+        </a>
+        <div id="collapse-Files" class="panel-collapse collapse" aria-expanded="false">
+            <div class="panel-body">
+                {% if files.exists %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in files %}
+                            <tr>
+                                <td>
+                                    <a href="{{ file.file.url }}" download="{{ file.file.name }}">
+                                        {{ file.file }}
+                                    </a>
+                                </td>
+                                <td>{{ file.get_type_display }}</td>
+                                <td><a href="{% url 'patient:my_records_delete' file.id %}"
+                                        class="btn-u btn-u-red rounded-2x">
+                                    {% trans 'Delete' %}</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h6>{% trans 'No previous documents found' %}</h6>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="update_file">
+        <h3>Update new file</h3>
+        <form class="form-horizontal" role="form" action="{% url 'patient:my_records' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for item in form %}
+                {% with errors=item.errors %}
+                    <div class="form-group {% if errors %}has-error{% endif %}">
+                        <div class="col-sm-2">
+                            {% trans item.label_tag %}
+                        </div>
+                        <div class="col-sm-5 col-md-5">
+                            {{ item }}
+                            {% if errors %}
+                                {% for error in errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {% if item.name == 'file' %}
+                            <div class="col-sm-5 col-md-5">
+                                <h6>{% trans 'Only .txt, .pdf, .doc, .docx, .csx, .xls, .xlsx, .gif, .png, .pjpeg formats are allowed' %}</h6>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endwith %}
+            {% endfor %}
+
+            {% with errors=form.non_field_errors %}
+                {% if errors %}
+                    <div class="has-error">
+                        {% for error in errors %}
+                            <p class="help-block">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <div class="col-sm-offset-2 col-sm-2 col-md-offset-2 col-md-2 padding-left">
+                <button type="submit" class="btn-u btn-u-dark-blue rounded-2x">
+                    {% trans 'Upload Document' %}
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

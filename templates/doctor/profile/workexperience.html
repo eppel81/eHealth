@@ -1,0 +1,59 @@
+{% extends 'doctor/profile/base_profile.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+{#    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">#}
+    {{ form.media }}
+{% endblock %}
+{% block account_content %}
+    <br>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th width="30%">Care Facility</th>
+            <th width="30%">Position</th>
+            <th width="15%">Start Date</th>
+            <th width="15%">End Date</th>
+            <th></th>
+        </tr>
+
+        {% for work in works %}
+        <tr>
+            <td>{{ work.care_facility }}</td>
+            <td>{{ work.position }}</td>
+            <td>{{ work.start_date }}</td>
+            <td>{{ work.end_date }}</td>
+            <td>
+                <a href={% url 'doctor:experience_delete' work.id %}><button class="btn-u">Delete</button></a
+            </td>
+        </tr>
+        {% endfor %}
+        <form class="form-inline" role="form" action="{% url 'doctor:experience' %}" method="post">
+        {% csrf_token %}
+        <tr>
+        {{ from.non_field_errors }}
+        {% for item in form %}
+            <td>{{item}}
+            {{ item.errors }}
+            </td>
+        {% endfor %}
+            <td>
+                <button type="submit" class="btn-u">Add</button>
+            </td>
+        </tr>
+        </form>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(function(){
+            var date_selector = $('.date');
+            $('input', date_selector).click(function(){
+                $('.input-group-addon', $(this).parent()).click();
+            });
+        });
+    </script>
+{% endblock %}
