@@ -66,7 +66,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # 'utils.middleware.TimezoneMiddleware'
+    'utils.middleware.TimezoneMiddleware'
 )
 
 ROOT_URLCONF = 'ehealth.urls'
@@ -98,10 +98,21 @@ WSGI_APPLICATION = 'ehealth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'localhost',
+        'NAME': 'ehealth',
+        'USER': 'ehealth',
+        'PASSWORD': 'ehealth',
+
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 FIXTURE_DIRS = (
     os.path.join(BASE_DIR, 'fixtures'),
@@ -124,7 +135,7 @@ USE_TZ = True
 LANGUAGES = [
     ('en', _('English')),
     ('es', _('Spain')),
-    ('ru', _('Russian')),
+    # ('ru', _('Russian')),
 ]
 
 LOCALE_PATHS = (

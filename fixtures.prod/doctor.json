@@ -1,1 +1,0 @@
-[{"fields": {"city": 1, "gender": true, "phone_appointment": true, "languages": [1, 3], "user": 2, "photo": "", "timezone": 38, "video_appointment": true, "country": 1}, "model": "doctor.doctor", "pk": 1}]

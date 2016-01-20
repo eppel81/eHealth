@@ -15,6 +15,7 @@ from utils.views import LoginRequiredViewMixin, PasswordChangeTemplateMixin
 from doctor import models as doctor_models
 from utils import views as utils_views
 from doctor import views as doctor_views
+from django.utils.dateparse import parse_datetime
 
 
 class PatientMenuViewMixin(utils_views.MenuViewMixin):
@@ -94,7 +95,6 @@ class TalkToADoctor(LoginRequiredViewMixin, PatientMenuViewMixin, PatientActiveT
         current_timezone = timezone.get_current_timezone()
         if start_date:
             start_date = current_timezone.localize(datetime.datetime.strptime(start_date, "%m/%d/%Y"))
-            print start_date
             query = query.filter(doctorappointmenttime__start_time__gte=start_date)
         if end_date:
             end_date = current_timezone.localize(datetime.datetime.strptime(end_date, "%m/%d/%Y"))
@@ -103,6 +103,8 @@ class TalkToADoctor(LoginRequiredViewMixin, PatientMenuViewMixin, PatientActiveT
             query = query.filter(doctorspecialty__specialty=doctor_specialty)
         if doctor:
             query = query.filter(id=doctor)
+        else:
+            query = query.distinct('id')
         return query
 
     def get_context_data(self, **kwargs):

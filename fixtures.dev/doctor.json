@@ -10,7 +10,7 @@
       ],
       "user": 3,
       "photo": "",
-      "timezone": 6,
+      "timezone": 38,
       "video_appointment": true,
       "country": 1
     },
@@ -19,37 +19,21 @@
   },
   {
     "fields": {
-      "city": 3,
-      "gender": true,
-      "phone_appointment": true,
-      "languages": [
-        1
-      ],
-      "user": 4,
-      "photo": "",
-      "timezone": 8,
-      "video_appointment": false,
-      "country": 1
-    },
-    "model": "doctor.doctor",
-    "pk": 2
-  },
-  {
-    "fields": {
       "city": 2,
       "gender": false,
       "phone_appointment": true,
       "languages": [
-        1
+        1,
+        2
       ],
-      "user": 5,
+      "user": 4,
       "photo": "",
-      "timezone": 1,
-      "video_appointment": false,
-      "country": 1
+      "timezone": 30,
+      "video_appointment": true,
+      "country": 2
     },
     "model": "doctor.doctor",
-    "pk": 3
+    "pk": 2
   },
   {
     "fields": {
@@ -109,39 +93,12 @@
   },
   {
     "fields": {
-      "primary": true,
-      "specialty": 1,
+      "primary": false,
+      "specialty": 2,
       "doctor": 2
     },
     "model": "doctor.doctorspecialty",
     "pk": 3
-  },
-  {
-    "fields": {
-      "primary": false,
-      "specialty": 7,
-      "doctor": 2
-    },
-    "model": "doctor.doctorspecialty",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "primary": true,
-      "specialty": 6,
-      "doctor": 3
-    },
-    "model": "doctor.doctorspecialty",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "primary": false,
-      "specialty": 3,
-      "doctor": 3
-    },
-    "model": "doctor.doctorspecialty",
-    "pk": 6
   },
   {
     "fields": {

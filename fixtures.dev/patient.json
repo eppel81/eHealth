@@ -3,16 +3,16 @@
     "fields": {
       "height_ft": 5,
       "weight": 5,
-      "health_complete": true,
+      "health_complete": false,
       "height_in": 5,
       "country": null,
-      "lifestyle_complete": true,
+      "lifestyle_complete": false,
       "billing_complete": false,
       "last_update": "2016-01-09T17:53:56.500Z",
-      "family_complete": true,
+      "family_complete": false,
       "user": 2,
       "photo": "",
-      "timezone": null
+      "timezone": 114
     },
     "model": "patient.patient",
     "pk": 1

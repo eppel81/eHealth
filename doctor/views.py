@@ -329,8 +329,8 @@ class CalendarView(utils_views.LoginRequiredViewMixin, DoctorMenuViewMixin,
 
             return HttpResponseRedirect(reverse_lazy('doctor:calendar_date', kwargs={'current_date': current_date}))
         rows = {'name': current_date,
-                'times': doctor_models.DoctorAppointmentTime.objects.filter(
-                    start_time__contains=current_date)}
+                'times': doctor_models.DoctorAppointmentTime.objects.filter(start_time__contains=current_date,
+                                                                            doctor=request.user.doctor)}
         for time in rows['times']:
             if not time.free:
                 try:

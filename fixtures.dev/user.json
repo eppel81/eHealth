@@ -1,1 +1,74 @@
-[{"fields": {"username": "admin", "first_name": "", "last_name": "", "is_active": true, "is_superuser": true, "is_staff": true, "last_login": "2015-12-28T15:10:54.876Z", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$20000$OigEb9eWz4Hw$n+Fo6tKZGR3iAFdtMa79lol8p1IANZQshgEQUnx4zjA=", "email": "admin@admin.loc", "date_joined": "2015-12-25T06:55:17.844Z"}, "model": "auth.user", "pk": 1}, {"fields": {"username": "zzz", "first_name": "patient", "last_name": "patient", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2016-01-11T07:10:17.040Z", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$20000$PtXIvn8N1VGv$8y3L/32g2uNz1lekapaZnK+zsYRX6HTI48SN18qoses=", "email": "zzz@zzz.com", "date_joined": "2015-12-25T06:55:58.315Z"}, "model": "auth.user", "pk": 2}, {"fields": {"username": "xxx", "first_name": "fdoctor0", "last_name": "ldoctor0", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2016-01-09T17:52:07.709Z", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$20000$ujxCMZS1eJtm$LM/sGXlOqh+tEeuVyXcjyO8UAKw24INqJZMFRnoO1uE=", "email": "xxx@xxx.com", "date_joined": "2015-12-25T06:57:00Z"}, "model": "auth.user", "pk": 3}, {"fields": {"username": "xxx1", "first_name": "fdoctor1", "last_name": "ldoctor1", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": null, "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$20000$pn6xkQ7a6XV5$c3tUUGN/en0QYTqv3Q1NgSPXMLRGc7J94qOGyN3xbzA=", "email": "xxx1@xxx.com", "date_joined": "2015-12-25T10:12:24Z"}, "model": "auth.user", "pk": 4}, {"fields": {"username": "xxx2", "first_name": "fdoctor2", "last_name": "ldoctor2", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": null, "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$20000$qqzUJ4NytRzj$crduEM9xKBJmlXgFebXXx7mzaHB1l+nKPVrv+mBgN/I=", "email": "xxx2@xxx.com", "date_joined": "2015-12-25T10:13:41Z"}, "model": "auth.user", "pk": 5}]
+[
+  {
+    "fields": {
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2015-12-28T15:10:54.876Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$20000$OigEb9eWz4Hw$n+Fo6tKZGR3iAFdtMa79lol8p1IANZQshgEQUnx4zjA=",
+      "email": "admin@admin.loc",
+      "date_joined": "2015-12-25T06:55:17.844Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "username": "dave",
+      "first_name": "Dave",
+      "last_name": "Dvorak",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2016-01-11T07:10:17.040Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$20000$PtXIvn8N1VGv$8y3L/32g2uNz1lekapaZnK+zsYRX6HTI48SN18qoses=",
+      "email": "dave@domain.com",
+      "date_joined": "2015-12-25T06:55:58.315Z"
+    },
+    "model": "auth.user",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "username": "alan",
+      "first_name": "Alan",
+      "last_name": "Allcome",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2016-01-13T22:48:49.239Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$20000$Z2R35KWt7hsQ$5dZJPvxjQXLfw0oWriwT987d4GnjC8pRWOXckrbewSY=",
+      "email": "alan@domain.com",
+      "date_joined": "2016-01-13T21:27:13Z"
+    },
+    "model": "auth.user",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "username": "boris",
+      "first_name": "Boris",
+      "last_name": "Blade",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2016-01-13T22:48:49.239Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$20000$Z2R35KWt7hsQ$5dZJPvxjQXLfw0oWriwT987d4GnjC8pRWOXckrbewSY=",
+      "email": "boris@domain.com",
+      "date_joined": "2016-01-13T21:27:13Z"
+    },
+    "model": "auth.user",
+    "pk": 4
+  }
+]

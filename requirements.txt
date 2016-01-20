@@ -4,6 +4,7 @@ django-allauth==0.24.1
 django-bootstrap3-datetimepicker==2.2.3
 gunicorn==19.3.0
 oauthlib==1.0.3
+psycopg2==2.6.1
 python-openid==2.2.5
 pytz==2015.7
 requests==2.9.1
