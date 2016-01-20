@@ -19,9 +19,6 @@
                                 {{ item.label_tag }}
                             </div>
                             <div class="col-sm-8"
-                                    {% if item.html_name == 'doctor' %}
-                                        data-url="{% url 'patient:doctor_date' %}"
-                                    {% endif %}
                                     {% if item.html_name == 'appointment_date' %}
                                         data-url="{% url 'patient:doctor_time' %}"
                                     {% endif %}>

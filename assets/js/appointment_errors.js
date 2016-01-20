@@ -5,7 +5,6 @@ $(document).ready(function(){
         var add_data = {
             'patient': $('#id_patient').val(),
             'doctor': $('#id_doctor').val(),
-            'appointment_date': $('#id_appointment_date').val(),
             'appointment_time': $('#id_appointment_time').val(),
         };
         add_data = $.param(add_data);

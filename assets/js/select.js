@@ -16,8 +16,12 @@ $(document).ready(function(){
     });
 
 
-            $('select[name=patient]').select2({});
-            $('select[name=reason]').select2({});
+//            $('select[name=patient]').select2({});
+//            $('select[name=reason]').select2({});
 
+    $('.input-daterange input').each(function() {
+    $(this).datepicker();
+
+});
 
 });

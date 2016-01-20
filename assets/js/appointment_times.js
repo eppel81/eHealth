@@ -1,16 +1,16 @@
 $(document).ready(function(){
-    $('.appointment-date').change(function(){
-        var url = $('option:selected', this).data('url');
-        if(!url){
-            return;
-        }
-        $.ajax({
-            url: url,
-            contentType: "text/html",
-            success: function(data){
-                $('.times').html(data);
-            }
+    $('#make_appointment').click(function(event){
+        event.preventDefault();
+        var url = $('#appointment_time option:selected').data('url');
+            $.ajax({
+                url: url,
+                contentType: "text/html",
+                success: function(data){
+                    $("#appointment-request").html(data);
+                    $('#appointment-request').modal('show');
+                }
+            });
         });
-    });
-    $('.appointment-date').change();
+
+
 });

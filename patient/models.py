@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 import os
 from django.utils import timezone
 from utils.models import Country, AppointmentReason, ActivityType, TimeZone, City
-from doctor.models import Doctor, DoctorAppointmentDate, DoctorAppointmentTime
+from doctor.models import Doctor, DoctorAppointmentTime
 from allauth.account.signals import user_signed_up
 from django.dispatch import receiver
 
@@ -186,7 +186,6 @@ class PatientAppointment(models.Model):
     patient = models.ForeignKey(Patient)
     doctor = models.ForeignKey(Doctor)
     case = models.ForeignKey(PatientCase, null=True, blank=True, default=None)
-    appointment_date = models.ForeignKey(DoctorAppointmentDate)
     appointment_time = models.ForeignKey(DoctorAppointmentTime)
     reason = models.ForeignKey(AppointmentReason)
     comments = models.TextField()
@@ -194,7 +193,7 @@ class PatientAppointment(models.Model):
     appointment_status = models.SmallIntegerField(choices=STATUS_CHOICES, default=STATUS_EDIT)
 
     class Meta:
-        ordering = ('appointment_date', )
+        ordering = ('appointment_time', )
 
     @property
     def status(self):

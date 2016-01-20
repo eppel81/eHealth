@@ -3,15 +3,17 @@ from datetime import datetime, timedelta
 from allauth.account.views import PasswordChangeView
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect, Http404, JsonResponse, HttpResponse
+from django.utils.dateparse import parse_datetime
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 from doctor import models as doctor_models, forms as doctor_forms
 from patient import models as patient_models
 from utils import views as utils_views, forms as utils_forms, models as utils_models
 from django.contrib import messages
-from django.shortcuts import render, render_to_response
-from django.template import RequestContext, Context
+from django.shortcuts import render
+from django.template import Context
 from django.template.loader import get_template
+from ehealth import settings
 
 
 class DoctorMenuViewMixin(utils_views.MenuViewMixin):
@@ -296,9 +298,9 @@ class AppointmentsView(utils_views.LoginRequiredViewMixin, DoctorMenuViewMixin,
                 return render(request, 'doctor/ajax/patient_details.html',
                               get_appointment_data(id_appointment, context))
         context['appointments'] = patient_models.PatientAppointment.objects.filter(
-            doctor=request.user.doctor, appointment_date__appointment_date__gte=datetime.now(),
+            doctor=request.user.doctor, appointment_time__start_time__gte=datetime.now().date(),
             appointment_status__gt=patient_models.PatientAppointment.STATUS_EDIT)\
-            .order_by('appointment_date', 'appointment_time')
+            .order_by('appointment_time')
         return super(AppointmentsView, self).get(request, *args, **context)
 
 
@@ -317,39 +319,39 @@ class CalendarView(utils_views.LoginRequiredViewMixin, DoctorMenuViewMixin,
     title = _('Calendar')
 
     def get(self, request, current_date=None, id_time=None, *args, **kwargs):
-        if id_time:
-            record = doctor_models.DoctorAppointmentTime.objects.get(pk=id_time,
-                                                                     appointment_date__doctor=request.user.doctor)
-            record.delete()
         now = timezone.now()
         if not current_date:
             current_date = now.strftime('%Y-%m-%d')
-        rows = {}
-        appointment_date, created = doctor_models.DoctorAppointmentDate.objects.get_or_create(
-            doctor=request.user.doctor,
-            appointment_date=current_date)
-        rows['name'] = current_date
-        rows['times'] = doctor_models.DoctorAppointmentTime.objects.filter(
-            appointment_date=appointment_date)
+        if id_time:
+            record = doctor_models.DoctorAppointmentTime.objects.get(pk=id_time,
+                                                                     doctor=request.user.doctor)
+            record.delete()
+
+            return HttpResponseRedirect(reverse_lazy('doctor:calendar_date', kwargs={'current_date': current_date}))
+        rows = {'name': current_date,
+                'times': doctor_models.DoctorAppointmentTime.objects.filter(
+                    start_time__contains=current_date)}
         for time in rows['times']:
             if not time.free:
                 try:
                     time.appointment = patient_models.PatientAppointment.objects.get(appointment_time_id=time.id)
                 except patient_models.PatientAppointment.DoesNotExist:
                     time.free = True
-        start_date = datetime(2001, 1, 1, hour=6)
-        end_date = datetime(2001, 1, 1, hour=23)
+                    time.save()
+        start_date = now.replace(hour=6, minute=0, second=0)
+        end_date = now.replace(hour=23, minute=0, second=0)
         prev = start_date
         times = []
-        exist_times = map(lambda x: x.start_time.strftime('%H:%M'), rows['times'])
-        for i in gen(start_date, end_date, minutes=15):
+        current_timezone = timezone.get_current_timezone()
+        exist_times = map(lambda x: timezone.localtime(x.start_time, current_timezone).strftime('%H:%M'), rows['times'])
+        # todo:Duration!!!
+        for i in gen(start_date, end_date, seconds=settings.DEFAULT_DURATION):
             start_time = prev.strftime('%H:%M')
             if start_time not in exist_times:
                 times.append(start_time + '-' + i.strftime('%H:%M'))
             prev = i
         context = self.get_context_data()
         context['times'] = times
-        context['current_date'] = current_date
         context['language'] = request.LANGUAGE_CODE
         context['rows'] = rows
         return super(CalendarView, self).get(request, *args, **context)
@@ -359,14 +361,14 @@ class TimeView(utils_views.LoginRequiredViewMixin, generic.TemplateView):
     success_url = reverse_lazy('doctor:calendar')
     success_message = _('Time updated')
 
-    def get(self, request, id_appointment_date=None, *args, **kwargs):
-        if request.is_ajax:
-            data = {}
-            appointment_time = doctor_models.DoctorAppointmentTime.objects.filter(
-                appointment_date_id=id_appointment_date, free=True)
-            for time in appointment_time:
-                data[time.id] = time.name
-            return JsonResponse(data=data)
+    def get(self, request, *args, **kwargs):
+        # if request.is_ajax:
+        #     data = {}
+        #     appointment_time = doctor_models.DoctorAppointmentTime.objects.filter(
+        #         free=True)
+        #     for time in appointment_time:
+        #         data[time.id] = time.name
+        #     return JsonResponse(data=data)
         return HttpResponseRedirect(redirect_to=self.success_url)
 
     def post(self, request, *args, **kwargs):
@@ -375,14 +377,12 @@ class TimeView(utils_views.LoginRequiredViewMixin, generic.TemplateView):
         next_url = request.GET.get('next')
         for time in appointment_time:
             arr = time.split('-')
-            appointment_date, created = doctor_models.DoctorAppointmentDate.objects.get_or_create(
-                doctor=request.user.doctor,
-                appointment_date=current_date)
-            # todo: add datetime tz support
+            start_time = utils_models.localize_datetime(parse_datetime(current_date + ' ' + arr[0]))
+            # todo:Duration!!!
             obj, created = doctor_models.DoctorAppointmentTime.objects.get_or_create(
-                appointment_date=appointment_date,
-                start_time=current_date + ' ' + arr[0],
-                end_time=current_date + ' ' + arr[1])
+                start_time=start_time,
+                duration=settings.DEFAULT_DURATION,
+                doctor=request.user.doctor)
             obj.save()
         messages.success(request, self.success_message)
         if next_url:
@@ -400,6 +400,7 @@ class AppointmentSchedule(utils_views.LoginRequiredViewMixin, DoctorMenuViewMixi
     success_message = _('Appointment updated')
 
     def get(self, request, id_appointment=None, *args, **kwargs):
+
         next_url = request.GET.get('next')
         if id_appointment:
             try:
@@ -414,47 +415,38 @@ class AppointmentSchedule(utils_views.LoginRequiredViewMixin, DoctorMenuViewMixi
                                + appointment.patient.user.last_name
             else:
                 context['name'] = appointment.patient.user.username
-            context['appointment_date'] = appointment.appointment_date
             context['appointment_time'] = appointment.appointment_time
-            context['dates'] = doctor_models.DoctorAppointmentDate.objects.filter(
-                doctor=request.user.doctor, appointment_date__gte=datetime.now()).order_by('appointment_date')
             context['times'] = doctor_models.DoctorAppointmentTime.objects.filter(
-                appointment_date_id=appointment.appointment_date_id, free=True)
+                 start_time__gte=timezone.now().date(), free=True)
             return super(AppointmentSchedule, self).get(request, *args, **context)
         if next_url:
             return HttpResponseRedirect(redirect_to=next_url)
         return HttpResponseRedirect(redirect_to=self.success_url)
 
     def post(self, request, id_appointment=None, *args, **kwargs):
-        appointment_date = request.POST.get('appointment_date')
         appointment_time = request.POST.get('appointment_time')
         next_url = request.GET.get('next')
-        if appointment_date:
-            if appointment_time:
-                try:
-                    appointment = patient_models.PatientAppointment.objects.get(pk=id_appointment)
-                except patient_models.PatientAppointment.DoesNotExist:
-                    return Http404(**kwargs)
+        if appointment_time:
+            try:
+                appointment = patient_models.PatientAppointment.objects.get(pk=id_appointment)
+            except patient_models.PatientAppointment.DoesNotExist:
+                return Http404(**kwargs)
 
-                try:
-                    appointment.appointment_date = doctor_models.DoctorAppointmentDate.objects.get(pk=appointment_date)
-                except doctor_models.DoctorAppointmentDate.DoesNotExist:
-                    return Http404(**kwargs)
-                try:
-                    new_time = doctor_models.DoctorAppointmentTime.objects.get(pk=appointment_time)
-                    new_time.free = False
-                    new_time.save()
-                    appointment.appointment_time.free = True
-                    appointment.appointment_time.save()
-                    appointment.appointment_time = new_time
-                except doctor_models.DoctorAppointmentTime.DoesNotExist:
-                    return Http404(**kwargs)
-                appointment.appointment_status = patient_models.PatientAppointment.STATUS_DOCTOR_RESCHEDULE
-                appointment.save()
-                messages.success(request, self.success_message)
-                if next_url:
-                    return HttpResponseRedirect(redirect_to=next_url)
-                return HttpResponseRedirect(redirect_to=self.success_url)
+            try:
+                new_time = doctor_models.DoctorAppointmentTime.objects.get(pk=appointment_time)
+                new_time.free = False
+                new_time.save()
+                appointment.appointment_time.free = True
+                appointment.appointment_time.save()
+                appointment.appointment_time = new_time
+            except doctor_models.DoctorAppointmentTime.DoesNotExist:
+                return Http404(**kwargs)
+            appointment.appointment_status = patient_models.PatientAppointment.STATUS_DOCTOR_RESCHEDULE
+            appointment.save()
+            messages.success(request, self.success_message)
+            if next_url:
+                return HttpResponseRedirect(redirect_to=next_url)
+            return HttpResponseRedirect(redirect_to=self.success_url)
         return Http404(**kwargs)
 
 

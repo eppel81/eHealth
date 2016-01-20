@@ -43,9 +43,8 @@ class AdminPatientLifestyle(admin.ModelAdmin):
 
 @admin.register(models.PatientAppointment)
 class AdminPatientAppointment(admin.ModelAdmin):
-    list_display = ('patient', 'doctor', 'appointment_date',
-                    'appointment_time', 'reason', 'comments',
-                    'appointment_type', 'appointment_status')
+    list_display = ('patient', 'doctor', 'appointment_time', 'reason',
+                    'comments', 'appointment_type', 'appointment_status')
 
 
 @admin.register(models.PatientFamilyRelationship)

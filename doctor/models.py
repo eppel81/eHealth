@@ -33,14 +33,7 @@ class Doctor(models.Model):
     def get_available_time(self):
         time = None
         try:
-            date = self.doctorappointmentdate_set.filter(appointment_date__gte=timezone.now())
-            for day in date:
-                try:
-                    time = day.doctorappointmenttime_set.filter(free=True).first()
-                    time = time.start_time
-                    break
-                except AttributeError:
-                    time = None
+            time = self.doctorappointmenttime_set.filter(start_time__gte=timezone.now().date(), free=True).first()
         except AttributeError:
             time = None
         return time
@@ -94,33 +87,26 @@ class DoctorWorkExperience(models.Model):
     end_date = models.DateField(null=True, blank=True)
 
 
-class DoctorAppointmentDate(models.Model):
-    doctor = models.ForeignKey(Doctor)
-    appointment_date = models.DateField()
-
-    class Meta:
-        ordering = ('appointment_date', )
-
-    def __str__(self):
-        return self.appointment_date.strftime('%Y-%m-%d')
-
-
 class DoctorAppointmentTime(models.Model):
-    appointment_date = models.ForeignKey(DoctorAppointmentDate)
+    doctor = models.ForeignKey(Doctor)
     start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    duration = models.FloatField(default=0)
     free = models.BooleanField(default=True)
 
     class Meta:
         ordering = ('start_time', )
 
-    def __str__(self):
-        return self.start_time.strftime('%H:%M')+'-'+self.end_time.strftime('%H:%M')
-
     # todo: timezone support!!!
+    def __str__(self):
+        return self.start_time.strftime('%x %X')
+
     @property
     def name(self):
-        return str(self)
+        return self.start_time
+
+    @property
+    def duration_minutes(self):
+        return int(self.duration/60)
 
 
 @receiver(models.signals.post_delete, sender=Doctor)

@@ -1,5 +1,6 @@
 import json
 from allauth.account.views import PasswordChangeView
+import datetime
 from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse, Http404
@@ -88,12 +89,19 @@ class TalkToADoctor(LoginRequiredViewMixin, PatientMenuViewMixin, PatientActiveT
 
         doctor_specialty = self.request.GET.get('doctor_specialty', None)
         doctor = self.request.GET.get('doctor', None)
-        if doctor_specialty and doctor:
-            query = query.filter(id=doctor,
-                                 doctorspecialty__specialty=doctor_specialty)
-        elif doctor_specialty:
+        start_date = self.request.GET.get('start_date', None)
+        end_date = self.request.GET.get('end_date', None)
+        current_timezone = timezone.get_current_timezone()
+        if start_date:
+            start_date = current_timezone.localize(datetime.datetime.strptime(start_date, "%m/%d/%Y"))
+            print start_date
+            query = query.filter(doctorappointmenttime__start_time__gte=start_date)
+        if end_date:
+            end_date = current_timezone.localize(datetime.datetime.strptime(end_date, "%m/%d/%Y"))
+            query = query.filter(doctorappointmenttime__start_time__lte=end_date)
+        if doctor_specialty:
             query = query.filter(doctorspecialty__specialty=doctor_specialty)
-        elif doctor:
+        if doctor:
             query = query.filter(id=doctor)
         return query
 
@@ -102,14 +110,20 @@ class TalkToADoctor(LoginRequiredViewMixin, PatientMenuViewMixin, PatientActiveT
         context['specialties'] = util_models.Specialty.objects.all()
         context['all_doctors'] = doctor_models.Doctor.objects.all().exclude(
             user__first_name='', user__last_name='')
-        choosed = self.request.GET.get('doctor_specialty')
-        choosed_doctor = self.request.GET.get('doctor')
-        if choosed:
-            choosed = int(choosed)
-        context['choosed_specialty'] = choosed
-        if choosed_doctor:
-            choosed_doctor = int(choosed_doctor)
-        context['choosed_doctor'] = choosed_doctor
+        chosen_specialty = self.request.GET.get('doctor_specialty')
+        chosen_doctor = self.request.GET.get('doctor')
+        start_date = self.request.GET.get('start_date', '')
+        end_date = self.request.GET.get('end_date', '')
+        if chosen_specialty:
+            chosen_specialty = int(chosen_specialty)
+        context['chosen_specialty'] = chosen_specialty
+        if chosen_doctor:
+            chosen_doctor = int(chosen_doctor)
+        context['chosen_doctor'] = chosen_doctor
+
+        context['start_date'] = start_date
+
+        context['end_date'] = end_date
         return context
 
 
@@ -391,21 +405,10 @@ class DoctorDetailView(LoginRequiredViewMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         data = super(DoctorDetailView, self).get_context_data(**kwargs)
-        query = doctor_models.DoctorAppointmentDate.objects.filter(
-                # doctor=self.object)
-                doctor=self.object, appointment_date__gte=timezone.now())
-        data['appointment_date'] = query
+        query = doctor_models.DoctorAppointmentTime.objects.filter(
+                doctor=self.object, start_time__gte=timezone.now().date(), free=True)
+        data['appointment_time'] = query
         return data
-
-
-class AppointmentTimeView(LoginRequiredViewMixin, generic.ListView):
-    template_name = 'patient/dashboard/schedule_time.html'
-    model = doctor_models.DoctorAppointmentTime
-    context_object_name = 'times'
-
-    def get_queryset(self):
-        return doctor_models.DoctorAppointmentTime.objects.filter(
-            appointment_date_id=self.kwargs.get('pk'))
 
 
 class PatientAppointmentProcessView(PatientActiveTabMixin, generic.View):
@@ -440,8 +443,8 @@ class PatientAppointmentView(generic.FormView):
         initial['patient'] = self.request.user.patient
         time = models.DoctorAppointmentTime.objects.get(pk=self.kwargs.get('pk'))
         initial['appointment_time'] = time
-        initial['appointment_date'] = time.appointment_date
-        initial['doctor'] = time.appointment_date.doctor
+        # initial['appointment_date'] = time.appointment_date
+        initial['doctor'] = time.doctor
         return initial
 
     def form_valid(self, form):
@@ -512,8 +515,8 @@ class ConsultationView(LoginRequiredViewMixin, PatientMenuViewMixin, PatientActi
             else:
                 return Http404(**context)
         context['appointments'] = models.PatientAppointment.objects.filter(
-            patient=request.user.patient, appointment_date__appointment_date__gte=timezone.now())\
-            .order_by('appointment_date', 'appointment_time')
+            patient=request.user.patient, appointment_time__start_time__gte=timezone.now().date())\
+            .order_by('appointment_time')
         return super(ConsultationView, self).get(request, *args, **context)
 
 
@@ -535,8 +538,7 @@ class ConsultationEdit(utils_views.LoginRequiredViewMixin, PatientMenuViewMixin,
 
 
 def get_all_doctors_json(request):
-    query = doctor_models.Doctor.objects.exclude(user__first_name='',
-                                                user__last_name='')
+    query = doctor_models.Doctor.objects.exclude(user__first_name='', user__last_name='')
     data = []
     for doctor in query:
         data.append({
@@ -545,20 +547,6 @@ def get_all_doctors_json(request):
         })
     data = json.dumps(data)
     return HttpResponse(data, content_type='application/json')
-
-
-def get_doctor_appointment_date(request):
-    pk = request.GET.get('doctor')
-    data = {'': 'Select'}
-    if pk:
-        query = doctor_models.Doctor.objects.get(pk=pk).doctorappointmentdate_set.filter(
-            appointment_date__gte=timezone.now())
-        if query:
-            for date in query:
-                data.update({date.pk: date.appointment_date})
-        else:
-            data = {'': "Don't have date"}
-    return JsonResponse(data)
 
 
 def get_doctor_appointment_time(request):

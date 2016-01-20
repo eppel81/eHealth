@@ -24,3 +24,16 @@ select:active{
 .when{
     margin-top: 5px;
 }
+
+.input-daterange {
+    width: auto;
+
+}
+
+.input-daterange input:first-child {
+    border-radius: 0
+}
+
+.input-daterange input:last-child {
+    border-radius: 0
+}

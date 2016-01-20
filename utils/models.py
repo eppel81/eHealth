@@ -1,6 +1,12 @@
+import pytz
 from django.db import models
 from allauth.account.signals import user_logged_in
 from django.dispatch import receiver
+from django.utils import timezone
+
+
+def localize_datetime(dt):
+    return pytz.timezone(timezone.get_current_timezone_name()).localize(dt, is_dst=None)
 
 
 class City(models.Model):
@@ -14,7 +20,7 @@ class City(models.Model):
 
 
 class TimeZone(models.Model):
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=50)
 
     class Meta:
         ordering = ('name', )
@@ -86,7 +92,12 @@ class ActivityType(models.Model):
 
 @receiver(user_logged_in)
 def select_type_user(sender, **kwargs):
+
     if hasattr(kwargs['user'], 'doctor'):
         kwargs['request'].session['type_user'] = 'doctor'
+
     if hasattr(kwargs['user'], 'patient'):
         kwargs['request'].session['type_user'] = 'patient'
+
+
+

@@ -21,7 +21,7 @@
         {% for appointment in appointments %}
             <tr>
                 <td>
-                    {{ appointment.appointment_date.appointment_date }} {{ appointment.appointment_time.name }}
+                    {{ appointment.appointment_time.start_time }}
                 </td>
                 <td>
                     {% if appointment.doctor.user.first_name %}

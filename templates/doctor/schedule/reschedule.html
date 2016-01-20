@@ -1,5 +1,6 @@
 {% extends 'doctor/schedule/base_schedule.html' %}
 {% load i18n %}
+
 {% load static %}
 {% block links %}
     <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
@@ -9,31 +10,19 @@
     <form method="post" action="{% url 'doctor:appointment_reschedule' appointment_id %}" role="form">
         {% csrf_token %}
         <div class="form-group">
-            <label class="col-sm-6">Patient:</label>
+            <label class="col-sm-6">{% trans 'Patient' %}:</label>
             <label class="col-sm-6">{{ name }}</label>
         </div>
         <div class="form-group">
-            <label class="col-sm-6">Appointment type:</label>
+            <label class="col-sm-6">{% trans 'Appointment type' %}:</label>
             <label class="col-sm-6">{{ type }}</label>
         </div>
         <div class="form-group">
-            <label class="col-sm-6">Appointment schedule:</label>
-            <label class="col-sm-6">{{ appointment_date.appointment_date }} {{ appointment_time.name }}</label>
+            <label class="col-sm-6">{% trans 'Appointment schedule' %}:</label>
+            <label class="col-sm-6">{{ appointment_time.name | date:"P" }}</label>
         </div>
         <div class="form-group">
-            <label class="col-sm-6 control-label">New appointment date:</label>
-            <select name="appointment_date" id="appointment_date" style="width:350px;">
-                {% for date in dates %}
-                    <option value="{{ date.id }}"
-                    {% if date.id == appointment_date.id %}
-                        selected
-                    {% endif %}
-                    >{{ date.appointment_date }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-6 control-label">New appointment time:</label>
+            <label class="col-sm-6 control-label">{% trans 'New appointment time' %}:</label>
             <select name="appointment_time" id="appointment_time" style="width:350px;">
                 {% for time in times %}
                     <option value="{{ time.id }}"
@@ -46,16 +35,16 @@
         </div>
         <div class="form-group">
             <label class="col-sm-6 control-label"></label>
-            <button type="submit" class="btn btn-success">Save</button>
+            <button type="submit" class="btn btn-success">{% trans 'Save' %}</button>
         </div>
     </form>
 
 {% endblock %}
 {% block js %}
-    <script type="text/javascript">
-        var time_url = "{% url "doctor:time" %}";
-    </script>
-    <script type="text/javascript" src="{% static 'js/reschedule_appointemt.js' %}"></script>
+{#    <script type="text/javascript">#}
+{#        var time_url = "{% url "doctor:time" %}";#}
+{#    </script>#}
+{#    <script type="text/javascript" src="{% static 'js/reschedule_appointemt.js' %}"></script>#}
 {% endblock %}
 
 

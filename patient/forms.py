@@ -149,7 +149,7 @@ class PatientAppointmentForm(FormControlMixin, forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(PatientAppointmentForm, self).__init__(*args, **kwargs)
-        disabled_fields = ['patient', 'doctor', 'appointment_date', 'appointment_time']
+        disabled_fields = ['patient', 'doctor', 'appointment_time']
         for field in disabled_fields:
             self.fields.get(field).widget.attrs.update({'disabled': True})
 
@@ -162,11 +162,8 @@ class PatientConsultationForm(FormControlMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(PatientConsultationForm, self).__init__(*args, **kwargs)
         doctor = kwargs.get('instance').doctor
-        self.fields.get('appointment_time').queryset = doctor.doctorappointmentdate_set.get(
-                pk=kwargs.get('instance').appointment_date_id).doctorappointmenttime_set.filter(
+        self.fields.get('appointment_time').queryset = doctor.doctorappointmenttime_set.filter(
             Q(free=True) | Q(pk=self.initial.get('appointment_time')))
-        # self.fields.get('appointment_date').queryset = doctor.doctorappointmentdate_set.doctorappointmenttime_set.filter(
-        #     Q(appointment_date_id=self.initial.get('appointment_date')) | Q(free=True)).values('appointment_date')
 
     def save(self, commit=True):
         saved = super(PatientConsultationForm, self).save(commit)
@@ -174,9 +171,7 @@ class PatientConsultationForm(FormControlMixin, forms.ModelForm):
         init_time = self.initial.get('appointment_time')
         change_time = self.cleaned_data.get('appointment_time').id
         if init_time != change_time:
-            doctor.doctorappointmentdate_set.get(pk=self.cleaned_data.get('appointment_date').id).doctorappointmenttime_set.filter(
-            pk=init_time).update(free=True)
-            doctor.doctorappointmentdate_set.get(pk=self.cleaned_data.get('appointment_date').id).doctorappointmenttime_set.filter(
-            pk=change_time).update(free=False)
+            doctor.doctorappointmenttime_set.filter(pk=init_time).update(free=True)
+            doctor.doctorappointmenttime_set.filter(pk=change_time).update(free=False)
         saved.appointment_status = models.PatientAppointment.STATUS_NEW
         saved.save()

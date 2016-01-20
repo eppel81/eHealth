@@ -28,8 +28,6 @@ urlpatterns = [
     url(r'^appointment_process/$', views.PatientAppointmentProcessView.as_view(), name='appointment_process'),
     url(r'^appointment_process/confirmation/$', views.ConfirmAppointmentProcessView.as_view(), name='confirmation'),
     url(r'^doctor/(?P<pk>[0-9]+)/$', views.DoctorDetailView.as_view(), name='detail_doctor'),
-    url(r'^date/(?P<pk>[0-9]+)/$', views.AppointmentTimeView.as_view(), name='date_appointment'),
     url(r'^all_doctors/$', views.get_all_doctors_json, name='all_doctors'),
-    url(r'^doctor_appointment_date/$', views.get_doctor_appointment_date, name='doctor_date'),
     url(r'^doctor_appointment_time/$', views.get_doctor_appointment_time, name='doctor_time'),
 ]

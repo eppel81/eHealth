@@ -1,16 +1,16 @@
-import pytz
 from django.utils import timezone
 
 
 class TimezoneMiddleware(object):
     def process_request(self, request):
         person = None
+        current_timezone = 'Etc/UTC'
         if request.user.is_authenticated():
-            person = request.user.doctor_set.first()
-            if not person:
-                person = request.user.patient_set.first()
-        if person:
-            tzname = person.timezone.name
-            timezone.activate(pytz.timezone(tzname))
-        else:
-            timezone.deactivate()
+            if hasattr(request.user, 'doctor'):
+                person = request.user.doctor
+            else:
+                person = request.user.patient
+            if person.timezone is not None:
+                current_timezone = person.timezone.name
+        timezone.activate(current_timezone)
+

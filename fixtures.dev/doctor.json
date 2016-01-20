@@ -1,1 +1,179 @@
-[{"fields": {"city": 1, "gender": true, "phone_appointment": true, "languages": [1, 2], "user": 3, "photo": "", "timezone": 6, "video_appointment": true, "country": 1}, "model": "doctor.doctor", "pk": 1}, {"fields": {"city": 3, "gender": true, "phone_appointment": true, "languages": [1], "user": 4, "photo": "", "timezone": 8, "video_appointment": false, "country": 1}, "model": "doctor.doctor", "pk": 2}, {"fields": {"city": 2, "gender": false, "phone_appointment": true, "languages": [1], "user": 5, "photo": "", "timezone": 1, "video_appointment": false, "country": 1}, "model": "doctor.doctor", "pk": 3}, {"fields": {"type": 1, "record_date": "2016-01-01", "doctor": 1}, "model": "doctor.doctorhistory", "pk": 1}, {"fields": {"type": 3, "record_date": "2016-01-02", "doctor": 1}, "model": "doctor.doctorhistory", "pk": 2}, {"fields": {"money": "123.00", "payment": "Test payment", "record_date": "2016-01-01", "doctor": 1}, "model": "doctor.doctorpaymenthistory", "pk": 1}, {"fields": {"money": "354.00", "payment": "Test payment 2", "record_date": "2016-01-01", "doctor": 1}, "model": "doctor.doctorpaymenthistory", "pk": 2}, {"fields": {"primary": true, "specialty": 1, "doctor": 1}, "model": "doctor.doctorspecialty", "pk": 1}, {"fields": {"primary": false, "specialty": 2, "doctor": 1}, "model": "doctor.doctorspecialty", "pk": 2}, {"fields": {"primary": true, "specialty": 1, "doctor": 2}, "model": "doctor.doctorspecialty", "pk": 3}, {"fields": {"primary": false, "specialty": 7, "doctor": 2}, "model": "doctor.doctorspecialty", "pk": 4}, {"fields": {"primary": true, "specialty": 6, "doctor": 3}, "model": "doctor.doctorspecialty", "pk": 5}, {"fields": {"primary": false, "specialty": 3, "doctor": 3}, "model": "doctor.doctorspecialty", "pk": 6}, {"fields": {"care_facility": "Hospital1", "position": "head", "start_date": "2015-01-01", "end_date": "2015-05-27", "doctor": 1}, "model": "doctor.doctorworkexperience", "pk": 1}, {"fields": {"care_facility": "Hospital2", "position": "Head", "start_date": "2015-08-04", "end_date": "2015-12-23", "doctor": 1}, "model": "doctor.doctorworkexperience", "pk": 2}, {"fields": {"care_facility": "Hospital3", "position": "head", "start_date": "2015-10-01", "end_date": "2015-11-30", "doctor": 1}, "model": "doctor.doctorworkexperience", "pk": 3}, {"fields": {"appointment_date": "2015-12-28", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 1}, {"fields": {"appointment_date": "2015-12-28", "doctor": 2}, "model": "doctor.doctorappointmentdate", "pk": 2}, {"fields": {"appointment_date": "2015-12-29", "doctor": 2}, "model": "doctor.doctorappointmentdate", "pk": 3}, {"fields": {"appointment_date": "2015-12-30", "doctor": 3}, "model": "doctor.doctorappointmentdate", "pk": 4}, {"fields": {"appointment_date": "2016-01-04", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 5}, {"fields": {"appointment_date": "2016-01-05", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 6}, {"fields": {"appointment_date": "2016-01-06", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 7}, {"fields": {"appointment_date": "2016-01-07", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 8}, {"fields": {"appointment_date": "2016-01-08", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 9}, {"fields": {"appointment_date": "2016-01-09", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 10}, {"fields": {"appointment_date": "2016-01-10", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 11}, {"fields": {"appointment_date": "2016-01-11", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 12}, {"fields": {"appointment_date": "2016-01-29", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 13}, {"fields": {"appointment_date": "2016-01-26", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 14}, {"fields": {"appointment_date": "2016-01-13", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 15}, {"fields": {"appointment_date": "2016-01-12", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 16}, {"fields": {"appointment_date": "2016-01-20", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 17}, {"fields": {"appointment_date": "2016-01-14", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 18}, {"fields": {"appointment_date": "2016-01-15", "doctor": 1}, "model": "doctor.doctorappointmentdate", "pk": 19}, {"fields": {"free": true, "start_time": "2016-01-04T07:00:00Z", "end_time": "2016-01-04T07:15:00Z", "appointment_date": 5}, "model": "doctor.doctorappointmenttime", "pk": 1}, {"fields": {"free": true, "start_time": "2016-01-04T07:15:00Z", "end_time": "2016-01-04T07:30:00Z", "appointment_date": 5}, "model": "doctor.doctorappointmenttime", "pk": 2}, {"fields": {"free": true, "start_time": "2016-01-04T07:30:00Z", "end_time": "2016-01-04T07:45:00Z", "appointment_date": 5}, "model": "doctor.doctorappointmenttime", "pk": 3}, {"fields": {"free": true, "start_time": "2016-01-04T07:45:00Z", "end_time": "2016-01-04T08:00:00Z", "appointment_date": 5}, "model": "doctor.doctorappointmenttime", "pk": 4}, {"fields": {"free": true, "start_time": "2016-01-05T11:00:00Z", "end_time": "2016-01-05T11:15:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 5}, {"fields": {"free": true, "start_time": "2016-01-05T11:15:00Z", "end_time": "2016-01-05T11:30:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 6}, {"fields": {"free": true, "start_time": "2016-01-05T11:30:00Z", "end_time": "2016-01-05T11:45:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 7}, {"fields": {"free": true, "start_time": "2016-01-05T11:45:00Z", "end_time": "2016-01-05T12:00:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 8}, {"fields": {"free": true, "start_time": "2016-01-05T12:00:00Z", "end_time": "2016-01-05T12:15:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 9}, {"fields": {"free": true, "start_time": "2016-01-05T12:15:00Z", "end_time": "2016-01-05T12:30:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 10}, {"fields": {"free": true, "start_time": "2016-01-05T12:30:00Z", "end_time": "2016-01-05T12:45:00Z", "appointment_date": 6}, "model": "doctor.doctorappointmenttime", "pk": 11}, {"fields": {"free": true, "start_time": "2016-01-06T12:00:00Z", "end_time": "2016-01-06T12:15:00Z", "appointment_date": 7}, "model": "doctor.doctorappointmenttime", "pk": 17}, {"fields": {"free": true, "start_time": "2016-01-06T12:15:00Z", "end_time": "2016-01-06T12:30:00Z", "appointment_date": 7}, "model": "doctor.doctorappointmenttime", "pk": 18}, {"fields": {"free": true, "start_time": "2016-01-06T12:30:00Z", "end_time": "2016-01-06T12:45:00Z", "appointment_date": 7}, "model": "doctor.doctorappointmenttime", "pk": 19}, {"fields": {"free": true, "start_time": "2016-01-06T12:45:00Z", "end_time": "2016-01-06T13:00:00Z", "appointment_date": 7}, "model": "doctor.doctorappointmenttime", "pk": 20}, {"fields": {"free": true, "start_time": "2016-01-07T09:00:00Z", "end_time": "2016-01-07T09:15:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 21}, {"fields": {"free": true, "start_time": "2016-01-07T09:15:00Z", "end_time": "2016-01-07T09:30:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 22}, {"fields": {"free": true, "start_time": "2016-01-07T09:30:00Z", "end_time": "2016-01-07T09:45:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 23}, {"fields": {"free": true, "start_time": "2016-01-07T09:45:00Z", "end_time": "2016-01-07T10:00:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 24}, {"fields": {"free": true, "start_time": "2016-01-07T10:00:00Z", "end_time": "2016-01-07T10:15:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 25}, {"fields": {"free": true, "start_time": "2016-01-07T10:15:00Z", "end_time": "2016-01-07T10:30:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 26}, {"fields": {"free": true, "start_time": "2016-01-07T10:30:00Z", "end_time": "2016-01-07T10:45:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 27}, {"fields": {"free": true, "start_time": "2016-01-07T10:45:00Z", "end_time": "2016-01-07T11:00:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 28}, {"fields": {"free": true, "start_time": "2016-01-07T11:00:00Z", "end_time": "2016-01-07T11:15:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 29}, {"fields": {"free": true, "start_time": "2016-01-07T11:15:00Z", "end_time": "2016-01-07T11:30:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 30}, {"fields": {"free": true, "start_time": "2016-01-07T11:30:00Z", "end_time": "2016-01-07T11:45:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 31}, {"fields": {"free": true, "start_time": "2016-01-07T11:45:00Z", "end_time": "2016-01-07T12:00:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 32}, {"fields": {"free": true, "start_time": "2016-01-07T12:00:00Z", "end_time": "2016-01-07T12:15:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 33}, {"fields": {"free": true, "start_time": "2016-01-07T15:00:00Z", "end_time": "2016-01-07T15:15:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 45}, {"fields": {"free": true, "start_time": "2016-01-07T15:15:00Z", "end_time": "2016-01-07T15:30:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 46}, {"fields": {"free": true, "start_time": "2016-01-07T15:30:00Z", "end_time": "2016-01-07T15:45:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 47}, {"fields": {"free": true, "start_time": "2016-01-07T15:45:00Z", "end_time": "2016-01-07T16:00:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 48}, {"fields": {"free": true, "start_time": "2016-01-07T16:00:00Z", "end_time": "2016-01-07T16:15:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 49}, {"fields": {"free": true, "start_time": "2016-01-07T16:30:00Z", "end_time": "2016-01-07T16:45:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 51}, {"fields": {"free": true, "start_time": "2016-01-07T16:45:00Z", "end_time": "2016-01-07T17:00:00Z", "appointment_date": 8}, "model": "doctor.doctorappointmenttime", "pk": 52}, {"fields": {"free": true, "start_time": "2016-01-08T12:00:00Z", "end_time": "2016-01-08T12:15:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 53}, {"fields": {"free": true, "start_time": "2016-01-08T12:15:00Z", "end_time": "2016-01-08T12:30:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 54}, {"fields": {"free": true, "start_time": "2016-01-08T12:30:00Z", "end_time": "2016-01-08T12:45:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 55}, {"fields": {"free": true, "start_time": "2016-01-08T12:45:00Z", "end_time": "2016-01-08T13:00:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 56}, {"fields": {"free": true, "start_time": "2016-01-08T13:00:00Z", "end_time": "2016-01-08T13:15:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 57}, {"fields": {"free": true, "start_time": "2016-01-08T13:15:00Z", "end_time": "2016-01-08T13:30:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 58}, {"fields": {"free": true, "start_time": "2016-01-08T13:30:00Z", "end_time": "2016-01-08T13:45:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 59}, {"fields": {"free": true, "start_time": "2016-01-08T13:45:00Z", "end_time": "2016-01-08T14:00:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 60}, {"fields": {"free": true, "start_time": "2016-01-08T14:00:00Z", "end_time": "2016-01-08T14:15:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 61}, {"fields": {"free": true, "start_time": "2016-01-08T14:15:00Z", "end_time": "2016-01-08T14:30:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 62}, {"fields": {"free": true, "start_time": "2016-01-08T14:30:00Z", "end_time": "2016-01-08T14:45:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 63}, {"fields": {"free": true, "start_time": "2016-01-08T14:45:00Z", "end_time": "2016-01-08T15:00:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 64}, {"fields": {"free": true, "start_time": "2016-01-08T15:00:00Z", "end_time": "2016-01-08T15:15:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 65}, {"fields": {"free": true, "start_time": "2016-01-08T15:15:00Z", "end_time": "2016-01-08T15:30:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 66}, {"fields": {"free": true, "start_time": "2016-01-08T15:30:00Z", "end_time": "2016-01-08T15:45:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 67}, {"fields": {"free": true, "start_time": "2016-01-08T15:45:00Z", "end_time": "2016-01-08T16:00:00Z", "appointment_date": 9}, "model": "doctor.doctorappointmenttime", "pk": 68}, {"fields": {"free": true, "start_time": "2016-01-11T11:00:00Z", "end_time": "2016-01-11T11:15:00Z", "appointment_date": 12}, "model": "doctor.doctorappointmenttime", "pk": 69}, {"fields": {"free": true, "start_time": "2016-01-11T11:15:00Z", "end_time": "2016-01-11T11:30:00Z", "appointment_date": 12}, "model": "doctor.doctorappointmenttime", "pk": 70}, {"fields": {"free": false, "start_time": "2016-01-11T11:30:00Z", "end_time": "2016-01-11T11:45:00Z", "appointment_date": 12}, "model": "doctor.doctorappointmenttime", "pk": 71}, {"fields": {"free": true, "start_time": "2016-01-11T11:45:00Z", "end_time": "2016-01-11T12:00:00Z", "appointment_date": 12}, "model": "doctor.doctorappointmenttime", "pk": 72}, {"fields": {"free": true, "start_time": "2016-01-29T10:00:00Z", "end_time": "2016-01-29T10:15:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 73}, {"fields": {"free": true, "start_time": "2016-01-29T10:15:00Z", "end_time": "2016-01-29T10:30:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 74}, {"fields": {"free": true, "start_time": "2016-01-29T10:30:00Z", "end_time": "2016-01-29T10:45:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 75}, {"fields": {"free": true, "start_time": "2016-01-29T10:45:00Z", "end_time": "2016-01-29T11:00:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 76}, {"fields": {"free": true, "start_time": "2016-01-29T11:00:00Z", "end_time": "2016-01-29T11:15:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 77}, {"fields": {"free": true, "start_time": "2016-01-29T11:15:00Z", "end_time": "2016-01-29T11:30:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 78}, {"fields": {"free": true, "start_time": "2016-01-29T11:30:00Z", "end_time": "2016-01-29T11:45:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 79}, {"fields": {"free": true, "start_time": "2016-01-29T11:45:00Z", "end_time": "2016-01-29T12:00:00Z", "appointment_date": 13}, "model": "doctor.doctorappointmenttime", "pk": 80}]
+[
+  {
+    "fields": {
+      "city": 1,
+      "gender": true,
+      "phone_appointment": true,
+      "languages": [
+        1,
+        2
+      ],
+      "user": 3,
+      "photo": "",
+      "timezone": 6,
+      "video_appointment": true,
+      "country": 1
+    },
+    "model": "doctor.doctor",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "city": 3,
+      "gender": true,
+      "phone_appointment": true,
+      "languages": [
+        1
+      ],
+      "user": 4,
+      "photo": "",
+      "timezone": 8,
+      "video_appointment": false,
+      "country": 1
+    },
+    "model": "doctor.doctor",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "city": 2,
+      "gender": false,
+      "phone_appointment": true,
+      "languages": [
+        1
+      ],
+      "user": 5,
+      "photo": "",
+      "timezone": 1,
+      "video_appointment": false,
+      "country": 1
+    },
+    "model": "doctor.doctor",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "type": 1,
+      "record_date": "2016-01-01",
+      "doctor": 1
+    },
+    "model": "doctor.doctorhistory",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "type": 3,
+      "record_date": "2016-01-02",
+      "doctor": 1
+    },
+    "model": "doctor.doctorhistory",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "money": "123.00",
+      "payment": "Test payment",
+      "record_date": "2016-01-01",
+      "doctor": 1
+    },
+    "model": "doctor.doctorpaymenthistory",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "money": "354.00",
+      "payment": "Test payment 2",
+      "record_date": "2016-01-01",
+      "doctor": 1
+    },
+    "model": "doctor.doctorpaymenthistory",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "primary": true,
+      "specialty": 1,
+      "doctor": 1
+    },
+    "model": "doctor.doctorspecialty",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "primary": false,
+      "specialty": 2,
+      "doctor": 1
+    },
+    "model": "doctor.doctorspecialty",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "primary": true,
+      "specialty": 1,
+      "doctor": 2
+    },
+    "model": "doctor.doctorspecialty",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "primary": false,
+      "specialty": 7,
+      "doctor": 2
+    },
+    "model": "doctor.doctorspecialty",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "primary": true,
+      "specialty": 6,
+      "doctor": 3
+    },
+    "model": "doctor.doctorspecialty",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "primary": false,
+      "specialty": 3,
+      "doctor": 3
+    },
+    "model": "doctor.doctorspecialty",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "care_facility": "Hospital1",
+      "position": "head",
+      "start_date": "2015-01-01",
+      "end_date": "2015-05-27",
+      "doctor": 1
+    },
+    "model": "doctor.doctorworkexperience",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "care_facility": "Hospital2",
+      "position": "Head",
+      "start_date": "2015-08-04",
+      "end_date": "2015-12-23",
+      "doctor": 1
+    },
+    "model": "doctor.doctorworkexperience",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "care_facility": "Hospital3",
+      "position": "head",
+      "start_date": "2015-10-01",
+      "end_date": "2015-11-30",
+      "doctor": 1
+    },
+    "model": "doctor.doctorworkexperience",
+    "pk": 3
+  }
+]

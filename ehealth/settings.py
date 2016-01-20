@@ -66,7 +66,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
     # 'utils.middleware.TimezoneMiddleware'
 )
 
@@ -172,6 +171,8 @@ EMAIL_PORT = "587"
 EMAIL_HOST_USER = "servicetest203"
 EMAIL_HOST_PASSWORD = "!qwerty65"
 EMAIL_USE_TLS = True
+
+DEFAULT_DURATION = 900
 
 
 # import local settings

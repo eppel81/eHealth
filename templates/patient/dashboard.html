@@ -2,8 +2,13 @@
 {% load i18n %}
 {% load static %}
 {% block links %}
-    <link href="{% static 'css/select2.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/select2.css' %}" rel="stylesheet"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap-datepicker3.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/current_doctor_style.css' %}"/>
+
+
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/select.js' %}"></script>
@@ -16,158 +21,202 @@
     </div>
 {% endblock %}
 {% block dashboard_content %}
-            <!-- Profile Content -->
-            <div class="col-md-9">
-                <div class="profile-body">
+    <!-- Profile Content -->
+    <div class="col-md-9">
+        <div class="profile-body">
 
-                    <div class="profile-info">
+            <div class="profile-info">
 
-                            <div class="easy-block-v3 service-or equal-height-column">
-                                <div class="service-bg"></div>
-                                {% if user.patient %}
-                                    {% with patient=user.patient %}
-                                        {% if patient.photo %}
-                                            <img src="{{ patient.photo.url }}">
-                                        {% else %}
-                                            <img src="{% static 'img/user_man.jpg' %}">
-                                        {% endif %}
-                                    {% endwith %}
+                <div class="easy-block-v3 service-or equal-height-column">
+                    <div class="service-bg"></div>
+                    {% if user.patient %}
+                        {% with patient=user.patient %}
+                            {% if patient.photo %}
+                                <img src="{{ patient.photo.url }}">
+                            {% else %}
+                                <img src="{% static 'img/user_man.jpg' %}">
+                            {% endif %}
+                        {% endwith %}
+                    {% else %}
+                        <img src="{% static 'img/user_man.jpg' %}">
+                    {% endif %}
+                    <div class="inner-faq-b">
+                        <p>Welcome</p>
+                        <a href="{% url 'patient:my_account' %}">
+                            <h3>
+                                {% if user.first_name %}
+                                    {{ user.first_name }} {{ user.last_name }}
                                 {% else %}
-                                    <img src="{% static 'img/user_man.jpg' %}">
+                                    {{ user.username }}
                                 {% endif %}
-                                <div class="inner-faq-b">
-                                    <p>Welcome</p>
-                                    <a href="{% url 'patient:my_account' %}">
-                                        <h3>
-                                            {% if user.first_name %}
-                                                {{ user.first_name }} {{ user.last_name }}
-                                            {% else %}
-                                                {{ user.username }}
-                                            {% endif %}
-                                        </h3>
-                                    </a>
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="talk-to-doctor">
+
+                <div class="easy-block-v3 service-or equal-height-column">
+                    <div class="col-sm-12 col-md-12">
+                        <img src="{% static 'img/doctor.png' %}"/>
+
+                        <div class="inner-faq-b">
+                            <a href="{% url 'patient:talk_to_a_doctor' %}">
+                                <h3>{% trans 'Talk to a doctor' %}</h3>
+                            </a>
+
+                            <p>Speak to the next available Provider.</p>
+                        </div>
+
+                    </div>
+                    <div class="search col-md-12 col-sm-12">
+                        <form class="form-inline" role="form" action="{% url 'patient:talk_to_a_doctor' %}"
+                              method="get">
+                            <div class="form-group col-sm-3">
+                                <div>
+                                    <label>Specialty:</label>
+                                </div>
+                                <div>
+                                    <select class="form-control" name="doctor_specialty">
+                                        <option value="" selected>Choose specialty</option>
+                                        {% for specialty in specialties %}
+                                            <option value="{{ specialty.id }}">{{ specialty.name }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
 
-                    </div>
-
-                    <div class="talk-to-doctor">
-
-                            <div class="easy-block-v3 service-or equal-height-column">
-                                <div class="col-sm-12 col-md-12">
-                                    <img src="{% static 'img/doctor.png' %}" />
-
-                                        <div class="inner-faq-b">
-                                            <a href="{% url 'patient:talk_to_a_doctor' %}">
-                                                <h3>{% trans 'Talk to a doctor' %}</h3>
-                                            </a>
-                                            <p>Speak to the next available Provider.</p>
-                                        </div>
-
+                            <div class="form-group col-sm-3">
+                                <div>
+                                    <label>Date:</label>
                                 </div>
-                                <div class="search col-md-12 col-sm-12">
-                                    <form class="form-inline" role="form" action="{% url 'patient:talk_to_a_doctor' %}" method="get">
-                                        <div class="form-group">
-                                            <label>Specialty:</label>
-                                            <select class="form-control" name="doctor_specialty">
-                                                <option value="" selected>Choose specialty</option>
-                                                {% for specialty in specialties %}
-                                                    <option value="{{ specialty.id }}">{{ specialty.name }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Doctors:</label>
-                                            <select class="form-control" name="doctor"
-                                                    data-url="{% url 'patient:all_doctors' %}">
-                                                <option value="" selected>Choose doctor</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group button">
-                                            <button type="submit" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                                Search
-                                            </button>
-                                        </div>
-                                    </form>
+                                <div>
+                                    <div class="input-group input-daterange">
+
+                                        <input type="text" class="form-control" value="" name="start_date">
+                                        <span class="input-group-addon">to</span>
+                                        <input type="text" class="form-control" value="" name="end_date">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="form-group col-sm-3">
+                                <div>
+                                    <label>Doctors:</label>
+                                </div>
+                                <div>
+                                    <select class="form-control" name="doctor"
+                                            data-url="{% url 'patient:all_doctors' %}">
+                                        <option value="" selected>Choose doctor</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group button col-sm-1">
+                                <div>
+                                    <label style="visibility: hidden;">Search</label>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row equal-height-columns margin-bottom-40">
+                <div class="col-sm-6">
+
+                    <div class="easy-block-v3 service-or equal-height-column">
+                        <div class="service-bg"></div>
+                        <img src="{% static 'img/message.png' %}"/>
+
+                        <div class="inner-faq-b">
+                            <a href="{% url 'patient:messages' %}">
+                                <h3>{% trans 'Message Center' %}</h3>
+                            </a>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel
+                                tincidunt consectetur.</p>
+                        </div>
                     </div>
 
-                    <div class="row equal-height-columns margin-bottom-40">
-                         <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
 
-                                <div class="easy-block-v3 service-or equal-height-column">
-                                    <div class="service-bg"></div>
-                                    <img src="{% static 'img/message.png' %}"/>
-                                    <div class="inner-faq-b">
-                                        <a href="{% url 'patient:messages' %}">
-                                            <h3>{% trans 'Message Center' %}</h3>
-                                        </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>
-                                    </div>
-                                </div>
+                    <div class="easy-block-v3 service-or equal-height-column">
+                        <div class="service-bg"></div>
+                        <img src="{% static 'img/health.png' %}"/>
 
-                        </div>
-                        <div class="col-sm-6">
+                        <div class="inner-faq-b">
+                            <a href="{% url 'patient:my_health_history' %}">
+                                <h3>{% trans 'My health' %}</h3>
+                            </a>
 
-                                <div class="easy-block-v3 service-or equal-height-column">
-                                    <div class="service-bg"></div>
-                                    <img src="{% static 'img/health.png' %}"/>
-                                    <div class="inner-faq-b">
-                                        <a href="{% url 'patient:my_health_history' %}">
-                                            <h3>{% trans 'My health' %}</h3>
-                                        </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>
-                                    </div>
-                                </div>
-
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel
+                                tincidunt consectetur.</p>
                         </div>
                     </div>
-                    <div class="row equal-height-columns margin-bottom-40">
-                        <div class="col-sm-6">
 
-                                <div class="easy-block-v3 service-or equal-height-column">
-                                    <div class="service-bg"></div>
-                                    <img src="{% static 'img/help.png' %}"/>
-                                    <div class="inner-faq-b">
-                                        <a href="{% url 'patient:help' %}">
-                                            <h3>{% trans 'Help & Support' %}</h3>
-                                        </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+            <div class="row equal-height-columns margin-bottom-40">
+                <div class="col-sm-6">
 
+                    <div class="easy-block-v3 service-or equal-height-column">
+                        <div class="service-bg"></div>
+                        <img src="{% static 'img/help.png' %}"/>
+
+                        <div class="inner-faq-b">
+                            <a href="{% url 'patient:help' %}">
+                                <h3>{% trans 'Help & Support' %}</h3>
+                            </a>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel
+                                tincidunt consectetur.</p>
                         </div>
-                        <div class="col-sm-6">
+                    </div>
 
-                                <div class="easy-block-v3 service-or equal-height-column">
-                                    <div class="service-bg"></div>
-                                    <img src="{% static 'img/my_account.ico' %}"/>
-                                    <div class="inner-faq-b">
-                                        <a href="{% url 'patient:my_account' %}">
-                                            <h3>{% trans 'My Account' %}</h3>
-                                        </a>
-                                        <p>Manage your account information, including payment, sign-in and more.</p>
-                                    </div>
-                                </div>
+                </div>
+                <div class="col-sm-6">
+
+                    <div class="easy-block-v3 service-or equal-height-column">
+                        <div class="service-bg"></div>
+                        <img src="{% static 'img/my_account.ico' %}"/>
+
+                        <div class="inner-faq-b">
+                            <a href="{% url 'patient:my_account' %}">
+                                <h3>{% trans 'My Account' %}</h3>
+                            </a>
+
+                            <p>Manage your account information, including payment, sign-in and more.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- End Profile Content -->
+        </div>
+    </div>
+    <!-- End Profile Content -->
 
-            <!--Notification-->
-                <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i>{% trans 'Notifications' %}</h2>
-                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                            <div class="overflow-h">
-                                <span>{% trans 'You have' %} <strong>0 {% trans 'new message(s)' %}</strong></span>
-                                <a href="{% url 'patient:messages' %}"><small>Ver todos</small></a>
-                            </div>
-                        </li>
-                    </ul>
+    <!--Notification-->
+    <div class="panel-heading-v2 overflow-h">
+        <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i>{% trans 'Notifications' %}</h2>
+        <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+            <li class="notification">
+                <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+
+                <div class="overflow-h">
+                    <span>{% trans 'You have' %} <strong>0 {% trans 'new message(s)' %}</strong></span>
+                    <a href="{% url 'patient:messages' %}">
+                        <small>Ver todos</small>
+                    </a>
                 </div>
+            </li>
+        </ul>
+    </div>
 {% endblock %}

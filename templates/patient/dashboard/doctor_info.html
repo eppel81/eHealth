@@ -3,6 +3,8 @@
 {% block js %}
     <script type="text/javascript" src="{% static 'js/appointment_times.js' %}"></script>
 {% endblock %}
+
+
 <div class="modal-dialog modal-lg doctor-info">
     <div class="modal-content">
         <div class="modal-header">
@@ -51,17 +53,20 @@
 
                         <div class="when">
                             <div class="col-sm-2 col-md-1">
-                                <h4>When:</h4>
+                                <h4>{% trans 'When' %}:</h4>
                             </div>
-                            {% if appointment_date.exists %}
+                            {% if appointment_time.exists %}
                                 <div class="col-sm-4 col-md-4">
-                                    <select class="form-control appointment-date">
-                                          {% for date in appointment_date %}
-                                            <option data-url="{% url 'patient:date_appointment' pk=date.id %}">
-                                                {{ date.appointment_date }}
+                                    <select id="appointment_time" class="form-control appointment-date">
+                                          {% for time in appointment_time %}
+                                            <option data-url="{% url 'patient:appointment_request' pk=time.id %}">
+                                                {{ time.start_time }}
                                             </option>
                                           {% endfor %}
                                     </select>
+                                    <button id="make_appointment" type="button" class="btn btn-primary"  data-toggle="modal" data-target="#appointment-request">
+                                      Make appointment
+                                    </button>
                                 </div>
                             {% else %}
                                 <div class="col-sm-4">

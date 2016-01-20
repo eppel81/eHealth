@@ -31,33 +31,37 @@
     <table class="table" style="margin-top: 15px;">
         <thead>
         <tr class="head-color rounded-th">
-            <th width="20%">{{ rows.name }}</th>
-            <th width="60%">Scheduled</th>
-            <th>Action</th>
+            <th width="10%">{{ rows.name }}</th>
+            <th width="10">{% trans 'Duration' %}</th>
+            <th width="60%">{% trans 'Scheduled' %}</th>
+            <th>{% trans 'Action' %}</th>
         </tr>
         </thead>
         <tbody>
         {% for time in rows.times %}
             <tr>
                 <td>
-                    {{ time.name }}
+                    {{ time.start_time | date:"P" }}
+                </td>
+                <td>
+                    {{ time.duration_minutes }} {% trans 'min' %}
                 </td>
                 <td>
                     {% if not time.free %}
                         <a href="#" data-appointment="{{ time.appointment.id }}" data-toggle="modal" data-target="#info_modal">
                         {% if time.appointment.patient.user.first_name %}
-                            Patient: {{ time.appointment.patient.user.first_name }} {{ time.appointment.patient.user.second_name }}
+                           {% trans 'Patient' %}: {{ time.appointment.patient.user.first_name }} {{ time.appointment.patient.user.second_name }}
                         {% else %}
-                            Patient: {{ time.appointment.patient.user.username }}
+                            {% trans 'Patient' %}: {{ time.appointment.patient.user.username }}
                         {% endif %}
                         <br>
-                        Type: {{ time.appointment.get_appointment_type_display }} Reason: {{ time.appointment.reason.name }}
+                        {% trans 'Type' %}: {{ time.appointment.get_appointment_type_display }} {% trans 'Reason' %}: {{ time.appointment.reason.name }}
                         </a>
                     {% endif %}
                 </td>
                 <td>
                     {% if time.free %}
-                        <a class="btn btn-danger" href="{% url 'doctor:timedel' current_date time.id %}">Delete</a>
+                        <a class="btn btn-danger" href="{% url 'doctor:timedel' rows.name time.id %}">{% trans 'Delete' %}</a>
                     {% endif %}
                 </td>
             </tr>
@@ -76,7 +80,7 @@
           <div class="modal-body">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
           </div>
         </div>
       </div>
@@ -91,8 +95,8 @@
         var calendar_url = "{% url 'doctor:calendar' %}";
         var calendar_current_date = "2016-10-11";
         var info_url = "{% url "doctor:appointments" %}";
-        {% if current_date %}
-            calendar_current_date = "{{ current_date }}";
+        {% if rows.name %}
+            calendar_current_date = "{{ rows.name }}";
         {% endif %}
     </script>
     <script type="text/javascript" src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>

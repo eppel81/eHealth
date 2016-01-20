@@ -35,11 +35,6 @@ class AdminDoctorWorkExperience(admin.ModelAdmin):
                     'start_date', 'end_date')
 
 
-@admin.register(models.DoctorAppointmentDate)
-class AdminDoctorAppointmentDate(admin.ModelAdmin):
-    list_display = ('doctor', 'appointment_date')
-
-
 @admin.register(models.DoctorAppointmentTime)
 class AdminDoctorAppointmentTime(admin.ModelAdmin):
-    list_display = ('appointment_date', 'start_time', 'end_time', 'free')
+    list_display = ('start_time', 'duration', 'free')
