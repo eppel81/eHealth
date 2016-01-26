@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Virtual Diagnostics Room</title>
+        <link href="css/bootstrap_global.css" type="text/css" rel="stylesheet" />
+        <link href="css/style.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="fonts/fonts.css" type="text/css" />
+        <link href="font-awesome/font-awesome.css" type="text/css" rel="stylesheet" />
+        <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/obfcmolmhaoicjghokgogkcmochoonmn" />
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+        <script type="text/javascript" src="//static.opentok.com/v2/js/opentok.min.js" ></script>
+        <script type="text/javascript" src="js/common.js" ></script>
+        <script type="text/javascript">
+            var tokbox_session_id = "1_MX40NTE0MzUzMn5-MTQ1MjUxNDk0NTI2Nn5sWE9xMkJ6M2Z6OUl3bWQyTVFjK1JPZWR-UH4";
+            var token = "T1==cGFydG5lcl9pZD00NTE0MzUzMiZzaWc9NjYyYTdlZGEwMWU3MWYyYjIxZTQxZGQ1ZGM4ZDRiYzFiMDVmZWI5MTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5URTBNelV6TW41LU1UUTFNalV4TkRrME5USTJObjVzV0U5eE1rSjZNMlo2T1VsM2JXUXlUVkZqSzFKUFpXUi1VSDQmY3JlYXRlX3RpbWU9MTQ1MjUxNDk3MSZub25jZT0wLjQxMjczMjk3NDIxMzc1NDMmZXhwaXJlX3RpbWU9MTQ1NTEwNjkyMiZjb25uZWN0aW9uX2RhdGE9";
+            var browser = detectBrowser();
+        </script>
+        <script type="text/javascript"src="js/diagnostics.js" ></script>
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="screen_header">
+                    <div class="screen_logo"> <span><a href="#"><img src="images/screen_logo.png" class=" img-responsive"></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="diagnostics_cont01">
+            <div class="diag-innr">
+                <div class="diag-head">
+                    <i class="fa fa-spinner radius50"></i><h3>We are testing your equipments.</h3>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="diag-vid-otr">
+                                <div class="diag-vid">
+                                    <!--<h2>Waiting for user to connect</h2>-->
+                                    <div id="user_stream"></div>
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6">
+                            <div class="diag-tests">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="test-ctrl test-mic hgt_125">
+                                            <i class="fa fa-check good-ctrl radius50"></i>
+                                            <h4><i class="fa fa-microphone radius50"></i>Check your microphone level</h4>
+                                            <div class="sound">
+                                                <span class="lft">Low</span>
+                                                <meter value="0" id="chkMikeLevel"></meter>
+                                                <span class="rt">High</span>
+                                            </div>
+                                            <p><i class="radius50"></i>Green light will flash while you speak.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6">
+                            <div class="diag_btn">
+                                <ul>
+                                    <li class="enter_session_link" style="display:none;">
+                                        <a href="doctor.html" onclick="javascript: return stopPublishing();" class="sign-btns pat" >Enter a Doctor</a>
+                                    </li>
+                                    <li class="enter_session_link" style="display:none;">
+                                        <a href="patient.html" onclick="javascript: return stopPublishing();" class="sign-btns2 pat" >Enter a Patient</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" id="share_screen_btn" style="display:none;" class="sign-btns3 pat" onclick="return chrome.webstore.install('https://chrome.google.com/webstore/detail/obfcmolmhaoicjghokgogkcmochoonmn',
+                                                        function () {
+                                                            window.location.reload(true);
+                                                        }, function (err) {
+                                                    alert(err);
+                                                })" >Install Extension</a>
+                                        <a style="display:none;" id="firefox_screen_btn" style="display:none;"  class="sign-btns3 pat" href="https://addons.mozilla.org/firefox/downloads/file/385026/screen_sharing_extension_for_httpsvcmodales-2.0-fx.xpi">Install Extension</a>
+                                    </li>
+                                </ul>
+                                <div class="diagnostic_text" style="display: none;">
+                                    <h2>Reload page after installing extension</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+            </div>
+        </div>
+
+        <!-- ===================== Error Pop Up ===================== --> 
+        <section style="display:none;" class="fixpopup err-vid">
+            <div class="fadebg"></div>
+            <div class="poscenter innercont">
+                <!-- ERROR -->
+                <div class="error_msg_cont">
+                    <span class="mainicon"><i class="fa fa-times-circle-o"></i></span>
+                    <div class="maincont">
+                        <div class="maincontinner">
+                            <p class="error_msg"></p>
+                            <a class="btn1 contbtn" id="refresh_page" title="Reload" href="javascript:void(0);">Reload <i class="fa fa-paper-plane-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ERROR -->
+            </div>
+        </section>
+        <!-- ===================== Error Pop Up ===================== -->
+
+    </body>
+</html>
+<script>
+    $(window).load(function () {
+        if (navigator.userAgent.indexOf("Chrome") != -1) {
+            setTimeout(function () {
+                if (!document.getElementById('extension-is-installed')) {
+                    $('#share_screen_btn').show();
+                } else {
+                    $(".enter_session_link").show();
+                }
+            }, 1000);
+        }
+
+        if (navigator.userAgent.indexOf("Firefox") != -1) {
+            setTimeout(function () {
+                if (!document.getElementById('extension-is-installed')) {
+                    $('#firefox_screen_btn').show();
+                    $('.diagnostic_text').show();
+                } else {
+                    $(".enter_session_link").show();
+                }
+            }, 1000);
+        }
+
+    });
+</script>
