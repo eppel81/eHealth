@@ -3,26 +3,31 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
+
 from utils.models import (Country, City, Specialty, TimeZone,
-                          Language, ActivityType, AppointmentReason)
+                          Language, ActivityType)
 
 
 class Doctor(models.Model):
     MALE_GENDER = True
     FEMALE_GENDER = False
     GENDER_CHOICES = (
-        (MALE_GENDER, 'Male'),
-        (FEMALE_GENDER, 'Female')
+        (MALE_GENDER, _('Male')),
+        (FEMALE_GENDER, _('Female'))
     )
     user = models.OneToOneField(User)
     city = models.ForeignKey(City)
     country = models.ForeignKey(Country)
     gender = models.BooleanField(choices=GENDER_CHOICES, default=FEMALE_GENDER)
     timezone = models.ForeignKey(TimeZone)
-    photo = models.FileField(upload_to='photo', null=True, blank=True, default=None)
+    photo = models.FileField(upload_to='photo', null=True, blank=True,
+                             default=None)
     languages = models.ManyToManyField(Language)
     phone_appointment = models.BooleanField(default=False)
     video_appointment = models.BooleanField(default=False)
+    consult_rate = models.IntegerField(default=50)
+    deposit = models.IntegerField(default=25)
 
     def __str__(self):
         if self.user.first_name:
@@ -30,10 +35,16 @@ class Doctor(models.Model):
         else:
             return self.user.email
 
-    def get_available_time(self):
+    def __unicode__(self):
+        return self.__str__()
+
+    def get_available_time(self, patient):
         time = None
         try:
-            time = self.doctorappointmenttime_set.filter(start_time__gte=timezone.now().date(), free=True).first()
+            time = self.doctorappointmenttime_set.filter(
+                start_time__gte=timezone.now(), free=True).exclude(
+                patientappointment__case__patient=patient,
+                patientappointment__appointment_status=0).first()
         except AttributeError:
             time = None
         return time
@@ -54,7 +65,7 @@ class DoctorHistory(models.Model):
     type = models.ForeignKey(ActivityType)
 
     class Meta:
-        ordering = ('-record_date', )
+        ordering = ('-record_date',)
 
 
 class DoctorPaymentHistory(models.Model):
@@ -64,7 +75,7 @@ class DoctorPaymentHistory(models.Model):
     money = models.DecimalField(max_digits=6, decimal_places=2)
 
     class Meta:
-        ordering = ('-record_date', )
+        ordering = ('-record_date',)
 
 
 class DoctorSpecialty(models.Model):
@@ -73,10 +84,13 @@ class DoctorSpecialty(models.Model):
     primary = models.BooleanField()
 
     class Meta:
-        ordering = ('-primary', )
+        ordering = ('-primary',)
 
     def __str__(self):
         return self.specialty.name
+
+    def __unicode__(self):
+        return self.__str__()
 
 
 class DoctorWorkExperience(models.Model):
@@ -90,23 +104,20 @@ class DoctorWorkExperience(models.Model):
 class DoctorAppointmentTime(models.Model):
     doctor = models.ForeignKey(Doctor)
     start_time = models.DateTimeField()
-    duration = models.FloatField(default=0)
+    duration = models.SmallIntegerField(default=0)
     free = models.BooleanField(default=True)
+    schedule = models.ForeignKey('utils.AppointmentSchedule', default=None)
 
     class Meta:
-        ordering = ('start_time', )
+        ordering = ('start_time',)
 
-    # todo: timezone support!!!
     def __str__(self):
-        return self.start_time.strftime('%x %X')
+        return self.start_time.astimezone(
+            timezone.get_current_timezone()).strftime('%x %X')
 
     @property
     def name(self):
         return self.start_time
-
-    @property
-    def duration_minutes(self):
-        return int(self.duration/60)
 
 
 @receiver(models.signals.post_delete, sender=Doctor)

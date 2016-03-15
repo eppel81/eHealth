@@ -1,0 +1,79 @@
+{% load i18n %}
+{% load static %}
+{% if not old_process %}
+    <script src="{% static 'js/check_form_errors.js' %}"></script>
+{% endif %}
+<div class="" style="margin-top: 15px;">
+    <div class="tag-box tag-box-v6 rounded-2x margin-h-ft row">
+        <div>
+            <h5>
+                {% trans 'Does anyone in your family have a history of the following? (Check all that apply)' %}
+            </h5>
+        </div>
+         <form class="form-inline" role="form" action="{{ request.path }}{% if request.GET.app_process %}{% if old_process %}?next={% url 'patient:appointment_process' %}{% else %}?next={% url 'patient:appointment_process1' %}{% endif %}&app_process=true{% if request.GET.pk %}&pk={{ request.GET.pk }}
+            {% endif %}{% endif %}" method="post">
+
+
+            <div class="col-sm-6">
+                {% csrf_token %}
+                    <table class="table">
+                        <thead>
+                            <tr class="head-color rounded-th">
+                                <th>{% trans 'Conditions' %}</th>
+                                <th>{% trans 'Relationship' %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in form %}
+                                {% if not forloop.counter|divisibleby:2 %}
+                                    <tr>
+                                        <td class="width-td">{{ item.label_tag }}</td>
+                                        <td name="{{ item.name }}">{{ item }}</td>
+                                        <td class="has-error">
+                                            {% for error in item.errors %}
+                                                 <span class="help-block">{{ error }}</span>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+            <div class="col-sm-6">
+                <table class="table">
+                        <thead>
+                            <tr class="head-color rounded-th">
+                                <th>{% trans 'Conditions' %}</th>
+                                <th>{% trans 'Relationship' %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in form %}
+                                {% if forloop.counter|divisibleby:2 %}
+                                    <tr>
+                                        <td class="width-td">{{ item.label_tag }}</td>
+                                        <td name="{{ item.name }}">{{ item }}</td>
+                                        <td class="has-error">
+                                            {% for error in item.errors %}
+                                                 <span class="help-block">{{ error }}</span>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+            <div class="form-group col-sm-6 text-right">
+                <button type="submit" class="btn btn-default ">
+                    {% if request.GET.app_process %}
+                        {% trans 'Next' %}
+                    {% else %}
+                        {% trans 'Save' %}
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

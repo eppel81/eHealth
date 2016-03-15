@@ -1,0 +1,78 @@
+{% load i18n %}
+{% load static %}
+{% if not old_process %}
+    <script src="{% static 'js/check_form_errors.js' %}"></script>
+{% endif %}
+<div id="profile" class="profile-edit tab-pane fade in active col-sm-offset-3 col-sm-5" style="margin-top: 15px;">
+    <h2 class="heading-md text-center">{% trans 'Look preview information and confirm.' %}</h2>
+    <hr style="margin-top: 15px;">
+    <dl class="dl-horizontal">
+        <dt>
+            <strong>{% trans 'Patient:' %}</strong>
+        </dt>
+        <dd>
+            {{ name }}
+        </dd>
+        <hr style="margin-top: 15px;">
+        <dt>
+            <strong>{% trans 'Doctor:' %}</strong>
+        </dt>
+        <dd>
+            {{ appointment.case.doctor.user.first_name }} {{ appointment.case.doctor.user.last_name }}
+        </dd>
+        <hr style="margin-top: 15px;">
+        <dt>
+            <strong>{% trans 'Type:' %}</strong>
+        </dt>
+        <dd>
+            {{ type }}
+        </dd>
+        <hr style="margin-top: 15px;">
+        <dt>
+            <strong>{% trans 'Appointment Date:' %}</strong>
+        </dt>
+        <dd>
+             {{ appointment.appointment_time.start_time }}
+        </dd>
+        <hr style="margin-top: 15px;">
+        <dt>
+            <strong>{% trans 'Problem:' %}</strong>
+        </dt>
+        <dd>
+             {{ appointment.case.problem }}
+        </dd>
+        <hr style="margin-top: 15px;">
+        <dt>
+            <strong>{% trans 'Description:' %}</strong>
+        </dt>
+        <dd>
+             {{ appointment.case.description }}
+        </dd>
+        <hr style="margin-top: 15px;">
+    </dl>
+
+    {% if not taken %}
+    <form class="form" role="form" method="post"
+        {% if old_process %} action="{% url 'patient:confirmation' %}?pk={{ appointment.id }}"
+        {% else %}  action="{% url 'patient:confirm' %}?pk={{ appointment.id }}"
+        {% endif %} >
+            {% csrf_token %}
+
+            <button type="submit"
+                class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block pull-right">
+                {% trans 'Apply' %}
+            </button>
+        </form>
+    {% endif %}
+
+    <div class="col-sm-12 alert alert-danger fade">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4>{% trans 'This time is already taken' %}</h4>
+            <p>
+                {% trans 'You must change time of appointment at' %}
+                <a href="{% url 'patient:consultation_edit' pk=appointment.pk %}">
+                    {% trans 'Appointment Edit' %}
+                </a>
+            </p>
+       </div>
+</div>

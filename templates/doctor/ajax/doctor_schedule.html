@@ -1,0 +1,94 @@
+{% load i18n %}
+{% load static %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr >
+            <th width="15%">
+                {% trans 'Days' %}
+            </th>
+            <th width="10%">
+                {% trans 'Turn' %}
+            </th>
+            <th width="10%">
+                {% trans 'From' %}
+            </th>
+            <th width="10%">
+                {% trans 'To' %}
+            </th>
+            <th width="10%">
+                {% trans 'Turn' %}
+            </th>
+            <th width="10%">
+                {% trans 'From' %}
+            </th>
+            <th width="10%">
+                {% trans 'To' %}
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            {{ form.management_form }}
+            {% for form_elem in form %}
+                <tr>
+                    <td>
+                        {% with input=form_elem.weekday non_field_errors=form_elem.non_field_errors %}
+                            {% include 'partials/bootstrap-input-checkbox.html' %}
+                        {% endwith %}
+                    </td>
+                    <td>
+                        {% with input=form_elem.day_shift %}
+                            {% include 'partials/bootstrap-input-checkbox.html' %}
+                        {% endwith %}
+                    </td>
+                    <td>
+                        {% with input=form_elem.day_from ignore_label=True %}
+                            {% include 'partials/bootstrap-input.html' %}
+                        {% endwith %}
+                    </td>
+                    <td>
+                        {% with input=form_elem.day_to ignore_label=True %}
+                            {% include 'partials/bootstrap-input.html' %}
+                        {% endwith %}
+                    </td>
+                    <td>
+                        {% with input=form_elem.night_shift %}
+                            {% include 'partials/bootstrap-input-checkbox.html' %}
+                        {% endwith %}
+                    </td>
+                    <td>
+                        {% with input=form_elem.night_from ignore_label=True %}
+                            {% include 'partials/bootstrap-input.html' %}
+                        {% endwith %}
+                    </td>
+                    <td>
+                        {% with input=form_elem.night_to ignore_label=True %}
+                            {% include 'partials/bootstrap-input.html' %}
+                        {% endwith %}
+                        {% if not forloop.last %}
+                            <div class="hidden">
+                                {{ form_elem.duration }}
+                            </div>
+                        {% endif %}
+                    </td>
+                    {{ form_elem.date }} {{ form_elem.doctor }} {{ form_elem.id }}
+                </tr>
+                {% endfor %}
+            <tr>
+                <td colspan="2">
+                    {% with input=form.6.duration %}
+                        <label>
+                            {{ input.label }}:
+                            {{ input }}
+                        </label>
+                    {% endwith %}
+                </td>
+                <td colspan="6" class="text-right">
+                    <button type="submit" class="btn btn-u">{% trans 'Save' %}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,45 +1,35 @@
 {% extends 'patient/account/base_account.html' %}
+{% load ehealth_custom_tags %}
 {% load i18n %}
 {% load static %}
+{% load tz %}
 {% block account_content %}
-    <form class="form-horizontal" role="form" action="{% url 'patient:billing' %}{% if request.GET.app_process %}?app_process=true&next={% url 'patient:appointment_process' %}{% endif %}" method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            {% with errors=field.errors %}
-                <div class="form-group {% if errors %}has-error{% endif %}">
-                    <div class="col-sm-offset-1 col-sm-2">
-                        {{ field.label_tag }}
-                    </div>
-                    <div class="col-sm-9">
-                        {{ field }}
-                        {% if errors %}
-                            {% for error in errors %}
-                                <span class="help-block">{{ error }}</span>
-                            {% endfor %}
-                    {% endif %}
-                    </div>
-                </div>
-            {% endwith %}
-        {% endfor %}
+<div class="col-sm-12 col-sm-offset-1">
 
-        {% with errors=form.non_field_errors %}
-            {% if errors %}
-                <div class="has-error">
-                {% for error in errors %}
-                    <p class="help-block">{{ error }}</p>
+        <table class="table">
+            <thead>
+                <tr class="head-color rounded-th">
+                    <th class="text-center">{% trans 'Transaction Date' %}</th>
+                    <th class="text-center">{% trans 'Status' %}</th>
+                    <th class="text-center">{% trans 'Amount, €' %}</th>
+                    <th class="text-center">{% trans 'Payment Type' %}</th>
+                    <th class="text-center">{% trans 'Case' %}</th>
+                    <th class="text-center">{% trans 'Appointment Date' %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                    <tr>
+                        <td class="text-center">{{ transaction.created_at|localtime }}</td>
+                        <td class="text-center">{{ transaction.status|convert_title }} {% if transaction.refunded_transaction_id %}({% trans 'Refunded' %}){% endif %} </td>
+                        <td class="text-center">{{ transaction.amount }} </td>
+                        <td class="text-center">{{ transaction.custom_fields.type }}  </td>
+                        <td>{{ transaction.custom_fields.case }} </td>
+                        <td class="text-center">{{ transaction.custom_fields.appointment_date|str_to_date }} </td>
+                    </tr>
                 {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-        <div class="form-group pull-right">
-            <button type="submit" class="btn-u btn-u-red rounded-2x"
-                    style="margin-right:15px">
-                {% if request.GET.app_process %}
-                    Next
-                {% else %}
-                    Update
-                {% endif %}
-            </button>
-        </div>
-    </form>
+            </tbody>
+        </table>
+</div>
+
 {% endblock %}

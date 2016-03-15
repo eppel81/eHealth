@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.utils.translation import ugettext_lazy as _
+import braintree
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -45,6 +47,12 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'bootstrap3_datetime',
+    'postman',
+    'django_common',
+    'django_braintree',
+    'opentok'
+
+
 )
 
 SITE_ID = 1
@@ -52,7 +60,9 @@ SITE_ID = 1
 CUSTOM_APPS = (
     'doctor',
     'patient',
-    'utils'
+    'utils',
+
+
 )
 
 
@@ -85,6 +95,7 @@ TEMPLATES = [
                 'django.core.context_processors.media',
                 'django.core.context_processors.static',
                 'django.core.context_processors.i18n',
+                'postman.context_processors.inbox'
             ],
         },
     },
@@ -170,6 +181,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_SESSION_REMEMBER = None
 
 ACCOUNT_FORMS = {'login': 'patient.forms.AuthForm', 'signup': 'patient.forms.RegistrationForm'}
 
@@ -185,6 +197,37 @@ EMAIL_USE_TLS = True
 
 DEFAULT_DURATION = 900
 
+#postman settings
+
+
+def get_message_username(obj):
+    person = getattr(obj, 'doctor', None)
+    if not person:
+        person = getattr(obj, 'patient', None)
+    if not person:
+        person = getattr(obj, 'supportuser', None)
+    return str(person)
+
+POSTMAN_DISALLOW_ANONYMOUS = True
+POSTMAN_DISALLOW_MULTIRECIPIENTS = True
+POSTMAN_AUTO_MODERATE_AS = True
+POSTMAN_SHOW_USER_AS = get_message_username
+
+
+#braintree settings
+
+BRAINTREE_MERCHANT = 'n4q63ghsky4ys9y9'
+BRAINTREE_PUBLIC_KEY = '9v6kqvdbbkvrf2cj'
+BRAINTREE_PRIVATE_KEY = '914f85e5a529500c273f7d5ae11603bc'
+MERCHANT_ID = 'merchant_account_euro'
+
+
+braintree.Configuration.configure(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
 
 # import local settings
 try:

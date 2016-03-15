@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load static %}
+<link rel="stylesheet" type='text/css'
+          href="{% static 'css/bootstrap-datepicker3.min.css' %}">
+<script type="text/javascript"
+        src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'js/datepicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
+{% if not old_process %}
+    <script src="{% static 'js/check_form_errors.js' %}"></script>
+{% endif %}
+<div style="margin-top: 25px;" class="col-sm-11">
+  <form class="billing" role="form" action="{{ request.path }}{% if request.GET.app_process %}{% if old_process %}?next={% url 'patient:appointment_process' %}{% else %}?next={% url 'patient:appointment_process1' %}{% endif %}&app_process=true{% if request.GET.pk %}&pk={{ request.GET.pk }}
+            {% endif %}{% endif %}" method="post">
+
+        {% csrf_token %}
+        {% for field in form %}
+            {% with errors=field.errors %}
+                <div class="form-group {% if errors %}has-error{% endif %}">
+                    <div class="col-sm-offset-1 col-sm-2 form-group">
+                        {{ field.label_tag }}
+                    </div>
+                    <div class="col-sm-7" name="{{ field.name }}">
+                        {{ field }}
+                        {% if errors %}
+                            {% for error in errors %}
+                                <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-offset-3 col-sm-7 has-error"></div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+
+        {% with errors=form.non_field_errors %}
+            {% if errors %}
+                <div class="has-error">
+                    {% for error in errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="form-group col-sm-offset-1  col-sm-10">
+            <button type="submit" class="btn btn-default pull-right">
+                {% if request.GET.app_process %}
+                    {% trans 'Next' %}
+                {% else %}
+                    {% trans 'Save' %}
+                {% endif %}
+            </button>
+        </div>
+    </form>
+</div>
+

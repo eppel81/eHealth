@@ -1,0 +1,23 @@
+.no-border{
+    border: none;
+}
+
+
+.head{
+    border-bottom: 3px solid #72C02C;
+    padding: 15px 15px 30px;
+}
+
+.section-title{
+    border-bottom: 1px solid #CCCCCC;
+    margin: 25px 0 10px 0;
+}
+
+.wrap-div{
+    word-wrap: break-word;
+}
+
+.modal-data{
+    max-height: 75vh;
+    overflow: auto;
+}

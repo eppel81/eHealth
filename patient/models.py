@@ -1,15 +1,22 @@
+import os
 from django.db import models
 from django.contrib.auth.models import User
-import os
+from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-from utils.models import Country, AppointmentReason, ActivityType, TimeZone, City
-from doctor.models import Doctor, DoctorAppointmentTime
 from allauth.account.signals import user_signed_up
 from django.dispatch import receiver
 
+from utils.models import Country, ActivityType, TimeZone, City
+from doctor.models import Doctor, DoctorAppointmentTime
+
 
 def get_file_patch(instance, filename):
-    return 'files/%s/%s' % (instance.patient.user.email, filename)
+    if isinstance(instance, TestFileRecord):
+        return 'files/%s/%s' % (
+            instance.case.first().patient.user.email, filename)
+    if isinstance(instance, AdditionalFile):
+        return 'files/%s/%s' % (
+            instance.test_file_record.case.first().patient.user.email, filename)
 
 
 class Patient(models.Model):
@@ -24,14 +31,14 @@ class Patient(models.Model):
     lifestyle_complete = models.BooleanField(blank=True, default=False)
     family_complete = models.BooleanField(blank=True, default=False)
     last_update = models.DateTimeField(auto_now=True)
-    billing_complete = models.BooleanField(blank=True, default=False)
 
     @property
     def profile_complete(self):
-        a = [self.health_complete, self.lifestyle_complete, self.family_complete]
+        a = [self.health_complete, self.lifestyle_complete,
+             self.family_complete]
         if sum(a) == len(a):
             return 100
-        return int(100*float(sum(a))/len(a))
+        return int(100 * float(sum(a)) / len(a))
 
     def __str__(self):
         if self.user.first_name:
@@ -39,28 +46,8 @@ class Patient(models.Model):
         else:
             return self.user.username
 
-
-class PatientBilling(models.Model):
-    VISA_CARD = 'visa'
-    MASTERCARD_CARD = 'mastercard'
-    AMERICAN_CARD = 'americanexpress'
-    CARD_CHOICES = (
-        (VISA_CARD, 'Visa'),
-        (MASTERCARD_CARD, 'MasterCard'),
-        (AMERICAN_CARD, 'American Express')
-    )
-    patient = models.OneToOneField(Patient)
-    name = models.CharField(max_length=100)
-    address1 = models.CharField(max_length=100)
-    address2 = models.CharField(max_length=100, blank=True, default=None)
-    city = models.ForeignKey(City)
-    country = models.ForeignKey(Country)
-    zip = models.CharField(max_length=20)
-    card_number = models.CharField(max_length=20)
-    cvv_number = models.CharField(max_length=4)
-    card_type = models.CharField(max_length=20, choices=CARD_CHOICES, default=VISA_CARD)
-    hsa_card = models.BooleanField(default=False)
-    expiration_date = models.DateField(default=timezone.now)
+    def __unicode__(self):
+        return self.__str__()
 
 
 class PatientHistory(models.Model):
@@ -70,29 +57,20 @@ class PatientHistory(models.Model):
     provider = models.ForeignKey(Doctor, blank=True, null=True, default=None)
 
     class Meta:
-        ordering = ('-record_date', )
-
-
-class PatientFile(models.Model):
-    PATIENT_FILE = 'patientrecord'
-    TEST_FILE = 'testresult'
-    FILE_CHOICES = (
-        (PATIENT_FILE, 'Patient Record'),
-        (TEST_FILE, 'Test Result'),
-    )
-    patient = models.ForeignKey(Patient)
-    file = models.FileField(upload_to=get_file_patch)
-    type = models.CharField(max_length=20, choices=FILE_CHOICES, default=PATIENT_FILE)
+        ordering = ('-record_date',)
 
 
 class PatientHealthHistory(models.Model):
     patient = models.OneToOneField(Patient)
     health_conditions = models.BooleanField()
-    health_conditions_info = models.CharField(max_length=255, blank=True, null=True, default=None)
+    health_conditions_info = models.CharField(max_length=255, blank=True,
+                                              null=True, default=None)
     medications = models.BooleanField()
-    medications_info = models.CharField(max_length=255, blank=True, null=True, default=None)
+    medications_info = models.CharField(max_length=255, blank=True, null=True,
+                                        default=None)
     surgeries = models.BooleanField()
-    surgeries_info = models.CharField(max_length=255, blank=True, null=True, default=None)
+    surgeries_info = models.CharField(max_length=255, blank=True, null=True,
+                                      default=None)
 
 
 class PatientLifestyleQuestion(models.Model):
@@ -100,6 +78,9 @@ class PatientLifestyleQuestion(models.Model):
 
     def __str__(self):
         return self.question_string
+
+    def __unicode__(self):
+        return self.__str__()
 
 
 class PatientLifestyle(models.Model):
@@ -114,6 +95,9 @@ class PatientFamilyRelationship(models.Model):
     def __str__(self):
         return self.name
 
+    def __unicode__(self):
+        return self.__str__()
+
 
 class PatientFamilyCondition(models.Model):
     name = models.CharField(max_length=50)
@@ -121,6 +105,9 @@ class PatientFamilyCondition(models.Model):
 
     def __str__(self):
         return self.name
+
+    def __unicode__(self):
+        return self.__str__()
 
 
 class PatientFamily(models.Model):
@@ -130,38 +117,79 @@ class PatientFamily(models.Model):
 
 
 class PatientCase(models.Model):
+    CLOSED = 0
+    OPEN = 1
+    STATUS_CHOICES = (
+        (CLOSED, _('Closed')),
+        (OPEN, _('Open'))
+    )
     doctor = models.ForeignKey(Doctor)
     patient = models.ForeignKey(Patient, null=True, blank=True, default=None)
-    reason = models.ForeignKey(AppointmentReason, null=True, blank=True, default=None)
-    closed = models.BooleanField(default=False)
-    created_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now=True)
-
-
-class Test(models.Model):
-    case = models.ForeignKey(PatientCase)
-    test = models.TextField()
-    record_date = models.DateField(auto_now_add=True)
+    problem = models.CharField(max_length=255)
+    is_second_opinion = models.BooleanField(default=False)
+    status = models.SmallIntegerField(choices=STATUS_CHOICES, default=OPEN)
+    description = models.TextField()
+    test_file_records = models.ManyToManyField("TestFileRecord")
+    opentok_session = models.CharField(max_length=400, null=True, blank=True)
 
     def __str__(self):
-        return self.test
+        return self.problem
+
+    def __unicode__(self):
+        return self.__str__()
 
 
-class Note(models.Model):
-    case = models.ForeignKey(PatientCase)
-    note = models.TextField()
-    record_date = models.DateField(auto_now_add=True)
+class TestFileRecord(models.Model):
+    TEST = 0
+    RECORD = 1
+    STATUS_CHOICES = (
+        (TEST, 'Test'),
+        (RECORD, 'Record')
+    )
 
-    def __str__(self):
-        return self.note
+    type = models.SmallIntegerField(choices=STATUS_CHOICES, default=TEST)
+    description = models.CharField(max_length=254)
+    request_form = models.FileField(blank=True, upload_to=get_file_patch)
+    result_report_or_record = models.FileField(blank=True,
+                                               upload_to=get_file_patch)
+    case = models.ManyToManyField(PatientCase)
+    conclusions = models.TextField(null=True, blank=True, default=None)
+    requested_by = models.CharField(max_length=50, null=True, blank=True,
+                                    default=None)
+    completed_by = models.CharField(max_length=50, null=True, blank=True,
+                                    default=None)
+
+    def request_formname(self):
+        return os.path.basename(self.request_form.name)
+
+    def result_report_or_recordname(self):
+        return os.path.basename(self.result_report_or_record.name)
+
+
+class AdditionalFile(models.Model):
+    file = models.FileField(blank=True, upload_to=get_file_patch)
+    test_file_record = models.ForeignKey(TestFileRecord)
+
+    def filename(self):
+        return os.path.basename(self.file.name)
+
+
+class AppointmentNote(models.Model):
+    appointment = models.OneToOneField('PatientAppointment')
+    anamnesis = models.TextField(null=True, blank=True, default=None)
+    exploration = models.TextField(null=True, blank=True, default=None)
+    diagnosis = models.TextField(null=True, blank=True, default=None)
+    additional_tests = models.TextField(null=True, blank=True, default=None)
+    treatment = models.TextField(null=True, blank=True, default=None)
+    public_notes = models.TextField(null=True, blank=True, default=None)
 
 
 class PatientAppointment(models.Model):
     PHONE_APPOINTMENT = 'p'
     VIDEO_APPOINTMENT = 'v'
     APPOINTMENT_CHOICES = (
-        (PHONE_APPOINTMENT, 'Phone'),
-        (VIDEO_APPOINTMENT, 'Video')
+        (PHONE_APPOINTMENT, _('Phone')),
+        (VIDEO_APPOINTMENT, _('Video'))
     )
     STATUS_EDIT = 0
     STATUS_NEW = 1
@@ -173,27 +201,33 @@ class PatientAppointment(models.Model):
     STATUS_PATIENT_RESCHEDULE = 7
     STATUS_COMPLETE = 8
     STATUS_CHOICES = (
-        (STATUS_EDIT, 'Uncomplited'),
-        (STATUS_NEW, 'New'),
-        (STATUS_DOCTOR_APPROVE, 'Doctor Confirm'),
-        (STATUS_DOCTOR_CANCEL, 'Doctor Decline'),
-        (STATUS_DOCTOR_RESCHEDULE, 'Doctor Reschedule'),
-        (STATUS_PATIENT_APPROVE, 'Approved'),
-        (STATUS_PATIENT_CANCEL, 'Canceled'),
-        (STATUS_PATIENT_RESCHEDULE, 'Patient Edit'),
-        (STATUS_COMPLETE, 'Completed')
+        (STATUS_EDIT, _('Incomplete')),
+        (STATUS_NEW, _('New')),
+        (STATUS_DOCTOR_APPROVE, _('Doctor Confirm')),
+        (STATUS_DOCTOR_CANCEL, _('Doctor Decline')),
+        (STATUS_DOCTOR_RESCHEDULE, _('Doctor Reschedule')),
+        (STATUS_PATIENT_APPROVE, _('Approved')),
+        (STATUS_PATIENT_CANCEL, _('Canceled')),
+        (STATUS_PATIENT_RESCHEDULE, _('Patient Reschedule')),
+        (STATUS_COMPLETE, _('Completed'))
     )
-    patient = models.ForeignKey(Patient)
-    doctor = models.ForeignKey(Doctor)
-    case = models.ForeignKey(PatientCase, null=True, blank=True, default=None)
+
+    case = models.ForeignKey(PatientCase)
     appointment_time = models.ForeignKey(DoctorAppointmentTime)
-    reason = models.ForeignKey(AppointmentReason)
-    comments = models.TextField()
-    appointment_type = models.CharField(max_length=1, choices=APPOINTMENT_CHOICES, default=PHONE_APPOINTMENT)
-    appointment_status = models.SmallIntegerField(choices=STATUS_CHOICES, default=STATUS_EDIT)
+    appointment_type = models.CharField(max_length=1,
+                                        choices=APPOINTMENT_CHOICES,
+                                        default=PHONE_APPOINTMENT)
+    appointment_status = models.SmallIntegerField(choices=STATUS_CHOICES,
+                                                  default=STATUS_EDIT)
+    deposit_paid = models.BooleanField(default=False)
+    consult_paid = models.BooleanField(default=False)
+    deposit_transaction = models.CharField(max_length=255, blank=True, null=True)
+    consult_transaction = models.CharField(max_length=255, blank=True, null=True)
+    opentok_token = models.CharField(max_length=2000, null=True, blank=True)
+
 
     class Meta:
-        ordering = ('appointment_time', )
+        ordering = ('appointment_time',)
 
     @property
     def status(self):
@@ -204,24 +238,23 @@ class PatientAppointment(models.Model):
 def patient_create(sender, **kwargs):
     patient = Patient(user=kwargs.get('user'))
     patient.save()
-    patient_history = PatientHistory(patient=patient, type=ActivityType.objects.get(name='signup'))
+    patient_history = PatientHistory(patient=patient,
+                                     type=ActivityType.objects.get(
+                                         name='signup'))
     patient_history.save()
 
 
-@receiver(models.signals.post_delete, sender=Patient)
-@receiver(models.signals.post_delete, sender=PatientFile)
+@receiver(models.signals.post_delete, sender=TestFileRecord)
+@receiver(models.signals.post_delete, sender=AdditionalFile)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
-    if instance.file:
+    if isinstance(instance, TestFileRecord):
+        if instance.request_form:
+            if os.path.isfile(instance.request_form.path):
+                os.remove(instance.request_form.path)
+        if instance.result_report_or_record:
+            if os.path.isfile(instance.result_report_or_record.path):
+                os.remove(instance.result_report_or_record.path)
+    elif isinstance(instance, AdditionalFile):
         if os.path.isfile(instance.file.path):
             os.remove(instance.file.path)
 
-
-@receiver(models.signals.post_save, sender=PatientAppointment)
-def auto_create_case_for_appointment(sender, instance, **kwargs):
-    if instance.appointment_status == sender.STATUS_NEW:
-        if PatientCase.objects.filter(doctor=instance.doctor, patient=instance.patient, closed=False).count() == 0:
-            case = PatientCase(doctor=instance.doctor, patient=instance.patient,
-                               created_date=timezone.now(), updated_date=timezone.now(), reason=instance.reason)
-            case.save()
-            instance.case = case
-            instance.save()

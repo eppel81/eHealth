@@ -1,19 +1,26 @@
 {% extends 'doctor/account/base_account.html' %}
 {% load i18n %}
 {% load static %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
+{% endblock %}
 {% block account_content %}
-    <form class="form-horizontal" role="form" action="{% url 'doctor:payment' %}" method="post">
+    <form class="form-horizontal payment" role="form" action="{% url 'doctor:payment' %}" method="post">
     {% csrf_token %}
         <div class="col-md-9">
             <div class="profile-body">
                 <div class="profile-info">
                         {% for item in form %}
-                        <div class="form-group">
-                                {{ item.errors }}
+                        <div class="form-group ">
                             <label class="col-sm-2 control-label">{{ item.label }}</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 {% if item.errors %}has-error{% endif %}">
                                 {{item}}
                             </div>
+                             <div class="has-error  col-sm-offset-2 col-sm-6">
+                                {% for error in item.errors %}
+                                     <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                             </div>
                         </div>
                         {% endfor %}
                 </div>
@@ -21,7 +28,7 @@
         </div>
 
         <div class="col-md-12 text-center">
-            <button type="submit" class="btn-u btn-u-lg">Save</button>
+            <button type="submit" class="btn-u btn-u-lg">{% trans 'Save' %}</button>
         </div>
     </form>
 

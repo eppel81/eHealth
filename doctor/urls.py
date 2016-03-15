@@ -1,10 +1,11 @@
 from django.conf.urls import url
 from doctor import views
+from postman import OPTIONS
 
 urlpatterns = [
     url(r'^dashboard/$', views.DashboardView.as_view(), name='dashboard'),
     url(r'^dashboard/support/$', views.HelpSupport.as_view(), name='help'),
-    url(r'^dashboard/messagecenter/$', views.MessageCenter.as_view(), name='messages'),
+    # url(r'^dashboard/messagecenter/$', views.MessageCenter.as_view(), name='messages'),
     url(r'^dashboard/support/$', views.HelpSupport.as_view(), name='help'),
     url(r'^my_account/history/$', views.HistoryView.as_view(), name='history'),
     url(r'^my_account/password/$', views.PasswordView.as_view(), name='password'),
@@ -30,9 +31,33 @@ urlpatterns = [
         views.AppointmentsView.as_view(), name='appointment_open'),
     url(r'^schedule/reschedule/(?P<id_appointment>\d+)/$',
         views.AppointmentSchedule.as_view(), name='appointment_reschedule'),
-    url(r'^case/(?P<type>\w+)/$', views.CaseListView.as_view(), name='case'),
-    url(r'^case/open/$', views.CaseListView.as_view(), name='case_open'),
-    url(r'^case/view/(?P<id_case>\d+)/$', views.EditCaseView.as_view(), name='edit_case'),
+    url(r'^cases/(?P<type>\w+)/$', views.CaseListView.as_view(), name='all_cases'),
+    url(r'^case_notes/(?P<pk>\d+)/$', views.CaseNotesView.as_view(), name='case_notes'),
+    url(r'^case_overview/(?P<pk>\d+)/$', views.CaseOverviewView.as_view(), name='case_overview'),
+    url(r'^case_files/(?P<pk>\d+)/$', views.CaseFilesView.as_view(), name='case_files'),
+    url(r'^case_messages/(?P<pk>\d+)/$', views.CaseMessagesView.as_view(), name='case_messages'),
+    url(r'^files/(?P<pk>\d+)$', views.CaseFilesView.as_view(), name='all_files'),
+    url(r'^file/(?P<pk>\d+)/(?P<id>\d+)/$', views.EditFileView.as_view(), name='edit_file'),
+    url(r'^case_patient_history/(?P<pk>\d+)/$', views.CasePatientHistoryView.as_view(), name='patient_history'),
+    # url(r'^case/open/$', views.CaseListView.as_view(), name='case_open'),
+    # url(r'^case/view/(?P<id_case>\d+)/$', views.EditCaseView.as_view(), name='edit_case'),
     # url(r'^case/del/(?P<id_case>\d+)/(?P<id_test>\d+)/$', views.EditCaseView.as_view(), name='del_test'),
-    url(r'^case/create/new/$', views.CaseView.as_view(), name='new_case'),
+    # url(r'^case/create/new/$', views.CaseView.as_view(), name='new_case'),
+    url(r'^appointment/$', views.DoctorAppointmentsJSON.as_view(), name='appointment'),
+    url(r'^note/(?P<pk>\d+)/$', views.EditNoteView.as_view(), name='edit_note'),
+    url(r'^all_notes/(?P<case>\d+)/(?P<patient>\d+)/$', views.AllPatientNotesView.as_view(), name='all_notes'),
+    url(r'^note_details/$', views.NoteDetailsView.as_view(), name='note_details'),
+
+    url(r'^inbox/(?:(?P<option>'+OPTIONS+')/)?$', views.InboxMessagesView.as_view(), name='inbox'),
+    url(r'^sent/(?:(?P<option>'+OPTIONS+')/)?$', views.SentMessagesView.as_view(), name='sent'),
+    url(r'^archives/(?:(?P<option>'+OPTIONS+')/)?$', views.ArchivedMessagesView.as_view(), name='archives'),
+    url(r'^trash/(?:(?P<option>'+OPTIONS+')/)?$', views.DeletedMessagesView.as_view(), name='trash'),
+    url(r'^view/(?P<message_id>[\d]+)/$', views.ShowMessageView.as_view(), name='message_view'),
+    url(r'^view/t/(?P<thread_id>[\d]+)/$', views.ShowConversationView.as_view(), name='view_conversation'),
+    url(r'^write_patient/(?:(?P<recipients>[^/#]+)/)?$', views.WritePatientMessageView.as_view(), name='write_message_patient'),
+    url(r'^write_doctor/(?:(?P<recipients>[^/#]+)/)?$', views.WriteDoctorMessageView.as_view(), name='write_message_doctor'),
+    url(r'^write_support/(?:(?P<recipients>[^/#]+)/)?$', views.WriteSupportMessageView.as_view(), name='write_message_support'),
+    url(r'^send_new/(?P<pk>\d+)/$', views.SendNewMessageView.as_view(), name='send_new'),
+    url(r'^get_patient_cases/$', views.get_all_cases_json, name='get_cases'),
+
 ]

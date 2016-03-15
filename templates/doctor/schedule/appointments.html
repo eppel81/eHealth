@@ -1,82 +1,171 @@
 {% extends 'doctor/schedule/base_schedule.html' %}
+{% load ehealth_custom_tags %}
 {% load i18n %}
+
 {% load static %}
+{% load tz %}
 {% block links %}
-    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/style_my_health.css' %}">
 {% endblock %}
 {% block account_content %}
-    <br>
-    <table class="table" style="margin-top: 15px;">
-        <thead>
-        <tr class="head-color rounded-th">
-            <th width="15%">Date</th>
-            <th width="18%">Patient</th>
-            <th width="20%">Reason</th>
-            <th width="15%">Status</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for appointment in appointments %}
-            <tr>
-                <td>
-                    {{ appointment.appointment_date.appointment_date }} {{ appointment.appointment_time.name }}
-                </td>
-                <td>
-                    {% if appointment.patient.user.first_name %}
-                        {{ appointment.patient.user.first_name }} {{ appointment.patient.user.second_name }}
-                    {% else %}
-                        {{ appointment.patient.user.username }}
-                    {% endif %}
-                </td>
-                <td>
-                    {{ appointment.reason.name }}
-                </td>
-                <td>
-                    {{ appointment.status }}
-                </td>
-                <td>
-                    {% with a=appointment %}
-                        <button type="button" class="btn btn-primary" data-appointment="{{ a.id }}" data-toggle="modal" data-target="#info_modal">
-                          Info
-                        </button>
-                        {% if a.appointment_status == a.STATUS_NEW or a.appointment_status == a.STATUS_PATIENT_RESCHEDULE %}
-                            <a class="btn btn-success" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_APPROVE %}">Accept</a>
-                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>
-                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>
-                        {% elif a.appointment_status == a.STATUS_DOCTOR_APPROVE or a.appointment_status == a.STATUS_PATIENT_APPROVE or a.appointment_status == a.STATUS_DOCTOR_RESCHEDULE %}
-                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>
-                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>
-                        {% endif %}
-                    {% endwith %}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class=" row">
+        <form class="form-inline" role="form"
+              action="{% url 'doctor:appointments' %}"
+              method="get">
+            <div class="form-group col-sm-3">
+                <div class="col-sm-3">
+                    <h5><strong>{% trans 'Patient' %}:</strong></h5>
+                </div>
+                <div class="col-sm-9">
+                    <select class="form-control" name="patient">
+                        <option value="">{% trans 'Choose patient' %}</option>
+                        {% with current_patient=request.GET.patient %}
+                            {% for p in patients %}
+                                <option value="{{ p.id }}"
+                                        {% if p.id|slugify == current_patient %}selected{% endif %}>{{ p }}</option>
+                            {% endfor %}
+                        {% endwith %}
+                    </select>
+                </div>
+            </div>
 
-    <div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-labelledby="InfoModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="InfoModalLabel">Patient info</h4>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
+
+            <div class="form-group col-sm-3">
+                <div class="col-sm-3">
+                    <h5><strong>{% trans 'Status' %}:</strong></h5>
+                </div>
+                <div class="col-sm-9">
+                    <select class="form-control" name="status">
+                        <option value=""
+                                selected>{% trans 'Choose status' %}</option>
+                        {% with current_status=request.GET.status %}
+                            {% for key, value in statuses.items %}
+                                <option value="{{ key }}"
+                                        {% if key|slugify == current_status %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        {% endwith %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="col-sm-offset-10 text-center">
+                    <button type="submit" class="btn-u btn-u-dark">
+                        <span class="glyphicon glyphicon-filter"></span>
+                        {% trans 'Filter' %}
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
+{% if appointments %}
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr class="head-color rounded-th">
+                <th class="text-center" width="15%">{% trans 'Date' %}</th>
+
+                <th class="text-center" width="15%">{% trans 'Patient' %}</th>
+                <th class="text-center" width="20%">{% trans 'Problem' %}</th>
+                <th class="text-center" width="15%">{% trans 'Status' %}</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td class="text-center">
+                        {{ appointment.appointment_time.start_time }}
+                    </td>
+                    <td class="text-center">
+                        {% if appointment.case.patient.user.first_name %}
+                            {{ appointment.case.patient.user.first_name }}
+                            {{ appointment.case.patient.user.last_name }}
+                        {% else %}
+                            {{ appointment.case.patient.user.username }}
+                        {% endif %}
+                    </td>
+                    <td class="text-center">
+                        {{ appointment.case.problem }}
+                    </td>
+                    <td class="text-center">
+                        {{ appointment.status }}
+                    </td>
+                    <td class="text-left">
+                    {% include 'partials/doctor_appointment_action.html' %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if appointments.paginator.num_pages > 1 %}
+        <div class="text-center">
+            <ul class="pagination">
+                {% with current_patient=request.GET.patient current_status=request.GET.status %}
+                    {% if appointments.has_previous %}
+                        <li>
+                            <a href="?page=1{% if current_patient %}&patient={{ current_patient }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}">«</a>
+                        </li>
+                    {% endif %}
+
+                    {% for page in appointments.paginator.page_range %}
+                        <li {% if page == appointments.number %}
+                            class="active" {% endif %}>
+                        <a href="?page={{ page }}{% if current_patient %}&patient={{ current_patient }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}">{{ page }}</a>
+                    {% endfor %}
+                </li>
+
+                    {% if appointments.has_next %}
+                        <li>
+                            <a href="?page={{ appointments.paginator.num_pages }}{% if current_patient %}&patient={{ current_patient }}{% endif %}{% if current_status %}&status={{ current_status }}{% endif %}">»</a>
+                        </li>
+                    {% endif %}
+                {% endwith %}
+            </ul>
+
+        </div>
+    {% endif %}
+    {% else %}
+            <br>
+        <div class="text-center"><h2>{% trans 'No appointments found' %}</h2></div>
+    {% endif %}
+    {# modal is not used #}
+    {#    <div class="modal fade" id="info_modal" tabindex="-1" role="dialog"#}
+    {#         aria-labelledby="InfoModalLabel">#}
+    {#        <div class="modal-dialog" role="document">#}
+    {#            <div class="modal-content">#}
+    {#                <div class="modal-header">#}
+    {#                    <button type="button" class="close" data-dismiss="modal"#}
+    {#                            aria-label="Close"><span#}
+    {#                            aria-hidden="true">&times;</span></button>#}
+    {#                    <h4 class="modal-title"#}
+    {#                        id="InfoModalLabel">{% trans 'Patient info' %}</h4>#}
+    {#                </div>#}
+    {#                <div class="modal-body">#}
+    {#                    <div class="row">#}
+    {##}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="modal-footer">#}
+    {#                    <button type="button" class="btn btn-default"#}
+    {#                            data-dismiss="modal">{% trans 'Close' %}</button>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
 
 
 
 {% endblock %}
 {% block js %}
+    <script type="text/javascript" src="{% static 'js/appointment_room_availability.js' %}"></script>
+
     <script type="text/javascript">
         var info_url = "{% url "doctor:appointments" %}";
     </script>
-    <script type="text/javascript" src="{% static 'js/doctor_appointemts.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'js/doctor_appointments.js' %}"></script>
 {% endblock %}

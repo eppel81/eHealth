@@ -3,18 +3,17 @@
 {% load static %}
 {% block js %}
     <script src="{% static 'js/photo_check.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
 {% endblock %}
 {% block account_content %}
     <div>
-        <div class="photo-error">
 
-        </div>
-        <div class="alert alert-danger fade in">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+        <div class="alert alert-danger fade in hidden photo-error text-center">
+            <button type="button" class="close" id="close_alert_button">x</button>
             <h4>{% trans 'Your photo is too large!' %}</h4>
-            <p>{% trans "The maximum photo's size is 2Mb. Please, choose another photo" %}</p>
+            <p>{% trans "The maximum photo's size is 10Mb. Please, choose another photo" %}</p>
         </div>
-        <form class="form-horizontal" role="form" action="{% url 'patient:my_account' %}" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal account" role="form" action="{% url 'patient:my_account' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row col-sm-offset-1">
 
@@ -84,8 +83,8 @@
                 {% endif %}
             {% endwith %}
             <div class="form-group pull-right">
-                <button id="update" type="submit" class="btn-u btn-u-red rounded-2x button-margin">
-                    Update
+                <button id="update" type="submit" class="btn-u btn-u-red button-margin">
+                    {% trans 'Update' %}
                 </button>
             </div>
         </form>

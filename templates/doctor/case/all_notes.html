@@ -1,0 +1,47 @@
+{% load ehealth_custom_tags %}
+{% load i18n %}
+<table class="table table-bordered" style="margin-top: 15px;">
+    <thead>
+    <tr class="head-color rounded-th">
+        <th width="10%" class="text-center" id="date">{% trans 'Appointment Date ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+        <th width="15%" class="text-center" id="anamnesis">{% trans 'Anamnesis ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+        <th width="15%" class="text-center" id="exploration">{% trans 'Exploration ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+        <th width="15%" class="text-center" id="diagnosis">{% trans 'Diagnosis ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+        <th width="15%" class="text-center" id="additional_tests">{% trans 'Additional Tests ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+        <th width="15%" class="text-center" id="treatment">{% trans 'Treatment ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+        <th width="15%" class="text-center" id="public_notes">{% trans 'Public Notes ' %}<i class="fa fa-fw fa-sort-desc hidea"></i></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for appointment in appointments %}
+        <tr>
+            <td id="appointment_time" class="text-center">
+                {{ appointment.appointment_time.start_time | date:'d/m/yy H:i' }}
+            </td>
+            <td class="text-center">
+            {{ appointment.appointmentnote.anamnesis|default_if_exists:"-" }}
+            </td>
+            <td class="text-center">
+
+                {{ appointment.appointmentnote.exploration|default_if_exists:"-" }}
+
+            </td>
+            <td class="text-center">
+                {{ appointment.appointmentnote.diagnosis|default_if_exists:"-" }}
+            </td>
+            <td class="text-center">
+                {{ appointment.appointmentnote.additional_tests|default_if_exists:"-" }}
+            </td>
+            <td class="text-center">
+                {{ appointment.appointmentnote.treatment|default_if_exists:"-" }}
+            </td>
+            <td class="text-center">
+                {{ appointment.appointmentnote.public_notes|default_if_exists:"-" }}
+            </td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>

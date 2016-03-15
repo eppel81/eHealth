@@ -1,0 +1,22 @@
+{% extends 'postman/base_message_center.html' %}
+  {% block tab_content %}
+
+<div class="case-menu col-sm-3">
+
+        <ul class="nav nav-pills nav-stacked">
+            {% for tab in write_message_tabs %}
+                <li {% if write_message_active_tab == tab %} class="active" {% endif %}>
+
+                    <a href="{{ tab.href }}">
+                        <h3 style="word-break: break-all;">{{ tab.title }}</h3>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-9 case-content">
+        {% block write_tab_content %}
+        {% endblock %}
+    </div>
+
+        {% endblock %}

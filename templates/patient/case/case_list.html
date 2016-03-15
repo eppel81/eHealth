@@ -1,0 +1,123 @@
+{% extends 'patient/case/base_case.html' %}
+{% load ehealth_custom_tags %}
+{% load i18n %}
+{% load static %}
+{% block case_content %}
+
+    <div class=" row">
+        <form class="form-inline" role="form"
+              action="{% url 'patient:all_cases' type %}"
+              method="get">
+            <div class="form-group col-sm-3">
+                <div class="col-sm-3">
+                    <h5><strong>{% trans 'Doctor' %}:</strong></h5>
+                </div>
+                <div class="col-sm-9">
+                    <select class="form-control" name="doctor">
+                        <option value="">{% trans 'Choose doctor' %}</option>
+                        {% with current_doctor=request.GET.doctor %}
+                            {% for doctor in doctors %}
+                                <option value="{{ doctor.id }}"
+                                        {% if doctor.id|slugify == current_doctor %}selected{% endif %}>{{ doctor }}</option>
+                            {% endfor %}
+                        {% endwith %}
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-3">
+                <div class="col-sm-5">
+                    <h5><strong>{% trans 'Search by' %}:</strong></h5>
+                </div>
+                <div class="col-sm-7">
+                    {% with search_query=request.GET.search %}
+                        <input class="form-control" name="search"
+                               placeholder="Enter query"
+                               {% if search_query %}value="{{ search_query }}"{% endif %}>{% endwith %}
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="col-sm-offset-10 text-center">
+                    <button type="submit" class="btn-u btn-u-dark">
+                        <span class="glyphicon glyphicon-filter"></span>
+                        {% trans 'Filter' %}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% if object_list %}
+       <div class="table-container">
+            <table class="table" style="margin-top: 15px;">
+                <thead>
+                <tr class="head-color rounded-th">
+                    <th width="25%"
+                        class="text-center">{% trans 'Doctor' %}</th>
+                    <th width="25%"
+                        class="text-center">{% trans 'Problem' %}</th>
+                    <th width="15%"
+                        class="text-center">{% trans 'Description' %}</th>
+                    <th class="text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for case in object_list %}
+                    <tr>
+                        <td class="text-center">
+                            {% if case.doctor.user.first_name %}
+                                {{ case.doctor.user.first_name }}
+                                {{ case.doctor.user.last_name }}
+                            {% else %}
+                                {{ case.doctor.user.username }}
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            {{ case.problem }}
+                        </td>
+
+                <td class="text-center">
+                    {{ case.description }}
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-success"
+                       href="{% url 'patient:case_overview' pk=case.id %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.case %}&case=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">{% trans 'View' %}</a>
+                    {#                    {% with a=appointment %}#}
+                    {#                        <button type="button" class="btn btn-primary" data-appointment="{{ a.id }}" data-toggle="modal" data-target="#info_modal">#}
+                    {#                          Info#}
+                    {#                        </button>#}
+                    {#                        {% if a.appointment_status == a.STATUS_NEW or a.appointment_status == a.STATUS_PATIENT_RESCHEDULE %}#}
+                    {#                            <a class="btn btn-success" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_APPROVE %}">Accept</a>#}
+                    {#                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>#}
+                    {#                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>#}
+                    {#                        {% elif a.appointment_status == a.STATUS_DOCTOR_APPROVE or a.appointment_status == a.STATUS_PATIENT_APPROVE or a.appointment_status == a.STATUS_DOCTOR_RESCHEDULE %}#}
+                    {#                            <a class="btn btn-warning" href="{% url 'doctor:appointment_reschedule' a.id  %}">Reschedule</a>#}
+                    {#                            <a class="btn btn-danger" href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">Cancel</a>#}
+                    {#                        {% endif %}#}
+                    {#                    {% endwith %}#}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        </div>
+    {% else %}
+        <br>
+        <div class="text-center"><h2>{% trans 'No cases found' %}</h2></div>
+    {% endif %}
+
+    {% get_url_attrs doctor=request.GET.doctor search=request.GET.search as additional_attributes %}
+    {% include 'partials/pagination.html' with additional_attributes=additional_attributes  %}
+
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+    </script>
+    {#    <script type="text/javascript" src="{% static 'js/reschedule_appointemt.js' %}"></script>#}
+{% endblock %}
+
+
+

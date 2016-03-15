@@ -1,17 +1,27 @@
 {% extends 'patient/base_dashboard.html' %}
+{% load i18n postman_tags %}
+{% load staticfiles %}
+{% load pagination_tags %}
 {% load i18n %}
 {% load static %}
 {% block links %}
     <link href="{% static 'css/select2.css' %}" rel="stylesheet"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
-    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap-datepicker3.min.css' %}">
+    <script type="text/javascript"
+            src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/bootstrap-datepicker3.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/current_doctor_style.css' %}"/>
+
 
 
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/select.js' %}"></script>
+    <script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/appointment_room_availability.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/enter_appointment_room.js' %}"></script>
+
 {% endblock %}
 {% block messages %}
     <div class="row">
@@ -38,10 +48,21 @@
                             {% endif %}
                         {% endwith %}
                     {% else %}
-                        <img src="{% static 'img/user_man.jpg' %}">
+                        {% if user.doctor.photo %}
+                            <img src="{{ user.doctor.photo.url }}"
+                                 class="rounded-x full-height"/>
+                        {% else %}
+                            {% if user.doctor.gender %}
+                                <img class="rounded-x full-height"
+                                     src="{% static 'img/doctor_man.jpg' %}">
+                            {% else %}
+                                <img class="rounded-x full-height"
+                                     src="{% static 'img/doctor_woman.png' %}">
+                            {% endif %}
+                        {% endif %}
                     {% endif %}
                     <div class="inner-faq-b">
-                        <p>Welcome</p>
+                        <p>{% trans 'Welcome' %}</p>
                         <a href="{% url 'patient:my_account' %}">
                             <h3>
                                 {% if user.first_name %}
@@ -56,6 +77,8 @@
 
             </div>
 
+            {% include 'patient/dashboard/current_appointments.html' %}
+
             <div class="talk-to-doctor">
 
                 <div class="easy-block-v3 service-or equal-height-column">
@@ -67,20 +90,24 @@
                                 <h3>{% trans 'Talk to a doctor' %}</h3>
                             </a>
 
-                            <p>Speak to the next available Provider.</p>
+                            <p>{% trans 'Speak to the next available Provider' %}.</p>
                         </div>
 
                     </div>
                     <div class="search col-md-12 col-sm-12">
-                        <form class="form-inline" role="form" action="{% url 'patient:talk_to_a_doctor' %}"
+                        <form class="form-inline" role="form"
+                              action="{% url 'patient:talk_to_a_doctor' %}"
                               method="get">
-                            <div class="form-group col-sm-3">
+                            <div class="specialty form-group col-sm-3"
+                                 style="margin-right: 0px;">
                                 <div>
-                                    <label>Specialty:</label>
+                                    <label>{% trans 'Specialty' %}:</label>
                                 </div>
                                 <div>
-                                    <select class="form-control" name="doctor_specialty">
-                                        <option value="" selected>Choose specialty</option>
+                                    <select class="form-control"
+                                            name="doctor_specialty">
+                                        <option value=""
+                                                selected>{% trans 'Choose specialty' %}</option>
                                         {% for specialty in specialties %}
                                             <option value="{{ specialty.id }}">{{ specialty.name }}</option>
                                         {% endfor %}
@@ -88,42 +115,80 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-sm-3">
+                            <div class="date-range form-group col-sm-4"
+                                 style="margin-right: 0px;">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>{% trans 'Date' %}:</label>
                                 </div>
                                 <div>
                                     <div class="input-group input-daterange">
 
-                                        <input type="text" class="form-control" value="" name="start_date">
+                                        <input type="text" class="form-control"
+                                               value="" name="start_date">
                                         <span class="input-group-addon">to</span>
-                                        <input type="text" class="form-control" value="" name="end_date">
+                                        <input type="text" class="form-control"
+                                               value="" name="end_date">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-3">
+                            <div class="doctor-block form-group col-sm-3"
+                                 style="margin-right: 0px;">
                                 <div>
-                                    <label>Doctors:</label>
+                                    <label>{% trans 'Doctors' %}:</label>
                                 </div>
                                 <div>
                                     <select class="form-control" name="doctor"
                                             data-url="{% url 'patient:all_doctors' %}">
-                                        <option value="" selected>Choose doctor</option>
+                                        <option value=""
+                                                selected>{% trans 'Choose doctor' %}</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="form-group button col-sm-1">
+                            <div class="search-but form-group button col-sm-2"
+                                 style="margin-right: 0px;">
                                 <div>
-                                    <label style="visibility: hidden;">Search</label>
+                                    <label style="visibility: hidden;">{% trans 'Search' %}</label>
                                 </div>
                                 <div>
-                                    <button type="submit" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">
+                                    <button type="submit"
+                                            class="small-search btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">
                                         <span class="glyphicon glyphicon-search"></span>
-                                        Search
+                                        {% trans 'Search' %}
                                     </button>
                                 </div>
                             </div>
+                            <div class="margin-bottom-20"></div>
+                            <div class="rate-block form-group col-sm-12"
+                                 style="margin-right: 0px;">
+
+
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12">{% trans 'Consult rate' %}: </label>
+
+                                    <div class="input-group">
+                                        <input class="form-control "
+                                               id="slider-rate-value1"
+                                               name="slider_rate_value1"
+                                               type="number" max="300" min="0"
+                                               value="0"/>
+                                        <span class="input-group-btn"
+                                              style="width:0px;"></span>
+                                        <input class="form-control " id="slider-rate-value2" name="slider_rate_value2" type="number" max="300" min="0" value="300"/>
+                                        </div>
+                                </div>
+
+                                <div id="sky-form" class="sky-form col-sm-12">
+
+
+                                    <section>
+                                        <div id="slider_rate" name="slider-div"></div>
+                                    </section>
+
+                                </div>
+                            </div>
+
+
                         </form>
                     </div>
                 </div>
@@ -137,12 +202,11 @@
                         <img src="{% static 'img/message.png' %}"/>
 
                         <div class="inner-faq-b">
-                            <a href="{% url 'patient:messages' %}">
+                            <a href="{% url 'patient:inbox' %}">
                                 <h3>{% trans 'Message Center' %}</h3>
                             </a>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel
-                                tincidunt consectetur.</p>
+                            <h5>{% trans "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur." %}</h5>
                         </div>
                     </div>
 
@@ -158,8 +222,7 @@
                                 <h3>{% trans 'My health' %}</h3>
                             </a>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel
-                                tincidunt consectetur.</p>
+                            <h5>{% trans 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.' %}</h5>
                         </div>
                     </div>
 
@@ -177,8 +240,7 @@
                                 <h3>{% trans 'Help & Support' %}</h3>
                             </a>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel
-                                tincidunt consectetur.</p>
+                            <h5>{% trans 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.' %}</h5>
                         </div>
                     </div>
 
@@ -194,29 +256,58 @@
                                 <h3>{% trans 'My Account' %}</h3>
                             </a>
 
-                            <p>Manage your account information, including payment, sign-in and more.</p>
+                            <h5>{% trans 'Manage your account information, including payment, sign-in and more.' %}</h5>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row equal-height-columns margin-bottom-40">
+                <div class="col-sm-6">
+
+                    <div class="easy-block-v3 service-or equal-height-column">
+                        <div class="service-bg"></div>
+                        <img src="{% static 'img/consultation.png' %}"/>
+
+                        <div class="inner-faq-b">
+                            <a href="{% url 'patient:consultation' %}">
+                                <h3>{% trans 'Consultation History' %}</h3>
+                            </a>
+
+                            <h5>{% trans 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.' %}</h5>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
     <!-- End Profile Content -->
 
     <!--Notification-->
     <div class="panel-heading-v2 overflow-h">
-        <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i>{% trans 'Notifications' %}</h2>
-        <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+        <h2 class="heading-xs pull-left"><i
+                class="fa fa-bell-o"></i>{% trans 'Notifications' %}</h2>
+        <ul class="list-unstyled mCustomScrollbar margin-bottom-20"
+            data-mcs-theme="minimal-dark">
             <li class="notification">
                 <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
 
                 <div class="overflow-h">
-                    <span>{% trans 'You have' %} <strong>0 {% trans 'new message(s)' %}</strong></span>
-                    <a href="{% url 'patient:messages' %}">
-                        <small>Ver todos</small>
-                    </a>
+                    {% if postman_unread_count %}
+                        <span>{% trans 'You have' %} <strong>{{ postman_unread_count }} {% trans ' message(s)' %}</strong></span>
+                        <a href="{% url 'patient:inbox' %}">
+                            {% trans 'Read all' %}
+                        </a>
+                    {% else %}
+                        <span>{% trans "You don't have new message(s)" %}</span>
+                    {% endif %}
                 </div>
             </li>
         </ul>
     </div>
+
+        {% include 'partials/consult_rate_confirmation.html' %}
+
 {% endblock %}

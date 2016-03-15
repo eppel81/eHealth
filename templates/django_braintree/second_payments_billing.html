@@ -1,0 +1,22 @@
+
+{% load i18n %}
+{% load static %}
+
+ <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/after_appointment_payment.js' %}"></script>
+
+
+
+<div class="container text-center">
+    <form method="get" action="{% url 'patient:dashboard' %}">
+    <h3 style="margin-top: 40%" >{% trans 'The appointment is completed. You will be charged automatically. The amount is ' %}€{{ consult_rate }}</h3>
+        <h3>{% trans 'After a payment has been processed you will be redirected to the dashboard' %}</h3>
+</form></div>
+
+
+
+
+

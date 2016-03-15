@@ -1,91 +1,95 @@
 {% load static %}
+{% load i18n %}
 <div class="col-md-12">
     <div class="row">
-        <label class="col-sm-7 control-label">Patient:</label>
-        <div class="col-sm-5 text-center">
-            {{ name }}
+        <label class="col-sm-4 control-label">{% trans 'Patient:' %}</label>
+        <div class="col-sm-8 text-center">
+            {{ name|default_if_none:"-" }}
         </div>
     </div>
     <div class="row">
-        <label class="col-sm-7 control-label">Type:</label>
-        <div class="col-sm-5 text-center">
-            {{ type }}
+        <label class="col-sm-4 control-label">{% trans 'Type:' %}</label>
+        <div class="col-sm-8 text-center">
+            {{ type|default_if_none:"-" }}
         </div>
     </div>
     {% if weight %}
         <div class="row">
-            <label class="col-sm-12 control-label text-center">Lifestyle</label>
+            <label class="col-sm-12 control-label text-center">{% trans 'Lifestyle' %}</label>
+            <hr/>
         </div>
         <div class="row">
-            <label class="col-sm-7 control-label">Weight:</label>
-            <div class="col-sm-5 text-center">
-                {{ weight }}
+            <label class="col-sm-4 control-label">{% trans 'Weight:' %}</label>
+            <div class="col-sm-8 text-center">
+                {{ weight|default_if_none:"-" }}
             </div>
         </div>
         <div class="row">
-            <label class="col-sm-7 control-label">Height:</label>
-            <div class="col-sm-5 text-center">
-                {{ height_ft }} ft {{ height_in }} in
+            <label class="col-sm-4 control-label">{% trans 'Height:' %}</label>
+            <div class="col-sm-8 text-center">
+                {{ height_ft|default_if_none:"-" }} ft {{ height_in|default_if_none:"-" }} in
             </div>
         </div>
         <div class="row">
-            <label class="col-sm-12 control-label text-center">History</label>
+            <label class="col-sm-12 control-label text-center">{% trans 'History' %}</label>
+            <hr/>
         </div>
         {% for key, value in questions.items %}
             <div class="row">
-                <label class="col-sm-7 control-label">{{ key }}</label>
-                <div class="col-sm-5 text-center">
-                    {{ value }}
+                <label class="col-sm-4 control-label">{{ key }}</label>
+                <div class="col-sm-8 text-center">
+                    {{ value|default_if_none:"-" }}
                 </div>
             </div>
         {% endfor %}
     {% endif %}
     {% if health_conditions %}
         <div class="row">
-            <label class="col-sm-7 control-label">Health conditions:</label>
-            <div class="col-sm-5 text-center">
-                {{ health_conditions }}
+            <label class="col-sm-4 control-label">{% trans 'Health conditions:' %}</label>
+            <div class="col-sm-8 text-center">
+                {{ health_conditions|default_if_none:"-" }}
             </div>
         </div>
     {% endif %}
     {% if medications %}
         <div class="row">
-            <label class="col-sm-7 control-label">Medications:</label>
-            <div class="col-sm-5 text-center">
-                {{ medications }}
+            <label class="col-sm-4 control-label">{% trans 'Medications:' %}</label>
+            <div class="col-sm-8 text-center">
+                {{ medications|default_if_none:"-" }}
             </div>
         </div>
     {% endif %}
     {% if surgeries %}
         <div class="row">
-            <label class="col-sm-7 control-label">Surgeries:</label>
-            <div class="col-sm-5 text-center">
-                {{ surgeries }}
+            <label class="col-sm-4 control-label">{% trans 'Surgeries:' %}</label>
+            <div class="col-sm-8 text-center">
+                {{ surgeries|default_if_none:"-" }}
             </div>
         </div>
     {% endif %}
     {% if family %}
         <div class="row">
-            <label class="col-sm-12 control-label text-center">Family History</label>
+            <label class="col-sm-12 control-label text-center">{% trans 'Family History' %}</label>
+            <hr/>
         </div>
         {% for key, value in family.items %}
             <div class="row">
-                <label class="col-sm-7 control-label">{{ key }}</label>
-                <div class="col-sm-5 text-center">
-                    {{ value }}
+                <label class="col-sm-4 control-label">{{ key }}</label>
+                <div class="col-sm-8 text-center">
+                    {{ value|default_if_none:"-" }}
                 </div>
             </div>
         {% endfor %}
     {% endif %}
     {% if files %}
         <div class="row">
-            <label class="col-sm-12 control-label text-center">Patient Files</label>
+            <label class="col-sm-12 control-label text-center">{% trans 'Patient Files' %}</label>
         </div>
         {% for key, value in files.items %}
             <div class="row">
-                <label class="col-sm-7 control-label"><a href={% static key %}>{{ key }}</a></label>
-                <div class="col-sm-5 text-center">
-                    {{ value }}
+                <label class="col-sm-4 control-label"><a href={% static key %}>{{ key }}</a></label>
+                <div class="col-sm-8 text-center">
+                    {{ value|default_if_none:"-" }}
                 </div>
             </div>
         {% endfor %}

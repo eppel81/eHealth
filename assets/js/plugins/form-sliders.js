@@ -71,6 +71,28 @@ var FormSliders = function () {
 		        $('#slider3-value-rounded').text(ui.value);
 		      }
 	        });
+
+				var value1 = $('#slider-rate-value1').val();
+			if (!(value1)) {
+				value1 = 0;
+			}
+				var value2 = $('#slider-rate-value2').val();
+
+			if (!(value2)) {
+				value2 = 300;
+			}
+			$('#slider_rate').slider({
+
+		      min: 0,
+		      max: 300,
+		      range: true,
+		      values: [value1, value2],
+		      slide: function(event, ui)
+		      {
+		        $('#slider-rate-value1').val(ui.values[0]);
+		        $('#slider-rate-value2').val(ui.values[1]);
+		      }
+	        });
         }
 
     };

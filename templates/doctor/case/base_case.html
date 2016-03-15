@@ -1,53 +1,46 @@
-{% extends 'base.html' %}
+{% extends 'doctor/base_dashboard.html' %}
 {% load i18n %}
 {% load static %}
-{% block content %}
-    <div class="container content profile">
+{% block links %}
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/style_my_health.css' %}">
+    {% block case_links %}{% endblock %}
+{% endblock %}
+{% block dashboard_content %}
+    <div class="container profile">
     	<div class="row">
             <!--Left Sidebar-->
             <div class="md-margin-bottom-40">
-
-                <ul class="nav nav-tabs  nav-justified sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                 {% for item in menus %}
-
-                    <li class="list-group-item {% if item == active_menu %}active {% endif %}">
-                        <a href="{{ item.href }}"><i class="fa {{ item.class }}"></i>&nbsp;{% trans item.title %}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <ul class="nav nav-tabs">
-                    {% for tab in tabs %}
-                        <li {% if active_tab == tab %}
-                                class="active" {% endif %}>
-                            <a href="{{ tab.href }}">
-                                {% trans tab.title %}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <div class="row">
-                    <div class="col-sm-offset-2 col-sm-8">
-                        {% include 'form_messages.html' %}
+                {% if case %}
+                    <div class="pull-right">
+                        <h5>{% trans 'Patient: ' %} {{ case.patient }}</h5>
                     </div>
+                    <div class="pull-right">
+                        <h5>{% trans 'Problem: ' %} {{ case.problem|truncatechars:50 }}&nbsp;&nbsp;&nbsp;</h5>
+                    </div>
+                {% endif %}
+                <div>
+                    <ul class="nav nav-tabs">
+                        {% for tab in tabs %}
+                            <li {% if active_tab == tab %}
+                                    class="active" {% endif %}>
+                                <a href="{{ tab.href }}">
+                                    {% trans tab.title %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
+
                 <div class="tab-content"><br>
                     {% block case_content %}{% endblock %}
+
+
+
                 </div>
 
-                <!--
-                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
-                -->
-                <!--End Notification-->
 
-                <!--<div class="margin-bottom-50"></div>-->
-
-                <!--&lt;!&ndash;Datepicker&ndash;&gt;-->
-                <!--<form action="#" id="sky-form2" class="sky-form">-->
-                    <!--<div id="inline-start"></div>-->
-                <!--</form>-->
-                <!--&lt;!&ndash;End Datepicker&ndash;&gt;-->
             </div>
-            <!--End Left Sidebar-->
 
 
 

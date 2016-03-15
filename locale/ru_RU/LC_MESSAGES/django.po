@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-11 12:39+0000\n"
+"POT-Creation-Date: 2016-03-15 14:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,228 +17,606 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: doctor/views.py:18 doctor/views.py:79 patient/views.py:19
-#: patient/views.py:46
-msgid "Dashboard"
-msgstr "Дашбоард"
-
-#: doctor/views.py:20 doctor/views.py:54 doctor/views.py:309
-msgid "Calendar"
-msgstr "Календарь"
-
-#: doctor/views.py:22
-msgid "Case"
-msgstr "История болезней"
-
-#: doctor/views.py:24 doctor/views.py:85 patient/views.py:25
-#: patient/views.py:223 templates/doctor/dashboard.html:48
-#: templates/patient/dashboard.html:84
-msgid "Message Center"
-msgstr "Центр сообщений"
-
-#: doctor/views.py:26 patient/views.py:27 templates/doctor/dashboard.html:78
-#: templates/patient/dashboard.html:114
-#: templates/patient/dashboard/help_support.html:10
-msgid "Help & Support"
-msgstr "Поддержка"
-
-#: doctor/views.py:45 doctor/views.py:179
-msgid "Specialty"
-msgstr "Специализация"
-
-#: doctor/views.py:47 doctor/views.py:210
-msgid "Work Experience"
-msgstr "Опыт работы"
-
-#: doctor/views.py:56 doctor/views.py:234
-msgid "Appointments"
-msgstr "Встречи"
-
-#: doctor/views.py:63 doctor/views.py:150 patient/views.py:236
-#: patient/views.py:299
-msgid "Account Details"
-msgstr "Профиль"
-
-#: doctor/views.py:65
-msgid "Payment information"
-msgstr "Оплата"
-
-#: doctor/views.py:67 doctor/views.py:138
-msgid "Payment History"
-msgstr "История оплат"
-
-#: doctor/views.py:69
-msgid "Change password"
-msgstr "Сменить пароль"
-
-#: doctor/views.py:71 patient/views.py:248
-msgid "Account history"
-msgstr "История аккаунта"
-
-#: doctor/views.py:91 patient/views.py:229 templates/base.html:71
-msgid "Help"
-msgstr "Помощь"
-
-#: doctor/views.py:96 patient/views.py:255 templates/base.html:108
-#: templates/doctor/dashboard.html:92 templates/patient/dashboard.html:128
-msgid "My Account"
-msgstr "Мой аккаунт"
-
-#: doctor/views.py:116
-msgid "Payment"
-msgstr "Оплата"
-
-#: doctor/views.py:118
-msgid "Payment information updated"
-msgstr "Информация о оплате обновлена"
-
-#: doctor/views.py:151 patient/views.py:300
-msgid "Account details updated"
-msgstr "Изменения сохранены"
-
-#: doctor/views.py:180
-msgid "Specialties updated"
-msgstr "Изменения сохранены"
-
-#: doctor/views.py:211
-msgid "Work experience updated"
-msgstr "Изменения сохранены"
-
-#: doctor/views.py:355
-msgid "Time updated"
-msgstr "Изменения сохранены"
-
-#: doctor/views.py:393
-msgid "Appointment reschedule"
-msgstr "Перенос встречи"
-
-#: doctor/views.py:395
-msgid "Appointment updated"
-msgstr "Изменения сохранены"
-
-#: ehealth/settings.py:118
-msgid "English"
-msgstr "Английский"
-
-#: ehealth/settings.py:119
-msgid "Spanish"
-msgstr "Испанский"
-
-#: patient/forms.py:17 patient/forms.py:25
-msgid "Email"
-msgstr "Почтовый адрес"
-
-#: patient/forms.py:19 patient/forms.py:20 patient/forms.py:27
-#: patient/forms.py:28
-msgid "Password"
-msgstr "Пароль"
-
-#: patient/forms.py:31
-msgid "Password confirmation"
-msgstr "Подтверждение пароля"
-
-#: patient/forms.py:32
-msgid "Confirm Password"
-msgstr "Подтвердите пароль"
-
-#: patient/forms.py:33
-msgid "Enter the same password as above, for verification."
-msgstr "Введите такой же пароль, как выше для проверки"
-
-#: patient/forms.py:40
-msgid "Do you have any health conditions?"
-msgstr "Есть ли у вас какие-либо ограничения по здоровью?"
-
-#: patient/forms.py:42
-msgid "Are you currently taking any medication?"
-msgstr "Сейчас принимаете какие-нибудь лекарства?"
-
-#: patient/forms.py:44
-msgid "Do you have any health surgeries?"
-msgstr "Были у вас какие-нибудь операции?"
-
-#: patient/forms.py:66
-msgid "Upload New Document"
-msgstr "Загрузить новый документ"
-
-#: patient/forms.py:67
-msgid "Document Type"
-msgstr "Тип документа"
-
-#: patient/forms.py:76
-msgid "Height"
-msgstr "Рост"
-
-#: patient/forms.py:78
-msgid "Weight"
-msgstr "Вес"
-
-#: patient/forms.py:103
-msgid "Select"
-msgstr "Выбор"
-
-#: patient/forms.py:130
+#: doctor/forms.py:26 patient/forms.py:224
 msgid "Photo"
 msgstr "Фото"
 
-#: patient/views.py:21 patient/views.py:59 templates/patient/dashboard.html:48
+#: doctor/forms.py:78
+msgid "Morning"
+msgstr ""
+
+#: doctor/forms.py:79
+msgid "Afternoon"
+msgstr ""
+
+#: doctor/forms.py:107
+msgid "Time must be chosen"
+msgstr ""
+
+#: doctor/forms.py:185 doctor/forms.py:213 doctor/forms.py:231
+#: doctor/forms.py:257
+#, python-format
+msgid "Time must be in range %s - %s"
+msgstr ""
+
+#: doctor/forms.py:202 doctor/forms.py:247
+msgid "Time-to less then time-from"
+msgstr ""
+
+#: doctor/forms.py:205 doctor/forms.py:250
+msgid "Time-to should not be equal to time-from"
+msgstr ""
+
+#: doctor/forms.py:263
+msgid "Time must be divisible by 15 minutes"
+msgstr ""
+
+#: doctor/forms.py:271
+msgid "The appointment length must enter into the availability time correctly"
+msgstr ""
+
+#: doctor/forms.py:309
+msgid "There are appointments for {}"
+msgstr ""
+
+#: doctor/forms.py:396 doctor/views.py:1147
+#: templates/doctor/ajax/appointment_list.html:6
+#: templates/doctor/ajax/note_list.html:6
+#: templates/doctor/ajax/test_list.html:6
+#: templates/doctor/case/case_list.html:14
+#: templates/doctor/case/case_list.html:74
+#: templates/doctor/dashboard/current_appointments.html:16
+#: templates/doctor/schedule/appointments.html:18
+#: templates/doctor/schedule/appointments.html:69
+#: templates/doctor/schedule/reschedule.html:14
+msgid "Patient"
+msgstr ""
+
+#: doctor/forms.py:421 doctor/views.py:1150 patient/forms.py:499
+#: patient/views.py:556 templates/patient/case/case_list.html:13
+#: templates/patient/case/case_list.html:57
+#: templates/patient/case/overview.html:20
+#: templates/patient/dashboard/current_appointments.html:18
+#: templates/patient/dashboard/my_health/consultation.html:13
+msgid "Doctor"
+msgstr ""
+
+#: doctor/forms.py:442 doctor/views.py:1153 patient/forms.py:530
+#: patient/views.py:559
+#, fuzzy
+#| msgid "Help & Support"
+msgid "Support"
+msgstr "Поддержка"
+
+#: doctor/models.py:16
+msgid "Male"
+msgstr ""
+
+#: doctor/models.py:17
+msgid "Female"
+msgstr ""
+
+#: doctor/views.py:35 doctor/views.py:102 patient/views.py:35
+#: patient/views.py:139
+msgid "Dashboard"
+msgstr "Дашбоард"
+
+#: doctor/views.py:37 doctor/views.py:59 doctor/views.py:460
+msgid "Calendar"
+msgstr "Календарь"
+
+#: doctor/views.py:39 templates/patient/account/billing.html:16
+msgid "Case"
+msgstr "История болезней"
+
+#: doctor/views.py:41 doctor/views.py:132 doctor/views.py:1081
+#: patient/views.py:41 templates/doctor/dashboard.html:55
+#: templates/doctor/dashboard/message_center.html:8
+#: templates/patient/dashboard.html:206
+#: templates/patient/dashboard/message_center.html:8
+msgid "Message Center"
+msgstr "Центр сообщений"
+
+#: doctor/views.py:43 patient/views.py:43 templates/doctor/dashboard.html:70
+#: templates/patient/dashboard.html:240
+#: templates/patient/dashboard/help_support.html:11
+msgid "Help & Support"
+msgstr "Поддержка"
+
+#: doctor/views.py:50 doctor/views.py:240
+#: templates/doctor/profile/specialty.html:14
+#: templates/patient/dashboard.html:104
+#: templates/patient/dashboard/talk_to_a_doctor.html:36
+msgid "Specialty"
+msgstr "Специализация"
+
+#: doctor/views.py:52 doctor/views.py:277
+msgid "Work Experience"
+msgstr "Опыт работы"
+
+#: doctor/views.py:61 doctor/views.py:358 patient/views.py:1526
+#: templates/doctor/case/notes.html:20
+msgid "Appointments"
+msgstr "Встречи"
+
+#: doctor/views.py:68 patient/models.py:124 patient/views.py:1458
+msgid "Open"
+msgstr ""
+
+#: doctor/views.py:70 templates/doctor/case/files.html:123
+#: templates/doctor/schedule/calendar.html:40
+msgid "Close"
+msgstr ""
+
+#: doctor/views.py:77 doctor/views.py:206 patient/views.py:645
+#: patient/views.py:669
+msgid "Account Details"
+msgstr "Профиль"
+
+#: doctor/views.py:80
+msgid "Payment information"
+msgstr "Оплата"
+
+#: doctor/views.py:83 doctor/views.py:191
+msgid "Payment History"
+msgstr "История оплат"
+
+#: doctor/views.py:86
+msgid "Change password"
+msgstr "Сменить пароль"
+
+#: doctor/views.py:89 patient/views.py:661
+msgid "Account history"
+msgstr "История аккаунта"
+
+#: doctor/views.py:92
+msgid "Profile"
+msgstr ""
+
+#: doctor/views.py:139 patient/views.py:637 templates/base.html:99
+msgid "Help"
+msgstr "Помощь"
+
+#: doctor/views.py:145 patient/views.py:784 templates/base.html:136
+#: templates/doctor/dashboard.html:84 templates/patient/dashboard.html:256
+msgid "My Account"
+msgstr "Мой аккаунт"
+
+#: doctor/views.py:168 templates/doctor/account/paymenthistory.html:10
+msgid "Payment"
+msgstr "Оплата"
+
+#: doctor/views.py:170
+msgid "Payment information updated"
+msgstr "Информация о оплате обновлена"
+
+#: doctor/views.py:207 patient/views.py:670
+msgid "Account details updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:241
+msgid "Specialties updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:278
+msgid "Work experience updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:471
+msgid "Monday"
+msgstr ""
+
+#: doctor/views.py:471
+msgid "Tuesday"
+msgstr ""
+
+#: doctor/views.py:471
+msgid "Wednesday"
+msgstr ""
+
+#: doctor/views.py:471
+msgid "Thursday"
+msgstr ""
+
+#: doctor/views.py:472
+msgid "Friday"
+msgstr ""
+
+#: doctor/views.py:472
+msgid "Saturday"
+msgstr ""
+
+#: doctor/views.py:472
+msgid "Sunday"
+msgstr ""
+
+#: doctor/views.py:485
+msgid "Time updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:567
+msgid "Appointment reschedule"
+msgstr "Перенос встречи"
+
+#: doctor/views.py:569
+msgid "Appointment updated"
+msgstr "Изменения сохранены"
+
+#: doctor/views.py:633 patient/views.py:1473
+msgid "Open case"
+msgstr ""
+
+#: doctor/views.py:696 patient/views.py:1523
+msgid "Case Overview"
+msgstr ""
+
+#: doctor/views.py:698
+#, fuzzy
+#| msgid "Appointments"
+msgid "Appointments & Notes"
+msgstr "Встречи"
+
+#: doctor/views.py:700
+msgid "Records and Tests"
+msgstr ""
+
+#: doctor/views.py:702
+#, fuzzy
+#| msgid "Payment History"
+msgid "Patient History"
+msgstr "История оплат"
+
+#: doctor/views.py:704 patient/views.py:1536
+#, fuzzy
+#| msgid "Message Center"
+msgid "Messages"
+msgstr "Центр сообщений"
+
+#: doctor/views.py:862
+msgid "Create case"
+msgstr ""
+
+#: doctor/views.py:915
+msgid "Edit case"
+msgstr ""
+
+#: doctor/views.py:1059 patient/views.py:114
+msgid "Inbox"
+msgstr ""
+
+#: doctor/views.py:1063 patient/views.py:118 templates/postman/sent.html:5
+msgid "Sent"
+msgstr ""
+
+#: doctor/views.py:1067 patient/views.py:122
+msgid "Archived"
+msgstr ""
+
+#: doctor/views.py:1071 patient/views.py:126
+msgid "Deleted"
+msgstr ""
+
+#: doctor/views.py:1075
+msgid "Send message to"
+msgstr ""
+
+#: ehealth/settings.py:147
+msgid "English"
+msgstr "Английский"
+
+#: ehealth/settings.py:148
+msgid "Spain"
+msgstr ""
+
+#: patient/forms.py:26 patient/forms.py:34
+msgid "Email"
+msgstr "Почтовый адрес"
+
+#: patient/forms.py:28 patient/forms.py:29 patient/forms.py:36
+#: patient/forms.py:37
+msgid "Password"
+msgstr "Пароль"
+
+#: patient/forms.py:40
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: patient/forms.py:41
+msgid "Confirm Password"
+msgstr "Подтвердите пароль"
+
+#: patient/forms.py:42
+msgid "Enter the same password as above, for verification."
+msgstr "Введите такой же пароль, как выше для проверки"
+
+#: patient/forms.py:50
+msgid "Do you have any health conditions?"
+msgstr "Есть ли у вас какие-либо ограничения по здоровью?"
+
+#: patient/forms.py:54
+msgid "Are you currently taking any medication?"
+msgstr "Сейчас принимаете какие-нибудь лекарства?"
+
+#: patient/forms.py:58
+msgid "Do you have any health surgeries?"
+msgstr "Были у вас какие-нибудь операции?"
+
+#: patient/forms.py:134 templates/doctor/case/patient_history.html:81
+msgid "Height"
+msgstr "Рост"
+
+#: patient/forms.py:138 templates/doctor/case/patient_history.html:86
+msgid "Weight"
+msgstr "Вес"
+
+#: patient/forms.py:175 patient/views.py:1431
+msgid "Select"
+msgstr "Выбор"
+
+#: patient/forms.py:263
+msgid "This field is required"
+msgstr ""
+
+#: patient/forms.py:266
+msgid "This field must be empty"
+msgstr ""
+
+#: patient/forms.py:277
+msgid "This time has been already taken."
+msgstr ""
+
+#: patient/forms.py:283 patient/forms.py:409
+msgid "You already have an appointment to another doctor for this time."
+msgstr ""
+
+#: patient/forms.py:342
+msgid "You have an incomplete appointment"
+msgstr ""
+
+#: patient/forms.py:404
+msgid "The appointment time has been already taken. Please choose another one"
+msgstr ""
+
+#: patient/models.py:123 patient/views.py:1460
+msgid "Closed"
+msgstr ""
+
+#: patient/models.py:191 templates/patient/dashboard/doctor_info.html:44
+#: templates/patient/dashboard/my_health/consultation.html:43
+msgid "Phone"
+msgstr ""
+
+#: patient/models.py:192 templates/patient/dashboard/doctor_info.html:48
+#: templates/patient/dashboard/my_health/consultation.html:47
+msgid "Video"
+msgstr ""
+
+#: patient/models.py:204
+msgid "Incomplete"
+msgstr ""
+
+#: patient/models.py:205
+msgid "New"
+msgstr ""
+
+#: patient/models.py:206
+msgid "Doctor Confirm"
+msgstr ""
+
+#: patient/models.py:207
+msgid "Doctor Decline"
+msgstr ""
+
+#: patient/models.py:208
+#, fuzzy
+#| msgid "Appointment reschedule"
+msgid "Doctor Reschedule"
+msgstr "Перенос встречи"
+
+#: patient/models.py:209
+msgid "Approved"
+msgstr ""
+
+#: patient/models.py:210
+msgid "Canceled"
+msgstr ""
+
+#: patient/models.py:211
+#, fuzzy
+#| msgid "Appointment reschedule"
+msgid "Patient Reschedule"
+msgstr "Перенос встречи"
+
+#: patient/models.py:212
+msgid "Completed"
+msgstr ""
+
+#: patient/views.py:37 patient/views.py:175
+#: templates/patient/dashboard.html:90
 msgid "Talk to a doctor"
 msgstr "Выбрать доктора"
 
-#: patient/views.py:23 patient/views.py:81 templates/patient/dashboard.html:98
+#: patient/views.py:39 patient/views.py:262
+#: templates/patient/dashboard.html:222
 msgid "My health"
 msgstr "Моё здоровье"
 
-#: patient/views.py:34 patient/views.py:89
+#: patient/views.py:50 patient/views.py:74 patient/views.py:93
+#: patient/views.py:286
+#: templates/patient/dashboard/my_health/base_my_health.html:57
 msgid "My Health History"
 msgstr ""
 
-#: patient/views.py:36
+#: patient/views.py:52 patient/views.py:78 patient/views.py:97
+#: templates/patient/dashboard/my_health/base_my_health.html:62
 msgid "My Lifestyle"
 msgstr ""
 
-#: patient/views.py:38 patient/views.py:179
+#: patient/views.py:54 patient/views.py:82 patient/views.py:101
+#: patient/views.py:425
+#: templates/patient/dashboard/my_health/base_my_health.html:67
 msgid "My Family History"
 msgstr ""
 
-#: patient/views.py:91
+#: patient/views.py:59
+msgid "My Medical Profile"
+msgstr ""
+
+#: patient/views.py:62 patient/views.py:1332
+#: templates/patient/dashboard.html:273
+#: templates/patient/dashboard/my_health/consultation_edit.html:5
+msgid "Consultation History"
+msgstr ""
+
+#: patient/views.py:65
+msgid "My Medical Records"
+msgstr ""
+
+#: patient/views.py:68 templates/patient/case/base_case.html:5
+#, fuzzy
+#| msgid "Case"
+msgid "My Cases"
+msgstr "История болезней"
+
+#: patient/views.py:86 patient/views.py:105 patient/views.py:1019
+#: patient/views.py:1260 templates/patient/case/case_files.html:91
+#: templates/patient/dashboard/talk_to_a_doctor.html:263
+#, fuzzy
+#| msgid "Password confirmation"
+msgid "Confirmation"
+msgstr "Подтверждение пароля"
+
+#: patient/views.py:130
+msgid "Send new message to"
+msgstr ""
+
+#: patient/views.py:289
 msgid "My health records updated"
 msgstr ""
 
-#: patient/views.py:115
+#: patient/views.py:325
 msgid "Records updated"
 msgstr ""
 
-#: patient/views.py:138
+#: patient/views.py:362
+msgid "My Life Style"
+msgstr ""
+
+#: patient/views.py:365
 msgid "Lifestyle information updated"
 msgstr ""
 
-#: patient/views.py:181
+#: patient/views.py:428
 msgid "Family history updated"
 msgstr ""
 
-#: patient/views.py:240
-msgid "Billing information"
-msgstr ""
+#: patient/views.py:649
+#, fuzzy
+#| msgid "Payment History"
+msgid "Payment Methods"
+msgstr "История оплат"
 
-#: patient/views.py:244
+#: patient/views.py:653
+#, fuzzy
+#| msgid "Account history"
+msgid "Billing history"
+msgstr "История аккаунта"
+
+#: patient/views.py:657
 msgid "Login & Password"
 msgstr ""
 
-#: patient/views.py:268
+#: patient/views.py:698 patient/views.py:761
+#, fuzzy
+#| msgid "Payment History"
+msgid "My Billing History"
+msgstr "История оплат"
+
+#: patient/views.py:779 templates/account/password_reset_confirm.html:62
 msgid "Change Password"
 msgstr ""
 
-#: patient/views.py:276
-msgid "Billing Information"
+#: patient/views.py:1021 patient/views.py:1111 patient/views.py:1594
+msgid "Your payment has been successfully processed"
 msgstr ""
 
-#: patient/views.py:277
-msgid "Billing information updated"
+#: patient/views.py:1022 patient/views.py:1112 patient/views.py:1265
+#: patient/views.py:1595 utils/views.py:221
+msgid "Something went wrong. Please check your payment info"
 msgstr ""
 
-#: patient/views.py:346
-msgid "AppointmentRequest"
+#: patient/views.py:1070 patient/views.py:1184
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Created"
+msgstr "Изменения сохранены"
+
+#: patient/views.py:1071 patient/views.py:1203 patient/views.py:1210
+#: patient/views.py:1218 templates/partials/consult_rate_confirmation.html:34
+#: templates/patient/appointment_request.html:39
+#: templates/patient/dashboard/talk_to_a_doctor.html:322
+msgid "Continue"
+msgstr ""
+
+#: patient/views.py:1078 patient/views.py:1197
+msgid ""
+"The appointment has been created and you are being redirected to the "
+"associated case so that you can upload any files associated with the issue. "
+msgstr ""
+
+#: patient/views.py:1190
+msgid "The appointment has been successfully created. "
+msgstr ""
+
+#: patient/views.py:1193
+msgid "OK"
+msgstr ""
+
+#: patient/views.py:1213
+msgid "Incomplete Profile"
+msgstr ""
+
+#: patient/views.py:1214
+msgid ""
+"In order to confirm an appointment, you need to complete your health history "
+"and/or payment information"
+msgstr ""
+
+#: patient/views.py:1263
+msgid "New appointment created. Your payment has been successfully processed"
+msgstr ""
+
+#: patient/views.py:1333
+#, fuzzy
+#| msgid "Payment information updated"
+msgid "Consultation updated"
+msgstr "Информация о оплате обновлена"
+
+#: patient/views.py:1439
+msgid "Don't have time"
+msgstr ""
+
+#: patient/views.py:1514
+#, fuzzy
+#| msgid "Case"
+msgid "Cases"
+msgstr "История болезней"
+
+#: patient/views.py:1529
+msgid "Files / Tests"
+msgstr ""
+
+#: patient/views.py:1532 templates/patient/case/notes.html:5
+msgid "Doctor Notes"
+msgstr ""
+
+#: patient/views.py:1639
+msgid ""
+"The appointment has been completed. Consult rate has been successfully taken"
+msgstr ""
+
+#: patient/views.py:1641
+msgid "Something went wrong. Check your payment info"
 msgstr ""
 
 #: templates/about.html:22 templates/home.html:68 templates/terms.html:22
@@ -273,7 +651,51 @@ msgstr ""
 msgid "¿Quienes somos?"
 msgstr ""
 
-#: templates/account/login.html:9
+#: templates/about.html:112 templates/terms.html:112
+msgid ""
+"EspidiDoctor, una plataforma dirigida en exclusiva a los profesionales de la "
+"salud para enseñarles a sacar provecho de todas las ventajas que ofrecen las "
+"nuevas tecnologías. Y lo más importante, cómo aplicarlas de forma práctica "
+"en tu entorno profesional gracias al Curso Médico Acreditado: Herramientas "
+"en Internet para médicos."
+msgstr ""
+
+#: templates/account/email_confirm.html:4
+#: templates/account/email_confirm.html:8
+#: templates/account/email_confirmed.html:4
+#: templates/account/email_confirmed.html:8
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: templates/account/email_confirm.html:14
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: templates/account/email_confirm.html:21
+#: templates/patient/case/case_files.html:100
+#, fuzzy
+#| msgid "Confirm Password"
+msgid "Confirm"
+msgstr "Подтвердите пароль"
+
+#: templates/account/email_confirm.html:30
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: templates/account/email_confirmed.html:12
+#, python-format
+msgid ""
+"You have confirmed that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-"
+"mail address for user %(user_display)s."
+msgstr ""
+
+#: templates/account/login.html:9 templates/account/signup.html:18
 msgid "Sign In"
 msgstr ""
 
@@ -281,52 +703,750 @@ msgstr ""
 msgid "Don't Have Account? Click"
 msgstr ""
 
-#: templates/account/login.html:18
+#: templates/account/login.html:20 templates/account/signup.html:9
 msgid "Sign Up"
 msgstr ""
 
-#: templates/account/login.html:18
+#: templates/account/login.html:20
 msgid "to registration"
 msgstr ""
 
-#: templates/account/login.html:56
+#: templates/account/login.html:67
 msgid "Always stay signed in"
 msgstr ""
 
-#: templates/account/login.html:72
+#: templates/account/login.html:81
+#, fuzzy
+#| msgid "Change password"
+msgid "Forgot password? "
+msgstr "Сменить пароль"
+
+#: templates/account/login.html:83
+msgid "Recover it"
+msgstr ""
+
+#: templates/account/login.html:90
 msgid "Log In"
 msgstr ""
 
-#: templates/base.html:114
+#: templates/account/password_change.html:36
+#: templates/patient/account/details.html:87
+msgid "Update"
+msgstr ""
+
+#: templates/account/password_reset_complete.html:10
+msgid "Success"
+msgstr ""
+
+#: templates/account/password_reset_complete.html:12
+msgid "Your password has been set."
+msgstr ""
+
+#: templates/account/password_reset_complete.html:14
+msgid "You may go ahead and log in now."
+msgstr ""
+
+#: templates/account/password_reset_complete.html:17
+msgid "Log in"
+msgstr ""
+
+#: templates/account/password_reset_confirm.html:12 utils/forms.py:69
+#, fuzzy
+#| msgid "Change password"
+msgid "New password"
+msgstr "Сменить пароль"
+
+#: templates/account/password_reset_confirm.html:14
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: templates/account/password_reset_confirm.html:69
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: templates/account/password_reset_confirm.html:71
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: templates/account/password_reset_done.html:9
+msgid "Successfully sent"
+msgstr ""
+
+#: templates/account/password_reset_done.html:11
+msgid ""
+"We've e-mailed you instructions for setting your password to the e-mail "
+"address you submitted."
+msgstr ""
+
+#: templates/account/password_reset_done.html:13
+msgid "You should be receiving it shortly."
+msgstr ""
+
+#: templates/account/password_reset_email.html:2
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at"
+msgstr ""
+
+#: templates/account/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/account/password_reset_email.html:9
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/account/password_reset_email.html:10
+msgid "The"
+msgstr ""
+
+#: templates/account/password_reset_email.html:10
+msgid "team"
+msgstr ""
+
+#: templates/account/password_reset_form.html:12
+msgid "Forgot your password?"
+msgstr ""
+
+#: templates/account/password_reset_form.html:14
+msgid ""
+"Enter your e-mail address below, and we'll e-mail instructions for setting a "
+"new one."
+msgstr ""
+
+#: templates/account/password_reset_form.html:46
+#, fuzzy
+#| msgid "Password"
+msgid "Reset Password"
+msgstr "Пароль"
+
+#: templates/account/signup.html:18
+msgid "Already Signed Up? Click"
+msgstr ""
+
+#: templates/account/signup.html:18
+msgid "to login your account."
+msgstr ""
+
+#: templates/account/signup.html:80
+msgid "Terms and Conditions"
+msgstr ""
+
+#: templates/account/signup.html:103
+msgid "Register"
+msgstr ""
+
+#: templates/account/verification_sent.html:4
+#: templates/account/verification_sent.html:9
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: templates/account/verification_sent.html:11
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: templates/base.html:69
+msgid "Languages"
+msgstr ""
+
+#: templates/base.html:142
 msgid "LogOut"
 msgstr ""
 
-#: templates/base.html:124
+#: templates/base.html:152
 msgid "LogIn"
 msgstr ""
 
-#: templates/base.html:219
+#: templates/base.html:245
 msgid "All Rights Reserved."
 msgstr ""
 
-#: templates/doctor/dashboard.html:62
-msgid "Profile"
+#: templates/django_braintree/payments_billing.html:15
+msgid "This appointment deposit has been already paid"
 msgstr ""
 
-#: templates/doctor/dashboard.html:105 templates/patient/dashboard.html:141
+#: templates/django_braintree/second_payments_billing.html:15
+msgid ""
+"The appointment is completed. You will be charged automatically. The amount "
+"is "
+msgstr ""
+
+#: templates/django_braintree/second_payments_billing.html:16
+msgid ""
+"After a payment has been processed you will be redirected to the dashboard"
+msgstr ""
+
+#: templates/doctor/account/details.html:12
+#: templates/patient/account/details.html:13
+msgid "Your photo is too large!"
+msgstr ""
+
+#: templates/doctor/account/details.html:13
+#: templates/patient/account/details.html:14
+msgid "The maximum photo's size is 10Mb. Please, choose another photo"
+msgstr ""
+
+#: templates/doctor/account/details.html:98
+#: templates/doctor/account/payment.html:31
+#: templates/doctor/ajax/doctor_schedule.html:88
+#: templates/doctor/case/edit_file.html:32
+#: templates/doctor/case/edit_note.html:10
+#: templates/doctor/schedule/reschedule.html:55
+#: templates/patient/dashboard/app_process/family_history.html:73
+#: templates/patient/dashboard/app_process/health_history.html:66
+#: templates/patient/dashboard/app_process/lifestyle.html:79
+#: templates/patient/dashboard/app_process/payment_info.html:50
+#: templates/patient/dashboard/my_health/consultation_edit.html:49
+msgid "Save"
+msgstr ""
+
+#: templates/doctor/account/history.html:9
+#: templates/doctor/account/paymenthistory.html:9
+#: templates/patient/account/history.html:9
+msgid "Time Stamp"
+msgstr ""
+
+#: templates/doctor/account/history.html:10
+#: templates/patient/account/history.html:10
+msgid "Activity Type"
+msgstr ""
+
+#: templates/doctor/account/paymenthistory.html:11
+msgid "Summ"
+msgstr ""
+
+#: templates/doctor/ajax/appointment_list.html:7
+#: templates/doctor/ajax/note_list.html:7
+#: templates/doctor/ajax/test_list.html:7
+msgid "Reason"
+msgstr ""
+
+#: templates/doctor/ajax/appointment_list.html:8
+#: templates/doctor/ajax/note_list.html:8
+#: templates/doctor/ajax/test_list.html:8
+#, fuzzy
+#| msgid "Specialties updated"
+msgid "Create date"
+msgstr "Изменения сохранены"
+
+#: templates/doctor/ajax/appointment_list.html:9
+#: templates/doctor/ajax/note_list.html:9
+#: templates/doctor/ajax/test_list.html:9
+#, fuzzy
+#| msgid "Specialties updated"
+msgid "Update date"
+msgstr "Изменения сохранены"
+
+#: templates/doctor/ajax/appointment_list.html:10
+#: templates/doctor/ajax/note_list.html:10
+#: templates/doctor/ajax/test_list.html:10 templates/doctor/ajax/tests.html:11
+#: templates/patient/case/appointments.html:22
+#: templates/patient/case/case_files.html:25
+#: templates/patient/dashboard/current_appointments.html:21
+#: templates/postman/base_message_folder.html:41
+msgid "Action"
+msgstr ""
+
+#: templates/doctor/ajax/doctor_schedule.html:9
+msgid "Days"
+msgstr ""
+
+#: templates/doctor/ajax/doctor_schedule.html:12
+#: templates/doctor/ajax/doctor_schedule.html:21
+msgid "Turn"
+msgstr ""
+
+#: templates/doctor/ajax/doctor_schedule.html:15
+#: templates/doctor/ajax/doctor_schedule.html:24
+msgid "From"
+msgstr ""
+
+#: templates/doctor/ajax/doctor_schedule.html:18
+#: templates/doctor/ajax/doctor_schedule.html:27
+msgid "To"
+msgstr ""
+
+#: templates/doctor/ajax/file_details.html:12
+#: templates/patient/case/case_files.html:19
+msgid "Conclusion"
+msgstr ""
+
+#: templates/doctor/ajax/file_details.html:23
+#: templates/patient/case/case_files.html:20
+msgid "Requested by"
+msgstr ""
+
+#: templates/doctor/ajax/file_details.html:34
+#: templates/patient/case/case_files.html:21
+msgid "Completed by"
+msgstr ""
+
+#: templates/doctor/ajax/file_details.html:45
+#: templates/patient/case/case_files.html:22
+msgid "Request form"
+msgstr ""
+
+#: templates/doctor/ajax/file_details.html:60
+#: templates/patient/case/case_files.html:23
+msgid "Result report / record"
+msgstr ""
+
+#: templates/doctor/ajax/file_details.html:79
+#: templates/patient/case/case_files.html:24
+msgid "Additional files"
+msgstr ""
+
+#: templates/doctor/ajax/note_list.html:33
+#: templates/doctor/ajax/test_list.html:33
+#: templates/doctor/case/case_list.html:110
+#: templates/doctor/case/files.html:90
+#: templates/patient/case/case_list.html:85
+msgid "View"
+msgstr ""
+
+#: templates/doctor/ajax/note_list.html:52
+#: templates/doctor/ajax/test_list.html:52
+msgid "Add new case"
+msgstr ""
+
+#: templates/doctor/ajax/patient_details.html:5
+#: templates/patient/dashboard/app_process/confirm.html:11
+msgid "Patient:"
+msgstr ""
+
+#: templates/doctor/ajax/patient_details.html:11
+#: templates/patient/dashboard/app_process/confirm.html:25
+msgid "Type:"
+msgstr ""
+
+#: templates/doctor/ajax/patient_details.html:18
+#: templates/doctor/case/patient_history.html:75
+msgid "Lifestyle"
+msgstr ""
+
+#: templates/doctor/ajax/patient_details.html:22
+#, fuzzy
+#| msgid "Weight"
+msgid "Weight:"
+msgstr "Вес"
+
+#: templates/doctor/ajax/patient_details.html:28
+#, fuzzy
+#| msgid "Height"
+msgid "Height:"
+msgstr "Рост"
+
+#: templates/doctor/ajax/patient_details.html:34
+#, fuzzy
+#| msgid "Payment History"
+msgid "History"
+msgstr "История оплат"
+
+#: templates/doctor/ajax/patient_details.html:48
+#, fuzzy
+#| msgid "Do you have any health conditions?"
+msgid "Health conditions:"
+msgstr "Есть ли у вас какие-либо ограничения по здоровью?"
+
+#: templates/doctor/ajax/patient_details.html:56
+msgid "Medications:"
+msgstr ""
+
+#: templates/doctor/ajax/patient_details.html:64
+msgid "Surgeries:"
+msgstr ""
+
+#: templates/doctor/ajax/patient_details.html:72
+#: templates/doctor/case/patient_history.html:125
+#, fuzzy
+#| msgid "Payment History"
+msgid "Family History"
+msgstr "История оплат"
+
+#: templates/doctor/ajax/patient_details.html:86
+msgid "Patient Files"
+msgstr ""
+
+#: templates/doctor/ajax/tests.html:9
+msgid "Test"
+msgstr ""
+
+#: templates/doctor/ajax/tests.html:10
+msgid "Record date"
+msgstr ""
+
+#: templates/doctor/ajax/tests.html:28
+#: templates/doctor/profile/workexperience.html:28
+#: templates/patient/case/case_files.html:68
+#: templates/postman/base_message_folder.html:27
+#: templates/postman/message_view.html:45
+msgid "Delete"
+msgstr ""
+
+#: templates/doctor/ajax/tests.html:35
+msgid "Add new test"
+msgstr ""
+
+#: templates/doctor/case/access_denied.html:19
+msgid "Oops! Access denied!"
+msgstr ""
+
+#: templates/doctor/case/access_denied.html:20
+msgid "You don't have permission to access this page"
+msgstr ""
+
+#: templates/doctor/case/all_notes.html:6
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Date "
+msgstr "Изменения сохранены"
+
+#: templates/doctor/case/all_notes.html:7
+msgid "Anamnesis "
+msgstr ""
+
+#: templates/doctor/case/all_notes.html:8
+msgid "Exploration "
+msgstr ""
+
+#: templates/doctor/case/all_notes.html:9
+msgid "Diagnosis "
+msgstr ""
+
+#: templates/doctor/case/all_notes.html:10
+msgid "Additional Tests "
+msgstr ""
+
+#: templates/doctor/case/all_notes.html:11
+msgid "Treatment "
+msgstr ""
+
+#: templates/doctor/case/all_notes.html:12
+msgid "Public Notes "
+msgstr ""
+
+#: templates/doctor/case/base_case.html:16
+msgid "Patient: "
+msgstr ""
+
+#: templates/doctor/case/base_case.html:19
+msgid "Problem: "
+msgstr ""
+
+#: templates/doctor/case/case_list.html:18
+#: templates/doctor/schedule/appointments.html:22
+msgid "Choose patient"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:32
+#: templates/patient/case/case_list.html:31
+#: templates/patient/dashboard/my_health/my_records.html:33
+msgid "Search by"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:46 templates/doctor/case/files.html:61
+#: templates/doctor/schedule/appointments.html:56
+#: templates/patient/case/case_list.html:45
+#: templates/patient/dashboard/my_health/my_records.html:47
+msgid "Filter"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:75
+#: templates/doctor/case/overview.html:13
+#: templates/doctor/dashboard/current_appointments.html:17
+#: templates/doctor/schedule/appointments.html:70
+#: templates/patient/case/case_list.html:59
+#: templates/patient/case/overview.html:14
+#: templates/patient/dashboard/current_appointments.html:19
+#: templates/patient/dashboard/my_health/consultation.html:14
+msgid "Problem"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:76 templates/doctor/case/files.html:47
+#: templates/doctor/case/files.html:74 templates/doctor/case/overview.html:22
+#: templates/patient/case/case_files.html:18
+#: templates/patient/case/case_list.html:61
+#: templates/patient/case/overview.html:26
+#: templates/patient/dashboard/my_health/consultation.html:15
+#: templates/patient/dashboard/my_health/my_records.html:61
+msgid "Description"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:77
+msgid "Is Second Opinion"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:103
+#: templates/doctor/case/overview.html:35
+#: templates/doctor/case/patient_history.html:108
+#: templates/patient/case/overview.html:36
+#: templates/patient/dashboard/talk_to_a_doctor.html:281
+msgid "Yes"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:105
+#: templates/doctor/case/overview.html:37
+#: templates/doctor/case/patient_history.html:110
+#: templates/patient/case/overview.html:38
+#: templates/patient/dashboard/talk_to_a_doctor.html:279
+msgid "No"
+msgstr ""
+
+#: templates/doctor/case/case_list.html:119
+#: templates/patient/case/case_list.html:108
+msgid "No cases found"
+msgstr ""
+
+#: templates/doctor/case/files.html:14
+msgid "All patient's files"
+msgstr ""
+
+#: templates/doctor/case/files.html:19
+msgid "Current case's files"
+msgstr ""
+
+#: templates/doctor/case/files.html:30 templates/doctor/case/files.html:73
+#: templates/patient/case/appointments.html:20
+#: templates/patient/case/case_files.html:17
+#: templates/patient/dashboard/my_health/my_records.html:16
+#: templates/patient/dashboard/my_health/my_records.html:60
+msgid "Type"
+msgstr ""
+
+#: templates/doctor/case/files.html:34
+#: templates/patient/dashboard/my_health/my_records.html:20
+msgid "Choose type"
+msgstr ""
+
+#: templates/doctor/case/files.html:94
+#: templates/partials/appointment_action.html:11
+msgid "Edit"
+msgstr ""
+
+#: templates/doctor/case/files.html:101
+#: templates/patient/case/case_files.html:75
+#: templates/patient/dashboard/my_health/my_records.html:113
+msgid "No previous documents found"
+msgstr ""
+
+#: templates/doctor/case/files.html:113
+msgid "File Details"
+msgstr ""
+
+#: templates/doctor/case/notes.html:14
+msgid "Show all notes"
+msgstr ""
+
+#: templates/doctor/case/notes.html:18
+msgid "There are no appointments in the current case."
+msgstr ""
+
+#: templates/doctor/case/notes.html:24
+#: templates/doctor/dashboard/current_appointments.html:15
+#: templates/doctor/schedule/week_calendar.html:7
+msgid "Time"
+msgstr ""
+
+#: templates/doctor/case/notes.html:25
+#: templates/doctor/dashboard/current_appointments.html:18
+#: templates/doctor/schedule/appointments.html:36
+#: templates/doctor/schedule/appointments.html:71
+#: templates/patient/account/billing.html:13
+#: templates/patient/case/appointments.html:21
+#: templates/patient/dashboard/app_process/lifestyle.html:43
+#: templates/patient/dashboard/current_appointments.html:20
+#: templates/patient/dashboard/my_health/consultation.html:17
+msgid "Status"
+msgstr ""
+
+#: templates/doctor/case/notes.html:26
+msgid "Actions"
+msgstr ""
+
+#: templates/doctor/case/notes.html:36
+msgid "Edit note"
+msgstr ""
+
+#: templates/doctor/case/notes.html:40
+#: templates/partials/appointment_action.html:14
+#: templates/partials/consult_rate_confirmation.html:33
+#: templates/partials/doctor_appointment_action.html:12
+#: templates/partials/doctor_appointment_action.html:18
+#: templates/patient/case/case_files.html:99
+#: templates/patient/dashboard/talk_to_a_doctor.html:319
+msgid "Cancel"
+msgstr ""
+
+#: templates/doctor/case/notes.html:58
+msgid "Editing note"
+msgstr ""
+
+#: templates/doctor/case/notes.html:71
+msgid "All Notes"
+msgstr ""
+
+#: templates/doctor/case/overview.html:31
+#: templates/patient/case/overview.html:32
+msgid "Is second opinion"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:37
+msgid "Health Conditions"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:50
+msgid "Medications"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:61
+msgid "Surgeries"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:93
+msgid "Questions"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:96
+msgid "Answers"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:128
+#: templates/patient/dashboard/app_process/family_history.html:22
+#: templates/patient/dashboard/app_process/family_history.html:47
+#: templates/patient/dashboard/app_process/lifestyle.html:42
+msgid "Conditions"
+msgstr ""
+
+#: templates/doctor/case/patient_history.html:130
+msgid "Relationships"
+msgstr ""
+
+#: templates/doctor/dashboard.html:57 templates/doctor/dashboard.html.py:72
+#: templates/patient/dashboard.html:209 templates/patient/dashboard.html:225
+#: templates/patient/dashboard.html:243 templates/patient/dashboard.html:276
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus "
+"justo vel tincidunt consectetur."
+msgstr ""
+
+#: templates/doctor/dashboard.html:86 templates/patient/dashboard.html:259
+msgid "Manage your account information, including payment, sign-in and more."
+msgstr ""
+
+#: templates/doctor/dashboard.html:101 templates/patient/dashboard.html:291
 msgid "Notifications"
 msgstr ""
 
-#: templates/doctor/dashboard.html:110 templates/patient/dashboard.html:146
+#: templates/doctor/dashboard.html:107 templates/patient/dashboard.html:299
 msgid "You have"
 msgstr ""
 
-#: templates/doctor/dashboard.html:110 templates/patient/dashboard.html:146
-msgid "new message(s)"
+#: templates/doctor/dashboard.html:107 templates/patient/dashboard.html:299
+msgid " message(s)"
+msgstr ""
+
+#: templates/doctor/dashboard.html:109 templates/patient/dashboard.html:301
+msgid "Read all"
+msgstr ""
+
+#: templates/doctor/dashboard.html:112 templates/patient/dashboard.html:304
+msgid "You don't have new message(s)"
+msgstr ""
+
+#: templates/doctor/dashboard/current_appointments.html:9
+#, fuzzy
+#| msgid "Appointments"
+msgid "Today appointments"
+msgstr "Встречи"
+
+#: templates/doctor/dashboard/current_appointments.html:54
+msgid "No appointments for today"
 msgstr ""
 
 #: templates/doctor/dashboard/help_support.html:35
 msgid "Help and support"
+msgstr ""
+
+#: templates/doctor/profile/specialty.html:15
+msgid "Is Primary"
+msgstr ""
+
+#: templates/doctor/profile/specialty.html:49
+#: templates/doctor/profile/workexperience.html:42
+msgid "Add"
+msgstr ""
+
+#: templates/doctor/profile/workexperience.html:14
+msgid "Care Facility"
+msgstr ""
+
+#: templates/doctor/profile/workexperience.html:15
+msgid "Position"
+msgstr ""
+
+#: templates/doctor/profile/workexperience.html:16
+msgid "Start Date"
+msgstr ""
+
+#: templates/doctor/profile/workexperience.html:17
+msgid "End Date"
+msgstr ""
+
+#: templates/doctor/schedule/appointments.html:41
+msgid "Choose status"
+msgstr ""
+
+#: templates/doctor/schedule/appointments.html:67
+#: templates/patient/case/appointments.html:19
+#: templates/patient/dashboard.html:121
+#: templates/patient/dashboard/current_appointments.html:17
+#: templates/patient/dashboard/my_health/consultation.html:12
+#: templates/patient/dashboard/talk_to_a_doctor.html:47
+#: templates/postman/base_message_folder.html:55
+#: templates/postman/case_messages.html:46
+#: templates/postman/case_messages_doctor.html:35
+msgid "Date"
+msgstr ""
+
+#: templates/doctor/schedule/appointments.html:133
+#, fuzzy
+#| msgid "Appointments"
+msgid "No appointments found"
+msgstr "Встречи"
+
+#: templates/doctor/schedule/calendar.html:35
+#, fuzzy
+#| msgid "Payment information"
+msgid "Patient info"
+msgstr "Оплата"
+
+#: templates/doctor/schedule/reschedule.html:22
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment type"
+msgstr "Изменения сохранены"
+
+#: templates/doctor/schedule/reschedule.html:30
+#, fuzzy
+#| msgid "Appointment reschedule"
+msgid "Appointment schedule"
+msgstr "Перенос встречи"
+
+#: templates/doctor/schedule/reschedule.html:38
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "New appointment time"
+msgstr "Изменения сохранены"
+
+#: templates/home.html:8
+msgid "Toggle navigation"
 msgstr ""
 
 #: templates/home.html:21
@@ -349,140 +1469,626 @@ msgstr ""
 msgid "Ten una visita con el doctor ahora"
 msgstr ""
 
+#: templates/home.html:122
+msgid ""
+"Ducimus qui blanditiis praesentium voluptatum deleniti atque cupiditate non "
+"provident, similique sunt in culpa qui officia ipsum dolor sit amet, "
+"consectetur adipiscing elit."
+msgstr ""
+
+#: templates/home.html:123
+msgid ""
+"Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem "
+"ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non "
+"libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat."
+msgstr ""
+
+#: templates/home.html:125
+msgid "Accede"
+msgstr ""
+
 #: templates/home.html:160
 msgid "Últimas noticias"
 msgstr ""
 
-#: templates/patient/dashboard/doctor_info.html:38
-msgid "Phone"
+#: templates/partials/appointment_action.html:18
+msgid "Complete process"
 msgstr ""
 
-#: templates/patient/dashboard/doctor_info.html:42
-msgid "Video"
+#: templates/partials/appointment_action.html:25
+#: templates/partials/doctor_appointment_action.html:22
+#, fuzzy
+#| msgid "Appointments"
+msgid "Enter Appointment"
+msgstr "Встречи"
+
+#: templates/partials/appointment_action.html:32
+#, fuzzy
+#| msgid "Payment"
+msgid "Pay"
+msgstr "Оплата"
+
+#: templates/partials/appointment_action.html:36
+#, fuzzy
+#| msgid "Appointments"
+msgid "After Appointment"
+msgstr "Встречи"
+
+#: templates/partials/braintree_payment_form.html:4
+msgid "PAY WITH"
 msgstr ""
 
-#: templates/patient/dashboard/doctor_info.html:45
+#: templates/partials/consult_rate_confirmation.html:7
+#, fuzzy
+#| msgid "Payment information"
+msgid "Payment Confirmation"
+msgstr "Оплата"
+
+#: templates/partials/consult_rate_confirmation.html:17
+msgid "Doctor's consult rate is "
+msgstr ""
+
+#: templates/partials/consult_rate_confirmation.html:18
+msgid " You should pay "
+msgstr ""
+
+#: templates/partials/consult_rate_confirmation.html:18
+msgid " deposit has been already redeemed. "
+msgstr ""
+
+#: templates/partials/consult_rate_confirmation.html:19
+msgid "It will be taken automatically after appointment has been completed"
+msgstr ""
+
+#: templates/partials/doctor_appointment_action.html:6
+#, fuzzy
+#| msgid "Case"
+msgid "View Case"
+msgstr "История болезней"
+
+#: templates/partials/doctor_appointment_action.html:14
+msgid "Accept"
+msgstr ""
+
+#: templates/patient/account/billing.html:12
+msgid "Transaction Date"
+msgstr ""
+
+#: templates/patient/account/billing.html:14
+msgid "Amount, €"
+msgstr ""
+
+#: templates/patient/account/billing.html:15
+#, fuzzy
+#| msgid "Payment"
+msgid "Payment Type"
+msgstr "Оплата"
+
+#: templates/patient/account/billing.html:17
+#: templates/patient/case/notes.html:14
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Date"
+msgstr "Изменения сохранены"
+
+#: templates/patient/account/billing.html:24
+msgid "Refunded"
+msgstr ""
+
+#: templates/patient/account/history.html:11
+msgid "Provider"
+msgstr ""
+
+#: templates/patient/account/payment.html:10
+msgid ""
+"In order to add new payment method, choose 'Change payment method' and then "
+"'Save' "
+msgstr ""
+
+#: templates/patient/account/payment.html:12
+msgid "You do not have any payment methods, please add a payment method"
+msgstr ""
+
+#: templates/patient/appointment_request.html:12
+#, fuzzy
+#| msgid "Appointments"
+msgid "Appointment Request"
+msgstr "Встречи"
+
+#: templates/patient/case/base_case.html:18
+#: templates/patient/dashboard/app_process/confirm.html:39
+msgid "Problem:"
+msgstr ""
+
+#: templates/patient/case/base_case.html:19
+#: templates/patient/dashboard/app_process/confirm.html:18
+msgid "Doctor:"
+msgstr ""
+
+#: templates/patient/case/base_case.html:41
+#: templates/patient/dashboard/app_process/family_history.html:71
+#: templates/patient/dashboard/app_process/health_history.html:64
+#: templates/patient/dashboard/app_process/lifestyle.html:77
+#: templates/patient/dashboard/app_process/payment_info.html:48
+#: templates/patient/dashboard/talk_to_a_doctor.html:188
+msgid "Next"
+msgstr ""
+
+#: templates/patient/case/case_files.html:6
+msgid "My Files"
+msgstr ""
+
+#: templates/patient/case/case_files.html:81
+msgid "Upload new file / test"
+msgstr ""
+
+#: templates/patient/case/case_files.html:96
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
+#: templates/patient/case/case_list.html:17
+#: templates/patient/dashboard.html:143
+#: templates/patient/dashboard/talk_to_a_doctor.html:65
+msgid "Choose doctor"
+msgstr ""
+
+#: templates/patient/case/notes.html:16
+msgid "Note"
+msgstr ""
+
+#: templates/patient/case/overview.html:6
+#, fuzzy
+#| msgid "Case"
+msgid "My Case"
+msgstr "История болезней"
+
+#: templates/patient/case/upload_files.html:5
+msgid "Add Files"
+msgstr ""
+
+#: templates/patient/case/upload_files.html:20
+msgid "Your file is too large!"
+msgstr ""
+
+#: templates/patient/case/upload_files.html:21
+msgid " The maximum file's size is 100Mb."
+msgstr ""
+
+#: templates/patient/case/upload_files.html:26
+msgid "Warning!"
+msgstr ""
+
+#: templates/patient/case/upload_files.html:26
+msgid ""
+" Only .txt, .pdf, .doc, .docx, .csx, .xls, .xlsx, .gif, .png, .pjpeg formats "
+"are allowed"
+msgstr ""
+
+#: templates/patient/case/upload_files.html:84
+msgid " Add"
+msgstr ""
+
+#: templates/patient/case/upload_files.html:98
+msgid "Upload Document"
+msgstr ""
+
+#: templates/patient/confirmation.html:7
+#: templates/patient/dashboard/app_process/confirm.html:70
+msgid "This time is already taken"
+msgstr ""
+
+#: templates/patient/confirmation.html:9
+#: templates/patient/dashboard/app_process/confirm.html:72
+msgid "You must change time of appointment at"
+msgstr ""
+
+#: templates/patient/confirmation.html:11
+#: templates/patient/dashboard/app_process/confirm.html:74
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Edit"
+msgstr "Изменения сохранены"
+
+#: templates/patient/dashboard.html:65
+msgid "Welcome"
+msgstr ""
+
+#: templates/patient/dashboard.html:93
+msgid "Speak to the next available Provider"
+msgstr ""
+
+#: templates/patient/dashboard.html:110
+#, fuzzy
+#| msgid "Specialty"
+msgid "Choose specialty"
+msgstr "Специализация"
+
+#: templates/patient/dashboard.html:137
+#: templates/patient/dashboard/talk_to_a_doctor.html:62
+msgid "Doctors"
+msgstr ""
+
+#: templates/patient/dashboard.html:151 templates/patient/dashboard.html:157
+#: templates/patient/dashboard/talk_to_a_doctor.html:72
+msgid "Search"
+msgstr ""
+
+#: templates/patient/dashboard.html:167
+#: templates/patient/dashboard/talk_to_a_doctor.html:82
+msgid "Consult rate"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/confirm.html:7
+msgid "Look preview information and confirm."
+msgstr ""
+
+#: templates/patient/dashboard/app_process/confirm.html:32
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Date:"
+msgstr "Изменения сохранены"
+
+#: templates/patient/dashboard/app_process/confirm.html:46
+msgid "Description:"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/confirm.html:63
+msgid "Apply"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/family_history.html:10
+msgid ""
+"Does anyone in your family have a history of the following? (Check all that "
+"apply)"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/family_history.html:23
+#: templates/patient/dashboard/app_process/family_history.html:48
+msgid "Relationship"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/health_history.html:25
+msgid "My Health Conditions"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/health_history.html:29
+msgid "My Medications"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/health_history.html:33
+msgid "My Surgeries"
+msgstr ""
+
+#: templates/patient/dashboard/current_appointments.html:11
+#, fuzzy
+#| msgid "Appointments"
+msgid "Future appointments"
+msgstr "Встречи"
+
+#: templates/patient/dashboard/doctor_info.html:40
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Type:"
+msgstr "Изменения сохранены"
+
+#: templates/patient/dashboard/doctor_info.html:51
 msgid "No Appointment"
 msgstr ""
 
-#: templates/patient/dashboard/doctor_info.html:68
-msgid "Not available"
+#: templates/patient/dashboard/doctor_info.html:60
+msgid "When"
 msgstr ""
 
 #: templates/patient/dashboard/doctor_info.html:78
+msgid "Not available"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:88
 msgid "Location"
 msgstr ""
 
-#: templates/patient/dashboard/doctor_info.html:99
+#: templates/patient/dashboard/doctor_info.html:95
+msgid "Languages Spoken"
+msgstr ""
+
+#: templates/patient/dashboard/doctor_info.html:110
 msgid "No Languages"
 msgstr ""
 
-#: templates/patient/dashboard/doctor_info.html:116
+#: templates/patient/dashboard/doctor_info.html:127
 msgid "No Qualifications"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:20
+#: templates/patient/dashboard/help_support.html:22
 msgid "How do I contact eHealth's customer service?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:25
+#: templates/patient/dashboard/help_support.html:27
 msgid ""
 "You may contact Customer Service toll free at 888-632-2738. You may also "
 "email us at"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:36
+#: templates/patient/dashboard/help_support.html:38
 msgid "Why should I use eHealth?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:51
+#: templates/patient/dashboard/help_support.html:53
 msgid "Does eHealth have doctors in my area?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:64
+#: templates/patient/dashboard/help_support.html:66
 msgid "Can I add my doctor or therapist to your network?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:77
+#: templates/patient/dashboard/help_support.html:79
 msgid "Will you keep my information confidential?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:90
+#: templates/patient/dashboard/help_support.html:92
 msgid ""
 "What happens after my consultation with the eHealth doctor or therapist?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:103
+#: templates/patient/dashboard/help_support.html:105
 msgid "Will I receive a prescription fro the doctor following my consult?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:116
+#: templates/patient/dashboard/help_support.html:118
 msgid "Do your doctors or therapists refer to other doctors or facilities ?"
 msgstr ""
 
-#: templates/patient/dashboard/help_support.html:129
+#: templates/patient/dashboard/help_support.html:131
 msgid "Do members have to pay it a face-to-face appointment is required?"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_health_history.html:22
-msgid "My Health Conditions"
+#: templates/patient/dashboard/my_health/base_my_health.html:76
+msgid "Last updated on"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_health_history.html:26
-msgid "My Medications"
-msgstr ""
+#: templates/patient/dashboard/my_health/consultation.html:5
+#, fuzzy
+#| msgid "Payment History"
+msgid "My History"
+msgstr "История оплат"
 
-#: templates/patient/dashboard/my_health/my_health_history.html:30
-msgid "My Surgeries"
-msgstr ""
+#: templates/patient/dashboard/my_health/consultation.html:16
+#, fuzzy
+#| msgid "Appointment updated"
+msgid "Appointment Type"
+msgstr "Изменения сохранены"
 
-#: templates/patient/dashboard/my_health/my_records.html:5
+#: templates/patient/dashboard/my_health/my_records.html:6
 msgid "My Records"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_records.html:12
-msgid "My files"
+#: templates/patient/dashboard/my_health/my_records.html:62
+msgid "Request Form"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_records.html:36
-msgid "Delete"
+#: templates/patient/dashboard/my_health/my_records.html:63
+msgid "Result Report / Record"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_records.html:43
-msgid "No previous documents found"
+#: templates/patient/dashboard/my_health/my_records.html:64
+msgid "Conclusions"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_records.html:69
-msgid ""
-"Only .txt, .pdf, .doc, .docx, .csx, .xls, .xlsx, .gif, .png, .pjpeg formats "
-"are allowed"
+#: templates/patient/dashboard/my_health/my_records.html:65
+msgid "Requested By"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/my_records.html:88
-msgid "Upload Document"
+#: templates/patient/dashboard/my_health/my_records.html:66
+msgid "Completed By"
 msgstr ""
 
-#: templates/patient/dashboard/schedule_time.html:23
-msgid "No appointment time"
+#: templates/patient/dashboard/my_health/my_records.html:67
+msgid "Additional Files"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:39
+#: templates/patient/dashboard/talk_to_a_doctor.html:54
+msgid "to"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:111
 msgid "If your issue is an emergency, please dial"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:41
+#: templates/patient/dashboard/talk_to_a_doctor.html:113
 msgid ""
 "or go to the nearest emergency room. We does not offer emergency services"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:83
+#: templates/patient/dashboard/talk_to_a_doctor.html:117
+msgid "Any doctor with this specialty"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:162
 msgid "Available"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:88
+#: templates/patient/dashboard/talk_to_a_doctor.html:166
+msgid "Not available soon!Please, look the schedule"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:174
 msgid "Schedule"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:239
+#, fuzzy
+#| msgid "Appointment reschedule"
+msgid "Appointment creation proccess"
+msgstr "Перенос встречи"
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:268
+msgid "Do you want to cancel the appointment creating?"
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:270
+msgid ""
+"You will not be able to create another appointment until creating of this "
+"one has been done."
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:295
+#, fuzzy
+#| msgid "Payment information"
+msgid "Payment Method Confirmation"
+msgstr "Оплата"
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:301
+msgid "To confirm the appointment, you will be charged "
+msgstr ""
+
+#: templates/patient/dashboard/talk_to_a_doctor.html:301
+msgid " as a deposit."
+msgstr ""
+
+#: templates/postman/archives.html:3
+msgid ""
+"Messages in this folder will never be removed. You can use this folder for "
+"long term storage."
+msgstr ""
+
+#: templates/postman/base_message_folder.html:15
+msgid "Sorry, this page number is invalid."
+msgstr ""
+
+#: templates/postman/base_message_folder.html:30
+#: templates/postman/message_view.html:48
+msgid "Archive"
+msgstr ""
+
+#: templates/postman/base_message_folder.html:33
+msgid "Undelete"
+msgstr ""
+
+#: templates/postman/base_message_folder.html:44
+#: templates/postman/case_messages.html:35
+#: templates/postman/case_messages_doctor.html:24
+msgid "Sender"
+msgstr ""
+
+#: templates/postman/base_message_folder.html:48
+#: templates/postman/case_messages.html:39
+#: templates/postman/case_messages_doctor.html:28
+msgid "Recipient"
+msgstr ""
+
+#: templates/postman/base_message_folder.html:51
+#: templates/postman/case_messages.html:42
+#: templates/postman/case_messages_doctor.html:31
+msgid "Subject"
+msgstr ""
+
+#: templates/postman/base_message_folder.html:112
+#: templates/postman/case_messages.html:87
+msgid "No messages"
+msgstr ""
+
+#: templates/postman/case_messages.html:12
+msgid "Case Messages"
+msgstr ""
+
+#: templates/postman/case_messages.html:23
+#: templates/postman/case_messages_doctor.html:17
+msgid "Send new"
+msgstr ""
+
+#: templates/postman/case_messages.html:120
+#: templates/postman/case_messages_doctor.html:101
+msgid "New message"
+msgstr ""
+
+#: templates/postman/inbox.html:5
+msgid "Received"
+msgstr ""
+
+#: templates/postman/message_view.html:3
+msgid "Conversation"
+msgstr ""
+
+#: templates/postman/message_view.html:4
+#, fuzzy
+#| msgid "Message Center"
+msgid "Message"
+msgstr "Центр сообщений"
+
+#: templates/postman/message_view.html:58
+#: templates/postman/message_view.html:66
+msgid "Reply"
+msgstr ""
+
+#: templates/postman/trash.html:3
+msgid ""
+"Messages in this folder can be removed from time to time. For long term "
+"storage, use instead the archive folder."
+msgstr ""
+
+#: templates/postman/write_to_case_doctor.html:43
+#: templates/postman/write_to_doctor.html:42
+msgid "Send"
 msgstr ""
 
 #: templates/terms.html:73
 msgid "Terms and conditions"
 msgstr ""
+
+#: utils/forms.py:55
+msgid "E-mail address"
+msgstr ""
+
+#: utils/forms.py:61
+msgid ""
+"That email address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+
+#: utils/forms.py:72
+#, fuzzy
+#| msgid "Confirm Password"
+msgid "Confirm password"
+msgstr "Подтвердите пароль"
+
+#: utils/models.py:95
+msgid "15 minutes"
+msgstr ""
+
+#: utils/models.py:96
+msgid "30 minutes"
+msgstr ""
+
+#: utils/models.py:97
+msgid "45 minutes"
+msgstr ""
+
+#: utils/models.py:98
+msgid "1 hour"
+msgstr ""
+
+#: utils/models.py:120
+msgid "Technical issues"
+msgstr ""
+
+#: utils/models.py:121
+msgid "Billing Enquiries"
+msgstr ""
+
+#: utils/models.py:122
+msgid "Doctor-Patient communication"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Specialty"
+#~ msgid "Specialty:"
+#~ msgstr "Специализация"
+
+#~ msgid "Spanish"
+#~ msgstr "Испанский"
+
+#~ msgid "Upload New Document"
+#~ msgstr "Загрузить новый документ"
+
+#~ msgid "Document Type"
+#~ msgstr "Тип документа"

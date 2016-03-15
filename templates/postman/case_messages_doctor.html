@@ -1,0 +1,114 @@
+{% extends 'doctor/case/case.html' %}
+{% load i18n postman_tags static %}
+{% block links %}
+    {{ block.super }}
+      <link rel="stylesheet" href="{% static 'css/pages/profile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/profile-style.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript"
+            src="{% static 'js/show_message_conversation.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'js/message_conversation.js' %}"></script>
+{% endblock %}
+
+{% block case_tab_content %}
+<div class="row col-sm-12 margin-bottom-10"><a class="btn-u btn-u-green pull-right send-new" href="{% url 'doctor:send_new' pk %}?next={{ request.path }}">{% trans 'Send new' %}</a></div>
+    <table id="pm_messages" class="table">
+        <thead>
+        <tr class="head-color rounded-th">
+
+            {% block pm_sender_header %}
+                <th>
+                    <a href="{% postman_order_by sender %}">{% trans "Sender" %}</a>
+                </th>{% endblock %}
+            {% block pm_recipient_header %}
+                <th>
+                    <a href="{% postman_order_by recipient %}">{% trans "Recipient" %}</a>
+                </th>{% endblock %}
+            <th>
+                <a href="{% postman_order_by subject %}">{% trans "Subject" %}</a>
+            </th>
+            <th><a href="{% postman_order_by date %}">
+                {% block pm_date %}
+                    {% trans "Date" %}{% endblock %}</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>{% for message in pm_messages %}
+            <tr {% if not message.read_at %}class="unread-message" {% endif %}>
+                {% block pm_sender_cell %}
+                    <td>
+                        {{ message.obfuscated_sender|or_me:user }}
+                        {% if message.count %} (
+                            {{ message.count }}
+                            ){% endif %}</td>{% endblock %}
+                {% block pm_recipient_cell %}
+                    <td>
+                        {{ message.obfuscated_recipient|or_me:user }}
+                        {% if message.count %} (
+                            {{ message.count }}
+                            ){% endif %}</td>{% endblock %}
+                <td>{% if message.is_new %}
+                    <strong>{% endif %}
+                    {% if message.is_replied %}
+                        <em>{% endif %}
+                    {% block pm_subject %}
+                        <a class="view" href="
+
+
+
+                                {% if by_conversation and message.thread_id %}{% url 'patient:view_conversation' message.thread_id %}{% else %}{% url 'patient:message_view' message.pk %}{% endif %}?next={{ current_url|urlencode }}">
+                            {% include "postman/inc_subject_ex.html" %}
+                        </a>
+                    {% endblock %}
+                    {% if message.is_replied %}
+                        </em>{% endif %}
+                    {% if message.is_new %}
+                        </strong>{% endif %}</td>
+                <td>{{ message.sent_at }}</td>
+            </tr>{% endfor %}
+        </tbody>
+    </table>
+
+    <div class="modal fade message-view" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h2></h2>
+                </div>
+
+                                <div class="modal-body">
+                    <div class="row message-container">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+     <div class="modal fade message-view" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h2>{% trans 'New message' %}</h2>
+                </div>
+
+                                <div class="modal-body">
+                    <div class="row new-message-container">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

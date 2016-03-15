@@ -1,0 +1,61 @@
+{% load i18n %}
+
+{% with a=appointment %}
+    {% if not request.GET.pk %}
+
+        {% if a.appointment_status != a.STATUS_COMPLETE %}
+
+            {% if a.appointment_status != a.STATUS_PATIENT_CANCEL and a.appointment_status != a.STATUS_DOCTOR_CANCEL %}
+                <td class="text-left">
+                    <a class="btn btn-warning"
+                       href="{% url 'patient:consultation_edit' a.id %}">{% trans 'Edit' %}</a>
+
+                    <a class="btn btn-danger"
+                       href="{% url 'patient:consultation_status' a.id a.STATUS_PATIENT_CANCEL %}">{% trans 'Cancel' %}</a>
+
+                    {% if a.appointment_status == a.STATUS_EDIT %}
+                        <a class="btn btn-success"
+                           href="{% url 'patient:appointment_process' %}?pk= {{ a.id }}">{% trans 'Complete process' %}</a>
+                    {% else %}
+
+                    {% if a.deposit_paid and not a.consult_paid and a.appointment_status == a.STATUS_DOCTOR_APPROVE %}
+                            {% for key, value in appointment_availability.iteritems %}
+                                {% if key == a.id and value.0 %}
+                                    <a class="btn btn-info enter-appointment {% if not value.2 %}disabled{% endif %}"  data-token="{% url 'patient:payment' %}"
+                                       data-available="{{ value.1 }}" data-case="{{ a.case.id }}" href="{% if value.2 %}{% url 'utils:appointment_room' a.case.id a.id %}{% endif %}">{% trans 'Enter Appointment' %}</a>
+                                {% endif %}
+                            {%  endfor %}
+                    {% endif %}
+
+                    {% if not a.deposit_paid %}
+                        <a class="btn btn-primary"
+                           href="{% url 'patient:appointment_payment' a.case.id a.id %}">{% trans 'Pay' %}</a>
+                    {% endif %}
+
+                    {% if a.consult_paid %}
+                        <a class="btn btn-primary"  href="{% url 'patient:after_appointment' a.case.id a.id  %}">{% trans 'After Appointment' %}</a>
+
+                    {% endif %}
+                    {% endif %}
+
+                </td>
+            {% else %}
+                <td class="text-center">
+                    -
+                </td>
+            {% endif %}
+        {% else %}
+            <td class="text-center">
+                -
+            </td>
+        {% endif %}
+
+
+    {% else %}
+        <td class="text-center">
+            -
+        </td>
+    {% endif %}
+
+
+{% endwith %}

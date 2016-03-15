@@ -1,0 +1,35 @@
+{% extends 'doctor/case/case.html' %}
+{% load i18n %}
+{% load static %}
+{% block js %}
+    <script src="{% static 'js/edit_file.js' %}">
+    </script>
+{% endblock %}
+{% block case_tab_content %}
+    <form class="file" method="post" action="{{ request.path }}">
+        {% csrf_token %}
+        {% for input in form %}
+            {% with errors=input.errors %}
+                <div class="form-group{% if errors %} has-error{% endif %}  {% if input.name == 'case' %} hidden {% endif %}">
+                    {% if not ignore_label %}{{ input.label_tag }}{% endif %}
+                    {{ input }}
+                    {% for error in errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endwith %}
+        {% endfor %}
+        {% with errors=form.non_field_errors %}
+            {% if errors %}
+                <div class="has-error">
+                    {% for error in errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="text-right">
+            <button class="btn btn-u" type="submit">{% trans 'Save' %}</button>
+        </div>
+    </form>
+{% endblock %}

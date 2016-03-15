@@ -7,8 +7,8 @@
             <h4>{% trans 'This time is already taken' %}</h4>
             <p>
                 {% trans 'You must change time of appointment at' %}
-                <a href="#">
-                    {% trans 'Consultation history' %}
+                <a href="{% url 'patient:consultation_edit' pk=appointment.pk %}">
+                    {% trans 'Appointment Edit' %}
                 </a>
             </p>
        </div>
@@ -17,17 +17,6 @@
     {% endif %}
 {% endblock %}
 {% block dashboard_content %}
-    {% include 'doctor/ajax/patient_details.html' %}
-    <div class="col-sm-10 ">
-        {% if not taken %}
-            <form class="form" role="form" method="post" action="{% url 'patient:confirmation' %}">
-                {% csrf_token %}
-
-                <button type="submit"
-                    class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block pull-right">
-                    {% trans 'Apply' %}
-                </button>
-            </form>
-        {% endif %}
-    </div>
+    {# {% include 'doctor/ajax/patient_details.html' %} #}
+    {% include 'patient/dashboard/app_process/confirm.html' %}
 {% endblock %}

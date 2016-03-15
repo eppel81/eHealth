@@ -936,16 +936,17 @@
 	color: #404040;
 }
 .ui-datepicker-calendar a:hover {
-	background: rgba(0,0,0,.05);	
+	border: 1px solid lightgrey;
 }
 .ui-datepicker-calendar span {
 	color: #bfbfbf;
 }
 .ui-datepicker-today a {
 	font-weight: 700;
+	border: 1px solid lightgrey;
 }
 .ui-datepicker-calendar .ui-state-active {
-	background: rgba(0,0,0,.05);
+	background: rgba(0,0,0,.2);
 	cursor: default;	
 }
 .ui-datepicker-inline {

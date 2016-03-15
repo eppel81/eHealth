@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load static %}
 {% block js %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
     <script type="text/javascript" src="{% static 'js/appointment_times.js' %}"></script>
 {% endblock %}
 
@@ -15,15 +16,18 @@
                         <img class="img-responsive img-bordered full-width" src="{{ doctor.photo.url }}" alt="">
                     {% else %}
                         {% if doctor.gender %}
-                            <img class="img-responsive img-bordered full-width" src="{% static 'img/doctor_man.jpg' %}" alt="">
+                            <img class="img-responsive img-bordered full-width" src="{% static 'img/doctor_man.jpg' %}"
+                                 alt="">
                         {% else %}
-                            <img class="img-responsive img-bordered full-width" src="{% static 'img/doctor_woman.png' %}" alt="">
+                            <img class="img-responsive img-bordered full-width"
+                                 src="{% static 'img/doctor_woman.png' %}" alt="">
                         {% endif %}
                     {% endif %}
                     <div class="inner-faq-b">
                         <h3>
                             {{ doctor.user.first_name }} {{ doctor.user.last_name }}
                         </h3>
+
                         <div>
                             {% with specialities=doctor.doctorspecialty_set.all %}
                                 {% for speciality in specialities %}
@@ -33,15 +37,15 @@
                         </div>
                         <div class="appointment">
                             <h4>
-                                Appointment Type:
+                                {% trans 'Appointment Type:' %}
                                 {% if doctor.phone_appointment or doctor.video_appointment %}
                                     {% if doctor.phone_appointment %}
                                         <span class="glyphicon glyphicon-headphones"></span>
-                                            {% trans 'Phone' %}
+                                        {% trans 'Phone' %}
                                     {% endif %}
                                     {% if doctor.video_appointment %}
                                         <span class="glyphicon glyphicon-facetime-video"></span>
-                                            {% trans 'Video' %}
+                                        {% trans 'Video' %}
                                     {% endif %}
                                 {% else %}
                                     {% trans 'No Appointment' %}
@@ -55,38 +59,40 @@
                             <div class="col-sm-2 col-md-1">
                                 <h4>{% trans 'When' %}:</h4>
                             </div>
-                            {% if appointment_time.exists %}
-                                <div class="col-sm-4 col-md-4">
-                                    <select id="appointment_time" class="form-control appointment-date">
-                                          {% for time in appointment_time %}
-                                            <option data-url="{% url 'patient:appointment_request' pk=time.id %}">
-                                                {{ time.start_time }}
-                                            </option>
-                                          {% endfor %}
-                                    </select>
-                                    <button id="make_appointment" type="button" class="btn btn-primary"  data-toggle="modal" data-target="#appointment-request">
-                                      Make appointment
-                                    </button>
-                                </div>
-                            {% else %}
-                                <div class="col-sm-4">
-                                    <h4>{% trans 'Not available' %}</h4>
-                                </div>
-                            {% endif %}
-                            <div class="times col-sm-6 col-md-9"></div>
-                        </div>
+                        {% if appointment_time.exists %}
+                            <div class="col-sm-4 col-md-4">
+                                <select id="appointment_time" class="form-control appointment-date">
+                                    {% for time in appointment_time %}
+                                        <option data-url="{% url 'patient:appointment_request' pk=time.id %}">
+                                            {{ time.start_time }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <button id="make_appointment" type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#appointment-request">
+                                    Make appointment
+                                </button>
+                            </div>
+                        {% else %}
+                            <div class="col-sm-4">
+                                <h4>{% trans 'Not available' %}</h4>
+                            </div>
+                        {% endif %}
+                        <div class="times col-sm-6 col-md-9"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="modal-body row">
             <div class="col-sm-6">
                 <h2 class="bordered-bottom">{% trans 'Location' %}</h2>
+
                 <div>
                     <h4>{{ doctor.country }}, {{ doctor.city }}</h4>
                 </div>
             </div>
             <div class="col-sm-6">
-                <h2 class="bordered-bottom">Languages Spoken</h2>
+                <h2 class="bordered-bottom">{% trans 'Languages Spoken' %}</h2>
                 <div>
                     {% with languages=doctor.languages %}
                         {% if languages.exists %}
@@ -124,8 +130,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div  id="appointment-request" class="modal fade" role="dialog" aria-hidden="true"
-        tabindex="-1">
 </div>

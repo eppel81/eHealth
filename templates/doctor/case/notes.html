@@ -1,0 +1,77 @@
+{% extends 'doctor/case/case.html' %}
+{% load i18n %}
+{% load static %}
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/edit_note.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/show_all_notes.js' %}"></script>
+{% endblock %}
+
+{% block case_tab_content %}
+    <div>
+        <div class="pull-right">
+
+            <a class="btn btn-u" id="id_show_all_notes" href="{% url 'doctor:all_notes' patient=case.patient.id case=case.id %}">{% trans 'Show all notes' %}</a>
+        </div>
+
+        {% if not appointments.exists %}
+            <h3>{% trans 'There are no appointments in the current case.' %}</h3>
+        {% else %}
+            <h2>{% trans 'Appointments' %}</h2>
+            <table class="table">
+            	<thead>
+					<tr class="head-color rounded-th">
+						<th>{% trans 'Time' %}</th>
+						<th>{% trans 'Status' %}</th>
+						<th>{% trans 'Actions' %}</th>
+					</tr>
+                </thead>
+            	<tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                    	<td>{{ appointment.appointment_time.start_time }}</td>
+                    	<td>{{ appointment.get_appointment_status_display }}</td>
+                    	<td class="text-left">
+                            <a class="btn btn-success note-link" href="{% url 'doctor:edit_note' appointment.appointmentnote.pk %}">
+                                {% trans 'Edit note' %}
+                            </a>
+                            {% if appointment.appointment_status == appointment.STATUS_DOCTOR_APPROVE %}
+								<a class="btn btn-danger" href="{% url 'doctor:appointment_status' appointment.id appointment.STATUS_DOCTOR_CANCEL %}?next={{ request.path }}">
+                                    {% trans 'Cancel' %}
+                                </a>
+                        	{% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="id_edit_case_modal">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h2>{% trans 'Editing note' %}</h2>
+                </div>
+                <div class="modal-body note-placeholder"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="id_all_notes_modal">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h2>{% trans 'All Notes' %}</h2>
+                </div>
+                <div class="modal-body all-notes-placeholder table-responsive"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

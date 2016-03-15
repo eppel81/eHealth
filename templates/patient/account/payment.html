@@ -1,0 +1,36 @@
+{% extends 'patient/account/base_account.html' %}
+{% load staticfiles %}
+
+{% load i18n %}
+{% load static %}
+{% block account_content %}
+    <div class="col-sm-12 col-sm-offset-1">
+    <div class="attention">
+    {% if payment_method %}
+    <p>{% trans "In order to add new payment method, choose 'Change payment method' and then 'Save' " %}</p>
+    {% else %}
+        <p>{% trans 'You do not have any payment methods, please add a payment method' %}</p>
+    {% endif %}
+    </div>
+        <form class="form" id="checkout" method="post" action="{% url 'patient:payment' %}">
+            {% csrf_token %}
+            <div id="payment-form"></div>
+            <div class="btn-container"></div>
+            {% with next_url=request.GET.next_url %}
+                {% if next_url %}
+            <a class="btn btn-u pull-right" href="{{ next_url }}">Continue</a>
+                    {% else %}
+            <input type="submit" class="btn btn-u pull-right disabled" value="Save">
+
+                {% endif %}
+            {% endwith %}
+        </form>
+
+
+    </div>
+    <script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
+    <script src="{% static 'js/braintree_payments.js' %}"></script>
+
+
+{% endblock %}
+

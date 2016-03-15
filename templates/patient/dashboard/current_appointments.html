@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+{% load tz %}
+{% block links %}
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/style_my_health.css' %}">
+{% endblock %}
+{% if current_appointments %}
+<div class="easy-block-v3 service-or equal-height-column">
+    <div class="inner-faq-b text-center">
+        <h3>{% trans 'Future appointments' %}</h3></div>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr class="head-color rounded-th">
+                <th class="text-center" width="20%">{% trans 'Date' %}</th>
+                <th class="text-center" width="15%">{% trans 'Doctor' %}</th>
+                <th class="text-center" width="30%">{% trans 'Problem' %}</th>
+                <th class="text-center" width="15%">{% trans 'Status' %}</th>
+                <th class="text-center" width="20%">{% trans 'Action' %}</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for appointment in current_appointments %}
+            <tr>
+                <td class="text-center">
+                    {{ appointment.appointment_time.start_time }}
+                </td>
+                <td class="text-center">
+                    {% if appointment.case.doctor.user.first_name %}
+                        {{ appointment.case.doctor.user.first_name }}
+                        {{ appointment.case.doctor.user.last_name }}
+                    {% else %}
+                        {{ appointment.case.doctor.user.username }}
+                    {% endif %}
+                </td>
+                <td class="text-center">
+                    {{ appointment.case.problem }}
+                </td>
+
+                <td class="text-center">
+                    {{ appointment.status }}
+                </td>
+
+                {% include 'partials/appointment_action.html' %}
+
+
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+{% endif %}

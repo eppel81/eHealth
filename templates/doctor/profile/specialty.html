@@ -2,17 +2,17 @@
 {% load i18n %}
 {% load static %}
 {% block links %}
-{#    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">#}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
 {% endblock %}
-{% block account_content %}
+{% block profile_content %}
     <br>
 
 
     <table class="table">
         <tbody>
             <tr>
-                <th scope="col">Specialty</th>
-                <th scope="col">Is Primary</th>
+                <th scope="col">{% trans 'Specialty' %}</th>
+                <th scope="col">{% trans 'Is Primary' %}</th>
                 <th scope="col"></th>
             </tr>
 
@@ -46,7 +46,7 @@
                     {{ item.errors }}</td>
                 {% endfor %}
                 <td>
-                    <button type="submit" class="btn btn-u">Add</button>
+                    <button type="submit" class="btn btn-u">{% trans 'Add' %}</button>
                 </td>
             </tr>
             </form>

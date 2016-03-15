@@ -1,0 +1,28 @@
+{% load ehealth_custom_tags %}
+{% load i18n %}
+<div class="table-responsive">
+    <table class="table appointment">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th class="text-center">{% trans 'Time' %}</th>
+            {% for day in days %}
+                <th class="text-center">{{ day }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody class="text-center">
+            {% for time in times %}
+                <tr class="{{ time }}">
+                    <td>
+                        {% if time|endswith:"00" %}
+                            <b>{{ time }}</b>
+                        {% endif %}
+                    </td>
+                    {% for day in days %}
+                        <td class="{{ day }}"></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

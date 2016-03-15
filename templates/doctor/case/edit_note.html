@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load static %}
+
+<form method="post" action="{{ request.path }}" id="id_note_edit">
+    {% csrf_token %}
+    {% for input in form %}
+        {% include 'partials/bootstrap-input.html' %}
+    {% endfor %}
+    <div class="text-right">
+        <button class="btn btn-u" type="submit">{% trans 'Save' %}</button>
+    </div>
+</form>

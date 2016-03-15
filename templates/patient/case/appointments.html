@@ -1,0 +1,56 @@
+{% extends 'patient/case/case.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block js %}
+    <script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/appointment_process.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/enter_appointment_room.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/appointment_room_availability.js' %}"></script>
+
+{% endblock %}
+{% block case_tab_content %}
+    {% if appointments %}
+        <br>
+        <table class="table" style="margin-top: 15px;">
+            <thead>
+            <tr class="head-color rounded-th">
+                <th width="25%" class="text-center">{% trans 'Date' %}</th>
+                <th width="10%" class="text-center">{% trans 'Type' %}</th>
+                <th width="20%" class="text-center">{% trans 'Status' %}</th>
+                <th class="text-center">{% trans 'Action' %}</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td class="text-center">
+                        {{ appointment.appointment_time.start_time }}
+
+
+                    </td>
+                    <td class="text-center">
+                        {{ appointment.get_appointment_type_display }}
+                    </td>
+
+                    <td class="text-center">
+                        {{ appointment.get_appointment_status_display }}
+                    </td>
+
+                    {% include 'partials/appointment_action.html' %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>No appointments found for this case</h3>
+    {% endif %}
+
+    {% include 'partials/consult_rate_confirmation.html' %}
+
+
+{% endblock %}
+

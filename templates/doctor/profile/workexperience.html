@@ -2,19 +2,19 @@
 {% load i18n %}
 {% load static %}
 {% block links %}
-{#    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">#}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
     {{ form.media }}
 {% endblock %}
-{% block account_content %}
+{% block profile_content %}
     <br>
 
     <table class="table">
         <tbody>
         <tr>
-            <th width="30%">Care Facility</th>
-            <th width="30%">Position</th>
-            <th width="15%">Start Date</th>
-            <th width="15%">End Date</th>
+            <th width="30%">{% trans 'Care Facility' %}</th>
+            <th width="30%">{% trans 'Position' %}</th>
+            <th width="15%">{% trans 'Start Date' %}</th>
+            <th width="15%">{% trans 'End Date' %}</th>
             <th></th>
         </tr>
 
@@ -25,7 +25,7 @@
             <td>{{ work.start_date }}</td>
             <td>{{ work.end_date }}</td>
             <td>
-                <a href={% url 'doctor:experience_delete' work.id %}><button class="btn-u">Delete</button></a
+                <a href={% url 'doctor:experience_delete' work.id %}><button class="btn-u">{% trans 'Delete' %}</button></a>
             </td>
         </tr>
         {% endfor %}
@@ -39,7 +39,7 @@
             </td>
         {% endfor %}
             <td>
-                <button type="submit" class="btn-u">Add</button>
+                <button type="submit" class="btn-u">{% trans 'Add' %}</button>
             </td>
         </tr>
         </form>

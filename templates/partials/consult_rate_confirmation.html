@@ -1,0 +1,41 @@
+{% load i18n %}
+<div class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" id="id_consult_payment_confirmation">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>{% trans 'Payment Confirmation' %}</h2>
+                </div>
+
+                <div class="modal-body">
+
+                <div class="row text-center">
+                    <div class="col-sm-12 appointment-price hidden">
+                        <div class="alert alert-info fade in text-center">
+                                <h4 class="no-word-break">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    {% trans "Doctor's consult rate is "  %} <strong>€<span id="consult-rate"></span></strong>.
+                            {% trans ' You should pay ' %} <strong>€<span id="net-amount"></span></strong> because €<span id="deposit"></span> {% trans ' deposit has been already redeemed. ' %}
+                            {% trans 'It will be taken automatically after appointment has been completed' %}
+                                </h4>
+                            </div>
+
+                        </div>
+                    {% include 'partials/braintree_payment_form.html' %}
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+
+                    <form id="continuePayment" action="">
+                        <button id="cancelPayment" type="button" class="btn btn-default" data-dismiss="modal" disabled>{% trans 'Cancel' %}</button>
+                        <button id="continuePaymentButton" class="btn btn-default" disabled type="submit">{% trans 'Continue' %}</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>

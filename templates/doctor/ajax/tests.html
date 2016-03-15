@@ -6,15 +6,15 @@
         <thead>
         <tr class="head-color rounded-th">
             <th width="5%">№</th>
-            <th width="50%">Test</th>
-            <th width="25%">Record date</th>
-            <th>Action</th>
+            <th width="50%">{% trans 'Test' %}</th>
+            <th width="25%">{% trans 'Record date' %}</th>
+            <th>{% trans 'Action' %}</th>
         </tr>
         </thead>
         <tbody>
         {% for test in tests %}
             <tr>
-            <td>
+                <td>
                    {{ forloop.counter }}
                 </td>
                 <td>
@@ -25,12 +25,12 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-success" id="id_test_del" onclick="delTest({{ test.id }})">Delete</a>
+                    <a class="btn btn-success" id="id_test_del" onclick="delTest({{ test.id }})">{% trans 'Delete' %}</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
-                    <a class="btn btn-success" id="id_add_test" onclick="addTest()">Add new test</a>
+                    <a class="btn btn-success" id="id_add_test" onclick="addTest()">{% trans 'Add new test' %}</a>
 

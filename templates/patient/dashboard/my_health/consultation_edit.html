@@ -1,4 +1,4 @@
-{% extends 'patient/dashboard/my_health/base_my_health.html' %}
+{% extends 'patient/dashboard/my_health/base_myhealth.html' %}
 {% load i18n %}
 {% load static %}
 {% block title %}
@@ -8,8 +8,9 @@
     <script src="{% static 'js/consultation_edit.js' %}"></script>
     <script src="http://www.appelsiini.net/projects/chained/jquery.chained.remote.min.js" ></script>
 {% endblock %}
-{% block tabs_content %}
-        <form class="appointment-request form-horizontal" method="post" action="">
+{% block tab_content %}
+        <form class="appointment-request form-horizontal" method="post" action="{{ request.path}}?{{ request.META.QUERY_STRING }}"
+                style="margin-top: 15px;">
             <div class="modal-body">
                 {% csrf_token %}
                     {% for item in form %}

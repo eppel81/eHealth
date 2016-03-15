@@ -7,7 +7,6 @@
       "height_in": 5,
       "country": null,
       "lifestyle_complete": false,
-      "billing_complete": false,
       "last_update": "2016-01-09T17:53:56.500Z",
       "family_complete": false,
       "user": 2,
@@ -37,24 +36,8 @@
     "model": "patient.patienthistory",
     "pk": 2
   },
-  {
-    "fields": {
-      "type": "patientrecord",
-      "patient": 1,
-      "file": "files/zzz@zzz.com/bash_completion_read.txt"
-    },
-    "model": "patient.patientfile",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "type": "testresult",
-      "patient": 1,
-      "file": "files/zzz@zzz.com/bumblebee_read.txt"
-    },
-    "model": "patient.patientfile",
-    "pk": 2
-  },
+
+
   {
     "fields": {
       "medications": true,

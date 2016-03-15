@@ -1,0 +1,106 @@
+{% extends 'patient/case/case.html' %}
+{% load ehealth_custom_tags %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "My Files" %}
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/delete_test_file.js' %}"></script>
+{% endblock %}
+{% block case_tab_content %}
+    <div class="files table-responsive">
+         {% if files.exists %}
+            <table class="table">
+                <thead>
+                    <tr class="head-color rounded-th">
+                        <th class="text-center">{% trans 'Type' %}</th>
+                        <th class="text-center">{% trans 'Description' %}</th>
+                        <th class="text-center">{% trans 'Conclusion' %}</th>
+                        <th class="text-center">{% trans 'Requested by' %}</th>
+                        <th class="text-center">{% trans 'Completed by' %}</th>
+                        <th class="text-center">{% trans 'Request form' %}</th>
+                        <th class="text-center">{% trans 'Result report / record' %}</th>
+                        <th class="text-center">{% trans 'Additional files' %}</th>
+                        <th class="text-center">{% trans 'Action' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in files %}
+                    <tr>
+                        <td class="text-center">{{ file.get_type_display|default_if_exists:"-" }}</td>
+
+                        <td class="text-center">{{ file.description|default_if_exists:"-" }}</td>
+                        <td class="text-center">{{ file.conclusions|default_if_exists:"-" }}</td>
+                        <td class="text-center">{{ file.requested_by|default_if_exists:"-" }}</td>
+                        <td class="text-center">{{ file.completed_by|default_if_exists:"-" }}</td>
+                        <td class="text-center">
+                            <a href="{{ file.request_form.url }}" download="{{ file.request_form.name }}">
+                                {{ file.request_formname }}
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            {% if file.result_report_or_record %}
+                                <a href="{{ file.result_report_or_record.url }}" download="{{ file.result_report_or_record.name }}">
+                                    {{ file.result_report_or_recordname }}
+                                </a>
+                                {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            {% if file.additionalfile_set.all %}
+                            <ul>
+                                {% for file in file.additionalfile_set.all %}
+                                    <li>
+                                        <a href="{{ file.file.url }}" download="{{ file.file.name }}">
+                                            {{ file.filename }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                                {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td class="text-center"><a href="{% url 'patient:delete_file' pk=file.id case=case_id %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.case %}&case=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}"
+                                class="btn-u btn-u-red delete_file">
+                             {% trans 'Delete' %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h2>{% trans 'No previous documents found' %}</h2>
+        {% endif %}
+    </div>
+    <div>
+        <a class="btn btn-u btn-u-sea" href="{% url 'patient:add_file' case_id %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.case %}&case=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+            <i class="fa fa-download"></i>
+            {% trans 'Upload new file / test' %}
+        </a>
+
+    </div>
+
+<div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2>{% trans 'Confirmation' %}</h2>
+        </div>
+          <form action="{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}" method="post" class="confirm">
+              {% csrf_token %}
+            <div class="modal-body">
+              <h3>{% trans 'Are you sure you want to delete ?' %}</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn-u btn-brd btn-u-red btn-u-sm pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> {% trans 'Cancel' %}</button>
+              <button type="submit" class="btn-u btn-brd btn-u-blue pull-right"> {% trans 'Confirm' %} </button>
+            </div>
+       </form>
+      </div>
+    </div>
+</div>
+{% endblock %}

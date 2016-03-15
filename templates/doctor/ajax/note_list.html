@@ -3,11 +3,11 @@
     <table class="table" style="margin-top: 15px;">
         <thead>
         <tr class="head-color rounded-th">
-            <th width="20%">Patient</th>
-            <th width="30%">Reason</th>
-            <th width="15%">Create date</th>
-            <th width="15%">Update date</th>
-            <th>Action</th>
+            <th width="20%">{% trans 'Patient' %}</th>
+            <th width="30%">{% trans 'Reason' %}</th>
+            <th width="15%">{% trans 'Create date' %}</th>
+            <th width="15%">{% trans 'Update date' %}</th>
+            <th>{% trans 'Action' %}</th>
         </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                     {{ case.updated_date }}
                 </td>
                 <td>
-                    <a class="btn btn-success" href="{% url 'doctor:view_case' case.id %}">View</a>
+                    <a class="btn btn-success" href="{% url 'doctor:view_case' case.id %}">{% trans 'View' %}</a>
 {#                    {% with a=appointment %}#}
 {#                        <button type="button" class="btn btn-primary" data-appointment="{{ a.id }}" data-toggle="modal" data-target="#info_modal">#}
 {#                          Info#}
@@ -49,7 +49,7 @@
         {% endfor %}
         </tbody>
     </table>
-                    <a class="btn btn-success" href="{% url 'doctor:new_case' %}">Add new case</a>
+                    <a class="btn btn-success" href="{% url 'doctor:new_case' %}">{% trans 'Add new case' %}</a>
 
 
 

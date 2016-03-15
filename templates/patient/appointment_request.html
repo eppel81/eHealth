@@ -1,36 +1,46 @@
+{% load i18n %}
 {% load static %}
 {% block js %}
     <script src="{% static 'js/appointment_errors.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
+
 {% endblock %}
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">x</button>
-            <h2>Appointment Request</h2>
+            <h2>{% trans 'Appointment Request' %}</h2>
         </div>
-        <form class="appointment-request form-horizontal" method="post" action="{{ request.path }}">
-            <div class="modal-body">
+        <div class="modal-body">
+
+            <form class="appointment-request form-horizontal" data-deposit="{{ deposit }}" method="post"
+                  action="{{ request.path }}">
                 {% csrf_token %}
-                    {% for item in form %}
-                        <div class="form-group">
-                            <div class="col-sm-2 col-sm-offset-1">
-                                {{ item.label_tag }}
-                            </div>
-                            <div class="col-sm-8">
-                                {{ item }}
-                                <span class="help-block"></span>
-                            </div>
+                {% for item in form %}
+                    <div class="form-group {{ item.name }}
+                        {% if item.name == 'appointment_type' %} hidden {% endif %}">
+                        <div class="col-sm-2 col-sm-offset-1">
+                            {{ item.label_tag }}
                         </div>
-                    {% endfor %}
-                <div>
-                    {{ form.non_field_errors }}
+                        <div class="col-sm-8">
+                            {{ item }}
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="non-field-errors">
+                    <h4><span class="help-block text-center"></span></h4>
+
                 </div>
-            </div>
-            <div class="modal-footer">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default">Continue</button>
+
+                <div class="modal-footer">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit"
+                                class="btn btn-default appointment-request">{% trans 'Continue' %}</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+

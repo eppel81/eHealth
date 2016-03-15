@@ -3,106 +3,61 @@
 {% load static %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/style_my_health.css' %}"/>
-    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap-datepicker3.min.css' %}">
     <link rel="stylesheet" type='text/css' href="{% static 'css/chosen.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/sky-forms-pro/skyforms/css/sky-forms.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css' %}" >
+
 {% endblock %}
 {% block account_content %}
     <div class="row">
-        <div id="sandbox-container" class="col-xs-3"></div>
-        <div class="search col-xs-9">
-            <form class="form-inline" role="form" action="{% url 'doctor:time' %}?next={{ request.path }}" method="post">
-                <div class="form-group col-md-5">
-                    {% csrf_token %}
-                    <input type="hidden" name="current_date" value="{{ rows.name }}">
-                    <select name="appointment_time" id="appointment_time" multiple style="width:350px;"
-                            data-placeholder="Choose time...">
-                        {% for time in times %}
-                            <option value="{{ time }}">{{ time }}</option>
-                        {% endfor %}
-                    </select>
-                    <small>{% trans "Hold Ctrl + click to add multiple" %}</small>
-                </div>
-                <div class="form-group col-md-2">
-                    <button type="submit" class="btn btn-default">Save</button>
-                </div>
-            </form>
-        </div>
+
+        <form id="calendar-form" class="form-inline" role="form" action="{% url 'doctor:time' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="first_day">
+            <input type="hidden" name="last_day">
+            <div class="form-group week-picker col-sm-5 col-md-3"></div>
+            <div class="week-form col-sm-12 col-md-9"></div>
+        </form>
+
     </div>
-    <table class="table" style="margin-top: 15px;">
-        <thead>
-        <tr class="head-color rounded-th">
-            <th width="10%">{{ rows.name }}</th>
-            <th width="10">{% trans 'Duration' %}</th>
-            <th width="60%">{% trans 'Scheduled' %}</th>
-            <th>{% trans 'Action' %}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for time in rows.times %}
-            <tr>
-                <td>
-                    {{ time.start_time | date:"P" }}
-                </td>
-                <td>
-                    {{ time.duration_minutes }} {% trans 'min' %}
-                </td>
-                <td>
-                    {% if not time.free %}
-                        <a href="#" data-appointment="{{ time.appointment.id }}" data-toggle="modal" data-target="#info_modal">
-                        {% if time.appointment.patient.user.first_name %}
-                           {% trans 'Patient' %}: {{ time.appointment.patient.user.first_name }} {{ time.appointment.patient.user.second_name }}
-                        {% else %}
-                            {% trans 'Patient' %}: {{ time.appointment.patient.user.username }}
-                        {% endif %}
-                        <br>
-                        {% trans 'Type' %}: {{ time.appointment.get_appointment_type_display }} {% trans 'Reason' %}: {{ time.appointment.reason.name }}
-                        </a>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if time.free %}
-                        <a class="btn btn-danger" href="{% url 'doctor:timedel' rows.name time.id %}">{% trans 'Delete' %}</a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div id="week-schedule" class="res hidden" data-url="{% url 'doctor:appointment' %}">
+        {% include 'doctor/schedule/week_calendar.html' %}
+    </div>
+
 
 
     <div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-labelledby="InfoModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="InfoModalLabel">Patient info</h4>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
-          </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="InfoModalLabel">{% trans 'Patient info' %}</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
+
+    <div class="res" data-url="{% url 'doctor:appointment' %}">
+
+    </div>
 {% endblock %}
 
 {% block js %}
     <script type="text/javascript">
         var calendar_language = "{{ language }}";
-        var calendar_url = "{% url 'doctor:calendar' %}";
-        var calendar_current_date = "2016-10-11";
-        var info_url = "{% url "doctor:appointments" %}";
-        {% if rows.name %}
-            calendar_current_date = "{{ rows.name }}";
-        {% endif %}
     </script>
-    <script type="text/javascript" src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/locales/bootstrap-datepicker.'|add:language|add:'.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/datapicker.js' %}"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
     <script type="text/javascript" src="{% static 'js/chosen.jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/doctor_appointemts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/doctor_appointments.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.weekpicker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 
 {% endblock %}

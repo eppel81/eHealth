@@ -1,42 +1,16 @@
-{% extends 'patient/base_dashboard.html' %}
+{% extends 'patient/dashboard/my_health/base_myhealth.html' %}
 {% load i18n %}
 {% load static %}
 {% block links %}
     <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
 {% endblock %}
-{% block dashboard_content %}
-    <div class="pull-left head col-md-4 col-sm-6">
-        <h2><strong>
-            My Health
-        </strong></h2>
-    </div>
-    <div class="pull-right text-center">
-        <div class="col-sm-4">
-            <div>
-                <a href="{% url 'patient:my_health_history' %}">
-                    <img src="{% static 'img/my_health.jpg' %}" class="icons by_center">
-                    <strong>My Health</strong>
-                </a>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div>
-                <a href="{% url 'patient:consultation' %}">
-                    <img src="{% static 'img/consultation.png' %}" class="icons by_center">
-                    <strong>Consultation History</strong>
-                </a>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div>
-                <a href="{% url 'patient:my_records' %}">
-                    <img src="{% static 'img/folder.png' %}" class="icons by_center">
-                    <strong>My Records</strong>
-                </a>
-            </div>
-        </div>
+{% block tab_content %}
+    <!--<div class="pull-left head col-md-4 col-sm-6">-->
+        <!--<h2><strong>-->
+            <!--My Health-->
+        <!--</strong></h2>-->
+    <!--</div>-->
 
-    </div>
      <div class="profile-info">
         <div class="easy-block-v3 no-border">
             {% if user.patient %}
@@ -64,7 +38,7 @@
                     <strong style="color:red">{{ user.patient.profile_complete }}%</strong>
                     complete
                 </h4>
-                <div class="col-md-5 complete">
+                <div class="col-sm-4 complete">
                     <div class="progress rounded-2x">
                         <div class="progress-bar progress-bar-danger" role="progressbar"
                              aria-valuenow="{{ user.patient.profile_complete }}"
@@ -75,22 +49,22 @@
 
                 </div>
                 {% if not user.patient.profile_complete == 100 %}
-                    <div class="complete col-md-10">
-                        <h6>
+                    <div>
+                        <h6 class="complete col-sm-10">
                                 Please complete
                                 {% if not user.patient.health_complete %}
-                                    <a href="{% url 'patient:my_health_history' %}">
-                                        <strong>My Health History</strong>
+                                    <a href="{% url 'patient:my_health_history' %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+                                        <strong>{% trans 'My Health History' %}</strong>
                                     </a>
                                 {% endif %}
                                 {% if not user.patient.lifestyle_complete %}
-                                    <a href="{% url 'patient:my_lifestyle' %}">
-                                        <strong>My Lifestyle</strong>
+                                    <a href="{% url 'patient:my_lifestyle' %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+                                        <strong>{% trans 'My Lifestyle' %}</strong>
                                     </a>
                                 {% endif %}
                                 {% if not user.patient.family_complete %}
-                                    <a href="{% url 'patient:my_family_history' %}">
-                                        <strong>My Family History</strong>
+                                    <a href="{% url 'patient:my_family_history' %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+                                        <strong>{% trans 'My Family History' %}</strong>
                                     </a>
                                 {% endif %}
                                 questions
@@ -98,20 +72,14 @@
                         </h6>
                     </div>
                 {% endif %}
-                <div class="complete update col-md-10">
-                    <h6>Last updated on {{ user.patient.last_update|date:"SHORT_DATE_FORMAT" }}</h6>
+                <div>
+                    <h6 class="complete update col-sm-10">{% trans 'Last updated on' %} {{ user.patient.last_update|date:"SHORT_DATE_FORMAT" }}</h6>
                 </div>
             </div>
 
         </div>
     </div>
-{% block messages %}
-    <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-            {% include 'form_messages.html' %}
-        </div>
-    </div>
-{% endblock %}
+
 {% block tabs_content %}
     <div class="tab-v2">
         <!--<a href="#" style="float:right">-->
@@ -122,7 +90,7 @@
             {% for tab in tabs %}
                 <li {% if active_tab == tab %}
                         class="active" {% endif %}>
-                    <a href="{{ tab.href }}{% if request.GET.app_process %}?app_process=true{% endif %}">
+                    <a href="{{ tab.href }}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
                         {% trans tab.title %}
                     </a>
                 </li>

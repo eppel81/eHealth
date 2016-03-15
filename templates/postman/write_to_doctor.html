@@ -1,0 +1,47 @@
+{% extends 'postman/base_write_message.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block write_tab_content %}
+{{ form.media }}
+    <script type="text/javascript" src="{% static 'js/write_to_doctor.js' %}"></script>
+<div id="postman">
+    <h1>{% block pm_write_title %}{% endblock %}</h1>
+    <form action="" method="post">{% csrf_token %}
+            {% for field in form %}
+                {% with errors=field.errors %}
+                    <div class="form-group {% if errors %}has-error{% endif %}">
+                        <div class="col-sm-offset-1 col-sm-2 form-group">
+                            {{ field.label_tag }}
+
+                        </div>
+                        <div class="col-sm-7" name="{{ field.name }}" {% if field.label == 'Doctor' %}data-url={% url 'patient:get_cases' %}{% endif %}
+                            {% if field.label == 'Patient' %}data-url={% url 'doctor:get_cases' %}{% endif %}
+                            >
+                                {{ field }}
+                            {% if errors %}
+                                {% for error in errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-7 has-error"></div>
+                    </div>
+                {% endwith %}
+            {% endfor %}
+
+            {% with errors=form.non_field_errors %}
+                {% if errors %}
+                    <div class="has-error">
+                        {% for error in errors %}
+                            <p class="help-block">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group col-sm-offset-1  col-sm-10">
+                <button class="btn-u btn-u-green pull-right" type="submit">{% trans "Send" %}</button>
+            </div>
+
+    </form>
+</div>
+{% endblock %}

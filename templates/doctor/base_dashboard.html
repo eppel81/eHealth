@@ -1,49 +1,37 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
+{% load postman_tags %}
 
+{% block button_menu %}
+
+    <ul class="nav nav-justified sidebar-nav-v1" id="sidebar-nav-1" style="margin-top: 40px;">
+        {% for item in menus %}
+            <li class="list-group-item {% if item == active_menu %}active {% endif %}">
+                <a href="{{ item.href }}">
+                    <i class="fa {{ item.class }}"></i>&nbsp;{% trans item.title %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
 {% block content %}
+
     <div class="container content profile">
-    	<div class="row">
+        <div class="row">
             <!--Left Sidebar-->
-            <div class="md-margin-bottom-40">
 
-                <ul class="nav nav-justified sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                 {% for item in menus %}
-
-                    <li class="list-group-item {% if item == active_menu %}active {% endif %}">
-                        <a href="{{ item.href }}"><i class="fa {{ item.class }}"></i>&nbsp;{% trans item.title %}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <div class="row">
-                    <div class="col-sm-offset-2 col-sm-8">
-                        {% include 'form_messages.html' %}
-                    </div>
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-8">
+                    {% include 'form_messages.html' %}
                 </div>
-
-                    {% block dashboard_content %}{% endblock %}
-
-
-
-
-                <!--
-                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
-                -->
-                <!--End Notification-->
-
-                <!--<div class="margin-bottom-50"></div>-->
-
-                <!--&lt;!&ndash;Datepicker&ndash;&gt;-->
-                <!--<form action="#" id="sky-form2" class="sky-form">-->
-                    <!--<div id="inline-start"></div>-->
-                <!--</form>-->
-                <!--&lt;!&ndash;End Datepicker&ndash;&gt;-->
             </div>
-            <!--End Left Sidebar-->
 
-
-
+            {% block dashboard_content %}{% endblock %}
         </div>
-    </div><!--/container-->
+        <!--End Left Sidebar-->
+
+
+    </div>
 {% endblock %}

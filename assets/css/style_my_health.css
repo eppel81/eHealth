@@ -5,7 +5,7 @@
 .complete{
     padding-left: 0px;
     padding-right: 5%;
-    height: 20px;
+    height: 21px;
 }
 
 
@@ -13,21 +13,29 @@
     border-bottom: 3px solid red;
 }
 
-.profile-info{
-    padding-top: 50px;
+.icons{
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
 }
 
-.icons{
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+.help{
+    margin-top: 10px;
 }
 
 @media(max-width: 991px) {
     .update{
-        margin-top: 25px;
+        margin-top: 10px;
     }
 }
+
+@media(max-width: 767px) {
+    .help{
+        margin-top: 50px;
+    }
+
+}
+
 
 .margin-h-ft{
     margin: 0 10px;
@@ -57,9 +65,7 @@
     padding-left: 5px;
 }
 
-.help {
-    margin-top: 20px;
-}
+
 
 .help > ul > li{
     margin-bottom: 7px;
@@ -78,4 +84,23 @@
 .by_center{
     margin: 0 auto;
     display: block;
+}
+
+.in_my_health{
+    display: inline;
+}
+
+.table-container{
+ min-height: 45em;
+    margin-top: 15px;
+
+}
+
+div.five-column
+{
+    width: 20%;
+}
+
+.pay-with{
+    padding-top: 20%;
 }

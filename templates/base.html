@@ -1,5 +1,5 @@
-{% load i18n %}
 <!DOCTYPE html>
+{% load i18n %}
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
@@ -15,7 +15,7 @@
     <meta name="author" content="">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
 
     <!-- Web Fonts -->
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl-carousel/owl.carousel.css' %}">
     <link rel="stylesheet" href="{% static 'plugins/revolution-slider/rs-plugin/css/settings.css' %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'plugins/sky-forms-pro/skyforms/css/sky-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css' %}">
     <!--[if lt IE 9]><link rel="stylesheet" href="{% static 'plugins/revolution-slider/rs-plugin/css/settings-ie8.css' %}" type="text/css" media="screen"><![endif]-->
 
     <!-- CSS Customization -->
@@ -42,6 +44,7 @@
     <script type="text/javascript" src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'plugins/jquery/jquery-migrate.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
     {% block links %}
     {% endblock %}
 </head>
@@ -63,7 +66,7 @@
 
                     <li class="hoverSelector">
                         <i class="fa fa-globe"></i>
-                        <a>Languages</a>
+                        <a>{% trans 'Languages' %}</a>
                         <ul class="languages anyclass hoverSelectorBlock">
                             {% get_current_language as LANGUAGE_CODE %}
                             {% get_available_languages as LANGUAGES %}
@@ -109,7 +112,7 @@
                                 {% if user.doctor.photo %}
                                     <img src="{{ user.doctor.photo.url }}" class="rounded-x full-height" />
                                 {% else %}
-                                    {% if doctor.gender %}
+                                    {% if user.doctor.gender %}
                                         <img class="rounded-x full-height" src="{% static 'img/doctor_man.jpg' %}">
                                     {% else %}
                                         <img class="rounded-x full-height" src="{% static 'img/doctor_woman.png' %}">
@@ -151,20 +154,18 @@
                 </ul>
             </div>
             <!-- End Topbar -->
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-list"></span>
+            </button>
 
-            {% block button_menu %}{% endblock %}
         </div><!--/end container-->
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         {% block header %}
             <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
                 <div class="container">
-                    <ul class="nav navbar-nav">
-                        <li class="page-scroll">
-                            <br/>
-                            <br/>
-                        </li>
-                    </ul>
+                  {% block button_menu %}{% endblock %}
                 </div><!--/end container-->
         </div><!--/navbar-collapse-->
         {% endblock %}
@@ -306,11 +307,18 @@
 <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/plugins/owl-carousel.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/plugins/revolution-slider.js' %}"></script>
+
+<script src="{% static 'plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/style-switcher.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/form-sliders.js' %}"></script>
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
         OwlCarousel.initOwlCarousel();
         RevolutionSlider.initRSfullWidth();
+        FormSliders.initFormSliders();
+
     });
 </script>
 <!--[if lt IE 9]>

@@ -25,10 +25,7 @@ select:active{
     margin-top: 5px;
 }
 
-.input-daterange {
-    width: auto;
 
-}
 
 .input-daterange input:first-child {
     border-radius: 0
@@ -36,4 +33,8 @@ select:active{
 
 .input-daterange input:last-child {
     border-radius: 0
+}
+
+select#appointment_time{
+    width: 15em;
 }

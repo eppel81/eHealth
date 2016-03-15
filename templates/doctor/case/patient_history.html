@@ -1,0 +1,147 @@
+{% extends 'doctor/case/case.html' %}
+{% load i18n %}
+{% load static %}
+{% block case_links %}
+    <link rel="stylesheet" href="{% static 'css/style_patient_history.css' %}"/>
+{% endblock %}
+
+{% block case_tab_content %}
+
+    <div class="col-sm-12 head">
+
+        <div class="easy-block-v3 no-border">
+            {% if doctor.photo %}
+                <img class="img-responsive img-bordered rounded-x full-width"
+                     src="{{ patient.photo.url }}" alt="">
+            {% else %}
+                <img class="img-responsive img-bordered rounded-x full-width"
+                     src="{% static 'img/user_man.jpg' %}" alt="">
+            {% endif %}
+            <div class="inner-faq-b">
+                <h3>Patient:</h3>
+
+                <h3>
+                    {{ patient.user.first_name }} {{ patient.user.last_name }}
+                </h3>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    {% if patient.patienthealthhistory.health_conditions %}
+        <div class="form-group col-sm-12 section-title">
+
+            <h2>{% trans 'Health Conditions' %}</h2>
+        </div>
+
+        <div class="col-sm-12">
+            <h5> {{ patient.patienthealthhistory.health_conditions_info }}</h5>
+        </div>
+
+
+    {% endif %}
+    {% if patient.patienthealthhistory.medications %}
+
+        <div class="form-group col-sm-12 section-title">
+
+            <h2>{% trans 'Medications' %}</h2></div>
+
+        <div class="col-sm-12">
+            <h5>  {{ patient.patienthealthhistory.medications_info }}</h5></div>
+
+    {% endif %}
+
+    {% if patient.patienthealthhistory.surgeries %}
+
+        <div class="form-group col-sm-12 section-title">
+
+            <h2>{% trans 'Surgeries' %}</h2>
+        </div>
+
+        <div class="col-sm-12">
+            <h5> {{ patient.patienthealthhistory.surgeries_info }} </h5></div>
+
+
+    {% endif %}
+
+
+    {% with h_ft=patient.height_ft  h_in=patient.height_in w=patient.weight lifestyle=patient.patientlifestyle_set.all %}
+        {% if h_ft or w or lifestyle %}
+            <div class="form-group col-sm-12 section-title">
+
+                <h2>{% trans 'Lifestyle' %}</h2>
+
+            </div>
+            <div class="col-sm-12 row">
+                {% if h_ft and h_in %}
+                    <div class="col-sm-6"><label><h4>
+                        <strong>{% trans 'Height' %}:</strong></h4></label>
+                        <h5> {{ h_ft }} ft {{ h_in }} in</h5></div>
+                {% endif %}
+                {% if w %}
+                    <div class="col-sm-6"><label><h4>
+                        <strong>{% trans 'Weight' %}:</strong></h4></label>
+                        <h5> {{ w }} lbs</h5></div>
+                {% endif %}
+            </div>
+            {% if lifestyle %}
+                <div class="col-sm-12 row">
+                    <div class="col-sm-6 "><label><h4>
+                        <strong>{% trans 'Questions' %}</strong></h4></label>
+                    </div>
+                    <div class="col-sm-6"><label><h4>
+                        <strong>{% trans 'Answers' %}</strong></h4></label>
+                    </div>
+                </div>
+
+
+                {% for patient_lifestyle in lifestyle %}
+                    <div class="col-sm-12 row">
+                        <div class="col-sm-6">
+                            <h5>{{ patient_lifestyle.question }}</h5>
+                        </div>
+                        <div class="col-sm-6">
+                            {% if patient_lifestyle.answer %}
+                                <h5>{% trans 'Yes' %}</h5>
+                            {% else %}
+                                <h5>{% trans 'No' %}</h5>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+
+
+        {% endif %}
+    {% endwith %}
+
+    {% with conditions=patient.patientfamily_set.all %}
+        {% if conditions %}
+            <div class="form-group col-sm-12 section-title">
+                <h2>{% trans 'Family History' %}</h2></div>
+            <div class="col-sm-12 row">
+                <div class="col-sm-6"><label><h4>
+                    <strong>{% trans 'Conditions' %}</strong></h4></label></div>
+                <div class="col-sm-6"><label><h4>
+                    <strong>{% trans 'Relationships' %}</strong></h4></label>
+                </div>
+            </div>
+
+            {% for patientfamily in patient.patientfamily_set.all %}
+                <div class="col-sm-12 row">
+                    <div class="col-sm-6"><h5>{{ patientfamily.condition }}</h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>{{ patientfamily.relationship }}</h5></div>
+                </div>
+            {% endfor %}
+
+        {% endif %}
+    {% endwith %}
+
+
+{% endblock %}

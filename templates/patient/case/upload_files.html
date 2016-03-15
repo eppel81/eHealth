@@ -1,0 +1,103 @@
+{% extends 'patient/case/case.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "Add Files" %}
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/additional_files.js' %}"></script>
+    <script src="{% static 'js/required_files.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
+    <script src="{% static 'js/check_file_size.js' %}"></script>
+{% endblock %}
+{% block case_tab_content %}
+    <div class="update_file">
+
+        <div class="alert alert-danger fade in file-error hidden text-center">
+            <button type="button" class="close" onclick="closeAlert()">x
+            </button>
+            <h5>
+                <strong>{% trans 'Your file is too large!' %}</strong>
+                {% trans " The maximum file's size is 100Mb." %}</h5>
+        </div>
+        <div class="alert alert-warning fade in text-center">
+
+            <h5>
+                <strong>{% trans 'Warning!' %}</strong>{% trans ' Only .txt, .pdf, .doc, .docx, .csx, .xls, .xlsx, .gif, .png, .pjpeg formats are allowed' %}
+            </h5>
+        </div>
+        <form class="form-horizontal file-upload" role="form" action="
+
+                {% url 'patient:add_file' pk=case.id %}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.case %}&case=true{% endif %}{% if request.GET.pk %}&pk={{ request.GET.pk }}{% endif %}"
+              method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for item in form %}
+                {% with errors=item.errors %}
+                    <div class="form-group {% if errors %}has-error{% endif %} {% if item.name == 'case' %} hidden {% endif %}">
+                        <div class="col-sm-3 text-right">
+                            {% if item.name == 'description' or item.name == 'request_form' %}
+                                * {% endif %}
+                            {% trans item.label_tag %}
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            {{ item }}
+                            {% if errors %}
+                                {% for error in errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endwith %}
+            {% endfor %}
+            {% with errors=form.non_field_errors %}
+                {% if errors %}
+                    <div class="has-error">
+                        {% for error in errors %}
+                            <p class="help-block">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="add_files">
+                {{ additionalfiles_formset.management_form }}
+                {% for file in additionalfiles_formset %}
+                    <div class="my_form">
+                        {% for field in file %}
+                            {% with errors=field.errors %}
+                                <div class="form-group {% if not forloop.first %} hidden {% endif %}">
+                                    <div class="col-sm-3 text-right">
+                                        {{ field.label_tag }}
+                                    </div>
+                                    <div class="col-sm-7 {{ field.name }}">
+                                        <div class="input-group {% if errors %} has-error {% endif %}
+                                    {% if additionalfiles_formset.non_form_errors %} has-error {% endif %}">
+                                            {{ field }}
+                                            {% if errors %}
+                                                {% for error in errors %}
+                                                    <span class="help-block">{{ error }}</span>
+                                                {% endfor %}
+                                            {% endif %}
+                                            <span class="input-group-addon"
+                                                  style="padding: 0px;">
+                                        <a class="btn btn-default add_file">
+                                            <span class="glyphicon glyphicon-floppy-open"></span> {% trans ' Add' %}
+                                        </a>
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endwith %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-sm-9">
+                <button type="submit" class="btn-u btn-u-dark-blue pull-right">
+                    {% trans 'Upload Document' %}
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

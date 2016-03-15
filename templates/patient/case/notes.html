@@ -1,0 +1,41 @@
+{% extends 'patient/case/case.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "Doctor Notes" %}
+{% endblock %}
+{% block case_tab_content %}
+    {% if appointments.exists %}
+    <br>
+<div class="table-responsive">
+    <table class="table" style="margin-top: 15px;">
+        <thead>
+        <tr class="head-color rounded-th">
+            <th width="25%" class="text-center">{% trans 'Appointment Date' %}</th>
+
+            <th width="" class="text-center">{% trans 'Note' %}</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for appointment in appointments %}
+            <tr>
+                <td class="text-center">
+                    {{ appointment.appointment_time.start_time }}
+
+                </td>
+                <td class="text-center">
+                      {{ appointment.appointmentnote.public_notes }}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+        {% else %}
+        <h2>No appointment notes found</h2>
+    {% endif %}
+{% endblock %}
+

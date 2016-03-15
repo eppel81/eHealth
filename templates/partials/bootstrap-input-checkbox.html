@@ -1,0 +1,11 @@
+{% with errors=input.errors %}
+    <div class="{% if errors or non_field_errors %}has-error{% endif %}">
+        <div class="checkbox">
+            <label class="control-label">
+                {{ input }}
+                {{ input.label }}
+            </label>
+        </div>
+        {% include 'partials/bootstrap-input-errors.html' %}
+    </div>
+{% endwith %}

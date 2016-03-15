@@ -1,0 +1,33 @@
+[
+  {
+    "fields": {
+      "user_id": 3,
+      "verified": true,
+      "primary": false,
+      "email": "alan@domain.com"
+    },
+    "model": "account.emailaddress",
+    "pk": 1
+  },
+
+    {
+    "fields": {
+      "user_id": 2,
+      "verified": true,
+      "primary": false,
+      "email": "dave@domain.com"
+    },
+    "model": "account.emailaddress",
+    "pk": 2
+  },
+    {
+    "fields": {
+      "user_id": 4,
+      "verified": true,
+      "primary": false,
+      "email": "boris@domain.com"
+    },
+    "model": "account.emailaddress",
+    "pk": 3
+  }
+  ]

@@ -1,67 +1,10 @@
 {% extends 'patient/dashboard/my_health/base_my_health.html' %}
 {% load i18n %}
 {% load static %}
-{% block js %}
-    <script src="{% static 'js/health_conditions.js' %}"></script>
-{% endblock %}
+
 {% block health_content %}
     <div class="row">
-        <div class="col-sm-12 col-md-12">
-            <form class="form-inline" role="form" action="{% url 'patient:my_health_history' %}{% if request.GET.app_process %}?next={% url 'patient:appointment_process' %}{% endif %}"
-                  method="post">
-                <div>
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    {% for item in form %}
-                    <div class="tag-box tag-box-v6 rounded-2x
-                         {{ item.name }}
-                        ">
-                        <div>
-                            <h2>
-                                {% if item == form.health_conditions %}
-                                    <img src="{% static 'img/my_health.jpg' %}" class="icons" />
-                                    {% trans 'My Health Conditions' %}
-                                {% endif %}
-                                {% if item == form.medications %}
-                                    <img src="{% static 'img/medications.png' %}" class="icons" />
-                                    {% trans 'My Medications' %}
-                                {% endif %}
-                                {% if item == form.surgeries %}
-                                    <img src="{% static 'img/surgery.png' %}" class="icons" />
-                                    {% trans 'My Surgeries' %}
-                                {% endif %}
-                            </h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h5>{{ item.label_tag }}</h5>
-                            </div>
-                            <div class="col-sm-5">
-                                 <ul class="list-inline">
-                                        {% for elem in item %}
-                                            <li class="conditions">
-                                                {{ elem }}
-                                            </li>
-                                        {% endfor %}
-                                </ul>
-                            </div>
-                            {{ item.errors }}
-                        </div>
-
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="form-group pull-right">
-                    <button type="submit" class="btn btn-default">
-                        {% if request.GET.app_process %}
-                            {% trans 'Next' %}
-                        {% else %}
-                            {% trans 'Save' %}
-                        {% endif %}
-                    </button>
-                </div>
-            </form>
-        </div>
+        {% include 'patient/dashboard/app_process/health_history.html' %}
     </div>
-
+    
 {% endblock %}

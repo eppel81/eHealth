@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 import models
 
 
@@ -9,21 +10,16 @@ class AdminPatient(admin.ModelAdmin):
                     'lifestyle_complete', 'family_complete')
 
 
-@admin.register(models.PatientBilling)
-class AdminPatientBilling(admin.ModelAdmin):
-    list_display = ('patient', 'name', 'address1', 'address2', 'city', 
-                    'zip', 'card_number', 'cvv_number',
-                    'card_type', 'hsa_card', 'expiration_date')
+# @admin.register(models.PatientBilling)
+# class AdminPatientBilling(admin.ModelAdmin):
+#     list_display = ('patient', 'name', 'address1', 'address2', 'city',
+#                     'zip', 'card_number', 'cvv_number',
+#                     'card_type', 'hsa_card', 'expiration_date')
 
 
 @admin.register(models.PatientHistory)
 class AdminPatientHistory(admin.ModelAdmin):
     list_display = ('patient', 'record_date', 'type', 'provider')
-
-
-@admin.register(models.PatientFile)
-class AdminPatientFile(admin.ModelAdmin):
-    list_display = ('patient', 'file', 'type')
 
 
 @admin.register(models.PatientHealthHistory)
@@ -33,7 +29,7 @@ class AdminPatientHealthHistory(admin.ModelAdmin):
 
 @admin.register(models.PatientLifestyleQuestion)
 class AdminPatientLifestyleQuestion(admin.ModelAdmin):
-    list_display = ('question_string', )
+    list_display = ('question_string',)
 
 
 @admin.register(models.PatientLifestyle)
@@ -43,8 +39,14 @@ class AdminPatientLifestyle(admin.ModelAdmin):
 
 @admin.register(models.PatientAppointment)
 class AdminPatientAppointment(admin.ModelAdmin):
-    list_display = ('patient', 'doctor', 'appointment_time', 'reason',
-                    'comments', 'appointment_type', 'appointment_status')
+    list_display = ('case', 'appointment_time',
+                    'appointment_type', 'appointment_status')
+
+
+@admin.register(models.AppointmentNote)
+class AdminAppointmentNote(admin.ModelAdmin):
+    list_display = ('appointment', 'anamnesis', 'exploration', 'diagnosis',
+                    'additional_tests', 'treatment', 'public_notes')
 
 
 @admin.register(models.PatientFamilyRelationship)
@@ -64,15 +66,17 @@ class AdminPatientFamily(admin.ModelAdmin):
 
 @admin.register(models.PatientCase)
 class AdminPatientCase(admin.ModelAdmin):
-    list_display = ('doctor', 'patient', 'reason', 'closed')
+    list_display = ('doctor', 'patient', 'problem', 'is_second_opinion',
+                    'status', 'description')
 
 
-@admin.register(models.Test)
-class AdminTest(admin.ModelAdmin):
-    list_display = ('case', 'test')
+@admin.register(models.TestFileRecord)
+class AdminTestFileRecord(admin.ModelAdmin):
+    list_display = (
+        'type', 'description', 'request_form', 'result_report_or_record',
+        'conclusions', 'requested_by', 'completed_by')
 
 
-@admin.register(models.Note)
-class AdminNote(admin.ModelAdmin):
-    list_display = ('case', 'note')
-
+@admin.register(models.AdditionalFile)
+class AdminAdditionalFile(admin.ModelAdmin):
+    list_display = ('file', 'test_file_record')

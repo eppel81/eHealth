@@ -1,0 +1,72 @@
+{% load i18n %}
+{% load static %}
+<script src="{% static 'js/health_conditions.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
+{% if not old_process %}
+<script src="{% static 'js/check_form_errors.js' %}"></script>
+{% endif %}
+<div class="" style="margin-top: 15px;">
+    <div class="col-sm-12 col-md-12" >
+
+            <form class="form-inline health-history" role="form" action="{{ request.path }}{% if request.GET.app_process %}{% if old_process %}?next={% url 'patient:appointment_process' %}{% else %}?next={% url 'patient:appointment_process1' %}{% endif %}&app_process=true{% if request.GET.pk %}&pk={{ request.GET.pk }}
+            {% endif %}{% endif %}" method="post">
+
+            <div>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for item in form %}
+                <div class="row tag-box-v6 rounded-2x
+                     {{ item.name }}
+                    " style="margin: 5px 5px;">
+                    <div>
+                        <h2>
+                            {% if item == form.health_conditions %}
+                                <img src="{% static 'img/my_health.jpg' %}" class="icons" />
+                                {% trans 'My Health Conditions' %}
+                            {% endif %}
+                            {% if item == form.medications %}
+                                <img src="{% static 'img/medications.png' %}" class="icons" />
+                                {% trans 'My Medications' %}
+                            {% endif %}
+                            {% if item == form.surgeries %}
+                                <img src="{% static 'img/surgery.png' %}" class="icons" />
+                                {% trans 'My Surgeries' %}
+                            {% endif %}
+                        </h2>
+                    </div>
+                    <div class="">
+                        <div class="col-sm-6">
+                            <h5>{{ item.label_tag }}</h5>
+                        </div>
+                        <div class="col-sm-5" name="{{ item.name }}">
+                             <ul class="list-inline">
+                                    {% for elem in item %}
+                                        <li class="conditions">
+                                            {{ elem }}
+                                        </li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="has-error  col-sm-offset-6 col-sm-6">
+                            {% for error in item.errors %}
+                                 <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+            <div class="form-group pull-right">
+                <button type="submit" class="btn btn-default">
+                    {% if request.GET.app_process %}
+                        {% trans 'Next' %}
+                    {% else %}
+                        {% trans 'Save' %}
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

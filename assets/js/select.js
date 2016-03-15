@@ -20,8 +20,19 @@ $(document).ready(function(){
 //            $('select[name=reason]').select2({});
 
     $('.input-daterange input').each(function() {
-    $(this).datepicker();
 
-});
+        $(this).datepicker({
+                autoclose: true
+            }
+
+        );
+    });
+
+    $(window).resize(function() {
+        var bodywidth = $('.doctor-block').width();
+        $(".select2-container").width(bodywidth);
+    }).resize();
+
+
 
 });

@@ -1,42 +1,43 @@
-{% extends 'patient/dashboard/my_health/base_my_health.html' %}
+{% extends 'patient/dashboard/my_health/base_myhealth.html' %}
 {% load i18n %}
 {% load static %}
 {% block title %}
-    {% trans "My Records" %}
+    {% trans "My History" %}
 {% endblock %}
-{% block tabs_content %}
+{% block tab_content %}
+<div class="table-responsive">
     <table class="table" style="margin-top: 15px;">
         <thead>
         <tr class="head-color rounded-th">
-            <th >Date</th>
-            <th >Doctor</th>
-            <th >Reason</th>
-            <th >Comments</th>
-            <th >Appointment Type</th>
-            <th >Status</th>
-            <th>Action</th>
+            <th class="text-center">{% trans 'Date' %}</th>
+            <th class="text-center">{% trans 'Doctor' %}</th>
+            <th class="text-center">{% trans 'Problem' %}</th>
+            <th class="text-center">{% trans 'Description' %}</th>
+            <th class="text-center">{% trans 'Appointment Type' %}</th>
+            <th class="text-center">{% trans 'Status' %}</th>
+
         </tr>
         </thead>
         <tbody>
         {% for appointment in appointments %}
             <tr>
-                <td>
+                <td class="text-center">
                     {{ appointment.appointment_time.start_time }}
                 </td>
-                <td>
-                    {% if appointment.doctor.user.first_name %}
-                        {{ appointment.doctor.user.first_name }} {{ appointment.doctor.user.second_name }}
+                <td class="text-center">
+                    {% if appointment.case.doctor.user.first_name %}
+                        {{ appointment.case.doctor.user.first_name }} {{ appointment.case.doctor.user.last_name }}
                     {% else %}
-                        {{ appointment.doctor.user.username }}
+                        {{ appointment.case.doctor.user.username }}
                     {% endif %}
                 </td>
-                <td>
-                    {{ appointment.reason.name }}
+                <td class="text-center">
+                    {{ appointment.case.problem }}
                 </td>
-                <td>
-                    {{ appointment.comments }}
+                <td class="text-center">
+                    {{ appointment.case.description }}
                 </td>
-                <td>
+                <td class="text-center">
                     {% if appointment.appointment_type == 'p' %}
                         <span class="glyphicon glyphicon-headphones"></span>
                         {% trans 'Phone' %}
@@ -47,27 +48,15 @@
                         {% endif %}
                     {% endif %}
                 </td>
-                <td>
+                <td class="text-center">
                     {{ appointment.status }}
                 </td>
-                <td align="right">
-                    {% with a=appointment %}
-                        {% if a.appointment_status != a.STATUS_COMPLETE %}
-                            {% if a.appointment_status == a.STATUS_DOCTOR_RESCHEDULE %}
-                                <a class="btn btn-success" href="{% url 'patient:consultation_status' a.id a.STATUS_PATIENT_APPROVE %}">Accept</a>
-                            {% endif %}
-                            <a class="btn btn-warning" href="{% url 'patient:consultation_edit' a.id  %}">Edit</a>
-                            {% if a.appointment_status != a.STATUS_PATIENT_CANCEL %}
-                                <a class="btn btn-danger" href="{% url 'patient:consultation_status' a.id a.STATUS_PATIENT_CANCEL %}">Cancel</a>
-                            {% endif %}
-                        {% endif %}
-                    {% endwith %}
-                </td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
+</div>
 
 {% endblock %}
 

@@ -1,0 +1,32 @@
+{% extends 'patient/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/glyphicon_style.css' %}">
+
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'plugins/glyphicons/glyphicons.css' %}">
+
+
+
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/style_my_health.css' %}">
+{% endblock %}
+{% block dashboard_content %}
+    <ul class="nav nav-tabs pro-glyphicons" style="margin-top:20px">
+        {% for tab in message_tabs %}
+            <li {% if message_active_tab == tab %}
+                class="active" {% endif %}>
+                <a href="{% static tab.href %}">
+                    <span class="glyphicons {{ tab.class }}"> </span><strong>{{ tab.title }}</strong>
+
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+        {% block tab_content %}
+        {% endblock %}
+    </div>
+{% endblock %}

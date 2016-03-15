@@ -3,6 +3,8 @@
 {% load static %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/style_my_health.css' %}"/>
+
+    {% block profile_links %}{% endblock %}
 {% endblock %}
 {% block messages %}
     <div class="row">
@@ -11,26 +13,29 @@
         </div>
     </div>
 {% endblock %}
+
 {% block dashboard_content %}
     <div class="tag-box tag-box-v6 rounded-2x row">
             <!--Left Sidebar-->
             <div class="text-center">
                 <div class="row">
-                    {% for item in tabs %}
-                        <div class="col-sm-3">
-                                <div>
-                                    <a href="{{ item.href }}">
-                                        <img src="{% static item.img %}" class="icons rounded-2x by_center" />
-                                        {% if item == active_tab %}
-                                            <strong>{{ item.header }}</strong>
-                                        {% else %}
-                                            {{ item.header }}
-                                        {% endif %}
-                                    </a>
-                                </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                    {% if not request.GET.app_process %}
+                        {% for item in tabs %}
+                            <div class="col-sm-2 five-column" >
+                                    <div>
+                                        <a href="{{ item.href }}">
+                                            <img src="{% static item.img %}" class="icons rounded-2x by_center" />
+                                            {% if item == active_tab %}
+                                                <strong>{{ item.header }}</strong>
+                                            {% else %}
+                                                {{ item.header }}
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
             </div>
             <!--End Left Sidebar-->
 
@@ -43,9 +48,6 @@
                     </strong></h1>
                 </div>
                 <div class="col-sm-10">
-                    <div class="col-sm-offset-3 col-sm-8">
-                        {% include 'form_messages.html' %}
-                    </div>
                     {% block account_content %}{% endblock %}
                 </div>
             </div>

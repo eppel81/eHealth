@@ -1,0 +1,133 @@
+{% extends 'doctor/case/case.html' %}
+{% load ehealth_custom_tags %}
+{% load i18n %}
+{% load static %}
+{% block js %}
+        <script type="text/javascript" src="{% static 'js/show_file_detail.js' %}"></script>
+
+{% endblock %}
+{% block case_tab_content %}
+<div class="col-sm-12 margin-bottom-20 ">
+    <div class="pull-right">
+        <a class="btn-u all_files" href="{% url 'doctor:case_files' case.pk %}?all_files=true">
+            <i class="fa fa-copy"></i>
+            {% trans "All patient's files" %}
+        </a>
+
+        <a class="btn-u" href="{% url 'doctor:case_files' case.pk %}">
+            <i class="fa fa-file-text-o"></i>
+            {% trans "Current case's files" %}
+        </a>
+    </div>
+</div>
+     <div class=" col-sm-12 margin-bottom-20">
+        <form class="form-inline" role="form"
+              action="{% url 'doctor:case_files' case.pk %}"
+              method="get">
+{% with all_files=request.GET.all_files %}{% if all_files %}<input name="all_files" value="true" type="hidden">{% endif %}{% endwith %}
+            <div class="form-group col-sm-3">
+                <div class="col-sm-3">
+                    <h5><strong>{% trans 'Type' %}:</strong></h5>
+                </div>
+                <div class="col-sm-9">
+                    <select class="form-control" name="type">
+                        <option value="">{% trans 'Choose type' %}</option>
+                        {% with current_type=request.GET.type %}
+                            {% for key, value in types.iteritems %}
+                                <option value={{ key }} {% if current_type == key|slugify %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        {% endwith %}
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-3">
+                <div class="col-sm-6">
+                    <h5><strong>{% trans 'Description' %}:</strong></h5>
+                </div>
+                <div class="col-sm-6">
+                    {% with search_query=request.GET.search %}
+                        <input class="form-control" name="search"
+                               placeholder="Enter query"
+                               {% if search_query %}value="{{ search_query }}"{% endif %}>{% endwith %}
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="col-sm-offset-10 text-center">
+                    <button type="submit" class="btn-u btn-u-dark">
+                        <span class="glyphicon glyphicon-filter"></span>
+                        {% trans 'Filter' %}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+<div class="col-sm-12 table-container">
+     <div class="files table-responsive">
+         {% if files.exists %}
+            <table class="table">
+                <thead>
+                    <tr class="head-color rounded-th">
+                        <th class="text-center">{% trans 'Type' %}</th>
+                        <th class="text-center">{% trans 'Description' %}</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in files %}
+                    <tr>
+                        <td class="text-center">{{ file.get_type_display|default_if_exists:"-" }}</td>
+                        <td class="text-center">{{ file.description|default_if_exists:"-" }}</td>
+
+                        <td width="20%" class="text-right">
+
+
+                             <a id="id_view_detail" data-target="{% url 'doctor:note_details' %}" onclick="getFileDetail({{ file.id }})"
+                                class="btn btn-info">
+                             {% trans 'View' %}</a>
+                      <a href="{% url 'doctor:edit_file' pk=case.pk id=file.id %}"
+                                class="btn btn-warning">
+                                <i class="fa fa-pencil"></i>
+                             {% trans 'Edit' %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="text-center"><h2>{% trans 'No previous documents found' %}</h2></div>
+        {% endif %}
+    </div>
+</div>
+
+
+     <div class="modal fade" tabindex="-1" role="dialog" id="id_note_detail">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h2>{% trans 'File Details' %}</h2>
+                </div>
+
+                                <div class="modal-body">
+                    <div class="row" id="id_note_container">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">{% trans 'Close' %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% get_url_attrs type=request.GET.type search=request.GET.search all_files=request.GET.all_files as additional_attributes %}
+    {% include 'partials/pagination.html' with additional_attributes=additional_attributes  %}
+
+
+{% endblock %}

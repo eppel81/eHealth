@@ -1,28 +1,39 @@
 {% load i18n %}
-
-<div class="row">
+{% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/menu_process.css' %}">
+{#     <script src="{% static 'js/appointment_process.js' %}"></script>#}
+<div class="">
     <!--<div class="tag-box tag-box-v6 rounded-2x margin-h-ft">-->
-        <div class="row">
-            <ul class="col-sm-12 process-menu list-inline"
-                    style="margin-left: 0px;">
-                 {% for item in process %}
-                    <li class="col-sm-3 list-group-item "
-                            style="text-align: center;
-                            border-color: lightgrey;">
-                        <a href="{{ item.href }}?app_process=true"
-                                class="proc {% if item.finished %}no-active{% endif %}" >
-                                {% if item == active_proc %}
-                                    <strong>{{ item.title }}</strong>
-                                {% else %}
-                                    {{ item.title }}
-                                {% endif %}
-                            <span class="badge rounded-2x
-                             {% if item.finished %} badge-red{% else %}badge-light {% endif %}">
-                                {{ item.number }}
-                            </span>
-                        </a>
-                    </li>
+        <div class="steps" style=" text-align: center;" >
+            <!--<ul class="col-sm-12 process-menu list-inline"-->
+            <ul class="menu_proccess"
+                     style="display: inline-block;">
+{% with process=request.GET.app_process %}
+
+
+                {% with pk=request.GET.pk %}
+
+                 {% for item in process1 %}
+                {% if not item.finished %}
+
+
+                    <li class="level{{ item.number}}"
+                                style="text-align: center;
+                                border-color: lightgrey;">
+                            <div><h4>
+
+                                <a {% if process and item.number == active_proc.number %}class="active_num font-bold"{% endif %}>
+                                            {{ item.title }}
+                                </a></h4>
+                            </div>
+                        </li>
+
+
+                {% endif %}
                 {% endfor %}
+                {% endwith %}
+                {% endwith %}
             </ul>
         </div>
     <!--</div>-->

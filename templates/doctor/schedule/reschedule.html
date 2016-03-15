@@ -10,29 +10,46 @@
     <form method="post" action="{% url 'doctor:appointment_reschedule' appointment_id %}" role="form">
         {% csrf_token %}
         <div class="form-group">
-            <label class="col-sm-6">{% trans 'Patient' %}:</label>
-            <label class="col-sm-6">{{ name }}</label>
+            <div class="col-sm-6">
+                <label class="pull-right">{% trans 'Patient' %}:</label>
+            </div>
+            <div class="col-sm-6">
+                <label class="pull-left">{{ name }}</label>
+            </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-6">{% trans 'Appointment type' %}:</label>
-            <label class="col-sm-6">{{ type }}</label>
+            <div class="col-sm-6">
+                <label class="pull-right">{% trans 'Appointment type' %}:</label>
+            </div>
+            <div class="col-sm-6">
+                <label class="pull-left">{{ type }}</label>
+            </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-6">{% trans 'Appointment schedule' %}:</label>
-            <label class="col-sm-6">{{ appointment_time.name | date:"P" }}</label>
+            <div class="col-sm-6">
+                <label class="pull-right">{% trans 'Appointment schedule' %}:</label>
+            </div>
+            <div class="col-sm-6">
+                <label class="pull-left">{{ appointment_time.name | date:"H:i" }}</label>
+            </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-6 control-label">{% trans 'New appointment time' %}:</label>
-            <select name="appointment_time" id="appointment_time" style="width:350px;">
-                {% for time in times %}
-                    <option value="{{ time.id }}"
-{#                    {% if time.id == appointment_time.id %}#}
-{#                        selected#}
-{#                    {% endif %}#}
-                    >{{ time.name }}</option>
-                {% endfor %}
-            </select>
+            <div class="col-sm-6">
+                <label class="pull-right control-label">{% trans 'New appointment time' %}:</label>
+            </div>
+            <div class="col-sm-3">
+                <select name="appointment_time" id="appointment_time" class="form-control pull-left">
+                    {% for time in times %}
+                        <option value="{{ time.id }}"
+        {#                    {% if time.id == appointment_time.id %}#}
+        {#                        selected#}
+        {#                    {% endif %}#}
+                        >{{ time.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
+
         <div class="form-group">
             <label class="col-sm-6 control-label"></label>
             <button type="submit" class="btn btn-success">{% trans 'Save' %}</button>

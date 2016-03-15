@@ -1,0 +1,41 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#    {% include 'django_braintree/fragments/payments_billing.html' %}#}
+{#{% endblock %}#}
+{#{% extends 'patient/account/base_account.html' %}#}
+{% extends 'patient/case/case.html' %}
+{%  load staticfiles %}
+
+{% load i18n %}
+{% load static %}
+{% block case_tab_content %}
+{% if is_paid %}
+    <div class="alert alert-danger text-center">
+   {% trans "This appointment deposit has been already paid" %}
+    </div>
+
+    {% else %}
+    <form class="form" id="checkout" method="post" action="{% url 'patient:appointment_payment' pk=pk appointment=appointment %}">
+    {% csrf_token %}
+  <div id="payment-form"></div>
+        <div class="btn-container"></div>
+
+</form>
+
+
+
+<script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
+<script src="{% static 'js/braintree_payments.js' %}"></script>
+
+    {% endif %}
+{%  endblock %}
+{#<script>#}
+{##}
+{##}
+{##}
+{#braintree.setup('{{ CLIENT_TOKEN_FROM_SERVER }}', "dropin", {#}
+{#  container: "payment-form"#}
+{#{);#}
+{#</script>#}
+{#{% endblock %}#}

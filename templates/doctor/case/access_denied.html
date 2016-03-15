@@ -1,0 +1,23 @@
+{% extends 'doctor/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block dashboard_content %}
+    <div>
+        <ul class="nav nav-tabs">
+            {% for tab in tabs %}
+                <li {% if active_tab == tab %}
+                    class="active" {% endif %}>
+                    <a href="{{ tab.href }}">
+                        {% trans tab.title %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div><br>
+    <div class="alert alert-danger text-center">
+ <h4><strong> {% trans 'Oops! Access denied!' %}</strong></h4>
+   {% trans "You don't have permission to access this page" %}
+    </div>
+
+{% endblock %}

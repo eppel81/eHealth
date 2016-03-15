@@ -12,6 +12,8 @@
    border-radius: 0;
 }
 
+
+
 a,
 a:focus, 
 a:hover, 
@@ -1036,8 +1038,9 @@ h3.heading-xs {
 }
 
 .sidebar-nav-v1 > li.active,
+.sidebar-nav-v1 > li:hover,
 .sidebar-nav-v1 > li.active:hover {
-  background: #717984;
+  background-color: #eee;
 } 
 
 .sidebar-nav-v1 > li.active, 

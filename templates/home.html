@@ -5,7 +5,7 @@
 {% block button_menu %}
          <!-- Toggle get grouped for better mobile display -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">{% trans 'Toggle navigation' %}</span>
                 <span class="fa fa-bars"></span>
             </button>
             <!-- End Toggle -->
@@ -119,10 +119,10 @@
                 </div>
                 <div class="col-md-6">
                     <h2>{% trans 'Ten una visita con el doctor ahora' %}</h2>
-                    <p>Ducimus qui blanditiis praesentium voluptatum deleniti atque cupiditate non provident, similique sunt in culpa qui officia ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p><br>
+                    <p>{% trans 'Ducimus qui blanditiis praesentium voluptatum deleniti atque cupiditate non provident, similique sunt in culpa qui officia ipsum dolor sit amet, consectetur adipiscing elit.' %}</p>
+                    <p>{% trans 'Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.' %}</p><br>
 
-                    <a href="{% url 'account_login' %}" class="btn-u btn-u btn-u-red"><i class="fa fa-thumbs-up"></i> Accede</a>
+                    <a href="{% url 'account_login' %}" class="btn-u btn-u btn-u-red"><i class="fa fa-thumbs-up"></i> {% trans 'Accede' %}</a>
                 </div>
             </div>
 

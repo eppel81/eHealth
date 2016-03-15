@@ -1,0 +1,31 @@
+{% load i18n %}
+{% with a=appointment %}
+
+    <a type="button" class="btn btn-primary"
+       href="{% url 'doctor:case_overview' appointment.case.id %}">
+        {% trans 'View Case' %}
+    </a>
+    {% if a.appointment_status != a.STATUS_COMPLETE %}
+
+        {% if a.appointment_status == a.STATUS_NEW or a.appointment_status == a.STATUS_PATIENT_RESCHEDULE %}
+            <a class="btn btn-danger"
+               href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">{% trans 'Cancel' %}</a>
+            <a class="btn btn-success"
+               href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_APPROVE %}">{% trans 'Accept' %}</a>
+
+        {% elif a.appointment_status == a.STATUS_DOCTOR_APPROVE %}
+            <a class="btn btn-danger"
+               href="{% url 'doctor:appointment_status' a.id a.STATUS_DOCTOR_CANCEL %}">{% trans 'Cancel' %}</a>
+            {% for key, value in appointment_availability.iteritems %}
+                {% if key == a.id and value.0 %}
+                    <a class="btn btn-info enter-appointment {% if not value.2 %}disabled{% endif %}"
+                       data-available="{{ value.1 }}" href="{% if value.2 %}{% url 'utils:appointment_room' a.case.id a.id %}{% endif %}">{% trans 'Enter Appointment' %}</a>
+                {% endif %}
+            {%  endfor %}
+        {% endif %}
+
+
+    {% else %}
+        -
+    {% endif %}
+{% endwith %}

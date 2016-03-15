@@ -1,38 +1,103 @@
 {% extends 'doctor/account/base_account.html' %}
 {% load i18n %}
 {% load static %}
+{% block js %}
+    <script src="{% static 'js/photo_check.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/remove-error-messages.js' %}"></script>
+{% endblock %}
 {% block account_content %}
-        <form class="form-horizontal" role="form" action="{% url 'doctor:my_account' %}" method="post" enctype="multipart/form-data">
-            <div class="col-md-9">
-                <div class="profile-body">
-                    <div class="profile-info">
+     <div>
+        <div class="alert alert-danger fade in hidden photo-error text-center">
+            <button type="button" class="close" id="close_alert_button">x</button>
+            <h4>{% trans 'Your photo is too large!' %}</h4>
+            <p>{% trans "The maximum photo's size is 10Mb. Please, choose another photo" %}</p>
+        </div>
+        <form class="form-horizontal account" role="form" action="{% url 'doctor:my_account' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row col-sm-offset-1">
 
-                            {% csrf_token %}
-                            {% for item in user_form %}
-                            <div class="form-group">
-                                {{ item.errors }}
-                                <label class="col-sm-2 control-label">{{ item.label }}</label>
-                                <div class="col-sm-10">
-                                    {{item}}
+                <div class="user col-sm-7 col-md-8">
+                    {% for field in user_form %}
+                        {% with errors=field.errors %}
+                            <div class="form-group {% if errors %}has-error{% endif %}">
+                                <div class="col-sm-3">
+                                    {{ field.label_tag }}
+                                </div>
+                                <div class="col-sm-9">
+                                    {{ field }}
+                                    {% if errors %}
+                                        {% for error in errors %}
+                                            <span class="help-block">{{ error }}</span>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
                             </div>
-                            {% endfor %}
-
-                            {% for item in detail_form %}
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">{{ item.label }}</label>
-                                <div class="col-sm-10">
-                                    {{item}}
-                                </div>
-                            </div>
-                            {% endfor %}
-                    </div>
+                            <br/>
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+                <div class="col-sm-5 col-md-4">
+                    {% if detail_form.instance.photo %}
+                        <img class="photo" src="{{ detail_form.instance.photo.url }}"/>
+                    {% else %}
+                        {% if detail_form.instance.gender %}
+                            <img class="photo" src="{% static 'img/doctor_man.jpg' %}"/>
+                        {% else %}
+                            <img class="photo" src="{% static 'img/doctor_woman.png' %}"/>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
 
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn-u btn-u-lg">Save</button>
+            <div class="clearfix"></div>
+
+            <div class="row col-sm-offset-1" style="margin-top: 15px;">
+                <div class="col-sm-12">
+                {% for field in detail_form %}
+                    {% with errors=field.errors %}
+                        <div class="form-group {% if errors %}has-error{% endif %}">
+                            <div class="col-sm-3 col-md-2">
+                                {{ field.label_tag }}
+                            </div>
+                            <div class="col-sm-9 col-md-9">
+                                 {% if field.label == 'Consult rate' %}
+                                        <div class="input-group">
+                                            {{ field }}
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                        </div>
+
+                                    {% else %}
+                                        {{ field }}
+                                    {% endif %}
+                                {% if errors %}
+                                    {% for error in errors %}
+                                        <span class="help-block">{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+                </div>
+            </div>
+
+            {% with errors=user_form.non_field_errors detail_errors=detail_form.non_field_errors %}
+                {% if errors or detail_errors %}
+                    <div class="has-error">
+                    {% for error in errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                    {% for error in detail_errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group pull-right">
+                <button id="update" type="submit" class="btn btn-u button-margin">
+                    {% trans 'Save' %}
+                </button>
             </div>
         </form>
-
+    </div>
 {% endblock %}

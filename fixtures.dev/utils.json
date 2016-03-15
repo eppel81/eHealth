@@ -1,6 +1,16 @@
 [
   {
     "fields": {
+      "user": 5,
+      "responsibility": 1,
+      "timezone": 38
+    },
+    "model": "utils.supportuser",
+    "pk": 1
+  },
+
+  {
+    "fields": {
       "name": "Madrid"
     },
     "model": "utils.city",
@@ -2474,55 +2484,6 @@
     },
     "model": "utils.language",
     "pk": 2
-  },
-  {
-    "fields": {
-      "name": "Upset Stomach"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "name": "Fever"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "name": "Headache"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "name": "Disease"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "name": "Earache"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "name": "Otitis"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "name": "Migraine"
-    },
-    "model": "utils.appointmentreason",
-    "pk": 7
   },
   {
     "fields": {

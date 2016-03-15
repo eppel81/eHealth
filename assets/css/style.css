@@ -28,17 +28,72 @@ body.header-fixed-space-v2 {
 	padding-top: 135px;
 }
 
-@media (max-width: 1199px){
-	.button-margin{
-		margin-right: 15px;
-	}
-}
 
 @media (min-width: 1200px){
 	.button-margin{
 		margin-right: 90px;
 	}
 }
+
+@media (min-width: 767px){
+	.sidebar-nav-v1 li {
+		display: table-cell;
+		vertical-align: middle;
+		border-bottom: none;
+	}
+
+	.sidebar-nav-v1 li a{
+		min-height: 40px;
+	}
+
+	.available-time{
+		padding-top: 60px;
+	}
+}
+
+@media (min-width: 991px) {
+	.sidebar-nav-v1 li a {
+		padding: 12px 18px 8px 10px;
+		margin-bottom: 0px;
+  	}
+
+  	.available-time{
+		padding-top: 100px;
+	}
+}
+
+.profile-info{
+    padding-top: 30px;
+}
+
+
+@media (max-width: 1199px){
+	.button-margin{
+		margin-right: 15px;
+	}
+
+	.search{
+		padding-left: 0px;
+		padding-right: 0px;
+
+	}
+
+	.specialty{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	input[name='end_date']{
+		margin-right: 12px;
+	}
+
+	.date-range{
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+}
+
+
 
 @media (max-width: 991px) {
 	body.header-fixed-space,
@@ -50,11 +105,41 @@ body.header-fixed-space-v2 {
 
 	}
 
+
 	.about-me{
 		max-height: 145px;
 	}
+
 }
 
+@media(max-width: 767px){
+	.sidebar-nav-v1 li a {
+		padding: 19px 18px 19px 10px;
+    	margin-bottom: 0px;
+    }
+
+	.select2 .select2-container .select2-container--default .select2-container--focus{
+		width: 100%;
+	}
+
+	.search-but{
+		padding-left: 0px;
+    	padding-right: 0px;
+	}
+
+	.small-search{
+		width: 100%;
+	}
+
+	.doctor-block{
+		padding-left: 0px;
+    	padding-right: 0px;
+	}
+
+	.available-time{
+		padding-top: 60px;
+	}
+}
 
 
 p, 
@@ -584,9 +669,10 @@ a.thumbnail {
 /*About Me Page
 ------------------------------------*/
 .about-me {
-	overflow: hidden;
 	position: relative;
-	height: 200px;
+	border-bottom: 1px solid #eee;
+	margin-top: 20px;
+	padding-bottom: 10px;
 }
 
 .about-me h2 {
@@ -1786,7 +1872,11 @@ span.label-red{
 }
 
 input[type='radio']:active,
-input[type='radio']:focus{
+input[type='radio']:focus,
+input[type='checkbox']:focus,
+input[type='checkbox']:active,
+.has-error .input[type='radio']:focus,
+.has-error .input[type='radio']{
   outline: none;
   border: none;
   box-shadow: none;
@@ -1810,7 +1900,7 @@ input[type='radio']:focus{
 	width: 200px;
 	height: 200px;
 }
-
+/*
 .process-menu,
 .process-menu > li {
 	 background-color: lightgrey;
@@ -1821,4 +1911,125 @@ input[type='radio']:focus{
 	pointer-events: none;
 	cursor: default;
 	opacity: 0.6;
+}
+*/
+td.patient{
+	background-color: gainsboro;
+}
+
+td.free{
+	background-color: #D7EEF9;
+}
+
+.appointment td{
+    border-right: 2px solid grey;
+}
+
+.appointment td:last-child{
+	border-right: none;
+}
+
+.appointment > tbody > tr:nth-child(4n){
+	border-bottom: 2px solid grey;
+}
+/*
+.appointment > tbody > tr > td:first-child{
+	border-bottom: none;
+}
+*/
+
+input.time.day,
+input.time.night{
+	width: 95px;
+}
+
+.appointment td {
+	width: 12%;
+}
+
+.table>tbody>tr>td.bordered{
+	border-bottom: 2px solid #052CAB;
+}
+
+.case-content{
+	border-left: 1px solid #ccc;
+}
+
+
+.case-menu ul{
+	list-style-type: none;
+}
+
+.case-menu ul>li{
+	text-align: center;
+}
+
+.case-menu ul>li.active{
+	border-bottom: 3px solid #72C02C;
+}
+
+.case-menu ul>li.active>a,
+.case-menu ul>li.active>a:focus{
+	background-color: #fff;
+}
+
+.case-menu>ul>li.active>a:hover{
+	background-color: #eee;
+}
+
+#appointment-request{
+	position: absolute;
+}
+
+
+.my_close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.my_close:focus, .my_close:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	filter: alpha(opacity=50);
+	opacity: .5;
+}
+
+.talk-to-doctor-container{
+	min-height: 600px;
+}
+
+textarea{
+    resize: vertical;
+}
+
+.row > div.text-center,
+.row table td.text-center,
+.row table td.case-item-search,
+.row div.case-content h4,
+.row div.case-content h6,
+dd{
+	word-break: break-all;
+}
+
+.row div > a{
+	word-break: normal;
+}
+
+td#appointment_time{
+	word-break: normal;
+}
+
+.sidebar-nav-v1 span.badge {
+    margin: 0;
+}
+
+.row div h4.no-word-break{
+	word-break: normal;
 }

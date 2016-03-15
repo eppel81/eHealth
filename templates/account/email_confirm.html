@@ -4,8 +4,8 @@
 {% block title %}- {% trans "Confirm E-mail Address" %}{% endblock %}
 {% block content %}
     <div class="reg-block">
-
-<h1>{% trans "Confirm E-mail Address" %}</h1>
+ <div class="reg-block-header">
+<h2>{% trans "Confirm E-mail Address" %}</h2>
 
 {% if confirmation %}
 
@@ -15,7 +15,12 @@
 
 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
 {% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
+     <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <button type="submit"
+                            class="btn-u btn-block">{% trans 'Confirm' %}</button>
+                </div>
+            </div>
 </form>
 
 {% else %}
@@ -27,5 +32,6 @@
 {% endif %}
 
 
+    </div>
     </div>
 {% endblock %}

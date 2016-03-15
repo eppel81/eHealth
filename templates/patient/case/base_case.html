@@ -1,0 +1,63 @@
+{% extends 'patient/dashboard/my_health/base_myhealth.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% trans "My Cases" %}
+{% endblock %}
+{% block links %}
+    <link rel="stylesheet" type='text/css'
+          href="{% static 'css/style_my_health.css' %}">
+    {% block case_links %}{% endblock %}
+{% endblock %}
+{% block tab_content %}
+    <div class="container profile md-margin-bottom-40">
+    	<div class="row" style="margin-top: 15px;">
+			{% if case %}
+				<div class="pull-right">
+					<h5>
+						{% trans 'Problem:' %} {{ case.problem|truncatechars:50 }} &nbsp;&nbsp;&nbsp;
+						{% trans 'Doctor:' %} {{ case.doctor }}
+					</h5>
+				</div>
+			{% endif %}
+            <!--Left Sidebar-->
+            <div class="md-margin-bottom-40">
+
+                <ul class="nav nav-tabs">
+                    {% for tab in tabs %}
+                        <li {% if active_tab == tab %}
+                                class="active" {% endif %}>
+                            <a href="{{ tab.href }}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.case %}&case=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+                                {% trans tab.title %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="tab-content"><br>
+                    {% block case_content %}{% endblock %}
+                </div>
+                {% if request.GET.app_process %}
+                    <div class="col-sm-12">
+                        <a class="pull-right btn-u btn-u-sea" href="{% url 'patient:appointment_process' %}{% if request.GET.pk %}?pk={{request.GET.pk}}{% endif %}" >{% trans 'Next' %}</a>
+                    </div>
+                {% endif %}
+                <!--
+                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
+                -->
+                <!--End Notification-->
+
+                <!--<div class="margin-bottom-50"></div>-->
+
+                <!--&lt;!&ndash;Datepicker&ndash;&gt;-->
+                <!--<form action="#" id="sky-form2" class="sky-form">-->
+                    <!--<div id="inline-start"></div>-->
+                <!--</form>-->
+                <!--&lt;!&ndash;End Datepicker&ndash;&gt;-->
+            </div>
+            <!--End Left Sidebar-->
+
+
+
+        </div>
+    </div><!--/container-->
+{% endblock %}

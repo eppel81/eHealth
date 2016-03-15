@@ -2,65 +2,7 @@
 {% load i18n %}
 {% load static %}
 {% block health_content %}
-    <div class="row">
-        <div class="tag-box tag-box-v6 rounded-2x margin-h-ft">
-            <h3>My lifestyle</h3>
-            <form class="form" role="form" action="{% url 'patient:my_lifestyle' %}{% if request.GET.app_process %}?next={% url 'patient:appointment_process' %}{% endif %}" method="post">
-                    {% csrf_token %}
-                    {% with h_ft=form.height_ft h_in=form.height_in w=form.weight %}
-                        <div class="form-group">
-                            {{ h_ft.label_tag }}
-                            <span class="margin-h-ft">
-                                {{ h_ft }} ft
-                            </span>
-                            {{ h_in }} in
-                        </div>
-                        <div class="form-group">
-                            {{ w.label_tag }}
-                            <span class="margin-h-ft">
-                                {{ w }} lbs
-                            </span>
-                        </div>
-
-                    <table class="table">
-                        <thead>
-                            <tr class="head-color rounded-th">
-                                <th>Conditions</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for item in form %}
-                            {% if not item == h_ft and not item == h_in %}
-                                {% if not item == w %}
-                                <tr>
-                                   <td class="width-td">
-                                        <h5>{{ item.label_tag }}</h5>
-                                   </td>
-                                   <td>
-                                        <ul class="list-inline">
-                                            {% for elem in item %}
-                                                <li>{{ elem }}</li>
-                                            {% endfor %}
-                                        </ul>
-                                   </td>
-                                </tr>
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                    {% endwith %}
-                <div class="form-group text-right">
-                    <button type="submit" class="btn btn-default">
-                        {% if request.GET.app_process %}
-                            {% trans 'Next' %}
-                        {% else %}
-                            {% trans 'Save' %}
-                        {% endif %}
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
+<div class="row">
+   {% include 'patient/dashboard/app_process/lifestyle.html' %}
+</div>
 {% endblock %}

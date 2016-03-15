@@ -1,70 +1,27 @@
 {% extends 'doctor/case/base_case.html' %}
 {% load i18n %}
 {% load static %}
-{% block js %}
-    <script src="{% static 'js/select.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/case.js' %}"></script>
-{% endblock %}
-
-{% block links %}
-    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-{% endblock %}
 {% block case_content %}
-    <br>
-{#{{ case.doctor }}<br>#}
-{#{{ case.patient }}<br>#}
-{#{% for test in case.test_set.all %}#}
-{#    {{ test.test }} {{ test.record_date }}<br>#}
-{#{% endfor %}#}
-    <form method="post" action="{% url 'doctor:new_case' %}" role="form" class="form-horizontal">
-        {% csrf_token %}
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Patient:</label>
-        <div class="col-sm-6 col-sm-offset-2">
-            <select name="patient" class="form-control" id="patient_id" >
-                {% for patient in patients %}
-                    <option value="{{ patient.id }}"
-                    {% if patient == case.patient %}
-                        selected
-                    {% endif %}
-                    >{{ patient }}</option>
-                {% endfor %}
-            </select>
-        </div></div>
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Reason:</label>
-         <div class="col-sm-6 col-sm-offset-2">
-            <select name="reason" class="form-control" id="reason_id">
-                {% for reason in reasons %}
-                    <option value="{{ reason.id }}"
-                    {% if reason == case.reason %}
-                        selected
-                    {% endif %}
-                    >{{ reason }}</option>
-                {% endfor %}
-            </select>
-         </div>
-        </div>
+    <div class="case-menu col-sm-3">
 
 
+        <ul class="nav nav-pills nav-stacked">
+            {% for tab in case_tabs %}
+                <li {% if active_case_tab == tab %} class="active" {% endif %}>
+                    <a href="{{ tab.href }}">
+                        <h3>{{ tab.title }}</h3>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
 
-{% block case_additional %}
 
-    {% endblock %}
-        <div class="form-group">
-            <label class="col-sm-6 control-label"></label>
-            <button type="submit" class="btn btn-success">Save</button>
-        </div>
- </form>
-
+    </div>
+    <div class="col-sm-9 case-content">
+        {% block case_tab_content %}
+        {% endblock %}
+    </div>
 {% endblock %}
-{#{% block js %}#}
-{#    <script type="text/javascript">#}
-{#        var time_url = "{% url "doctor:time" %}";#}
-{#    </script>#}
-{##}
-{#{% endblock %}#}
+
 

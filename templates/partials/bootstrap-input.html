@@ -1,0 +1,7 @@
+{% with errors=input.errors %}
+    <div class="form-group{% if errors or non_field_errors %} has-error{% endif %}">
+        {% if not ignore_label %}{{ input.label_tag }}{% endif %}
+        {{ input }}
+        {% include 'partials/bootstrap-input-errors.html' %}
+    </div>
+{% endwith %}

@@ -1,47 +1,52 @@
-{% extends 'base.html' %}
+{% extends 'patient/base_dashboard.html' %}
 {% load i18n %}
 {% load static %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/style_my_health.css' %}"/>
 {% endblock %}
-{% block content %}
-    <div class="container content profile">
-    	<div class="row">
+{% block dashboard_content %}
+   <div class="tag-box tag-box-v6 row col-sm-12">
             <!--Left Sidebar-->
-            <div class="md-margin-bottom-40">
-
-                <ul class="nav nav-tabs  nav-justified sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                 {% for item in menus %}
-
-                    <li class="list-group-item {% if item == active_menu %}active {% endif %}">
-                        <a href="{{ item.href }}"><i class="fa {{ item.class }}"></i>&nbsp;{% trans item.title %}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-               <ul class="nav nav-tabs">
-                    {% for tab in tabs %}
-                    <li {% if active_tab == tab %}
-                        class="active" {% endif %}>
-                        <a href="{{ tab.href }}">
-                            {% trans tab.title %}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
+            <div class="text-center">
                 <div class="row">
-                    <div class="col-sm-offset-2 col-sm-8">
-                        {% include 'form_messages.html' %}
-                    </div>
+                    {% if not request.GET.app_process %}
+                        {% for item in tabs %}
+                            <div class="col-sm-2">
+                                    <div>
+                                        <a href="{{ item.href }}">
+                                            <img src="{% static item.img %}" class="icons by_center in_my_health" />
+                                            {% if item == active_tab %}
+                                                <strong>{{ item.title }}</strong>
+                                            {% else %}
+                                                {{ item.title }}
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
-                    <div class="tab-content"><br>
-                    {% block account_content %}{% endblock %}
-                    </div>
-
             </div>
-            <!--End Left Sidebar-->
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-8">
+                    {% include 'form_messages.html' %}
+                </div>
+            </div>
+
+             <br/>
+            <br/>
+            <div class="row">
+                <div class="head col-md-4 col-sm-6 margin-bottom-40">
+                    <h1><strong>
+                        {{ active_tab.title }}
+                    </strong></h1>
+                </div>
+                <div class="col-sm-10 tab-content">
+                    {% block account_content %}{% endblock %}
+                </div>
+            </div>
 
 
 
-        </div>
     </div><!--/container-->
 {% endblock %}

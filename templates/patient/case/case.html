@@ -1,0 +1,24 @@
+{% extends 'patient/case/base_case.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block case_content %}
+
+    <div class="case-menu col-sm-3">
+
+        <ul class="nav nav-pills nav-stacked">
+            {% for tab in case_tabs %}
+                <li {% if active_case_tab == tab %} class="active" {% endif %}>
+                    <a href="{{ tab.href }}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.case %}&case=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+                        <h3 style="word-break: break-all;">{{ tab.title }}</h3>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-9 case-content">
+        {% block case_tab_content %}
+        {% endblock %}
+    </div>
+{% endblock %}
+

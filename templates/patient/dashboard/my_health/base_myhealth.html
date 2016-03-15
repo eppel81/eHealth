@@ -1,0 +1,23 @@
+{% extends 'patient/base_dashboard.html' %}
+{% load i18n %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style_my_health.css' %}">
+{% endblock %}
+{% block dashboard_content %}
+     <ul class="nav nav-tabs" style="margin-top:20px">
+            {% for tab in base_tabs %}
+                <li {% if base_active_tab == tab %}
+                        class="active" {% endif %}>
+                    <a href="{{ tab.href }}{% if request.GET.app_process %}?app_process=true{% endif %}{% if request.GET.pk %}&pk={{request.GET.pk}}{% endif %}">
+                        <img src="{% static tab.icon %}" class="icons by_center in_my_health">
+                        <strong>{{ tab.title }}</strong>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="tab-content">
+                {% block tab_content %}
+                {% endblock %}
+        </div>
+{% endblock %}

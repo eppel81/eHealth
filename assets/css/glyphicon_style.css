@@ -1,0 +1,20 @@
+.pro-glyphicons span.glyphicons:before {
+    font-size: 18px;
+}
+
+span.glyphicons{
+    padding-left: 30px;
+}
+
+
+.pro-glyphicons span {
+	height: 25px;
+}
+
+.pro-glyphicons span:before {
+	color: #555;
+}
+
+.pro-glyphicons li{
+    min-width: 125px;
+}

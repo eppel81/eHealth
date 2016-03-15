@@ -1,0 +1,106 @@
+{% load ehealth_custom_tags %}
+{% load i18n %}
+ {% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/style_patient_history.css' %}"/>
+{% endblock %}
+
+ <div class="col-sm-12 modal-data">
+ <div class="col-sm-12">
+
+     <div class="col-sm-12 section-title">
+         <h4 >{% trans 'Conclusion' %}</h4>
+     </div>
+
+     <div class="col-sm-12 wrap-div">
+     {{ file.conclusions|default_if_exists:"-" }}
+     </div>
+ </div>
+
+  <div class="col-sm-12 ">
+
+     <div class="col-sm-12 section-title">
+         <h4>{% trans 'Requested by' %}</h4>
+     </div>
+
+     <div class="col-sm-12 wrap-div">
+         {{ file.requested_by|default_if_exists:"-" }}
+     </div>
+ </div>
+
+   <div class="col-sm-12">
+
+     <div class="col-sm-12 section-title">
+         <h4>{% trans 'Completed by' %}</h4>
+     </div>
+
+     <div class="col-sm-12 wrap-div">
+        {{ file.completed_by|default_if_exists:"-" }}
+     </div>
+ </div>
+
+    <div class="col-sm-12">
+
+     <div class="col-sm-12 section-title">
+         <h4>{% trans 'Request form' %}</h4>
+     </div>
+
+     <div class="col-sm-12">
+      <a href="{{ file.request_form.url }}" download="{{ file.request_form.name }}">
+                                {{ file.request_formname }}
+                            </a>
+     </div>
+
+
+ </div>
+
+     <div class="col-sm-12">
+
+     <div class="col-sm-12 section-title">
+         <h4>{% trans 'Result report / record' %}</h4>
+     </div>
+
+     <div class="col-sm-12">
+                            {% if file.result_report_or_record %}
+                               <a href="{{ file.result_report_or_record.url }}" download="{{ file.result_report_or_record.name }}">
+                                    {{ file.result_report_or_recordname }}
+                                </a>
+                            {% else %}
+                                -
+                            {% endif %}
+     </div>
+
+
+ </div>
+
+      <div class="col-sm-12">
+
+     <div class="col-sm-12 section-title">
+         <h4>{% trans 'Additional files' %}</h4>
+     </div>
+
+     <div class="col-sm-12">
+                            {% if file.additionalfile_set.all %}
+
+                                {% for file in file.additionalfile_set.all %}
+
+                                      <a href="{{ file.file.url }}" download="{{ file.file.name }}">
+                                            {{ file.filename }}
+                                        </a>
+                                    <br>
+
+                                {% endfor %}
+
+
+                            {% else %}
+                                -
+                            {% endif %}
+     </div>
+
+
+ </div>
+ </div>
+
+
+
+
