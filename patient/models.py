@@ -1,12 +1,10 @@
 import os
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from django.utils import timezone
 from allauth.account.signals import user_signed_up
 from django.dispatch import receiver
 
-from utils.models import Country, ActivityType, TimeZone, City
+from utils.models import Country, ActivityType, TimeZone, City, UserMixin
 from doctor.models import Doctor, DoctorAppointmentTime
 
 
@@ -19,8 +17,7 @@ def get_file_patch(instance, filename):
             instance.test_file_record.case.first().patient.user.email, filename)
 
 
-class Patient(models.Model):
-    user = models.OneToOneField(User)
+class Patient(UserMixin, models.Model):
     country = models.ForeignKey(Country, null=True, blank=True, default=None)
     timezone = models.ForeignKey(TimeZone, null=True, blank=True, default=None)
     photo = models.FileField(upload_to='photo', blank=True, default=None)
@@ -41,7 +38,10 @@ class Patient(models.Model):
         return int(100 * float(sum(a)) / len(a))
 
     def __str__(self):
-        if self.user.first_name:
+        if self.user.first_name and self.second_last_name:
+            return '%s %s %s' % (self.user.first_name, self.user.last_name,
+                                 self.second_last_name)
+        elif self.user.first_name:
             return '%s %s' % (self.user.first_name, self.user.last_name)
         else:
             return self.user.username

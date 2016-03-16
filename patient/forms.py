@@ -226,7 +226,7 @@ class DetailForm(FormControlMixin, forms.ModelForm):
 
     class Meta:
         model = models.Patient
-        fields = ['photo', 'country', 'timezone']
+        fields = ['second_last_name', 'photo', 'country', 'timezone']
         labels = {
             'country': _('Country'),
             'timezone': _('Timezone'),

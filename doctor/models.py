@@ -1,22 +1,20 @@
 import os
 from django.db import models
-from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from utils.models import (Country, City, Specialty, TimeZone,
-                          Language, ActivityType)
+                          Language, ActivityType, UserMixin)
 
 
-class Doctor(models.Model):
+class Doctor(UserMixin, models.Model):
     MALE_GENDER = True
     FEMALE_GENDER = False
     GENDER_CHOICES = (
         (MALE_GENDER, _('Male')),
         (FEMALE_GENDER, _('Female'))
     )
-    user = models.OneToOneField(User)
     city = models.ForeignKey(City)
     country = models.ForeignKey(Country)
     gender = models.BooleanField(choices=GENDER_CHOICES, default=FEMALE_GENDER)
@@ -30,10 +28,13 @@ class Doctor(models.Model):
     deposit = models.IntegerField(default=25)
 
     def __str__(self):
-        if self.user.first_name:
+        if self.user.first_name and self.second_last_name:
+            return '%s %s %s' % (self.user.first_name, self.user.last_name,
+                                 self.second_last_name)
+        elif self.user.first_name:
             return '%s %s' % (self.user.first_name, self.user.last_name)
         else:
-            return self.user.email
+            return self.user.username
 
     def __unicode__(self):
         return self.__str__()

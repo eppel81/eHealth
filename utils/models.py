@@ -15,6 +15,15 @@ def localize_datetime(dt):
         dt, is_dst=None)
 
 
+class UserMixin(models.Model):
+    user = models.OneToOneField(User)
+    second_last_name = models.CharField(_('Second last name'), max_length=30,
+                                        blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+
 class City(models.Model):
     name = models.CharField(max_length=50)
 

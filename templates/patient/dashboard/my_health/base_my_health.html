@@ -27,11 +27,7 @@
             <div class="inner-faq-b">
                 <h3>
                     <strong>
-                        {% if user.first_name %}
-                            {{ user.first_name }} {{ user.last_name }}
-                        {% else %}
-                            {{ user.username }}
-                        {% endif %}
+                        {{ user.patient }}
                     </strong>
                 </h3>
                 <h4> Your profile is

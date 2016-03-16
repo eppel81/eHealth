@@ -29,12 +29,7 @@
                     {{ appointment.appointment_time.start_time }}
                 </td>
                 <td class="text-center">
-                    {% if appointment.case.doctor.user.first_name %}
-                        {{ appointment.case.doctor.user.first_name }}
-                        {{ appointment.case.doctor.user.last_name }}
-                    {% else %}
-                        {{ appointment.case.doctor.user.username }}
-                    {% endif %}
+                    {{ appointment.case.doctor }}
                 </td>
                 <td class="text-center">
                     {{ appointment.case.problem }}

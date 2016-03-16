@@ -575,8 +575,8 @@ class WriteDoctorMessageView(WriteMessageMixin, postman_views.WriteView):
     def get_form(self, form_class=None):
         form = super(WriteDoctorMessageView, self).get_form(form_class)
         patient = self.request.user.patient
-        # form.fields['case'].queryset = models.PatientCase.objects.filter(
-        #     patient=patient)
+        form.fields['case'].queryset = models.PatientCase.objects.filter(
+            patient=patient)
         form.fields['recipients'].queryset = User.objects.filter(
             doctor__isnull=False,
             doctor__patientcase__patient=patient).distinct()

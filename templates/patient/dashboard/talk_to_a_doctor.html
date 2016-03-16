@@ -140,17 +140,15 @@
 
                     <div class="col-xs-4 col-sm-6 col-md-7">
                             <div class="pull-left">
-                                {% with user=doctor.user %}
                                     <a class="doctor-link"
                                        href="{% url 'patient:detail_doctor' pk=doctor.id %}">
-                                        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                                        <h2>{{ doctor }}</h2>
                                     </a>
                                     {% with specialities=doctor.doctorspecialty_set.all %}
                                         {% for speciality in specialities %}
                                             <span class="label label-light rounded">{% trans speciality.specialty.name %}</span>
                                         {% endfor %}
                                     {% endwith %}
-                                {% endwith %}
                             </div>
 
 

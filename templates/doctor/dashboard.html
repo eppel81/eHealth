@@ -30,14 +30,10 @@
                                     <img src="{% static 'img/user_man.jpg' %}">
                                 {% endif %}
                                 <div class="inner-faq-b">
-                                    <p>{% trans 'Welcome' %}</p>
+                                    <p>Welcome</p>
                                     <a href="{% url 'doctor:my_account' %}">
                                         <h3>
-                                            {% if user.first_name %}
-                                                {{ user.first_name }} {{ user.last_name }}
-                                            {% else %}
-                                                {{ user.username }}
-                                            {% endif %}
+                                            {{ user.doctor }}
                                         </h3>
                                     </a>
                                 </div>

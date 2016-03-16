@@ -65,11 +65,7 @@
                         <p>{% trans 'Welcome' %}</p>
                         <a href="{% url 'patient:my_account' %}">
                             <h3>
-                                {% if user.first_name %}
-                                    {{ user.first_name }} {{ user.last_name }}
-                                {% else %}
-                                    {{ user.username }}
-                                {% endif %}
+                                 {{ user.patient }}
                             </h3>
                         </a>
                     </div>

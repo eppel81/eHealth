@@ -66,12 +66,7 @@
                 {% for case in object_list %}
                     <tr>
                         <td class="text-center">
-                            {% if case.doctor.user.first_name %}
-                                {{ case.doctor.user.first_name }}
-                                {{ case.doctor.user.last_name }}
-                            {% else %}
-                                {{ case.doctor.user.username }}
-                            {% endif %}
+                            {{ case.doctor }}
                         </td>
                         <td class="text-center">
                             {{ case.problem }}

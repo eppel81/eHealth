@@ -28,7 +28,7 @@ class DetailForm(FormControlMixin, forms.ModelForm):
 
     class Meta:
         model = models.Doctor
-        fields = ['photo', 'city', 'country', 'gender',
+        fields = ['second_last_name', 'photo', 'city', 'country', 'gender',
                   'timezone', 'languages', 'phone_appointment',
                   'video_appointment', 'consult_rate']
 

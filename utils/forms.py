@@ -33,10 +33,10 @@ class FormControlMixin(object):
 class DetailUserForm(FormControlMixin, forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['email', 'first_name',  'last_name']
         labels = {
             'first_name': _('First name'),
-            'last_name': _('Last name'),
+            'last_name': _('First last name'),
             'email': _('E-mail address'),
         }
 

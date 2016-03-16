@@ -28,12 +28,7 @@
                     {{ appointment.appointment_time.start_time | time }}
                 </td>
                 <td class="text-center">
-                    {% if appointment.case.patient.user.first_name %}
-                        {{ appointment.case.patient.user.first_name }}
-                        {{ appointment.case.patient.user.last_name }}
-                    {% else %}
-                        {{ appointment.case.patient.user.username }}
-                    {% endif %}
+                    {{ appointment.case.patient }}
                 </td>
                 <td class="text-center">
                     {{ appointment.case.problem }}
