@@ -118,7 +118,7 @@ msgstr ""
 #: templates/patient/dashboard.html:206
 #: templates/patient/dashboard/message_center.html:8
 msgid "Message Center"
-msgstr ""
+msgstr "Centro de Mensajes"
 
 #: doctor/views.py:43 patient/views.py:43 templates/doctor/dashboard.html:70
 #: templates/patient/dashboard.html:240
@@ -131,7 +131,7 @@ msgstr ""
 #: templates/patient/dashboard.html:104
 #: templates/patient/dashboard/talk_to_a_doctor.html:36
 msgid "Specialty"
-msgstr ""
+msgstr "Especialidad"
 
 #: doctor/views.py:52 doctor/views.py:277
 msgid "Work Experience"
@@ -429,7 +429,7 @@ msgstr ""
 #: patient/views.py:37 patient/views.py:175
 #: templates/patient/dashboard.html:90
 msgid "Talk to a doctor"
-msgstr ""
+msgstr "Habla con un médico"
 
 #: patient/views.py:39 patient/views.py:262
 #: templates/patient/dashboard.html:222
@@ -1340,7 +1340,7 @@ msgstr ""
 #: templates/postman/case_messages.html:46
 #: templates/postman/case_messages_doctor.html:35
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #: templates/doctor/schedule/appointments.html:133
 msgid "No appointments found"
@@ -1522,7 +1522,7 @@ msgstr ""
 #: templates/patient/dashboard.html:143
 #: templates/patient/dashboard/talk_to_a_doctor.html:65
 msgid "Choose doctor"
-msgstr ""
+msgstr "Escoge profesional"
 
 #: templates/patient/case/notes.html:16
 msgid "Note"
@@ -1578,11 +1578,11 @@ msgstr ""
 
 #: templates/patient/dashboard.html:65
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenido"
 
 #: templates/patient/dashboard.html:93
 msgid "Speak to the next available Provider"
-msgstr ""
+msgstr "Programa tu cita con un profesional"
 
 #: templates/patient/dashboard.html:110
 msgid "Choose specialty"
@@ -1591,12 +1591,12 @@ msgstr ""
 #: templates/patient/dashboard.html:137
 #: templates/patient/dashboard/talk_to_a_doctor.html:62
 msgid "Doctors"
-msgstr ""
+msgstr "Doctores"
 
 #: templates/patient/dashboard.html:151 templates/patient/dashboard.html:157
 #: templates/patient/dashboard/talk_to_a_doctor.html:72
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: templates/patient/dashboard.html:167
 #: templates/patient/dashboard/talk_to_a_doctor.html:82

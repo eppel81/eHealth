@@ -10,3 +10,4 @@ report.txt
 migrations
 merge.sh
 media/
+.env/

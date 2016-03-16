@@ -15,8 +15,8 @@
 			{% if case %}
 				<div class="pull-right">
 					<h5>
-						{% trans 'Problem:' %} {{ case.problem|truncatechars:50 }} &nbsp;&nbsp;&nbsp;
-						{% trans 'Doctor:' %} {{ case.doctor }}
+						{% trans 'Problem' %}: {{ case.problem|truncatechars:50 }} &nbsp;&nbsp;&nbsp;
+						{% trans 'Doctor' %}: {{ case.doctor }}
 					</h5>
 				</div>
 			{% endif %}

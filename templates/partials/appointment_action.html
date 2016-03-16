@@ -18,6 +18,7 @@
                            href="{% url 'patient:appointment_process' %}?pk= {{ a.id }}">{% trans 'Complete process' %}</a>
                     {% else %}
 
+                    {% if a.deposit_paid and not a.consult_paid %}
                     {% if a.deposit_paid and not a.consult_paid and a.appointment_status == a.STATUS_DOCTOR_APPROVE %}
                             {% for key, value in appointment_availability.iteritems %}
                                 {% if key == a.id and value.0 %}
@@ -25,6 +26,11 @@
                                        data-available="{{ value.1 }}" data-case="{{ a.case.id }}" href="{% if value.2 %}{% url 'utils:appointment_room' a.case.id a.id %}{% endif %}">{% trans 'Enter Appointment' %}</a>
                                 {% endif %}
                             {%  endfor %}
+
+
+{#                                    <a class="btn btn-info enter-appointment "  data-token="{% url 'patient:payment' %}"#}
+{#                                        data-case="{{ a.case.id }}" href="{% url 'utils:appointment_room' a.case.id a.id %}">{% trans 'Enter Appointment' %}</a>#}
+
                     {% endif %}
 
                     {% if not a.deposit_paid %}

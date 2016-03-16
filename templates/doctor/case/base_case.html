@@ -13,10 +13,10 @@
             <div class="md-margin-bottom-40">
                 {% if case %}
                     <div class="pull-right">
-                        <h5>{% trans 'Patient: ' %} {{ case.patient }}</h5>
+                        <h5>{% trans 'Patient' %}: {{ case.patient }}</h5>
                     </div>
                     <div class="pull-right">
-                        <h5>{% trans 'Problem: ' %} {{ case.problem|truncatechars:50 }}&nbsp;&nbsp;&nbsp;</h5>
+                        <h5>{% trans 'Problem' %}: {{ case.problem|truncatechars:50 }}&nbsp;&nbsp;&nbsp;</h5>
                     </div>
                 {% endif %}
                 <div>

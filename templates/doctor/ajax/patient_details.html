@@ -2,13 +2,13 @@
 {% load i18n %}
 <div class="col-md-12">
     <div class="row">
-        <label class="col-sm-4 control-label">{% trans 'Patient:' %}</label>
+        <label class="col-sm-4 control-label">{% trans 'Patient' %}:</label>
         <div class="col-sm-8 text-center">
             {{ name|default_if_none:"-" }}
         </div>
     </div>
     <div class="row">
-        <label class="col-sm-4 control-label">{% trans 'Type:' %}</label>
+        <label class="col-sm-4 control-label">{% trans 'Type' %}:</label>
         <div class="col-sm-8 text-center">
             {{ type|default_if_none:"-" }}
         </div>
@@ -19,13 +19,13 @@
             <hr/>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">{% trans 'Weight:' %}</label>
+            <label class="col-sm-4 control-label">{% trans 'Weight' %}:</label>
             <div class="col-sm-8 text-center">
                 {{ weight|default_if_none:"-" }}
             </div>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">{% trans 'Height:' %}</label>
+            <label class="col-sm-4 control-label">{% trans 'Height' %}:</label>
             <div class="col-sm-8 text-center">
                 {{ height_ft|default_if_none:"-" }} ft {{ height_in|default_if_none:"-" }} in
             </div>
@@ -45,7 +45,7 @@
     {% endif %}
     {% if health_conditions %}
         <div class="row">
-            <label class="col-sm-4 control-label">{% trans 'Health conditions:' %}</label>
+            <label class="col-sm-4 control-label">{% trans 'Health conditions' %}:</label>
             <div class="col-sm-8 text-center">
                 {{ health_conditions|default_if_none:"-" }}
             </div>
@@ -53,7 +53,7 @@
     {% endif %}
     {% if medications %}
         <div class="row">
-            <label class="col-sm-4 control-label">{% trans 'Medications:' %}</label>
+            <label class="col-sm-4 control-label">{% trans 'Medications' %}:</label>
             <div class="col-sm-8 text-center">
                 {{ medications|default_if_none:"-" }}
             </div>
@@ -61,7 +61,7 @@
     {% endif %}
     {% if surgeries %}
         <div class="row">
-            <label class="col-sm-4 control-label">{% trans 'Surgeries:' %}</label>
+            <label class="col-sm-4 control-label">{% trans 'Surgeries' %}:</label>
             <div class="col-sm-8 text-center">
                 {{ surgeries|default_if_none:"-" }}
             </div>

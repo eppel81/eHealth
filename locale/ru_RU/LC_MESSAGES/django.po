@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 14:08+0000\n"
+"POT-Creation-Date: 2016-03-16 07:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,20 +62,25 @@ msgstr ""
 #: doctor/forms.py:396 doctor/views.py:1147
 #: templates/doctor/ajax/appointment_list.html:6
 #: templates/doctor/ajax/note_list.html:6
+#: templates/doctor/ajax/patient_details.html:5
 #: templates/doctor/ajax/test_list.html:6
+#: templates/doctor/case/base_case.html:16
 #: templates/doctor/case/case_list.html:14
 #: templates/doctor/case/case_list.html:74
 #: templates/doctor/dashboard/current_appointments.html:16
 #: templates/doctor/schedule/appointments.html:18
 #: templates/doctor/schedule/appointments.html:69
 #: templates/doctor/schedule/reschedule.html:14
+#: templates/patient/dashboard/app_process/confirm.html:11
 msgid "Patient"
 msgstr ""
 
 #: doctor/forms.py:421 doctor/views.py:1150 patient/forms.py:499
-#: patient/views.py:556 templates/patient/case/case_list.html:13
+#: patient/views.py:556 templates/patient/case/base_case.html:19
+#: templates/patient/case/case_list.html:13
 #: templates/patient/case/case_list.html:57
 #: templates/patient/case/overview.html:20
+#: templates/patient/dashboard/app_process/confirm.html:18
 #: templates/patient/dashboard/current_appointments.html:18
 #: templates/patient/dashboard/my_health/consultation.html:13
 msgid "Doctor"
@@ -341,11 +346,13 @@ msgstr "Сейчас принимаете какие-нибудь лекарст
 msgid "Do you have any health surgeries?"
 msgstr "Были у вас какие-нибудь операции?"
 
-#: patient/forms.py:134 templates/doctor/case/patient_history.html:81
+#: patient/forms.py:134 templates/doctor/ajax/patient_details.html:28
+#: templates/doctor/case/patient_history.html:81
 msgid "Height"
 msgstr "Рост"
 
-#: patient/forms.py:138 templates/doctor/case/patient_history.html:86
+#: patient/forms.py:138 templates/doctor/ajax/patient_details.html:22
+#: templates/doctor/case/patient_history.html:86
 msgid "Weight"
 msgstr "Вес"
 
@@ -708,7 +715,7 @@ msgid "Sign Up"
 msgstr ""
 
 #: templates/account/login.html:20
-msgid "to registration"
+msgid "for registration"
 msgstr ""
 
 #: templates/account/login.html:67
@@ -793,7 +800,7 @@ msgid ""
 msgstr ""
 
 #: templates/account/password_reset_email.html:4
-msgid "Please go to the following page and choose a new password:"
+msgid "Please go to the following page and choose a new password"
 msgstr ""
 
 #: templates/account/password_reset_email.html:9
@@ -1016,32 +1023,20 @@ msgstr ""
 msgid "Add new case"
 msgstr ""
 
-#: templates/doctor/ajax/patient_details.html:5
-#: templates/patient/dashboard/app_process/confirm.html:11
-msgid "Patient:"
-msgstr ""
-
 #: templates/doctor/ajax/patient_details.html:11
+#: templates/doctor/case/files.html:30 templates/doctor/case/files.html:73
+#: templates/patient/case/appointments.html:20
+#: templates/patient/case/case_files.html:17
 #: templates/patient/dashboard/app_process/confirm.html:25
-msgid "Type:"
+#: templates/patient/dashboard/my_health/my_records.html:16
+#: templates/patient/dashboard/my_health/my_records.html:60
+msgid "Type"
 msgstr ""
 
 #: templates/doctor/ajax/patient_details.html:18
 #: templates/doctor/case/patient_history.html:75
 msgid "Lifestyle"
 msgstr ""
-
-#: templates/doctor/ajax/patient_details.html:22
-#, fuzzy
-#| msgid "Weight"
-msgid "Weight:"
-msgstr "Вес"
-
-#: templates/doctor/ajax/patient_details.html:28
-#, fuzzy
-#| msgid "Height"
-msgid "Height:"
-msgstr "Рост"
 
 #: templates/doctor/ajax/patient_details.html:34
 #, fuzzy
@@ -1052,15 +1047,17 @@ msgstr "История оплат"
 #: templates/doctor/ajax/patient_details.html:48
 #, fuzzy
 #| msgid "Do you have any health conditions?"
-msgid "Health conditions:"
+msgid "Health conditions"
 msgstr "Есть ли у вас какие-либо ограничения по здоровью?"
 
 #: templates/doctor/ajax/patient_details.html:56
-msgid "Medications:"
+#: templates/doctor/case/patient_history.html:50
+msgid "Medications"
 msgstr ""
 
 #: templates/doctor/ajax/patient_details.html:64
-msgid "Surgeries:"
+#: templates/doctor/case/patient_history.html:61
+msgid "Surgeries"
 msgstr ""
 
 #: templates/doctor/ajax/patient_details.html:72
@@ -1132,12 +1129,18 @@ msgstr ""
 msgid "Public Notes "
 msgstr ""
 
-#: templates/doctor/case/base_case.html:16
-msgid "Patient: "
-msgstr ""
-
 #: templates/doctor/case/base_case.html:19
-msgid "Problem: "
+#: templates/doctor/case/case_list.html:75
+#: templates/doctor/case/overview.html:13
+#: templates/doctor/dashboard/current_appointments.html:17
+#: templates/doctor/schedule/appointments.html:70
+#: templates/patient/case/base_case.html:18
+#: templates/patient/case/case_list.html:59
+#: templates/patient/case/overview.html:14
+#: templates/patient/dashboard/app_process/confirm.html:39
+#: templates/patient/dashboard/current_appointments.html:19
+#: templates/patient/dashboard/my_health/consultation.html:14
+msgid "Problem"
 msgstr ""
 
 #: templates/doctor/case/case_list.html:18
@@ -1158,22 +1161,12 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: templates/doctor/case/case_list.html:75
-#: templates/doctor/case/overview.html:13
-#: templates/doctor/dashboard/current_appointments.html:17
-#: templates/doctor/schedule/appointments.html:70
-#: templates/patient/case/case_list.html:59
-#: templates/patient/case/overview.html:14
-#: templates/patient/dashboard/current_appointments.html:19
-#: templates/patient/dashboard/my_health/consultation.html:14
-msgid "Problem"
-msgstr ""
-
 #: templates/doctor/case/case_list.html:76 templates/doctor/case/files.html:47
 #: templates/doctor/case/files.html:74 templates/doctor/case/overview.html:22
 #: templates/patient/case/case_files.html:18
 #: templates/patient/case/case_list.html:61
 #: templates/patient/case/overview.html:26
+#: templates/patient/dashboard/app_process/confirm.html:46
 #: templates/patient/dashboard/my_health/consultation.html:15
 #: templates/patient/dashboard/my_health/my_records.html:61
 msgid "Description"
@@ -1210,14 +1203,6 @@ msgstr ""
 
 #: templates/doctor/case/files.html:19
 msgid "Current case's files"
-msgstr ""
-
-#: templates/doctor/case/files.html:30 templates/doctor/case/files.html:73
-#: templates/patient/case/appointments.html:20
-#: templates/patient/case/case_files.html:17
-#: templates/patient/dashboard/my_health/my_records.html:16
-#: templates/patient/dashboard/my_health/my_records.html:60
-msgid "Type"
 msgstr ""
 
 #: templates/doctor/case/files.html:34
@@ -1299,14 +1284,6 @@ msgstr ""
 
 #: templates/doctor/case/patient_history.html:37
 msgid "Health Conditions"
-msgstr ""
-
-#: templates/doctor/case/patient_history.html:50
-msgid "Medications"
-msgstr ""
-
-#: templates/doctor/case/patient_history.html:61
-msgid "Surgeries"
 msgstr ""
 
 #: templates/doctor/case/patient_history.html:93
@@ -1566,6 +1543,7 @@ msgstr "Оплата"
 
 #: templates/patient/account/billing.html:17
 #: templates/patient/case/notes.html:14
+#: templates/patient/dashboard/app_process/confirm.html:32
 #, fuzzy
 #| msgid "Appointment updated"
 msgid "Appointment Date"
@@ -1594,16 +1572,6 @@ msgstr ""
 #| msgid "Appointments"
 msgid "Appointment Request"
 msgstr "Встречи"
-
-#: templates/patient/case/base_case.html:18
-#: templates/patient/dashboard/app_process/confirm.html:39
-msgid "Problem:"
-msgstr ""
-
-#: templates/patient/case/base_case.html:19
-#: templates/patient/dashboard/app_process/confirm.html:18
-msgid "Doctor:"
-msgstr ""
 
 #: templates/patient/case/base_case.html:41
 #: templates/patient/dashboard/app_process/family_history.html:71
@@ -1673,7 +1641,6 @@ msgid "Upload Document"
 msgstr ""
 
 #: templates/patient/confirmation.html:7
-#: templates/patient/dashboard/app_process/confirm.html:70
 msgid "This time is already taken"
 msgstr ""
 
@@ -1722,18 +1689,12 @@ msgstr ""
 msgid "Look preview information and confirm."
 msgstr ""
 
-#: templates/patient/dashboard/app_process/confirm.html:32
-#, fuzzy
-#| msgid "Appointment updated"
-msgid "Appointment Date:"
-msgstr "Изменения сохранены"
-
-#: templates/patient/dashboard/app_process/confirm.html:46
-msgid "Description:"
-msgstr ""
-
 #: templates/patient/dashboard/app_process/confirm.html:63
 msgid "Apply"
+msgstr ""
+
+#: templates/patient/dashboard/app_process/confirm.html:70
+msgid "This time has been already taken"
 msgstr ""
 
 #: templates/patient/dashboard/app_process/family_history.html:10
@@ -1766,9 +1727,10 @@ msgid "Future appointments"
 msgstr "Встречи"
 
 #: templates/patient/dashboard/doctor_info.html:40
+#: templates/patient/dashboard/my_health/consultation.html:16
 #, fuzzy
 #| msgid "Appointment updated"
-msgid "Appointment Type:"
+msgid "Appointment Type"
 msgstr "Изменения сохранены"
 
 #: templates/patient/dashboard/doctor_info.html:51
@@ -1851,12 +1813,6 @@ msgstr ""
 #| msgid "Payment History"
 msgid "My History"
 msgstr "История оплат"
-
-#: templates/patient/dashboard/my_health/consultation.html:16
-#, fuzzy
-#| msgid "Appointment updated"
-msgid "Appointment Type"
-msgstr "Изменения сохранены"
 
 #: templates/patient/dashboard/my_health/my_records.html:6
 msgid "My Records"
@@ -2078,6 +2034,26 @@ msgstr ""
 #: utils/models.py:122
 msgid "Doctor-Patient communication"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Weight"
+#~ msgid "Weight:"
+#~ msgstr "Вес"
+
+#, fuzzy
+#~| msgid "Height"
+#~ msgid "Height:"
+#~ msgstr "Рост"
+
+#, fuzzy
+#~| msgid "Appointment updated"
+#~ msgid "Appointment Type:"
+#~ msgstr "Изменения сохранены"
+
+#, fuzzy
+#~| msgid "Appointment updated"
+#~ msgid "Appointment Date:"
+#~ msgstr "Изменения сохранены"
 
 #, fuzzy
 #~| msgid "Specialty"
