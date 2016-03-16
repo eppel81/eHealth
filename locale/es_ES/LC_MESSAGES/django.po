@@ -183,7 +183,7 @@ msgstr ""
 #: doctor/views.py:145 patient/views.py:784 templates/base.html:136
 #: templates/doctor/dashboard.html:84 templates/patient/dashboard.html:256
 msgid "My Account"
-msgstr ""
+msgstr "Mi cuenta de Usuario"
 
 #: doctor/views.py:168 templates/doctor/account/paymenthistory.html:10
 msgid "Payment"
@@ -434,7 +434,7 @@ msgstr "Habla con un médico"
 #: patient/views.py:39 patient/views.py:262
 #: templates/patient/dashboard.html:222
 msgid "My health"
-msgstr ""
+msgstr "Historial Médico"
 
 #: patient/views.py:50 patient/views.py:74 patient/views.py:93
 #: patient/views.py:286
@@ -461,7 +461,7 @@ msgstr ""
 #: templates/patient/dashboard.html:273
 #: templates/patient/dashboard/my_health/consultation_edit.html:5
 msgid "Consultation History"
-msgstr ""
+msgstr "Historial de Consultas"
 
 #: patient/views.py:65
 msgid "My Medical Records"

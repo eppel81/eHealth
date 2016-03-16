@@ -18,7 +18,7 @@
                            href="{% url 'patient:appointment_process' %}?pk= {{ a.id }}">{% trans 'Complete process' %}</a>
                     {% else %}
 
-                    {% if a.deposit_paid and not a.consult_paid %}
+{#                    {% if a.deposit_paid and not a.consult_paid %}#}
                     {% if a.deposit_paid and not a.consult_paid and a.appointment_status == a.STATUS_DOCTOR_APPROVE %}
                             {% for key, value in appointment_availability.iteritems %}
                                 {% if key == a.id and value.0 %}
