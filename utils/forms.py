@@ -34,6 +34,11 @@ class DetailUserForm(FormControlMixin, forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
+        labels = {
+            'first_name': _('First name'),
+            'last_name': _('Last name'),
+            'email': _('E-mail address'),
+        }
 
     def __init__(self, *args, **kwargs):
         super(DetailUserForm, self).__init__(*args, **kwargs)
@@ -43,6 +48,14 @@ class DetailUserForm(FormControlMixin, forms.ModelForm):
 
 
 class MyChangePassForm(FormControlMixin, ChangePasswordForm):
+    class Meta:
+        labels = {
+            'oldpassword': _('Current Password'),
+            'password1': _('New Password'),
+            'password2': _('New Password (again)'),
+
+        }
+
     def __init__(self, *args, **kwargs):
         super(MyChangePassForm, self).__init__(*args, **kwargs)
         for field in self.fields.itervalues():

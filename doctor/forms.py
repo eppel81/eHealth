@@ -40,7 +40,8 @@ class SpecialtyForm(FormControlMixin, forms.ModelForm):
 
     def __init__(self, **kwargs):
         super(SpecialtyForm, self).__init__(**kwargs)
-        self.fields['specialty'].queryset = utils_models.Specialty.objects.exclude(
+        self.fields[
+            'specialty'].queryset = utils_models.Specialty.objects.exclude(
             id__in=kwargs['initial']['exclude_specialty'])
 
 
@@ -389,22 +390,30 @@ class EditFileRecordForm(FormControlMixin, forms.ModelForm):
 
 class UserModelChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
-         return obj.get_full_name()
+        return obj.get_full_name()
 
 
 class WriteMessageForm(FormControlMixin, postman_forms.WriteForm):
-    recipients = UserModelChoiceField(label=_("Patient"), queryset=User.objects.all())
+    recipients = UserModelChoiceField(label=_("Patient"),
+                                      queryset=User.objects.all())
     case = forms.ModelChoiceField(
-        queryset=patient_models.PatientCase.objects.none(), required=False)
+        label=_("Case"),
+        queryset=patient_models.PatientCase.objects.none(),
+        required=False)
 
     class Meta(postman_forms.WriteForm.Meta):
         fields = ('recipients', 'case', 'subject', 'body')
+        labels = {
+            'recipients': _('Recipients'),
+            'subject': _('Subject'),
+            'body': _('Body'),
+        }
 
     def clean(self):
         cleaned_data = super(WriteMessageForm, self).clean()
         recipients = cleaned_data.get('recipients')
         if recipients:
-            cleaned_data['recipients'] = [recipients,]
+            cleaned_data['recipients'] = [recipients, ]
         return cleaned_data
 
     def save(self, **kwargs):
@@ -418,16 +427,22 @@ class WriteMessageForm(FormControlMixin, postman_forms.WriteForm):
 
 
 class WriteDoctorMessageForm(FormControlMixin, postman_forms.WriteForm):
-    recipients = UserModelChoiceField(label=_("Doctor"), queryset=User.objects.all())
+    recipients = UserModelChoiceField(label=_("Doctor"),
+                                      queryset=User.objects.all())
 
     class Meta(postman_forms.WriteForm.Meta):
         fields = ('recipients', 'subject', 'body')
+        labels = {
+            'recipients': _('Recipients'),
+            'subject': _('Subject'),
+            'body': _('Body'),
+        }
 
     def clean(self):
         cleaned_data = super(WriteDoctorMessageForm, self).clean()
         recipients = cleaned_data.get('recipients')
         if recipients:
-            cleaned_data['recipients'] = [recipients,]
+            cleaned_data['recipients'] = [recipients, ]
         return cleaned_data
 
 
@@ -439,14 +454,21 @@ class SupportUserModelChoiceField(forms.ModelChoiceField):
 
 
 class WriteMessageSupportForm(FormControlMixin, postman_forms.WriteForm):
-    recipients = SupportUserModelChoiceField(label=_("Support"), queryset=User.objects.filter(supportuser__isnull=False))
+    recipients = SupportUserModelChoiceField(label=_("Support"),
+                                             queryset=User.objects.filter(
+                                                 supportuser__isnull=False))
 
     class Meta(postman_forms.WriteForm.Meta):
         fields = ('recipients', 'subject', 'body')
+        labels = {
+            'recipients': _('Recipients'),
+            'subject': _('Subject'),
+            'body': _('Body'),
+        }
 
     def clean(self):
         cleaned_data = super(WriteMessageSupportForm, self).clean()
         recipients = cleaned_data.get('recipients')
         if recipients:
-            cleaned_data['recipients'] = [recipients,]
+            cleaned_data['recipients'] = [recipients, ]
         return cleaned_data

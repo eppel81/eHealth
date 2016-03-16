@@ -30,7 +30,7 @@
                                     <img src="{% static 'img/user_man.jpg' %}">
                                 {% endif %}
                                 <div class="inner-faq-b">
-                                    <p>Welcome</p>
+                                    <p>{% trans 'Welcome' %}</p>
                                     <a href="{% url 'doctor:my_account' %}">
                                         <h3>
                                             {% if user.first_name %}
@@ -60,20 +60,7 @@
                         </div>
                     </div>
                     <div class="row equal-height-columns margin-bottom-40">
-                        <div class="col-sm-6">
 
-                                <div class="easy-block-v3 service-or equal-height-column">
-                                    <div class="service-bg"></div>
-                                    <img src="{% static 'img/help.png' %}"/>
-                                    <div class="inner-faq-b">
-                                        <a href="{% url 'doctor:help' %}">
-                                            <h3>{% trans 'Help & Support' %}</h3>
-                                        </a>
-                                        <h5>{% trans 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.' %}</h5>
-                                    </div>
-                                </div>
-
-                        </div>
                         <div class="col-sm-6">
 
                                 <div class="easy-block-v3 service-or equal-height-column">

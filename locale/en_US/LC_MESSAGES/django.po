@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-16 07:45+0000\n"
+"POT-Creation-Date: 2016-03-16 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,45 +21,45 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-#: doctor/forms.py:78
+#: doctor/forms.py:79
 msgid "Morning"
 msgstr ""
 
-#: doctor/forms.py:79
+#: doctor/forms.py:80
 msgid "Afternoon"
 msgstr ""
 
-#: doctor/forms.py:107
+#: doctor/forms.py:108
 msgid "Time must be chosen"
 msgstr ""
 
-#: doctor/forms.py:185 doctor/forms.py:213 doctor/forms.py:231
-#: doctor/forms.py:257
+#: doctor/forms.py:186 doctor/forms.py:214 doctor/forms.py:232
+#: doctor/forms.py:258
 #, python-format
 msgid "Time must be in range %s - %s"
 msgstr ""
 
-#: doctor/forms.py:202 doctor/forms.py:247
+#: doctor/forms.py:203 doctor/forms.py:248
 msgid "Time-to less then time-from"
 msgstr ""
 
-#: doctor/forms.py:205 doctor/forms.py:250
+#: doctor/forms.py:206 doctor/forms.py:251
 msgid "Time-to should not be equal to time-from"
 msgstr ""
 
-#: doctor/forms.py:263
+#: doctor/forms.py:264
 msgid "Time must be divisible by 15 minutes"
 msgstr ""
 
-#: doctor/forms.py:271
+#: doctor/forms.py:272
 msgid "The appointment length must enter into the availability time correctly"
 msgstr ""
 
-#: doctor/forms.py:309
+#: doctor/forms.py:310
 msgid "There are appointments for {}"
 msgstr ""
 
-#: doctor/forms.py:396 doctor/views.py:1147
+#: doctor/forms.py:397 doctor/views.py:1147
 #: templates/doctor/ajax/appointment_list.html:6
 #: templates/doctor/ajax/note_list.html:6
 #: templates/doctor/ajax/patient_details.html:5
@@ -75,7 +75,30 @@ msgstr ""
 msgid "Patient"
 msgstr ""
 
-#: doctor/forms.py:421 doctor/views.py:1150 patient/forms.py:499
+#: doctor/forms.py:400 doctor/views.py:39 patient/forms.py:507
+#: templates/patient/account/billing.html:16
+msgid "Case"
+msgstr ""
+
+#: doctor/forms.py:407 doctor/forms.py:436 doctor/forms.py:464
+#: patient/forms.py:513 patient/forms.py:547
+msgid "Recipients"
+msgstr ""
+
+#: doctor/forms.py:408 doctor/forms.py:437 doctor/forms.py:465
+#: patient/forms.py:514 patient/forms.py:548
+#: templates/postman/base_message_folder.html:51
+#: templates/postman/case_messages.html:42
+#: templates/postman/case_messages_doctor.html:31
+msgid "Subject"
+msgstr ""
+
+#: doctor/forms.py:409 doctor/forms.py:438 doctor/forms.py:466
+#: patient/forms.py:515 patient/forms.py:549
+msgid "Body"
+msgstr ""
+
+#: doctor/forms.py:430 doctor/views.py:1150 patient/forms.py:504
 #: patient/views.py:556 templates/patient/case/base_case.html:19
 #: templates/patient/case/case_list.html:13
 #: templates/patient/case/case_list.html:57
@@ -86,7 +109,7 @@ msgstr ""
 msgid "Doctor"
 msgstr ""
 
-#: doctor/forms.py:442 doctor/views.py:1153 patient/forms.py:530
+#: doctor/forms.py:457 doctor/views.py:1153 patient/forms.py:542
 #: patient/views.py:559
 msgid "Support"
 msgstr ""
@@ -108,10 +131,6 @@ msgstr ""
 msgid "Calendar"
 msgstr ""
 
-#: doctor/views.py:39 templates/patient/account/billing.html:16
-msgid "Case"
-msgstr ""
-
 #: doctor/views.py:41 doctor/views.py:132 doctor/views.py:1081
 #: patient/views.py:41 templates/doctor/dashboard.html:55
 #: templates/doctor/dashboard/message_center.html:8
@@ -120,8 +139,7 @@ msgstr ""
 msgid "Message Center"
 msgstr ""
 
-#: doctor/views.py:43 patient/views.py:43 templates/doctor/dashboard.html:70
-#: templates/patient/dashboard.html:240
+#: doctor/views.py:43 patient/views.py:43
 #: templates/patient/dashboard/help_support.html:11
 msgid "Help & Support"
 msgstr ""
@@ -181,7 +199,7 @@ msgid "Help"
 msgstr ""
 
 #: doctor/views.py:145 patient/views.py:784 templates/base.html:136
-#: templates/doctor/dashboard.html:84 templates/patient/dashboard.html:256
+#: templates/doctor/dashboard.html:71 templates/patient/dashboard.html:256
 msgid "My Account"
 msgstr ""
 
@@ -293,8 +311,8 @@ msgstr ""
 msgid "Deleted"
 msgstr ""
 
-#: doctor/views.py:1075
-msgid "Send message to"
+#: doctor/views.py:1075 patient/views.py:130
+msgid "Send new message to"
 msgstr ""
 
 #: ehealth/settings.py:147
@@ -352,27 +370,35 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: patient/forms.py:263
+#: patient/forms.py:231
+msgid "Country"
+msgstr ""
+
+#: patient/forms.py:232
+msgid "Timezone"
+msgstr ""
+
+#: patient/forms.py:267
 msgid "This field is required"
 msgstr ""
 
-#: patient/forms.py:266
+#: patient/forms.py:270
 msgid "This field must be empty"
 msgstr ""
 
-#: patient/forms.py:277
+#: patient/forms.py:281
 msgid "This time has been already taken."
 msgstr ""
 
-#: patient/forms.py:283 patient/forms.py:409
+#: patient/forms.py:287 patient/forms.py:413
 msgid "You already have an appointment to another doctor for this time."
 msgstr ""
 
-#: patient/forms.py:342
+#: patient/forms.py:346
 msgid "You have an incomplete appointment"
 msgstr ""
 
-#: patient/forms.py:404
+#: patient/forms.py:408
 msgid "The appointment time has been already taken. Please choose another one"
 msgstr ""
 
@@ -458,7 +484,7 @@ msgid "My Medical Profile"
 msgstr ""
 
 #: patient/views.py:62 patient/views.py:1332
-#: templates/patient/dashboard.html:273
+#: templates/patient/dashboard.html:240
 #: templates/patient/dashboard/my_health/consultation_edit.html:5
 msgid "Consultation History"
 msgstr ""
@@ -475,10 +501,6 @@ msgstr ""
 #: patient/views.py:1260 templates/patient/case/case_files.html:91
 #: templates/patient/dashboard/talk_to_a_doctor.html:263
 msgid "Confirmation"
-msgstr ""
-
-#: patient/views.py:130
-msgid "Send new message to"
 msgstr ""
 
 #: patient/views.py:289
@@ -725,7 +747,7 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: templates/account/password_reset_confirm.html:12 utils/forms.py:69
+#: templates/account/password_reset_confirm.html:12 utils/forms.py:82
 msgid "New password"
 msgstr ""
 
@@ -1257,35 +1279,38 @@ msgstr ""
 msgid "Relationships"
 msgstr ""
 
-#: templates/doctor/dashboard.html:57 templates/doctor/dashboard.html.py:72
-#: templates/patient/dashboard.html:209 templates/patient/dashboard.html:225
-#: templates/patient/dashboard.html:243 templates/patient/dashboard.html:276
+#: templates/doctor/dashboard.html:33 templates/patient/dashboard.html:65
+msgid "Welcome"
+msgstr ""
+
+#: templates/doctor/dashboard.html:57 templates/patient/dashboard.html:209
+#: templates/patient/dashboard.html:225 templates/patient/dashboard.html:243
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus "
 "justo vel tincidunt consectetur."
 msgstr ""
 
-#: templates/doctor/dashboard.html:86 templates/patient/dashboard.html:259
+#: templates/doctor/dashboard.html:73 templates/patient/dashboard.html:259
 msgid "Manage your account information, including payment, sign-in and more."
 msgstr ""
 
-#: templates/doctor/dashboard.html:101 templates/patient/dashboard.html:291
+#: templates/doctor/dashboard.html:88 templates/patient/dashboard.html:273
 msgid "Notifications"
 msgstr ""
 
-#: templates/doctor/dashboard.html:107 templates/patient/dashboard.html:299
+#: templates/doctor/dashboard.html:94 templates/patient/dashboard.html:281
 msgid "You have"
 msgstr ""
 
-#: templates/doctor/dashboard.html:107 templates/patient/dashboard.html:299
+#: templates/doctor/dashboard.html:94 templates/patient/dashboard.html:281
 msgid " message(s)"
 msgstr ""
 
-#: templates/doctor/dashboard.html:109 templates/patient/dashboard.html:301
+#: templates/doctor/dashboard.html:96 templates/patient/dashboard.html:283
 msgid "Read all"
 msgstr ""
 
-#: templates/doctor/dashboard.html:112 templates/patient/dashboard.html:304
+#: templates/doctor/dashboard.html:99 templates/patient/dashboard.html:286
 msgid "You don't have new message(s)"
 msgstr ""
 
@@ -1412,16 +1437,16 @@ msgstr ""
 msgid "Complete process"
 msgstr ""
 
-#: templates/partials/appointment_action.html:25
+#: templates/partials/appointment_action.html:26
 #: templates/partials/doctor_appointment_action.html:22
 msgid "Enter Appointment"
 msgstr ""
 
-#: templates/partials/appointment_action.html:32
+#: templates/partials/appointment_action.html:38
 msgid "Pay"
 msgstr ""
 
-#: templates/partials/appointment_action.html:36
+#: templates/partials/appointment_action.html:42
 msgid "After Appointment"
 msgstr ""
 
@@ -1574,10 +1599,6 @@ msgstr ""
 #: templates/patient/confirmation.html:11
 #: templates/patient/dashboard/app_process/confirm.html:74
 msgid "Appointment Edit"
-msgstr ""
-
-#: templates/patient/dashboard.html:65
-msgid "Welcome"
 msgstr ""
 
 #: templates/patient/dashboard.html:93
@@ -1840,12 +1861,6 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: templates/postman/base_message_folder.html:51
-#: templates/postman/case_messages.html:42
-#: templates/postman/case_messages_doctor.html:31
-msgid "Subject"
-msgstr ""
-
 #: templates/postman/base_message_folder.html:112
 #: templates/postman/case_messages.html:87
 msgid "No messages"
@@ -1889,7 +1904,7 @@ msgid ""
 msgstr ""
 
 #: templates/postman/write_to_case_doctor.html:43
-#: templates/postman/write_to_doctor.html:42
+#: templates/postman/write_to_doctor.html:41
 msgid "Send"
 msgstr ""
 
@@ -1897,17 +1912,37 @@ msgstr ""
 msgid "Terms and conditions"
 msgstr ""
 
-#: utils/forms.py:55
+#: utils/forms.py:38
+msgid "First name"
+msgstr ""
+
+#: utils/forms.py:39
+msgid "Last name"
+msgstr ""
+
+#: utils/forms.py:40 utils/forms.py:68
 msgid "E-mail address"
 msgstr ""
 
-#: utils/forms.py:61
+#: utils/forms.py:53
+msgid "Current Password"
+msgstr ""
+
+#: utils/forms.py:54
+msgid "New Password"
+msgstr ""
+
+#: utils/forms.py:55
+msgid "New Password (again)"
+msgstr ""
+
+#: utils/forms.py:74
 msgid ""
 "That email address doesn't have an associated user account. Are you sure "
 "you've registered?"
 msgstr ""
 
-#: utils/forms.py:72
+#: utils/forms.py:85
 msgid "Confirm password"
 msgstr ""
 

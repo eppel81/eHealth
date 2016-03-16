@@ -15,8 +15,7 @@
 
                         </div>
                         <div class="col-sm-7" name="{{ field.name }}" {% if field.label == 'Doctor' %}data-url={% url 'patient:get_cases' %}{% endif %}
-                            {% if field.label == 'Patient' %}data-url={% url 'doctor:get_cases' %}{% endif %}
-                            >
+                            {% if field.label == 'Patient' %}data-url={% url 'doctor:get_cases' %}{% endif %}>
                                 {{ field }}
                             {% if errors %}
                                 {% for error in errors %}

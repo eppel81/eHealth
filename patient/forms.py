@@ -227,6 +227,10 @@ class DetailForm(FormControlMixin, forms.ModelForm):
     class Meta:
         model = models.Patient
         fields = ['photo', 'country', 'timezone']
+        labels = {
+            'country': _('Country'),
+            'timezone': _('Timezone'),
+        }
 
     def __init__(self, *args, **kwargs):
         super(DetailForm, self).__init__(*args, **kwargs)
@@ -496,12 +500,20 @@ class UserModelChoiceField(forms.ModelChoiceField):
 
 
 class WriteMessageForm(FormControlMixin, postman_forms.WriteForm):
-    recipients = UserModelChoiceField(label=_("Doctor"), queryset=User.objects.all())
+    recipients = UserModelChoiceField(
+        label=_("Doctor"), queryset=User.objects.all())
+
     case = forms.ModelChoiceField(
+        label=_('Case'),
         queryset=models.PatientCase.objects.none())
 
     class Meta(postman_forms.WriteForm.Meta):
         fields = ('recipients', 'case', 'subject', 'body')
+        labels = {
+            'recipients': _('Recipients'),
+            'subject': _('Subject'),
+            'body': _('Body'),
+        }
 
     def clean(self):
         cleaned_data = super(WriteMessageForm, self).clean()
@@ -531,6 +543,11 @@ class WriteMessageSupportForm(FormControlMixin, postman_forms.WriteForm):
 
     class Meta(postman_forms.WriteForm.Meta):
         fields = ('recipients', 'subject', 'body')
+        labels = {
+            'recipients': _('Recipients'),
+            'subject': _('Subject'),
+            'body': _('Body'),
+        }
 
     def clean(self):
         cleaned_data = super(WriteMessageSupportForm, self).clean()

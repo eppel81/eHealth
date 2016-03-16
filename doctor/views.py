@@ -1072,7 +1072,7 @@ class DoctorMessageActiveTabMixin(utils_views.ActiveTabMixin):
          },
         {'class': 'pen',
          'href': reverse_lazy('doctor:write_message_patient'),
-         'title': _('Send message to'),
+         'title': _('Send new message to'),
          },
     ]
 
