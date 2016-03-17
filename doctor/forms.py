@@ -29,8 +29,20 @@ class DetailForm(FormControlMixin, forms.ModelForm):
     class Meta:
         model = models.Doctor
         fields = ['second_last_name', 'photo', 'city', 'country', 'gender',
-                  'timezone', 'languages', 'phone_appointment',
-                  'video_appointment', 'consult_rate']
+                  'timezone', 'languages', 'consult_rate',
+                  'default_morning_start_time', 'default_morning_end_time',
+                  'default_afternoon_start_time', 'default_afternoon_end_time',
+                  ]
+        widgets = {
+            'default_morning_start_time': html5_widgets.TimeInput(
+                attrs={'max': '14:00', 'min': '00:00'}),
+            'default_morning_end_time': html5_widgets.TimeInput(
+                attrs={'max': '14:00', 'min': '00:00'}),
+            'default_afternoon_start_time': html5_widgets.TimeInput(
+                attrs={'min': '14:00', 'max': '23:59'}),
+            'default_afternoon_end_time': html5_widgets.TimeInput(
+                attrs={'min': '14:00', 'max': '23:59'}),
+        }
 
 
 class SpecialtyForm(FormControlMixin, forms.ModelForm):
@@ -85,13 +97,13 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
         widgets = {'date': forms.HiddenInput,
                    'doctor': forms.HiddenInput,
                    'day_from': html5_widgets.TimeInput(
-                       attrs={'max': '12:00', 'min': '00:00'}),
+                       attrs={'max': '14:00', 'min': '00:00'}),
                    'day_to': html5_widgets.TimeInput(
-                       attrs={'max': '12:00', 'min': '00:00'}),
+                       attrs={'max': '14:00', 'min': '00:00'}),
                    'night_from': html5_widgets.TimeInput(
-                       attrs={'min': '12:00', 'max': '23:00'}),
+                       attrs={'min': '14:00', 'max': '23:59'}),
                    'night_to': html5_widgets.TimeInput(
-                       attrs={'min': '12:00', 'max': '23:00'}),
+                       attrs={'min': '14:00', 'max': '23:59'}),
                    }
 
     def __init__(self, *args, **kwargs):
@@ -103,6 +115,7 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
         self._disable_fields(initial_date, self.instance)
         self._set_doctor(request)
         self._set_css_classes()
+        self._set_default_time()
 
     def get_time_input_error(self):
         return _('Time must be chosen')
@@ -115,6 +128,9 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
             self.fields['weekday'].label = instance.date.strftime("%A")
         elif initial_date:
             self.fields['weekday'].label = initial_date.strftime("%A")
+        appointments = patient_models.PatientAppointment.objects.filter(
+            appointment_time__schedule=instance)
+        self.fields['weekday'].initial = True if appointments.exists() else False
 
     def _disable_fields(self, initial_date, instance):
         disabled_fields = ['day_shift', 'day_from', 'day_to',
@@ -155,8 +171,20 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
             disabled_fields.append('night_shift')
             disabled_fields.append('night_from')
             disabled_fields.append('night_to')
+
         for _ in disabled_fields:
             self.fields[_].widget.attrs['disabled'] = True
+
+    def _set_default_time(self):
+        doctor = self.request.user.doctor
+        self.fields['day_from'].widget.attrs['data-value'] = \
+            doctor.default_morning_start_time
+        self.fields['day_to'].widget.attrs['data-value'] = \
+            doctor.default_morning_end_time
+        self.fields['night_from'].widget.attrs['data-value'] = \
+            doctor.default_afternoon_start_time
+        self.fields['night_to'].widget.attrs['data-value'] = \
+            doctor.default_afternoon_end_time
 
     def _set_css_classes(self):
         css = {'weekday': 'weekday',
@@ -179,7 +207,7 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
         else:
             self.is_divisible(day_from)
         min_value = datetime.strptime('00:00', '%H:%M').time()
-        max_value = datetime.strptime('12:00', '%H:%M').time()
+        max_value = datetime.strptime('14:00', '%H:%M').time()
 
         if day_from < min_value or day_from > max_value:
             message = _(
@@ -206,7 +234,7 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
             message = _('Time-to should not be equal to time-from')
             raise ValidationError(message=message)
 
-        max_value = datetime.strptime('12:00', '%H:%M').time()
+        max_value = datetime.strptime('14:00', '%H:%M').time()
         min_value = datetime.strptime('00:00', '%H:%M').time()
 
         if day_to < min_value or day_to > max_value:
@@ -224,7 +252,7 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
             return
         else:
             self.is_divisible(night_from)
-        min_value = datetime.strptime('12:00', '%H:%M').time()
+        min_value = datetime.strptime('14:00', '%H:%M').time()
         max_value = datetime.strptime('23:59', '%H:%M').time()
 
         if night_from < min_value or night_from > max_value:
@@ -250,7 +278,7 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
         elif night_to == night_from:
             message = _('Time-to should not be equal to time-from')
             raise ValidationError(message=message)
-        min_value = datetime.strptime('12:00', '%H:%M').time()
+        min_value = datetime.strptime('14:00', '%H:%M').time()
         max_value = datetime.strptime('23:59', '%H:%M').time()
 
         if night_to < min_value or night_to > max_value:
@@ -303,7 +331,7 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
             if error:
                 self.add_error('night_to', error)
 
-        if doctor and app_date:
+        if doctor and app_date and self.has_changed():
             appointment_times = models.DoctorAppointmentTime.objects.filter(
                 doctor=doctor, schedule=self.instance, free=False)
             if appointment_times.exists():
@@ -332,28 +360,31 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
 
     def save(self, commit=True):
         obj = super(DoctorScheduleForm, self).save(commit)
-        doctor = self.request.user.doctor
-        models.DoctorAppointmentTime.objects.filter(
-            doctor=doctor, schedule=obj).delete()
+        appointments = patient_models.PatientAppointment.objects.filter(
+            appointment_time__schedule=obj)
+        if not appointments:
+            doctor = self.request.user.doctor
+            models.DoctorAppointmentTime.objects.filter(
+                doctor=doctor, schedule=obj).delete()
 
-        new_appointment = []
-        today = date.today()
-        if obj.day_shift and obj.day_from and obj.day_to:
-            minutes = (datetime.combine(today, obj.day_to) -
-                       datetime.combine(today,
-                                        obj.day_from)).total_seconds() / 60
-            count_appointment = minutes / obj.duration
-            new_appointment += self.get_appointment_to_create(
-                obj, count_appointment, obj.day_from, obj.day_to)
-        if obj.night_shift and obj.night_from and obj.night_to:
-            minutes = (datetime.combine(today, obj.night_to) -
-                       datetime.combine(today,
-                                        obj.night_from)).total_seconds() / 60
-            count_appointment = minutes / obj.duration
-            new_appointment += self.get_appointment_to_create(
-                obj, count_appointment, obj.night_from, obj.night_to)
-        if new_appointment:
-            models.DoctorAppointmentTime.objects.bulk_create(new_appointment)
+            new_appointment = []
+            today = date.today()
+            if obj.day_shift and obj.day_from and obj.day_to:
+                minutes = (datetime.combine(today, obj.day_to) -
+                           datetime.combine(today,
+                                            obj.day_from)).total_seconds() / 60
+                count_appointment = minutes / obj.duration
+                new_appointment += self.get_appointment_to_create(
+                    obj, count_appointment, obj.day_from, obj.day_to)
+            if obj.night_shift and obj.night_from and obj.night_to:
+                minutes = (datetime.combine(today, obj.night_to) -
+                           datetime.combine(today,
+                                            obj.night_from)).total_seconds() / 60
+                count_appointment = minutes / obj.duration
+                new_appointment += self.get_appointment_to_create(
+                    obj, count_appointment, obj.night_from, obj.night_to)
+            if new_appointment:
+                models.DoctorAppointmentTime.objects.bulk_create(new_appointment)
 
         return obj
 

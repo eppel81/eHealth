@@ -39,11 +39,34 @@ $(document).ready(function(){
         });
         form.on('change', 'tr >' + day_shift_css, function(){
             $(this).parents('tr').find(day_time_css).prop('disabled', !this.checked);
-            $(this).parents('tr').find(day_time_css).val('');
+            if ($(this).prop('checked')){
+                var timeInputs = $(this).parents('tr').find(day_time_css);
+                for (var i=0; i<timeInputs.length; i++){
+                    var currentInput = timeInputs[i];
+                    var value = $(currentInput).data('value');
+                    $(currentInput).val(value);
+            }
+            }
+            else
+            {
+                $(this).parents('tr').find(day_time_css).val('');
+            }
+
         });
         form.on('change', 'tr >' + night_shift_css, function(){
             $(this).parents('tr').find(night_time_css).prop('disabled', !this.checked);
-            $(this).parents('tr').find(night_time_css).val('');
+            if ($(this).prop('checked')){
+                var timeInputs = $(this).parents('tr').find(night_time_css);
+                for (var i=0; i<timeInputs.length; i++){
+                    var currentInput = timeInputs[i];
+                    var value = $(currentInput).data('value');
+                    $(currentInput).val(value);
+            }
+            }
+            else
+            {
+                $(this).parents('tr').find(night_time_css).val('');
+            }
         });
 
         form.on('change', 'select.duration:last', function(){

@@ -26,6 +26,10 @@ class Doctor(UserMixin, models.Model):
     video_appointment = models.BooleanField(default=False)
     consult_rate = models.IntegerField(default=50)
     deposit = models.IntegerField(default=25)
+    default_morning_start_time = models.TimeField(default='09:00')
+    default_morning_end_time = models.TimeField(default='14:00')
+    default_afternoon_start_time = models.TimeField(default='16:00')
+    default_afternoon_end_time = models.TimeField(default='19:00')
 
     def __str__(self):
         if self.user.first_name and self.second_last_name:

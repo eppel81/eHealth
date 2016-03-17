@@ -16,14 +16,14 @@
             {% csrf_token %}
             <div class="row col-sm-offset-1">
 
-                <div class="user col-sm-7 col-md-8">
+                <div class="user col-sm-9">
                     {% for field in user_form %}
                         {% with errors=field.errors %}
                             <div class="form-group {% if errors %}has-error{% endif %}">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     {{ field.label_tag }}
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-8">
                                     {{ field }}
                                     {% if errors %}
                                         {% for error in errors %}
@@ -36,7 +36,8 @@
                         {% endwith %}
                     {% endfor %}
                 </div>
-                <div class="col-sm-5 col-md-4">
+                <div class="col-sm-3">
+                <div class="pull-right">
                     {% if detail_form.instance.photo %}
                         <img class="photo" src="{{ detail_form.instance.photo.url }}"/>
                     {% else %}
@@ -47,6 +48,7 @@
                         {% endif %}
                     {% endif %}
                 </div>
+                </div>
             </div>
 
             <div class="clearfix"></div>
@@ -56,10 +58,11 @@
                 {% for field in detail_form %}
                     {% with errors=field.errors %}
                         <div class="form-group {% if errors %}has-error{% endif %}">
-                            <div class="col-sm-3 col-md-2">
+                            <div class="col-sm-3">
                                 {{ field.label_tag }}
                             </div>
-                            <div class="col-sm-9 col-md-9">
+
+                            <div class="col-sm-9">
                                  {% if field.label == 'Consult rate' %}
                                         <div class="input-group">
                                             {{ field }}
@@ -94,9 +97,11 @@
                 {% endif %}
             {% endwith %}
             <div class="form-group pull-right">
-                <button id="update" type="submit" class="btn btn-u button-margin">
+                <div class="col-sm-12">
+                <button id="update" type="submit" class="btn btn-u">
                     {% trans 'Save' %}
                 </button>
+                    </div>
             </div>
         </form>
     </div>

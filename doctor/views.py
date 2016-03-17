@@ -514,7 +514,8 @@ class TimeView(utils_views.DoctorMixin, generic.FormView):
         while current_day != self.day_to:
             current_day = current_day + timedelta(days=1)
             week.append(current_day)
-        return [{'date': day.date()} for day in week]
+        data = [{'date': day.date()} for day in week]
+        return data
 
     def get_form_kwargs(self):
         data = super(TimeView, self).get_form_kwargs()
@@ -533,30 +534,6 @@ class TimeView(utils_views.DoctorMixin, generic.FormView):
     def form_valid(self, form):
         form.save()
         return HttpResponse()
-
-        # def form_invalid(self, formset):
-        #     for form in formset:
-        #         if form.is_valid():
-        #             form.save()
-        #     return super(TimeView, self).form_invalid(form=formset)
-
-        # def post(self, request, *args, **kwargs):
-        #     appointment_time = request.POST.getlist('appointment_time')
-        #     current_date = request.POST.get('current_date')
-        #     next_url = request.GET.get('next')
-        #     for time in appointment_time:
-        #         arr = time.split('-')
-        #         start_time = utils_models.localize_datetime(parse_datetime(current_date + ' ' + arr[0]))
-        #         todo:Duration!!!
-        # obj, created = doctor_models.DoctorAppointmentTime.objects.get_or_create(
-        #     start_time=start_time,
-        #     duration=settings.DEFAULT_DURATION,
-        #     doctor=request.user.doctor)
-        # obj.save()
-        # messages.success(request, self.success_message)
-        # if next_url:
-        #     return HttpResponseRedirect(redirect_to=next_url)
-        # return HttpResponseRedirect(redirect_to=self.success_url)
 
 
 class AppointmentSchedule(utils_views.DoctorMixin, DoctorMenuViewMixin,
@@ -1072,6 +1049,7 @@ class DoctorMessageActiveTabMixin(utils_views.ActiveTabMixin):
          },
         {'class': 'pen',
          'href': reverse_lazy('doctor:write_message_patient'),
+         'title': _('Send new message to'),
          'title': _('Send new message to'),
          },
     ]
