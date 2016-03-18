@@ -25,7 +25,7 @@
                     {% endif %}
                     <div class="inner-faq-b">
                         <h3>
-                            {{ doctor.user.first_name }} {{ doctor.user.last_name }}
+                            {{ doctor }}
                         </h3>
 
                         <div>
@@ -50,9 +50,12 @@
                                 {% else %}
                                     {% trans 'No Appointment' %}
                                 {% endif %}
+                            | {% trans 'Deposit' %}: €{{ doctor.deposit }}
+                            | {% trans 'Consult rate' %}: €{{ doctor.consult_rate }}
                             </h4>
 
                         </div>
+
                     </div>
 
                         <div class="when">

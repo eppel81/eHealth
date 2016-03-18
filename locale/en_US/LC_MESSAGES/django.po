@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-16 13:23+0000\n"
+"POT-Creation-Date: 2016-03-18 08:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,45 +21,45 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-#: doctor/forms.py:79
+#: doctor/forms.py:91
 msgid "Morning"
 msgstr ""
 
-#: doctor/forms.py:80
+#: doctor/forms.py:92
 msgid "Afternoon"
 msgstr ""
 
-#: doctor/forms.py:108
+#: doctor/forms.py:121
 msgid "Time must be chosen"
 msgstr ""
 
-#: doctor/forms.py:186 doctor/forms.py:214 doctor/forms.py:232
-#: doctor/forms.py:258
+#: doctor/forms.py:214 doctor/forms.py:242 doctor/forms.py:260
+#: doctor/forms.py:286
 #, python-format
 msgid "Time must be in range %s - %s"
 msgstr ""
 
-#: doctor/forms.py:203 doctor/forms.py:248
+#: doctor/forms.py:231 doctor/forms.py:276
 msgid "Time-to less then time-from"
 msgstr ""
 
-#: doctor/forms.py:206 doctor/forms.py:251
+#: doctor/forms.py:234 doctor/forms.py:279
 msgid "Time-to should not be equal to time-from"
 msgstr ""
 
-#: doctor/forms.py:264
+#: doctor/forms.py:292
 msgid "Time must be divisible by 15 minutes"
 msgstr ""
 
-#: doctor/forms.py:272
+#: doctor/forms.py:300
 msgid "The appointment length must enter into the availability time correctly"
 msgstr ""
 
-#: doctor/forms.py:310
+#: doctor/forms.py:338
 msgid "There are appointments for {}"
 msgstr ""
 
-#: doctor/forms.py:397 doctor/views.py:1147
+#: doctor/forms.py:428 doctor/views.py:1125
 #: templates/doctor/ajax/appointment_list.html:6
 #: templates/doctor/ajax/note_list.html:6
 #: templates/doctor/ajax/patient_details.html:5
@@ -75,17 +75,17 @@ msgstr ""
 msgid "Patient"
 msgstr ""
 
-#: doctor/forms.py:400 doctor/views.py:39 patient/forms.py:507
+#: doctor/forms.py:431 doctor/views.py:39 patient/forms.py:507
 #: templates/patient/account/billing.html:16
 msgid "Case"
 msgstr ""
 
-#: doctor/forms.py:407 doctor/forms.py:436 doctor/forms.py:464
+#: doctor/forms.py:438 doctor/forms.py:467 doctor/forms.py:495
 #: patient/forms.py:513 patient/forms.py:547
 msgid "Recipients"
 msgstr ""
 
-#: doctor/forms.py:408 doctor/forms.py:437 doctor/forms.py:465
+#: doctor/forms.py:439 doctor/forms.py:468 doctor/forms.py:496
 #: patient/forms.py:514 patient/forms.py:548
 #: templates/postman/base_message_folder.html:51
 #: templates/postman/case_messages.html:42
@@ -93,12 +93,12 @@ msgstr ""
 msgid "Subject"
 msgstr ""
 
-#: doctor/forms.py:409 doctor/forms.py:438 doctor/forms.py:466
+#: doctor/forms.py:440 doctor/forms.py:469 doctor/forms.py:497
 #: patient/forms.py:515 patient/forms.py:549
 msgid "Body"
 msgstr ""
 
-#: doctor/forms.py:430 doctor/views.py:1150 patient/forms.py:504
+#: doctor/forms.py:461 doctor/views.py:1128 patient/forms.py:504
 #: patient/views.py:556 templates/patient/case/base_case.html:19
 #: templates/patient/case/case_list.html:13
 #: templates/patient/case/case_list.html:57
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Doctor"
 msgstr ""
 
-#: doctor/forms.py:457 doctor/views.py:1153 patient/forms.py:542
+#: doctor/forms.py:488 doctor/views.py:1131 patient/forms.py:542
 #: patient/views.py:559
 msgid "Support"
 msgstr ""
@@ -131,10 +131,10 @@ msgstr ""
 msgid "Calendar"
 msgstr ""
 
-#: doctor/views.py:41 doctor/views.py:132 doctor/views.py:1081
-#: patient/views.py:41 templates/doctor/dashboard.html:55
+#: doctor/views.py:41 doctor/views.py:132 doctor/views.py:1059
+#: patient/views.py:41 templates/doctor/dashboard.html:51
 #: templates/doctor/dashboard/message_center.html:8
-#: templates/patient/dashboard.html:206
+#: templates/patient/dashboard.html:202
 #: templates/patient/dashboard/message_center.html:8
 msgid "Message Center"
 msgstr ""
@@ -146,7 +146,7 @@ msgstr ""
 
 #: doctor/views.py:50 doctor/views.py:240
 #: templates/doctor/profile/specialty.html:14
-#: templates/patient/dashboard.html:104
+#: templates/patient/dashboard.html:100
 #: templates/patient/dashboard/talk_to_a_doctor.html:36
 msgid "Specialty"
 msgstr ""
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Appointments"
 msgstr ""
 
-#: doctor/views.py:68 patient/models.py:121 patient/views.py:1458
+#: doctor/views.py:68 patient/models.py:124 patient/views.py:1458
 msgid "Open"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgid "Help"
 msgstr ""
 
 #: doctor/views.py:145 patient/views.py:784 templates/base.html:136
-#: templates/doctor/dashboard.html:71 templates/patient/dashboard.html:256
+#: templates/doctor/dashboard.html:67 templates/patient/dashboard.html:252
 msgid "My Account"
 msgstr ""
 
@@ -255,63 +255,63 @@ msgstr ""
 msgid "Time updated"
 msgstr ""
 
-#: doctor/views.py:567
+#: doctor/views.py:544
 msgid "Appointment reschedule"
 msgstr ""
 
-#: doctor/views.py:569
+#: doctor/views.py:546
 msgid "Appointment updated"
 msgstr ""
 
-#: doctor/views.py:633 patient/views.py:1473
+#: doctor/views.py:610 patient/views.py:1473
 msgid "Open case"
 msgstr ""
 
-#: doctor/views.py:696 patient/views.py:1523
+#: doctor/views.py:673 patient/views.py:1523
 msgid "Case Overview"
 msgstr ""
 
-#: doctor/views.py:698
+#: doctor/views.py:675
 msgid "Appointments & Notes"
 msgstr ""
 
-#: doctor/views.py:700
+#: doctor/views.py:677
 msgid "Records and Tests"
 msgstr ""
 
-#: doctor/views.py:702
+#: doctor/views.py:679
 msgid "Patient History"
 msgstr ""
 
-#: doctor/views.py:704 patient/views.py:1536
+#: doctor/views.py:681 patient/views.py:1536
 msgid "Messages"
 msgstr ""
 
-#: doctor/views.py:862
+#: doctor/views.py:839
 msgid "Create case"
 msgstr ""
 
-#: doctor/views.py:915
+#: doctor/views.py:892
 msgid "Edit case"
 msgstr ""
 
-#: doctor/views.py:1059 patient/views.py:114
+#: doctor/views.py:1036 patient/views.py:114
 msgid "Inbox"
 msgstr ""
 
-#: doctor/views.py:1063 patient/views.py:118 templates/postman/sent.html:5
+#: doctor/views.py:1040 patient/views.py:118 templates/postman/sent.html:5
 msgid "Sent"
 msgstr ""
 
-#: doctor/views.py:1067 patient/views.py:122
+#: doctor/views.py:1044 patient/views.py:122
 msgid "Archived"
 msgstr ""
 
-#: doctor/views.py:1071 patient/views.py:126
+#: doctor/views.py:1048 patient/views.py:126
 msgid "Deleted"
 msgstr ""
 
-#: doctor/views.py:1075 patient/views.py:130
+#: doctor/views.py:1052 doctor/views.py:1053 patient/views.py:130
 msgid "Send new message to"
 msgstr ""
 
@@ -402,80 +402,80 @@ msgstr ""
 msgid "The appointment time has been already taken. Please choose another one"
 msgstr ""
 
-#: patient/models.py:120 patient/views.py:1460
+#: patient/models.py:123 patient/views.py:1460
 msgid "Closed"
 msgstr ""
 
-#: patient/models.py:188 templates/patient/dashboard/doctor_info.html:44
-#: templates/patient/dashboard/my_health/consultation.html:43
+#: patient/models.py:191 templates/patient/dashboard/doctor_info.html:44
+#: templates/patient/dashboard/my_health/consultation.html:41
 msgid "Phone"
 msgstr ""
 
-#: patient/models.py:189 templates/patient/dashboard/doctor_info.html:48
-#: templates/patient/dashboard/my_health/consultation.html:47
+#: patient/models.py:192 templates/patient/dashboard/doctor_info.html:48
+#: templates/patient/dashboard/my_health/consultation.html:45
 msgid "Video"
 msgstr ""
 
-#: patient/models.py:201
+#: patient/models.py:204
 msgid "Incomplete"
 msgstr ""
 
-#: patient/models.py:202
+#: patient/models.py:205
 msgid "New"
 msgstr ""
 
-#: patient/models.py:203
+#: patient/models.py:206
 msgid "Doctor Confirm"
 msgstr ""
 
-#: patient/models.py:204
+#: patient/models.py:207
 msgid "Doctor Decline"
 msgstr ""
 
-#: patient/models.py:205
+#: patient/models.py:208
 msgid "Doctor Reschedule"
 msgstr ""
 
-#: patient/models.py:206
+#: patient/models.py:209
 msgid "Approved"
 msgstr ""
 
-#: patient/models.py:207
+#: patient/models.py:210
 msgid "Canceled"
 msgstr ""
 
-#: patient/models.py:208
+#: patient/models.py:211
 msgid "Patient Reschedule"
 msgstr ""
 
-#: patient/models.py:209
+#: patient/models.py:212
 msgid "Completed"
 msgstr ""
 
 #: patient/views.py:37 patient/views.py:175
-#: templates/patient/dashboard.html:90
+#: templates/patient/dashboard.html:86
 msgid "Talk to a doctor"
 msgstr ""
 
 #: patient/views.py:39 patient/views.py:262
-#: templates/patient/dashboard.html:222
+#: templates/patient/dashboard.html:218
 msgid "My health"
 msgstr ""
 
 #: patient/views.py:50 patient/views.py:74 patient/views.py:93
 #: patient/views.py:286
-#: templates/patient/dashboard/my_health/base_my_health.html:57
+#: templates/patient/dashboard/my_health/base_my_health.html:53
 msgid "My Health History"
 msgstr ""
 
 #: patient/views.py:52 patient/views.py:78 patient/views.py:97
-#: templates/patient/dashboard/my_health/base_my_health.html:62
+#: templates/patient/dashboard/my_health/base_my_health.html:58
 msgid "My Lifestyle"
 msgstr ""
 
 #: patient/views.py:54 patient/views.py:82 patient/views.py:101
 #: patient/views.py:425
-#: templates/patient/dashboard/my_health/base_my_health.html:67
+#: templates/patient/dashboard/my_health/base_my_health.html:63
 msgid "My Family History"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgid "My Medical Profile"
 msgstr ""
 
 #: patient/views.py:62 patient/views.py:1332
-#: templates/patient/dashboard.html:240
+#: templates/patient/dashboard.html:236
 #: templates/patient/dashboard/my_health/consultation_edit.html:5
 msgid "Consultation History"
 msgstr ""
@@ -499,7 +499,7 @@ msgstr ""
 
 #: patient/views.py:86 patient/views.py:105 patient/views.py:1019
 #: patient/views.py:1260 templates/patient/case/case_files.html:91
-#: templates/patient/dashboard/talk_to_a_doctor.html:263
+#: templates/patient/dashboard/talk_to_a_doctor.html:261
 msgid "Confirmation"
 msgstr ""
 
@@ -559,7 +559,7 @@ msgstr ""
 #: patient/views.py:1071 patient/views.py:1203 patient/views.py:1210
 #: patient/views.py:1218 templates/partials/consult_rate_confirmation.html:34
 #: templates/patient/appointment_request.html:39
-#: templates/patient/dashboard/talk_to_a_doctor.html:322
+#: templates/patient/dashboard/talk_to_a_doctor.html:320
 msgid "Continue"
 msgstr ""
 
@@ -886,7 +886,7 @@ msgstr ""
 msgid "The maximum photo's size is 10Mb. Please, choose another photo"
 msgstr ""
 
-#: templates/doctor/account/details.html:98
+#: templates/doctor/account/details.html:102
 #: templates/doctor/account/payment.html:31
 #: templates/doctor/ajax/doctor_schedule.html:88
 #: templates/doctor/case/edit_file.html:32
@@ -994,9 +994,9 @@ msgstr ""
 
 #: templates/doctor/ajax/note_list.html:33
 #: templates/doctor/ajax/test_list.html:33
-#: templates/doctor/case/case_list.html:110
+#: templates/doctor/case/case_list.html:106
 #: templates/doctor/case/files.html:90
-#: templates/patient/case/case_list.html:85
+#: templates/patient/case/case_list.html:80
 msgid "View"
 msgstr ""
 
@@ -1150,24 +1150,24 @@ msgstr ""
 msgid "Is Second Opinion"
 msgstr ""
 
-#: templates/doctor/case/case_list.html:103
+#: templates/doctor/case/case_list.html:99
 #: templates/doctor/case/overview.html:35
 #: templates/doctor/case/patient_history.html:108
 #: templates/patient/case/overview.html:36
-#: templates/patient/dashboard/talk_to_a_doctor.html:281
+#: templates/patient/dashboard/talk_to_a_doctor.html:279
 msgid "Yes"
 msgstr ""
 
-#: templates/doctor/case/case_list.html:105
+#: templates/doctor/case/case_list.html:101
 #: templates/doctor/case/overview.html:37
 #: templates/doctor/case/patient_history.html:110
 #: templates/patient/case/overview.html:38
-#: templates/patient/dashboard/talk_to_a_doctor.html:279
+#: templates/patient/dashboard/talk_to_a_doctor.html:277
 msgid "No"
 msgstr ""
 
-#: templates/doctor/case/case_list.html:119
-#: templates/patient/case/case_list.html:108
+#: templates/doctor/case/case_list.html:115
+#: templates/patient/case/case_list.html:103
 msgid "No cases found"
 msgstr ""
 
@@ -1239,7 +1239,7 @@ msgstr ""
 #: templates/partials/doctor_appointment_action.html:12
 #: templates/partials/doctor_appointment_action.html:18
 #: templates/patient/case/case_files.html:99
-#: templates/patient/dashboard/talk_to_a_doctor.html:319
+#: templates/patient/dashboard/talk_to_a_doctor.html:317
 msgid "Cancel"
 msgstr ""
 
@@ -1279,38 +1279,34 @@ msgstr ""
 msgid "Relationships"
 msgstr ""
 
-#: templates/doctor/dashboard.html:33 templates/patient/dashboard.html:65
-msgid "Welcome"
-msgstr ""
-
-#: templates/doctor/dashboard.html:57 templates/patient/dashboard.html:209
-#: templates/patient/dashboard.html:225 templates/patient/dashboard.html:243
+#: templates/doctor/dashboard.html:53 templates/patient/dashboard.html:205
+#: templates/patient/dashboard.html:221 templates/patient/dashboard.html:239
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus "
 "justo vel tincidunt consectetur."
 msgstr ""
 
-#: templates/doctor/dashboard.html:73 templates/patient/dashboard.html:259
+#: templates/doctor/dashboard.html:69 templates/patient/dashboard.html:255
 msgid "Manage your account information, including payment, sign-in and more."
 msgstr ""
 
-#: templates/doctor/dashboard.html:88 templates/patient/dashboard.html:273
+#: templates/doctor/dashboard.html:84 templates/patient/dashboard.html:269
 msgid "Notifications"
 msgstr ""
 
-#: templates/doctor/dashboard.html:94 templates/patient/dashboard.html:281
+#: templates/doctor/dashboard.html:90 templates/patient/dashboard.html:277
 msgid "You have"
 msgstr ""
 
-#: templates/doctor/dashboard.html:94 templates/patient/dashboard.html:281
+#: templates/doctor/dashboard.html:90 templates/patient/dashboard.html:277
 msgid " message(s)"
 msgstr ""
 
-#: templates/doctor/dashboard.html:96 templates/patient/dashboard.html:283
+#: templates/doctor/dashboard.html:92 templates/patient/dashboard.html:279
 msgid "Read all"
 msgstr ""
 
-#: templates/doctor/dashboard.html:99 templates/patient/dashboard.html:286
+#: templates/doctor/dashboard.html:95 templates/patient/dashboard.html:282
 msgid "You don't have new message(s)"
 msgstr ""
 
@@ -1318,7 +1314,7 @@ msgstr ""
 msgid "Today appointments"
 msgstr ""
 
-#: templates/doctor/dashboard/current_appointments.html:54
+#: templates/doctor/dashboard/current_appointments.html:49
 msgid "No appointments for today"
 msgstr ""
 
@@ -1357,7 +1353,7 @@ msgstr ""
 
 #: templates/doctor/schedule/appointments.html:67
 #: templates/patient/case/appointments.html:19
-#: templates/patient/dashboard.html:121
+#: templates/patient/dashboard.html:117
 #: templates/patient/dashboard/current_appointments.html:17
 #: templates/patient/dashboard/my_health/consultation.html:12
 #: templates/patient/dashboard/talk_to_a_doctor.html:47
@@ -1527,7 +1523,7 @@ msgstr ""
 #: templates/patient/dashboard/app_process/health_history.html:64
 #: templates/patient/dashboard/app_process/lifestyle.html:77
 #: templates/patient/dashboard/app_process/payment_info.html:48
-#: templates/patient/dashboard/talk_to_a_doctor.html:188
+#: templates/patient/dashboard/talk_to_a_doctor.html:186
 msgid "Next"
 msgstr ""
 
@@ -1544,7 +1540,7 @@ msgid "Are you sure you want to delete ?"
 msgstr ""
 
 #: templates/patient/case/case_list.html:17
-#: templates/patient/dashboard.html:143
+#: templates/patient/dashboard.html:139
 #: templates/patient/dashboard/talk_to_a_doctor.html:65
 msgid "Choose doctor"
 msgstr ""
@@ -1601,25 +1597,29 @@ msgstr ""
 msgid "Appointment Edit"
 msgstr ""
 
-#: templates/patient/dashboard.html:93
+#: templates/patient/dashboard.html:65
+msgid "Welcome"
+msgstr ""
+
+#: templates/patient/dashboard.html:89
 msgid "Speak to the next available Provider"
 msgstr ""
 
-#: templates/patient/dashboard.html:110
+#: templates/patient/dashboard.html:106
 msgid "Choose specialty"
 msgstr ""
 
-#: templates/patient/dashboard.html:137
+#: templates/patient/dashboard.html:133
 #: templates/patient/dashboard/talk_to_a_doctor.html:62
 msgid "Doctors"
 msgstr ""
 
-#: templates/patient/dashboard.html:151 templates/patient/dashboard.html:157
+#: templates/patient/dashboard.html:147 templates/patient/dashboard.html:153
 #: templates/patient/dashboard/talk_to_a_doctor.html:72
 msgid "Search"
 msgstr ""
 
-#: templates/patient/dashboard.html:167
+#: templates/patient/dashboard.html:163
 #: templates/patient/dashboard/talk_to_a_doctor.html:82
 msgid "Consult rate"
 msgstr ""
@@ -1739,7 +1739,7 @@ msgstr ""
 msgid "Do members have to pay it a face-to-face appointment is required?"
 msgstr ""
 
-#: templates/patient/dashboard/my_health/base_my_health.html:76
+#: templates/patient/dashboard/my_health/base_my_health.html:72
 msgid "Last updated on"
 msgstr ""
 
@@ -1792,41 +1792,41 @@ msgstr ""
 msgid "Any doctor with this specialty"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:162
+#: templates/patient/dashboard/talk_to_a_doctor.html:160
 msgid "Available"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:166
+#: templates/patient/dashboard/talk_to_a_doctor.html:164
 msgid "Not available soon!Please, look the schedule"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:174
+#: templates/patient/dashboard/talk_to_a_doctor.html:172
 msgid "Schedule"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:239
+#: templates/patient/dashboard/talk_to_a_doctor.html:237
 msgid "Appointment creation proccess"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:268
+#: templates/patient/dashboard/talk_to_a_doctor.html:266
 msgid "Do you want to cancel the appointment creating?"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:270
+#: templates/patient/dashboard/talk_to_a_doctor.html:268
 msgid ""
 "You will not be able to create another appointment until creating of this "
 "one has been done."
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:295
+#: templates/patient/dashboard/talk_to_a_doctor.html:293
 msgid "Payment Method Confirmation"
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:301
+#: templates/patient/dashboard/talk_to_a_doctor.html:299
 msgid "To confirm the appointment, you will be charged "
 msgstr ""
 
-#: templates/patient/dashboard/talk_to_a_doctor.html:301
+#: templates/patient/dashboard/talk_to_a_doctor.html:299
 msgid " as a deposit."
 msgstr ""
 

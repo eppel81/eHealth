@@ -105,7 +105,7 @@
                                         <option value=""
                                                 selected>{% trans 'Choose specialty' %}</option>
                                         {% for specialty in specialties %}
-                                            <option value="{{ specialty.id }}">{{ specialty.name }}</option>
+                                            <option value="{{ specialty.id }}">{% trans specialty.name %}</option>
                                         {% endfor %}
                                     </select>
                                 </div>

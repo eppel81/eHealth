@@ -18,7 +18,7 @@ def localize_datetime(dt):
 class UserMixin(models.Model):
     user = models.OneToOneField(User)
     second_last_name = models.CharField(_('Second last name'), max_length=30,
-                                        blank=True, null=True)
+                                        blank=True, null=True, default=None)
 
     class Meta:
         abstract = True
@@ -63,7 +63,7 @@ class Specialty(models.Model):
         verbose_name_plural = 'Specialties'
 
     def __str__(self):
-        return self.name
+        return str(_(self.name))
 
 
 class Language(models.Model):

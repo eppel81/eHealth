@@ -2424,52 +2424,66 @@
   },
   {
     "fields": {
-      "name": "Cardiology"
+      "name": "Proctology"
     },
     "model": "utils.specialty",
     "pk": 1
   },
   {
     "fields": {
-      "name": "Oncology"
+      "name": "Hepatology"
     },
     "model": "utils.specialty",
     "pk": 2
   },
   {
     "fields": {
-      "name": "Anesthesiology"
+      "name": "Children's digestive"
     },
     "model": "utils.specialty",
     "pk": 3
   },
   {
     "fields": {
-      "name": "Otolaryngology"
+      "name": "General surgery"
     },
     "model": "utils.specialty",
     "pk": 4
   },
   {
     "fields": {
-      "name": "Ophthalmology"
+      "name": "Gastroenterology"
     },
     "model": "utils.specialty",
     "pk": 5
   },
   {
     "fields": {
-      "name": "Dermatology"
+      "name": "Radiology"
     },
     "model": "utils.specialty",
     "pk": 6
   },
   {
     "fields": {
-      "name": "Psychiatry"
+      "name": "Obesity"
     },
     "model": "utils.specialty",
     "pk": 7
+  },
+    {
+    "fields": {
+      "name": "IBD/Crohn's disease"
+    },
+    "model": "utils.specialty",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "name": "Colorectal"
+    },
+    "model": "utils.specialty",
+    "pk": 9
   },
   {
     "fields": {

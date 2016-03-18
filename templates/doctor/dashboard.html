@@ -40,9 +40,11 @@
                             </div>
 
                     </div>
-
+                    <div class="easy-block-v3 service-or equal-height-column">
+                   {% include 'doctor/dashboard/current_appointments.html' %}
+                    </div>
                     <div class="row equal-height-columns margin-bottom-40">
-                         <div class="col-sm-12">
+                         <div class="col-sm-6">
                                 <div class="easy-block-v3 service-or equal-height-column">
                                     <div class="service-bg"></div>
                                     <img src="{% static 'img/message.png' %}"/>
@@ -54,8 +56,6 @@
                                     </div>
                                 </div>
                         </div>
-                    </div>
-                    <div class="row equal-height-columns margin-bottom-40">
 
                         <div class="col-sm-6">
 
@@ -72,9 +72,7 @@
                         </div>
                     </div>
 
-                <div class="easy-block-v3 service-or equal-height-column">
-                   {% include 'doctor/dashboard/current_appointments.html' %}
-                </div>
+
                 </div>
             </div>
             <!-- End Profile Content -->
