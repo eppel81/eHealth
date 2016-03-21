@@ -13,6 +13,10 @@
     <script src="{% static 'js/leave-pop-up-confirmation.js' %}"></script>
     <script src="{% static 'js/appointment_process.js' %}"></script>
 
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/sky-form-datepicker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
+
 {% endblock %}
 
 {% block links %}
@@ -30,81 +34,9 @@
 {% block dashboard_content %}
 
 <div class="talk-to-doctor-container">
-    <div class="search row">
-        <form class="form-inline" role="form" action="{% url 'patient:talk_to_a_doctor' %}" method="get">
-            <div class="specialty form-group col-md-offset-1 col-sm-3 col-md-2">
-                <label>{% trans 'Specialty' %}:</label>
-                <select class="form-control" name="doctor_specialty">
-                    <option value="">Choose specialty</option>
-                    {% for specialty in specialties %}
-                        <option value="{{ specialty.id }}"
-                                {% if specialty.id == chosen_specialty %} selected {% endif %}>
-                            {% trans specialty.name %}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="date-range form-group col-sm-4 col-md-4">
-                <label>{% trans 'Date' %}:</label>
+{% include 'partials/find_a_doctor.html' %}
 
-
-                    <div class="input-group input-daterange">
-
-                        <input type="text" class="form-control"
-                               value="{{ start_date }}" name="start_date">
-                        <span class="input-group-addon">{% trans 'to' %}</span>
-                        <input type="text" class="form-control"
-                               value="{{ end_date }}" name="end_date">
-                    </div>
-                </div>
-
-
-            <div class="doctor-block form-group col-sm-2 col-md-2">
-                <label>{% trans 'Doctors' %}:</label>
-                <select class="form-control" name="doctor"
-                        data-url="{% url 'patient:all_doctors' %}">
-                    <option value="" selected>{% trans 'Choose doctor' %}</option>
-                </select>
-            </div>
-            <div class="search-but form-group button col-sm-2 col-md-1">
-                <label style="visibility: hidden;">Search</label>
-                <button type="submit" class="small-search btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">
-                    <span class="glyphicon glyphicon-search"></span>
-                    {% trans 'Search' %}
-                </button>
-            </div>
-                            <div class="margin-bottom-20"></div>
-
-                        <div class="rate-block form-group col-sm-12"
-                                 style="margin-right: 0px;">
-
-
-                                <div class="col-sm-12">
-                                    <label class="col-sm-12">{% trans 'Consult rate' %}: </label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" id="slider-rate-value1" name="slider_rate_value1" type="number" max="300" min="0"
-                                               value="{% if consult_rate_start %}{{ consult_rate_start }}{% else %}0{% endif %}"/>
-                                        <span class="input-group-btn"
-                                              style="width:0px;"></span>
-                                        <input class="form-control" id="slider-rate-value2" name="slider_rate_value2" type="number" max="300" min="0"
-                                               value="{% if consult_rate_end %}{{ consult_rate_end }}{% else %}300{% endif %}"/>
-                                        </div>
-                                </div>
-                            <div class="col-sm-10 col-sm-offset-1">
-                                <div id="sky-form" class="sky-form">
-
-                                    <section>
-                                        <div id="slider_rate" name="slider-div"></div>
-                                    </section>
-
-                                </div>
-
-                            </div>
-                         </div>
-        </form>
-    </div>
-
-
+        <div class="col-sm-12 col-md-12 margin-top-20">
         <div class="attention">
             <p>
                 <span class="glyphicon glyphicon-alert"></span>
@@ -113,8 +45,9 @@
                 {% trans 'or go to the nearest emergency room. We does not offer emergency services' %}
             </p>
         </div>
+        </div>
         {% if not doctors.exists %}
-            <h4 class="text-center">{% trans 'Any doctor with this specialty' %}</h4>
+            <h4 class="text-center">{% trans 'No doctors by your query' %}</h4>
         {% else %}
             {% for doctor in doctors %}
                 <div class="row about-me col-xs-12 col-sm-12">
@@ -140,7 +73,7 @@
 
                     <div class="col-xs-4 col-sm-6 col-md-6">
                             <div class="pull-left">
-                                    <a class="doctor-link"
+                                    <a class="doctor-link" data-doctor="{{ chosen_doctor }}"
                                        href="{% url 'patient:detail_doctor' pk=doctor.id %}">
                                         <h2>{{ doctor }}</h2>
                                     </a>
@@ -177,7 +110,7 @@
                             </div>
                         {% endwith %}
                         <div class="col-sm-12">
-                        <a href="{% url 'patient:detail_doctor' pk=doctor.id %}"
+                        <a href="{% url 'patient:detail_doctor' pk=doctor.id %}" data-doctor="{{ chosen_doctor }}"
                            class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block doctor-link pull-right">
                             <!--<span class="glyphicon glyphicon-calendar"></span>-->
                             <i class="fa fa-calendar"></i>

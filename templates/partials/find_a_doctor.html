@@ -1,0 +1,121 @@
+{% load i18n %}
+<div class="col-sm-12 col-md-12">
+    <form class="form-inline sky-form" role="form"
+          action="{% url 'patient:talk_to_a_doctor' %}"
+          method="get">
+
+    <div class="row row-eq-height">
+        <div class="col-xs-4 col-sm-4">
+
+                <button name="find_doctor" type="submit"
+                        class="small-search btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block margin-bottom-20 full-width">
+                    <span class="glyphicon glyphicon-search"></span>
+                    {% trans 'Find a doctor' %}
+                </button>
+
+
+
+            <section>
+                <label class="select">
+                    <select name="doctor_specialty" class="valid">
+
+                        <option value="" {% if not doctor_specialty %} selected {% endif %}>{% trans 'Choose specialty' %}</option>
+
+                    {% for specialty in specialties %}
+
+
+                            <option value="{{ specialty.id }}" {% if specialty.id == doctor_specialty %} selected {% endif %}>{% trans specialty.name %}</option>
+
+                    {% endfor %}
+                    </select>
+                    <i></i>
+                </label>
+            </section>
+            <section>
+                <label class="input">
+                    <i class="icon-append fa fa-calendar"></i>
+                    <input type="text" name="start_date" id="start" placeholder="{% trans 'From' %}" value="{{ start_date }}">
+                </label>
+            </section>
+            <section class="no-margin">
+                <label class="input">
+                    <i class="icon-append fa fa-calendar"></i>
+                    <input type="text" name="end_date" id="finish" placeholder="{% trans 'To' %}" value="{{ end_date }}">
+
+                </label>
+            </section>
+
+                </div>
+            <div class="col-xs-4 col-sm-4 tag-box-v2">
+                <button name="find_doctor_now" type="submit"
+                        class="small-search btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block margin-bottom-20 full-width">
+                    <span class="glyphicon glyphicon-time"></span>
+                    {% trans 'Talk to a Doctor Now' %}
+                </button>
+                <section>
+                    <label class="select">
+                        <select name="doctor_specialty_now" class="valid">
+                        <option value="" {% if not doctor_specialty_now %} selected {% endif %}>{% trans 'Choose specialty' %}</option>
+                        {% for specialty in specialties %}
+                            <option value="{{ specialty.id }}" {% if specialty.id == doctor_specialty_now %} selected {% endif %}>{% trans specialty.name %}</option>
+                        {% endfor %}
+                        </select>
+                        <i></i>
+                    </label>
+                </section>
+
+            </div>
+
+         <div class="col-xs-4 col-sm-4 tag-box-v2">
+             <button name="find_one_doctor" type="submit"
+                        class="small-search btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block margin-bottom-20 full-width">
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                    {% trans "Make a Doctor's Appointment" %}
+                </button>
+                <section>
+                    <label class="font-normal full-width" >
+                        <select name="doctor" class="valid" data-url="{% url 'patient:all_doctors' %}">
+                        <option value="" selected>{% trans 'Choose doctor' %}</option>
+                        </select>
+                        <i></i>
+                    </label>
+                </section>
+
+
+        </div>
+    </div>
+
+
+{#                            <div class="rate-block form-group col-sm-12"#}
+{#                                 style="margin-right: 0px;">#}
+
+
+{#                                <div class="col-sm-12">#}
+{#                                    <label class="col-sm-12">{% trans 'Consult rate' %}: </label>#}
+{##}
+{#                                    <div class="input-group">#}
+{#                                        <input class="form-control "#}
+{#                                               id="slider-rate-value1"#}
+{#                                               name="slider_rate_value1"#}
+{#                                               type="number" max="300" min="0"#}
+{#                                               value="0"/>#}
+{#                                        <span class="input-group-btn"#}
+{#                                              style="width:0px;"></span>#}
+{#                                        <input class="form-control " id="slider-rate-value2" name="slider_rate_value2" type="number" max="300" min="0" value="300"/>#}
+{#                                        </div>#}
+{#                                </div>#}
+
+{#                                <div id="sky-form" class="sky-form col-sm-12">#}
+{##}
+{##}
+{#                                    <section>#}
+{#                                        <div id="slider_rate" name="slider-div"></div>#}
+{#                                    </section>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+
+{#                            </div>#}
+
+    </form>
+</div>

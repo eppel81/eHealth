@@ -38,3 +38,27 @@ select:active{
 select#appointment_time{
     width: 15em;
 }
+
+.height-header{
+    min-height: 10vh;
+
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.tag-box-v2 {
+    border-left: 1.5px solid grey
+}
+
+section.no-margin {
+    margin: 0;
+}
+
+.full-width {
+    width: 100%;
+}

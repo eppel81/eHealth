@@ -7,22 +7,12 @@
 {% block links %}
     <link href="{% static 'css/select2.css' %}" rel="stylesheet"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-    <script type="text/javascript"
-            src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
-    <link rel="stylesheet" type='text/css'
-          href="{% static 'css/bootstrap-datepicker3.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/current_doctor_style.css' %}"/>
 
 
 
 {% endblock %}
-{% block js %}
-    <script src="{% static 'js/select.js' %}"></script>
-    <script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/appointment_room_availability.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/enter_appointment_room.js' %}"></script>
 
-{% endblock %}
 {% block messages %}
     <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
@@ -78,7 +68,7 @@
             <div class="talk-to-doctor">
 
                 <div class="easy-block-v3 service-or equal-height-column">
-                    <div class="col-sm-12 col-md-12">
+                    <div class="col-sm-12 col-md-12 margin-bottom-20">
                         <img src="{% static 'img/doctor.png' %}"/>
 
                         <div class="inner-faq-b">
@@ -90,103 +80,7 @@
                         </div>
 
                     </div>
-                    <div class="search col-md-12 col-sm-12">
-                        <form class="form-inline" role="form"
-                              action="{% url 'patient:talk_to_a_doctor' %}"
-                              method="get">
-                            <div class="specialty form-group col-sm-3"
-                                 style="margin-right: 0px;">
-                                <div>
-                                    <label>{% trans 'Specialty' %}:</label>
-                                </div>
-                                <div>
-                                    <select class="form-control"
-                                            name="doctor_specialty">
-                                        <option value=""
-                                                selected>{% trans 'Choose specialty' %}</option>
-                                        {% for specialty in specialties %}
-                                            <option value="{{ specialty.id }}">{% trans specialty.name %}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="date-range form-group col-sm-4"
-                                 style="margin-right: 0px;">
-                                <div>
-                                    <label>{% trans 'Date' %}:</label>
-                                </div>
-                                <div>
-                                    <div class="input-group input-daterange">
-
-                                        <input type="text" class="form-control"
-                                               value="" name="start_date">
-                                        <span class="input-group-addon">to</span>
-                                        <input type="text" class="form-control"
-                                               value="" name="end_date">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doctor-block form-group col-sm-3"
-                                 style="margin-right: 0px;">
-                                <div>
-                                    <label>{% trans 'Doctors' %}:</label>
-                                </div>
-                                <div>
-                                    <select class="form-control" name="doctor"
-                                            data-url="{% url 'patient:all_doctors' %}">
-                                        <option value=""
-                                                selected>{% trans 'Choose doctor' %}</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="search-but form-group button col-sm-2"
-                                 style="margin-right: 0px;">
-                                <div>
-                                    <label style="visibility: hidden;">{% trans 'Search' %}</label>
-                                </div>
-                                <div>
-                                    <button type="submit"
-                                            class="small-search btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                        {% trans 'Search' %}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="margin-bottom-20"></div>
-                            <div class="rate-block form-group col-sm-12"
-                                 style="margin-right: 0px;">
-
-
-                                <div class="col-sm-12">
-                                    <label class="col-sm-12">{% trans 'Consult rate' %}: </label>
-
-                                    <div class="input-group">
-                                        <input class="form-control "
-                                               id="slider-rate-value1"
-                                               name="slider_rate_value1"
-                                               type="number" max="300" min="0"
-                                               value="0"/>
-                                        <span class="input-group-btn"
-                                              style="width:0px;"></span>
-                                        <input class="form-control " id="slider-rate-value2" name="slider_rate_value2" type="number" max="300" min="0" value="300"/>
-                                        </div>
-                                </div>
-
-                                <div id="sky-form" class="sky-form col-sm-12">
-
-
-                                    <section>
-                                        <div id="slider_rate" name="slider-div"></div>
-                                    </section>
-
-                                </div>
-                            </div>
-
-
-                        </form>
-                    </div>
+                    {% include 'partials/find_a_doctor.html' %}
                 </div>
             </div>
 
@@ -286,6 +180,24 @@
         </ul>
     </div>
 
+
+
         {% include 'partials/consult_rate_confirmation.html' %}
+
+{% endblock %}
+
+{% block js %}
+
+    <script src="{% static 'js/select.js' %}"></script>
+    <script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/appointment_room_availability.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/enter_appointment_room.js' %}"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/sky-form-datepicker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
+
+
+
+
 
 {% endblock %}

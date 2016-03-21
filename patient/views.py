@@ -184,35 +184,48 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
 
         query = super(TalkToADoctor, self).get_queryset()
         query = query.exclude(user__first_name='', user__last_name='')
-
-        doctor_specialty = self.request.GET.get('doctor_specialty', None)
         doctor = self.request.GET.get('doctor', None)
+        doctor_specialty = self.request.GET.get('doctor_specialty', None)
         start_date = self.request.GET.get('start_date', None)
         end_date = self.request.GET.get('end_date', None)
+        doctor_specialty_now = self.request.GET.get('doctor_specialty_now', None)
+
+        if 'find_doctor' in self.request.GET:
+            current_timezone = timezone.get_current_timezone()
+            if start_date:
+                start_date = current_timezone.localize(
+                    datetime.datetime.strptime(start_date, "%m/%d/%Y"))
+                query = query.filter(
+                    doctorappointmenttime__start_time__gte=start_date)
+            if end_date:
+                end_date = current_timezone.localize(
+                    datetime.datetime.strptime(end_date, "%m/%d/%Y"))
+                query = query.filter(
+                    doctorappointmenttime__start_time__lte=end_date)
+            if doctor_specialty:
+                query = query.filter(doctorspecialty__specialty=doctor_specialty)
+        elif 'find_doctor_now' in self.request.GET:
+            now = timezone.now()
+            hour_delta = now + datetime.timedelta(minutes=60)
+            query = query.filter(doctorappointmenttime__start_time__gte=now,
+                                 doctorappointmenttime__start_time__lte=hour_delta)
+            if doctor_specialty_now:
+                query = query.filter(doctorspecialty__specialty=doctor_specialty_now)
+
+        elif 'find_one_doctor' in self.request.GET:
+            if doctor:
+                query = query.filter(id=doctor)
+        if not doctor:
+            query = query.order_by('id').distinct()
+
+        # consult rate filtering
         consult_rate_start = self.request.GET.get('slider_rate_value1', None)
         consult_rate_end = self.request.GET.get('slider_rate_value2', None)
-
-        current_timezone = timezone.get_current_timezone()
-        if start_date:
-            start_date = current_timezone.localize(
-                datetime.datetime.strptime(start_date, "%m/%d/%Y"))
-            query = query.filter(
-                doctorappointmenttime__start_time__gte=start_date)
-        if end_date:
-            end_date = current_timezone.localize(
-                datetime.datetime.strptime(end_date, "%m/%d/%Y"))
-            query = query.filter(
-                doctorappointmenttime__start_time__lte=end_date)
-        if doctor_specialty:
-            query = query.filter(doctorspecialty__specialty=doctor_specialty)
         if consult_rate_start:
             query = query.filter(consult_rate__gte=consult_rate_start)
         if consult_rate_end and consult_rate_end > consult_rate_start:
             query = query.filter(consult_rate__lte=consult_rate_end)
-        if doctor:
-            query = query.filter(id=doctor)
-        else:
-            query = query.order_by('id').distinct()
+
         return query
 
     def get_context_data(self, **kwargs):
@@ -220,30 +233,34 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
         context['specialties'] = util_models.Specialty.objects.all()
         context['all_doctors'] = doctor_models.Doctor.objects.all().exclude(
             user__first_name='', user__last_name='')
-        chosen_specialty = self.request.GET.get('doctor_specialty')
+        doctor_specialty = self.request.GET.get('doctor_specialty')
+        doctor_specialty_now = self.request.GET.get('doctor_specialty_now')
         chosen_doctor = self.request.GET.get('doctor')
         start_date = self.request.GET.get('start_date', '')
         end_date = self.request.GET.get('end_date', '')
+
+        if 'find_doctor' in self.request.GET:
+            if doctor_specialty:
+                context['doctor_specialty'] = int(doctor_specialty)
+            context['start_date'] = start_date
+            context['end_date'] = end_date
+
+        elif 'find_doctor_now' in self.request.GET:
+            if doctor_specialty_now:
+                context['doctor_specialty_now'] = int(doctor_specialty_now)
+
+        elif 'find_one_doctor' in self.request.GET:
+            if chosen_doctor:
+                context['chosen_doctor'] = int(chosen_doctor)
+
+        #consult rate slider context
         consult_rate_start = self.request.GET.get('slider_rate_value1', '')
         consult_rate_end = self.request.GET.get('slider_rate_value2', '')
-        if chosen_specialty:
-            chosen_specialty = int(chosen_specialty)
-        context['chosen_specialty'] = chosen_specialty
-        if chosen_doctor:
-            chosen_doctor = int(chosen_doctor)
-        context['chosen_doctor'] = chosen_doctor
-
-        context['start_date'] = start_date
-
-        context['end_date'] = end_date
-
         if consult_rate_start:
             consult_rate_start = int(consult_rate_start)
         context['consult_rate_start'] = consult_rate_start
-
         if consult_rate_end:
             consult_rate_end = int(consult_rate_end)
-
         context['consult_rate_end'] = consult_rate_end if \
             consult_rate_end >= consult_rate_start else ''
 

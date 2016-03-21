@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('.doctor-link').click(function(event){
+    var doctorSchedule = $('.doctor-link');
+    $(doctorSchedule).click(function(event){
         event.preventDefault();
         $.ajax({
             url: $(this).attr('href'),
@@ -11,6 +12,12 @@ $(document).ready(function(){
         });
 
     });
+    var chosenDoctor = $(doctorSchedule).attr('data-doctor');
+    if (chosenDoctor){
+        $(doctorSchedule).click();
+
+    }
+
 
 
 });

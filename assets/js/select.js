@@ -12,6 +12,7 @@ $(document).ready(function(){
             $('select[name=doctor]').select2({
                 data: data
             });
+            $('.select2.select2-container.select2-container--default').css('width', '100%');
         }
     });
 
