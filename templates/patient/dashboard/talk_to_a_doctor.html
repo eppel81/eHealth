@@ -73,7 +73,7 @@
 
                     <div class="col-xs-4 col-sm-6 col-md-6">
                             <div class="pull-left">
-                                    <a class="doctor-link" data-doctor="{{ chosen_doctor }}"
+                                    <a class="doctor-link" {% if chosen_doctor %}data-doctor="{{ chosen_doctor }}" {% endif %}
                                        href="{% url 'patient:detail_doctor' pk=doctor.id %}">
                                         <h2>{{ doctor }}</h2>
                                     </a>
