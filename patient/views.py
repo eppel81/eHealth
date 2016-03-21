@@ -252,6 +252,8 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
         elif 'find_one_doctor' in self.request.GET:
             if chosen_doctor:
                 context['chosen_doctor'] = int(chosen_doctor)
+            else:
+                context['chosen_doctor'] = ''
 
         #consult rate slider context
         consult_rate_start = self.request.GET.get('slider_rate_value1', '')
