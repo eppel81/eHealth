@@ -82,21 +82,16 @@
                                             <span class="label label-light rounded">{% trans speciality.specialty.name %}</span>
                                         {% endfor %}
                                     {% endwith %}
+                                <br>
+                                <span class="consult-rate">{% trans 'Consult rate' %}: <strong>€{{ doctor.consult_rate }}</strong></span>
                             </div>
+
 
 
                     </div>
 
                     <div class="col-xs-5 col-sm-4 col-md-4 available-time">
-                    <div class="col-sm-12">
-                    <p class="pull-right">
-                        {% trans 'Deposit' %}: <strong>€{{ doctor.deposit }}</strong>
-                    </p>
-                    </div>
-                        <div class="col-sm-12">
-                    <p class="pull-right">
-                        {% trans 'Consult rate' %}: <strong>€{{ doctor.consult_rate }}</strong>
-                    </p></div>
+
 
                         {% with data=doctor|get_available_time:request.user.patient %}
                             <div class="col-sm-12">
