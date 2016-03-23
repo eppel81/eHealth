@@ -2,6 +2,7 @@ from itertools import chain
 import json
 import datetime
 import braintree
+import time
 from allauth.account.views import PasswordChangeView
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -1099,7 +1100,10 @@ class ConfirmProcessView(PatientMenuViewMixin, PatientActiveTabMixin,
                 next_url = reverse_lazy('patient:case_appointment',
                                         kwargs={'pk': appointment.case_id})
             else:
-                next_text = self.failure_message
+                errors = ''
+                for error in result.errors.deep_errors:
+                    errors += ' ' + error.code + ' ' + error.message
+                next_text = str(self.failure_message) + errors
                 next_url = str(reverse_lazy('patient:payment')) + '?next_url=' + \
                            str(reverse_lazy('patient:case_appointment',
                                             kwargs={'pk': appointment.case_id}))
@@ -1220,7 +1224,10 @@ class PatientAppointmentView(PatientMixin, generic.FormView):
                     next_button = _('Continue')
 
             else:
-                next_text = self.failure_message
+                errors = ''
+                for error in result.errors.deep_errors:
+                    errors += ' ' + error.code + ' ' + error.message
+                next_text = str(self.failure_message) + errors
                 next_url = str(reverse_lazy('patient:payment')) + '?next_url=' + \
                            str(reverse_lazy('patient:case_appointment',
                                             kwargs={'pk': appointment.case_id}))
@@ -1332,7 +1339,10 @@ class ConfirmAppointmentProcessView(PatientMenuViewMixin, PatientActiveTabMixin,
                 appointment.save()
                 messages.success(request, self.success_message)
             else:
-                messages.error(request, self.failure_message)
+                errors = ''
+                for error in result.errors.deep_errors:
+                    errors += ' ' + error.code + ' ' + error.message
+                messages.error(request, str(self.failure_message) + errors)
 
 
         else:
@@ -1468,6 +1478,36 @@ def get_all_cases_json(request):
             data.update({item.pk: item.problem[:40]})
     # data.update({'': str(_('Select'))})
     return JsonResponse(data)
+
+
+def get_doctor_day_schedule(request):
+    doctor_id = request.GET.get('doctor_id')
+    data = dict()
+    if doctor_id:
+        query = doctor_models.DoctorAppointmentTime.objects.filter(doctor=doctor_id,
+                                                                free=True)
+        if query:
+            tz = timezone.get_current_timezone()
+            appointments_time = []
+            for appointment_time in query:
+                id = appointment_time.id
+                timezone_delta = datetime.timedelta(hours=2)
+                converted_time_local = appointment_time.start_time.astimezone(tz)
+                converted_time = converted_time_local - timezone_delta
+                title = str(_('Make appointment on'))
+                start = int(time.mktime(converted_time.timetuple()) * 1000)
+                delta = datetime.timedelta(minutes=appointment_time.duration)
+                end = int(time.mktime((converted_time + delta).timetuple()) * 1000)
+                appointments_time.append({'id':id, 'title':title, 'start':start, 'end':end, 'class':'event-info'})
+
+
+            data['appointments_time'] = appointments_time
+            data['success'] = True
+        else:
+            data['success'] = False
+            data['header'] = str(_('No available appointment time'))
+
+    return  JsonResponse(data)
 
 
 class CaseActiveTabMixin(PatientMenuViewMixin, PatientActiveTabMixin):
@@ -1644,7 +1684,10 @@ class AppointmentDepositPayment(PatientCaseMixin, generic.View):
             redirect_url = reverse_lazy('patient:case_appointment',
                                         kwargs={'pk': pk})
         else:
-            messages.error(self.request, self.failure_message)
+            errors = ''
+            for error in result.errors.deep_errors:
+                errors += ' ' + error.code + ' ' + error.message
+            messages.error(self.request, str(self.failure_message) + errors)
             redirect_url = reverse_lazy('patient:payment')
             redirect_url += '?next_url=' + str(
                 reverse_lazy('patient:case_appointment', kwargs={'pk': pk}))
@@ -1668,7 +1711,10 @@ class AppointmentRatePayment(generic.View):
             messages.success(request, self.success_message)
             redirect_url = reverse_lazy('patient:dashboard')
         else:
-            messages.error(request, self.failure_message)
+            errors = ''
+            for error in result.errors.deep_errors:
+                errors += ' ' + error.code + ' ' + error.message
+            messages.error(request, str(self.failure_message) + errors)
             redirect_url = str(reverse_lazy('patient:payment')) + '?next_url=' \
                            + str(reverse_lazy('patient:after_appointment',
                                               kwargs={'pk': kwargs.get('pk'),
