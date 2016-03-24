@@ -1,0 +1,15 @@
+#calendar{
+    max-height: 35vh;
+    overflow: auto
+}
+
+.padding-top-25{
+    padding-top: 25px;
+}
+/*div.pull-left.day-event.day-highlight.dh-event-info.cell-appointment*/
+/*{*/
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+    /*max-width: 100%;*/
+    /*width: 100%*/
+/*}*/

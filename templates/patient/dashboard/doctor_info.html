@@ -1,8 +1,14 @@
 {% load i18n %}
 {% load static %}
+{% block links %}
+        <link rel="stylesheet" href="{% static 'plugins/bootstrap-calendar/css/calendar.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/bootstrap-calendar-app.css' %}"/>
+{% endblock %}
 {% block js %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
     <script type="text/javascript" src="{% static 'js/appointment_times.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-calendar-app.js' %}"></script>
+
 {% endblock %}
 
 
@@ -37,55 +43,88 @@
                         </div>
                         <div class="appointment">
                             <h4>
-                                {% trans 'Appointment Type' %}:
-                                {% if doctor.phone_appointment or doctor.video_appointment %}
-                                    {% if doctor.phone_appointment %}
-                                        <span class="glyphicon glyphicon-headphones"></span>
-                                        {% trans 'Phone' %}
-                                    {% endif %}
-                                    {% if doctor.video_appointment %}
-                                        <span class="glyphicon glyphicon-facetime-video"></span>
-                                        {% trans 'Video' %}
-                                    {% endif %}
-                                {% else %}
-                                    {% trans 'No Appointment' %}
-                                {% endif %}
+                                {% trans 'Appointment Type' %}:<span class="glyphicon glyphicon-facetime-video"></span>{% trans 'Video' %}
+{#                                {% if doctor.phone_appointment or doctor.video_appointment %}#}
+{#                                    {% if doctor.phone_appointment %}#}
+{#                                        <span class="glyphicon glyphicon-headphones"></span>#}
+{#                                        {% trans 'Phone' %}#}
+{#                                    {% endif %}#}
+{#                                    {% if doctor.video_appointment %}#}
+{#                                        <span class="glyphicon glyphicon-facetime-video"></span>#}
+{#                                        {% trans 'Video' %}#}
+{#                                    {% endif %}#}
+{#                                {% else %}#}
+{#                                    {% trans 'No Appointment' %}#}
+{#                                {% endif %}#}
                             | {% trans 'Consult rate' %}: €{{ doctor.consult_rate }}
                             </h4>
 
                         </div>
+                        <div class="when">
+                        <div class="col-sm-7 no-padding">
+                            {% if appointment_time.exists %}
+                                <h4>{% trans 'First available appointment is on ' %}
+                                    {% with first_time=appointment_time|first  %}
+                                        {{ first_time.start_time.date }}
+                                    {% endwith %}</h4>
+                                </div>
+                                <div class="col-sm-3">
+                                <button class="btn-u show-schedule">{% trans 'Show Schedule' %}</button></div>
+                            {% else %}
+                                <h4>{% trans 'Not available' %}</h4>
+                            {% endif %}
+                        </div>
+
+
 
                     </div>
 
-                        <div class="when">
-                            <div class="col-sm-2 col-md-1">
-                                <h4>{% trans 'When' %}:</h4>
-                            </div>
-                        {% if appointment_time.exists %}
-                            <div class="col-sm-4 col-md-4">
-                                <select id="appointment_time" class="form-control appointment-date">
-                                    {% for time in appointment_time %}
-                                        <option data-url="{% url 'patient:appointment_request' pk=time.id %}">
-                                            {{ time.start_time }}
-                                        </option>
-                                    {% endfor %}
-                                </select>
-                                <button id="make_appointment" type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#appointment-request">
-                                    Make appointment
-                                </button>
-                            </div>
-                        {% else %}
-                            <div class="col-sm-4">
-                                <h4>{% trans 'Not available' %}</h4>
-                            </div>
-                        {% endif %}
-                        <div class="times col-sm-6 col-md-9"></div>
+{#                        <div class="when">#}
+{#                            <div class="col-sm-2 col-md-1">#}
+{#                                <h4>{% trans 'When' %}:</h4>#}
+{#                            </div>#}
+{#                        {% if appointment_time.exists %}#}
+{#                            <div class="col-sm-4 col-md-4">#}
+{#                                <select id="appointment_time" class="form-control appointment-date">#}
+{#                                    {% for time in appointment_time %}#}
+{#                                        <option data-url="{% url 'patient:appointment_request' pk=time.id %}">#}
+{#                                            {{ time.start_time }}#}
+{#                                        </option>#}
+{#                                    {% endfor %}#}
+{#                                </select>#}
+{#                                <button id="make_appointment" type="button" class="btn btn-primary" data-toggle="modal"#}
+{#                                        data-target="#appointment-request">#}
+{#                                    Make appointment#}
+{#                                </button>#}
+{#                            </div>#}
+{#                        {% else %}#}
+{#                            <div class="col-sm-4">#}
+{#                                <h4>{% trans 'Not available' %}</h4>#}
+{#                            </div>#}
+{#                        {% endif %}#}
+{#                        <div class="times col-sm-6 col-md-9"></div>#}
+{#                    </div> #}
+
+                    <div class="col-sm-12 padding-top-25">
+                        <div class="calendar-header text-center">
+                           <div class="col-sm-1 no-padding">
+                               <button class="btn pull-left btn-default hidden" type="button" id="day-prev"><span class="fa fa-chevron-left"></span> </button>
+                               </div>
+
+                            <h3 class="col-sm-10"></h3>
+                            <div class="col-sm-1 no-padding">
+                            <button class="btn pull-right btn-default hidden" type="button" id="day-next"><span class="fa fa-chevron-right"></span> </button></div>
+                        </div>
+                        <div id="calendar" data-template="{% static 'plugins/bootstrap-calendar/templates/' %}" data-doctor="{{ doctor.id }}" data-url="{% url 'patient:get_doctor_day_schedule' %}">
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal-body row">
+
             <div class="col-sm-6">
                 <h2 class="bordered-bottom">{% trans 'Location' %}</h2>
 

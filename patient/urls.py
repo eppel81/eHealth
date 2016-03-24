@@ -65,6 +65,7 @@ urlpatterns = [
     # url(r'^reply/(?P<message_id>[\d]+)/$', views.ReplyMessageView.as_view(), name='reply_message'),
 
     url(r'^get_doctor_cases/$', views.get_all_cases_json, name='get_cases'),
+    url(r'^get_doctor_day_schedule/$', views.get_doctor_day_schedule, name='get_doctor_day_schedule'),
     url(r'^send_new/(?P<pk>\d+)/$', views.SendNewMessage.as_view(), name='send_new'),
 
 

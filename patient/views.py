@@ -1484,24 +1484,35 @@ def get_doctor_day_schedule(request):
     doctor_id = request.GET.get('doctor_id')
     data = dict()
     if doctor_id:
-        query = doctor_models.DoctorAppointmentTime.objects.filter(doctor=doctor_id,
-                                                                free=True)
+        today = timezone.now()
+        query = doctor_models.DoctorAppointmentTime.objects.filter(
+            doctor=doctor_id, free=True, start_time__gte=today)
         if query:
             tz = timezone.get_current_timezone()
             appointments_time = []
+            appointments_date = []
             for appointment_time in query:
-                id = appointment_time.id
-                timezone_delta = datetime.timedelta(hours=2)
-                converted_time_local = appointment_time.start_time.astimezone(tz)
-                converted_time = converted_time_local - timezone_delta
+                time_id = appointment_time.id
+                converted_time = appointment_time.start_time.astimezone(tz)
                 title = str(_('Make appointment on'))
-                start = int(time.mktime(converted_time.timetuple()) * 1000)
+                start = int(converted_time.strftime('%s'))*1000
                 delta = datetime.timedelta(minutes=appointment_time.duration)
-                end = int(time.mktime((converted_time + delta).timetuple()) * 1000)
-                appointments_time.append({'id':id, 'title':title, 'start':start, 'end':end, 'class':'event-info'})
-
-
+                end = int((converted_time + delta).strftime('%s'))*1000
+                appointments_date.append(str(converted_time.date()))
+                url = str(reverse_lazy('patient:appointment_request',
+                                   kwargs={'pk': time_id}))
+                appointments_time.append({'id': time_id, 'title': title,
+                                          'url': url, 'start': start,
+                                          'end': end, 'class': 'event-info'})
             data['appointments_time'] = appointments_time
+            appointments_date = list(set(appointments_date))
+            appointments_date.sort()
+            data['appointments_date'] = appointments_date
+
+            start_date = query.first().start_time.date()
+            data['start_date'] = str(start_date)
+            data['success_next_day_header'] = str(_('Next available appointment is on '))
+            data['failure_next_day_header'] = str(_('No further appointments available'))
             data['success'] = True
         else:
             data['success'] = False

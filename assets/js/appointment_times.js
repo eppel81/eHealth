@@ -1,7 +1,9 @@
-$(document).ready(function () {
-    $('#make_appointment').click(function (event) {
+$(function() {
+
+    $('.event-item').click(function (event) {
+        console.log('yes');
         event.preventDefault();
-        var url = $('#appointment_time option:selected').data('url');
+        var url = $(this).attr('href');
             $.ajax({
                 url: url,
                 contentType: "text/html",
@@ -13,7 +15,6 @@ $(document).ready(function () {
                 }
             });
         });
-
 
     $("#appointment_time").select2({
         minimumResultsForSearch: Infinity
