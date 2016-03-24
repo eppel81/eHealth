@@ -58,7 +58,9 @@ $(function () {
                         view: 'day',
                         time_split: '15',
                         day: startDate,
-                        events_source: eventSource
+                        events_source: eventSource,
+                        time_start: '00:00',
+		                time_end: '23:30'
                     });
                     setCalendarView(calendar);
                     getNextDate(calendar);
