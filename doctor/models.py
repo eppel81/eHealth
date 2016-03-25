@@ -127,6 +127,7 @@ class DoctorAppointmentTime(models.Model):
 
 @receiver(models.signals.post_delete, sender=Doctor)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
-    if instance.file:
-        if os.path.isfile(instance.file.path):
-            os.remove(instance.file.path)
+    if hasattr(instance, 'file'):
+        if instance.file:
+            if os.path.isfile(instance.file.path):
+                os.remove(instance.file.path)

@@ -167,7 +167,7 @@ def create_customer_on_patient_create(sender, instance, created, **kwargs):
     first_name = user.first_name
     last_name = user.last_name
     email = user.email
-    if created:
+    if created and not user.customeruser.customer:
         result = braintree.Customer.create({
             "first_name": first_name,
             "last_name": last_name,
@@ -186,7 +186,7 @@ def create_customer_on_patient_create(sender, instance, created, **kwargs):
 
 @receiver(models.signals.post_save, sender='patient.PatientCase')
 def generate_opentok_token(sender, instance, created, **kwargs):
-    if created:
+    if created and not instance.opentok_session:
         opentok = OpenTok(settings.OPENTOK_API_KEY, settings.OPENTOK_API_SECRET)
         session = opentok.create_session(media_mode=MediaModes.routed)
         instance.opentok_session = session.session_id

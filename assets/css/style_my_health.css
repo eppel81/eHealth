@@ -104,3 +104,6 @@ div.five-column
 .pay-with{
     padding-top: 20%;
 }
+.form-inline .form-group select.form-control {
+    width: 100%;
+}

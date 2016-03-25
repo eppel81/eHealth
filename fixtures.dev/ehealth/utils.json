@@ -1,1 +1,2643 @@
-[{"fields": {"name": "Madrid"}, "model": "utils.city", "pk": 1}, {"fields": {"name": "Miami"}, "model": "utils.city", "pk": 2}, {"fields": {"name": "Buenas Aires"}, "model": "utils.city", "pk": 3}, {"fields": {"name": "Mexico"}, "model": "utils.city", "pk": 4}, {"fields": {"name": "America/Adak"}, "model": "utils.timezone", "pk": 1}, {"fields": {"name": "America/Anchorage"}, "model": "utils.timezone", "pk": 2}, {"fields": {"name": "America/Anguilla"}, "model": "utils.timezone", "pk": 3}, {"fields": {"name": "America/Antigua"}, "model": "utils.timezone", "pk": 4}, {"fields": {"name": "America/Araguaina"}, "model": "utils.timezone", "pk": 5}, {"fields": {"name": "America/Argentina/Buenos_Aires"}, "model": "utils.timezone", "pk": 6}, {"fields": {"name": "America/Argentina/Catamarca"}, "model": "utils.timezone", "pk": 7}, {"fields": {"name": "America/Argentina/ComodRivadavia"}, "model": "utils.timezone", "pk": 8}, {"fields": {"name": "America/Argentina/Cordoba"}, "model": "utils.timezone", "pk": 9}, {"fields": {"name": "America/Argentina/Jujuy"}, "model": "utils.timezone", "pk": 10}, {"fields": {"name": "America/Argentina/La_Rioja"}, "model": "utils.timezone", "pk": 11}, {"fields": {"name": "America/Argentina/Mendoza"}, "model": "utils.timezone", "pk": 12}, {"fields": {"name": "America/Argentina/Rio_Gallegos"}, "model": "utils.timezone", "pk": 13}, {"fields": {"name": "America/Argentina/Salta"}, "model": "utils.timezone", "pk": 14}, {"fields": {"name": "America/Argentina/San_Juan"}, "model": "utils.timezone", "pk": 15}, {"fields": {"name": "America/Argentina/San_Luis"}, "model": "utils.timezone", "pk": 16}, {"fields": {"name": "America/Argentina/Tucuman"}, "model": "utils.timezone", "pk": 17}, {"fields": {"name": "America/Argentina/Ushuaia"}, "model": "utils.timezone", "pk": 18}, {"fields": {"name": "America/Aruba"}, "model": "utils.timezone", "pk": 19}, {"fields": {"name": "America/Asuncion"}, "model": "utils.timezone", "pk": 20}, {"fields": {"name": "America/Atikokan"}, "model": "utils.timezone", "pk": 21}, {"fields": {"name": "America/Atka"}, "model": "utils.timezone", "pk": 22}, {"fields": {"name": "America/Bahia"}, "model": "utils.timezone", "pk": 23}, {"fields": {"name": "America/Bahia_Banderas"}, "model": "utils.timezone", "pk": 24}, {"fields": {"name": "America/Barbados"}, "model": "utils.timezone", "pk": 25}, {"fields": {"name": "America/Belem"}, "model": "utils.timezone", "pk": 26}, {"fields": {"name": "America/Belize"}, "model": "utils.timezone", "pk": 27}, {"fields": {"name": "America/Blanc-Sablon"}, "model": "utils.timezone", "pk": 28}, {"fields": {"name": "America/Boa_Vista"}, "model": "utils.timezone", "pk": 29}, {"fields": {"name": "America/Bogota"}, "model": "utils.timezone", "pk": 30}, {"fields": {"name": "America/Boise"}, "model": "utils.timezone", "pk": 31}, {"fields": {"name": "America/Buenos_Aires"}, "model": "utils.timezone", "pk": 32}, {"fields": {"name": "America/Cambridge_Bay"}, "model": "utils.timezone", "pk": 33}, {"fields": {"name": "America/Campo_Grande"}, "model": "utils.timezone", "pk": 34}, {"fields": {"name": "America/Cancun"}, "model": "utils.timezone", "pk": 35}, {"fields": {"name": "America/Caracas"}, "model": "utils.timezone", "pk": 36}, {"fields": {"name": "America/Catamarca"}, "model": "utils.timezone", "pk": 37}, {"fields": {"name": "America/Cayenne"}, "model": "utils.timezone", "pk": 38}, {"fields": {"name": "America/Cayman"}, "model": "utils.timezone", "pk": 39}, {"fields": {"name": "America/Chicago"}, "model": "utils.timezone", "pk": 40}, {"fields": {"name": "America/Chihuahua"}, "model": "utils.timezone", "pk": 41}, {"fields": {"name": "America/Coral_Harbour"}, "model": "utils.timezone", "pk": 42}, {"fields": {"name": "America/Cordoba"}, "model": "utils.timezone", "pk": 43}, {"fields": {"name": "America/Costa_Rica"}, "model": "utils.timezone", "pk": 44}, {"fields": {"name": "America/Creston"}, "model": "utils.timezone", "pk": 45}, {"fields": {"name": "America/Cuiaba"}, "model": "utils.timezone", "pk": 46}, {"fields": {"name": "America/Curacao"}, "model": "utils.timezone", "pk": 47}, {"fields": {"name": "America/Danmarkshavn"}, "model": "utils.timezone", "pk": 48}, {"fields": {"name": "America/Dawson"}, "model": "utils.timezone", "pk": 49}, {"fields": {"name": "America/Dawson_Creek"}, "model": "utils.timezone", "pk": 50}, {"fields": {"name": "America/Denver"}, "model": "utils.timezone", "pk": 51}, {"fields": {"name": "America/Detroit"}, "model": "utils.timezone", "pk": 52}, {"fields": {"name": "America/Dominica"}, "model": "utils.timezone", "pk": 53}, {"fields": {"name": "America/Edmonton"}, "model": "utils.timezone", "pk": 54}, {"fields": {"name": "America/Eirunepe"}, "model": "utils.timezone", "pk": 55}, {"fields": {"name": "America/El_Salvador"}, "model": "utils.timezone", "pk": 56}, {"fields": {"name": "America/Ensenada"}, "model": "utils.timezone", "pk": 57}, {"fields": {"name": "America/Fort_Wayne"}, "model": "utils.timezone", "pk": 58}, {"fields": {"name": "America/Fortaleza"}, "model": "utils.timezone", "pk": 59}, {"fields": {"name": "America/Glace_Bay"}, "model": "utils.timezone", "pk": 60}, {"fields": {"name": "America/Godthab"}, "model": "utils.timezone", "pk": 61}, {"fields": {"name": "America/Goose_Bay"}, "model": "utils.timezone", "pk": 62}, {"fields": {"name": "America/Grand_Turk"}, "model": "utils.timezone", "pk": 63}, {"fields": {"name": "America/Grenada"}, "model": "utils.timezone", "pk": 64}, {"fields": {"name": "America/Guadeloupe"}, "model": "utils.timezone", "pk": 65}, {"fields": {"name": "America/Guatemala"}, "model": "utils.timezone", "pk": 66}, {"fields": {"name": "America/Guayaquil"}, "model": "utils.timezone", "pk": 67}, {"fields": {"name": "America/Guyana"}, "model": "utils.timezone", "pk": 68}, {"fields": {"name": "America/Halifax"}, "model": "utils.timezone", "pk": 69}, {"fields": {"name": "America/Havana"}, "model": "utils.timezone", "pk": 70}, {"fields": {"name": "America/Hermosillo"}, "model": "utils.timezone", "pk": 71}, {"fields": {"name": "America/Indiana/Indianapolis"}, "model": "utils.timezone", "pk": 72}, {"fields": {"name": "America/Indiana/Knox"}, "model": "utils.timezone", "pk": 73}, {"fields": {"name": "America/Indiana/Marengo"}, "model": "utils.timezone", "pk": 74}, {"fields": {"name": "America/Indiana/Petersburg"}, "model": "utils.timezone", "pk": 75}, {"fields": {"name": "America/Indiana/Tell_City"}, "model": "utils.timezone", "pk": 76}, {"fields": {"name": "America/Indiana/Vevay"}, "model": "utils.timezone", "pk": 77}, {"fields": {"name": "America/Indiana/Vincennes"}, "model": "utils.timezone", "pk": 78}, {"fields": {"name": "America/Indiana/Winamac"}, "model": "utils.timezone", "pk": 79}, {"fields": {"name": "America/Indianapolis"}, "model": "utils.timezone", "pk": 80}, {"fields": {"name": "America/Inuvik"}, "model": "utils.timezone", "pk": 81}, {"fields": {"name": "America/Iqaluit"}, "model": "utils.timezone", "pk": 82}, {"fields": {"name": "America/Jamaica"}, "model": "utils.timezone", "pk": 83}, {"fields": {"name": "America/Jujuy"}, "model": "utils.timezone", "pk": 84}, {"fields": {"name": "America/Juneau"}, "model": "utils.timezone", "pk": 85}, {"fields": {"name": "America/Kentucky/Louisville"}, "model": "utils.timezone", "pk": 86}, {"fields": {"name": "America/Kentucky/Monticello"}, "model": "utils.timezone", "pk": 87}, {"fields": {"name": "America/Knox_IN"}, "model": "utils.timezone", "pk": 88}, {"fields": {"name": "America/Kralendijk"}, "model": "utils.timezone", "pk": 89}, {"fields": {"name": "America/La_Paz"}, "model": "utils.timezone", "pk": 90}, {"fields": {"name": "America/Lima"}, "model": "utils.timezone", "pk": 91}, {"fields": {"name": "America/Los_Angeles"}, "model": "utils.timezone", "pk": 92}, {"fields": {"name": "America/Louisville"}, "model": "utils.timezone", "pk": 93}, {"fields": {"name": "America/Lower_Princes"}, "model": "utils.timezone", "pk": 94}, {"fields": {"name": "America/Maceio"}, "model": "utils.timezone", "pk": 95}, {"fields": {"name": "America/Managua"}, "model": "utils.timezone", "pk": 96}, {"fields": {"name": "America/Manaus"}, "model": "utils.timezone", "pk": 97}, {"fields": {"name": "America/Marigot"}, "model": "utils.timezone", "pk": 98}, {"fields": {"name": "America/Martinique"}, "model": "utils.timezone", "pk": 99}, {"fields": {"name": "America/Matamoros"}, "model": "utils.timezone", "pk": 100}, {"fields": {"name": "America/Mazatlan"}, "model": "utils.timezone", "pk": 101}, {"fields": {"name": "America/Mendoza"}, "model": "utils.timezone", "pk": 102}, {"fields": {"name": "America/Menominee"}, "model": "utils.timezone", "pk": 103}, {"fields": {"name": "America/Merida"}, "model": "utils.timezone", "pk": 104}, {"fields": {"name": "America/Metlakatla"}, "model": "utils.timezone", "pk": 105}, {"fields": {"name": "America/Mexico_City"}, "model": "utils.timezone", "pk": 106}, {"fields": {"name": "America/Miquelon"}, "model": "utils.timezone", "pk": 107}, {"fields": {"name": "America/Moncton"}, "model": "utils.timezone", "pk": 108}, {"fields": {"name": "America/Monterrey"}, "model": "utils.timezone", "pk": 109}, {"fields": {"name": "America/Montevideo"}, "model": "utils.timezone", "pk": 110}, {"fields": {"name": "America/Montreal"}, "model": "utils.timezone", "pk": 111}, {"fields": {"name": "America/Montserrat"}, "model": "utils.timezone", "pk": 112}, {"fields": {"name": "America/Nassau"}, "model": "utils.timezone", "pk": 113}, {"fields": {"name": "America/New_York"}, "model": "utils.timezone", "pk": 114}, {"fields": {"name": "America/Nipigon"}, "model": "utils.timezone", "pk": 115}, {"fields": {"name": "America/Nome"}, "model": "utils.timezone", "pk": 116}, {"fields": {"name": "America/Noronha"}, "model": "utils.timezone", "pk": 117}, {"fields": {"name": "America/North_Dakota/Beulah"}, "model": "utils.timezone", "pk": 118}, {"fields": {"name": "America/North_Dakota/Center"}, "model": "utils.timezone", "pk": 119}, {"fields": {"name": "America/North_Dakota/New_Salem"}, "model": "utils.timezone", "pk": 120}, {"fields": {"name": "America/Ojinaga"}, "model": "utils.timezone", "pk": 121}, {"fields": {"name": "America/Panama"}, "model": "utils.timezone", "pk": 122}, {"fields": {"name": "America/Pangnirtung"}, "model": "utils.timezone", "pk": 123}, {"fields": {"name": "America/Paramaribo"}, "model": "utils.timezone", "pk": 124}, {"fields": {"name": "America/Phoenix"}, "model": "utils.timezone", "pk": 125}, {"fields": {"name": "America/Port-au-Prince"}, "model": "utils.timezone", "pk": 126}, {"fields": {"name": "America/Port_of_Spain"}, "model": "utils.timezone", "pk": 127}, {"fields": {"name": "America/Porto_Acre"}, "model": "utils.timezone", "pk": 128}, {"fields": {"name": "America/Porto_Velho"}, "model": "utils.timezone", "pk": 129}, {"fields": {"name": "America/Puerto_Rico"}, "model": "utils.timezone", "pk": 130}, {"fields": {"name": "America/Rainy_River"}, "model": "utils.timezone", "pk": 131}, {"fields": {"name": "America/Rankin_Inlet"}, "model": "utils.timezone", "pk": 132}, {"fields": {"name": "America/Recife"}, "model": "utils.timezone", "pk": 133}, {"fields": {"name": "America/Regina"}, "model": "utils.timezone", "pk": 134}, {"fields": {"name": "America/Resolute"}, "model": "utils.timezone", "pk": 135}, {"fields": {"name": "America/Rio_Branco"}, "model": "utils.timezone", "pk": 136}, {"fields": {"name": "America/Rosario"}, "model": "utils.timezone", "pk": 137}, {"fields": {"name": "America/Santa_Isabel"}, "model": "utils.timezone", "pk": 138}, {"fields": {"name": "America/Santarem"}, "model": "utils.timezone", "pk": 139}, {"fields": {"name": "America/Santiago"}, "model": "utils.timezone", "pk": 140}, {"fields": {"name": "America/Santo_Domingo"}, "model": "utils.timezone", "pk": 141}, {"fields": {"name": "America/Sao_Paulo"}, "model": "utils.timezone", "pk": 142}, {"fields": {"name": "America/Scoresbysund"}, "model": "utils.timezone", "pk": 143}, {"fields": {"name": "America/Shiprock"}, "model": "utils.timezone", "pk": 144}, {"fields": {"name": "America/Sitka"}, "model": "utils.timezone", "pk": 145}, {"fields": {"name": "America/St_Barthelemy"}, "model": "utils.timezone", "pk": 146}, {"fields": {"name": "America/St_Johns"}, "model": "utils.timezone", "pk": 147}, {"fields": {"name": "America/St_Kitts"}, "model": "utils.timezone", "pk": 148}, {"fields": {"name": "America/St_Lucia"}, "model": "utils.timezone", "pk": 149}, {"fields": {"name": "America/St_Thomas"}, "model": "utils.timezone", "pk": 150}, {"fields": {"name": "America/St_Vincent"}, "model": "utils.timezone", "pk": 151}, {"fields": {"name": "America/Swift_Current"}, "model": "utils.timezone", "pk": 152}, {"fields": {"name": "America/Tegucigalpa"}, "model": "utils.timezone", "pk": 153}, {"fields": {"name": "America/Thule"}, "model": "utils.timezone", "pk": 154}, {"fields": {"name": "America/Thunder_Bay"}, "model": "utils.timezone", "pk": 155}, {"fields": {"name": "America/Tijuana"}, "model": "utils.timezone", "pk": 156}, {"fields": {"name": "America/Toronto"}, "model": "utils.timezone", "pk": 157}, {"fields": {"name": "America/Tortola"}, "model": "utils.timezone", "pk": 158}, {"fields": {"name": "America/Vancouver"}, "model": "utils.timezone", "pk": 159}, {"fields": {"name": "America/Virgin"}, "model": "utils.timezone", "pk": 160}, {"fields": {"name": "America/Whitehorse"}, "model": "utils.timezone", "pk": 161}, {"fields": {"name": "America/Winnipeg"}, "model": "utils.timezone", "pk": 162}, {"fields": {"name": "America/Yakutat"}, "model": "utils.timezone", "pk": 163}, {"fields": {"name": "America/Yellowknife"}, "model": "utils.timezone", "pk": 164}, {"fields": {"name": "Atlantic/Azores"}, "model": "utils.timezone", "pk": 165}, {"fields": {"name": "Atlantic/Bermuda"}, "model": "utils.timezone", "pk": 166}, {"fields": {"name": "Atlantic/Canary"}, "model": "utils.timezone", "pk": 167}, {"fields": {"name": "Atlantic/Cape_Verde"}, "model": "utils.timezone", "pk": 168}, {"fields": {"name": "Atlantic/Faeroe"}, "model": "utils.timezone", "pk": 169}, {"fields": {"name": "Atlantic/Faroe"}, "model": "utils.timezone", "pk": 170}, {"fields": {"name": "Atlantic/Jan_Mayen"}, "model": "utils.timezone", "pk": 171}, {"fields": {"name": "Atlantic/Madeira"}, "model": "utils.timezone", "pk": 172}, {"fields": {"name": "Atlantic/Reykjavik"}, "model": "utils.timezone", "pk": 173}, {"fields": {"name": "Atlantic/South_Georgia"}, "model": "utils.timezone", "pk": 174}, {"fields": {"name": "Atlantic/St_Helena"}, "model": "utils.timezone", "pk": 175}, {"fields": {"name": "Atlantic/Stanley"}, "model": "utils.timezone", "pk": 176}, {"fields": {"name": "Canada/Atlantic"}, "model": "utils.timezone", "pk": 177}, {"fields": {"name": "Canada/Central"}, "model": "utils.timezone", "pk": 178}, {"fields": {"name": "Canada/East-Saskatchewan"}, "model": "utils.timezone", "pk": 179}, {"fields": {"name": "Canada/Eastern"}, "model": "utils.timezone", "pk": 180}, {"fields": {"name": "Canada/Mountain"}, "model": "utils.timezone", "pk": 181}, {"fields": {"name": "Canada/Newfoundland"}, "model": "utils.timezone", "pk": 182}, {"fields": {"name": "Canada/Pacific"}, "model": "utils.timezone", "pk": 183}, {"fields": {"name": "Canada/Saskatchewan"}, "model": "utils.timezone", "pk": 184}, {"fields": {"name": "Canada/Yukon"}, "model": "utils.timezone", "pk": 185}, {"fields": {"name": "Europe/Amsterdam"}, "model": "utils.timezone", "pk": 186}, {"fields": {"name": "Europe/Andorra"}, "model": "utils.timezone", "pk": 187}, {"fields": {"name": "Europe/Athens"}, "model": "utils.timezone", "pk": 188}, {"fields": {"name": "Europe/Belfast"}, "model": "utils.timezone", "pk": 189}, {"fields": {"name": "Europe/Belgrade"}, "model": "utils.timezone", "pk": 190}, {"fields": {"name": "Europe/Berlin"}, "model": "utils.timezone", "pk": 191}, {"fields": {"name": "Europe/Bratislava"}, "model": "utils.timezone", "pk": 192}, {"fields": {"name": "Europe/Brussels"}, "model": "utils.timezone", "pk": 193}, {"fields": {"name": "Europe/Bucharest"}, "model": "utils.timezone", "pk": 194}, {"fields": {"name": "Europe/Budapest"}, "model": "utils.timezone", "pk": 195}, {"fields": {"name": "Europe/Busingen"}, "model": "utils.timezone", "pk": 196}, {"fields": {"name": "Europe/Chisinau"}, "model": "utils.timezone", "pk": 197}, {"fields": {"name": "Europe/Copenhagen"}, "model": "utils.timezone", "pk": 198}, {"fields": {"name": "Europe/Dublin"}, "model": "utils.timezone", "pk": 199}, {"fields": {"name": "Europe/Gibraltar"}, "model": "utils.timezone", "pk": 200}, {"fields": {"name": "Europe/Guernsey"}, "model": "utils.timezone", "pk": 201}, {"fields": {"name": "Europe/Helsinki"}, "model": "utils.timezone", "pk": 202}, {"fields": {"name": "Europe/Isle_of_Man"}, "model": "utils.timezone", "pk": 203}, {"fields": {"name": "Europe/Istanbul"}, "model": "utils.timezone", "pk": 204}, {"fields": {"name": "Europe/Jersey"}, "model": "utils.timezone", "pk": 205}, {"fields": {"name": "Europe/Kaliningrad"}, "model": "utils.timezone", "pk": 206}, {"fields": {"name": "Europe/Kiev"}, "model": "utils.timezone", "pk": 207}, {"fields": {"name": "Europe/Lisbon"}, "model": "utils.timezone", "pk": 208}, {"fields": {"name": "Europe/Ljubljana"}, "model": "utils.timezone", "pk": 209}, {"fields": {"name": "Europe/London"}, "model": "utils.timezone", "pk": 210}, {"fields": {"name": "Europe/Luxembourg"}, "model": "utils.timezone", "pk": 211}, {"fields": {"name": "Europe/Madrid"}, "model": "utils.timezone", "pk": 212}, {"fields": {"name": "Europe/Malta"}, "model": "utils.timezone", "pk": 213}, {"fields": {"name": "Europe/Mariehamn"}, "model": "utils.timezone", "pk": 214}, {"fields": {"name": "Europe/Minsk"}, "model": "utils.timezone", "pk": 215}, {"fields": {"name": "Europe/Monaco"}, "model": "utils.timezone", "pk": 216}, {"fields": {"name": "Europe/Moscow"}, "model": "utils.timezone", "pk": 217}, {"fields": {"name": "Europe/Nicosia"}, "model": "utils.timezone", "pk": 218}, {"fields": {"name": "Europe/Oslo"}, "model": "utils.timezone", "pk": 219}, {"fields": {"name": "Europe/Paris"}, "model": "utils.timezone", "pk": 220}, {"fields": {"name": "Europe/Podgorica"}, "model": "utils.timezone", "pk": 221}, {"fields": {"name": "Europe/Prague"}, "model": "utils.timezone", "pk": 222}, {"fields": {"name": "Europe/Riga"}, "model": "utils.timezone", "pk": 223}, {"fields": {"name": "Europe/Rome"}, "model": "utils.timezone", "pk": 224}, {"fields": {"name": "Europe/Samara"}, "model": "utils.timezone", "pk": 225}, {"fields": {"name": "Europe/San_Marino"}, "model": "utils.timezone", "pk": 226}, {"fields": {"name": "Europe/Sarajevo"}, "model": "utils.timezone", "pk": 227}, {"fields": {"name": "Europe/Simferopol"}, "model": "utils.timezone", "pk": 228}, {"fields": {"name": "Europe/Skopje"}, "model": "utils.timezone", "pk": 229}, {"fields": {"name": "Europe/Sofia"}, "model": "utils.timezone", "pk": 230}, {"fields": {"name": "Europe/Stockholm"}, "model": "utils.timezone", "pk": 231}, {"fields": {"name": "Europe/Tallinn"}, "model": "utils.timezone", "pk": 232}, {"fields": {"name": "Europe/Tirane"}, "model": "utils.timezone", "pk": 233}, {"fields": {"name": "Europe/Tiraspol"}, "model": "utils.timezone", "pk": 234}, {"fields": {"name": "Europe/Uzhgorod"}, "model": "utils.timezone", "pk": 235}, {"fields": {"name": "Europe/Vaduz"}, "model": "utils.timezone", "pk": 236}, {"fields": {"name": "Europe/Vatican"}, "model": "utils.timezone", "pk": 237}, {"fields": {"name": "Europe/Vienna"}, "model": "utils.timezone", "pk": 238}, {"fields": {"name": "Europe/Vilnius"}, "model": "utils.timezone", "pk": 239}, {"fields": {"name": "Europe/Volgograd"}, "model": "utils.timezone", "pk": 240}, {"fields": {"name": "Europe/Warsaw"}, "model": "utils.timezone", "pk": 241}, {"fields": {"name": "Europe/Zagreb"}, "model": "utils.timezone", "pk": 242}, {"fields": {"name": "Europe/Zaporozhye"}, "model": "utils.timezone", "pk": 243}, {"fields": {"name": "Europe/Zurich"}, "model": "utils.timezone", "pk": 244}, {"fields": {"name": "Pacific/Apia"}, "model": "utils.timezone", "pk": 245}, {"fields": {"name": "Pacific/Auckland"}, "model": "utils.timezone", "pk": 246}, {"fields": {"name": "Pacific/Bougainville"}, "model": "utils.timezone", "pk": 247}, {"fields": {"name": "Pacific/Chatham"}, "model": "utils.timezone", "pk": 248}, {"fields": {"name": "Pacific/Chuuk"}, "model": "utils.timezone", "pk": 249}, {"fields": {"name": "Pacific/Easter"}, "model": "utils.timezone", "pk": 250}, {"fields": {"name": "Pacific/Efate"}, "model": "utils.timezone", "pk": 251}, {"fields": {"name": "Pacific/Enderbury"}, "model": "utils.timezone", "pk": 252}, {"fields": {"name": "Pacific/Fakaofo"}, "model": "utils.timezone", "pk": 253}, {"fields": {"name": "Pacific/Fiji"}, "model": "utils.timezone", "pk": 254}, {"fields": {"name": "Pacific/Funafuti"}, "model": "utils.timezone", "pk": 255}, {"fields": {"name": "Pacific/Galapagos"}, "model": "utils.timezone", "pk": 256}, {"fields": {"name": "Pacific/Gambier"}, "model": "utils.timezone", "pk": 257}, {"fields": {"name": "Pacific/Guadalcanal"}, "model": "utils.timezone", "pk": 258}, {"fields": {"name": "Pacific/Guam"}, "model": "utils.timezone", "pk": 259}, {"fields": {"name": "Pacific/Honolulu"}, "model": "utils.timezone", "pk": 260}, {"fields": {"name": "Pacific/Johnston"}, "model": "utils.timezone", "pk": 261}, {"fields": {"name": "Pacific/Kiritimati"}, "model": "utils.timezone", "pk": 262}, {"fields": {"name": "Pacific/Kosrae"}, "model": "utils.timezone", "pk": 263}, {"fields": {"name": "Pacific/Kwajalein"}, "model": "utils.timezone", "pk": 264}, {"fields": {"name": "Pacific/Majuro"}, "model": "utils.timezone", "pk": 265}, {"fields": {"name": "Pacific/Marquesas"}, "model": "utils.timezone", "pk": 266}, {"fields": {"name": "Pacific/Midway"}, "model": "utils.timezone", "pk": 267}, {"fields": {"name": "Pacific/Nauru"}, "model": "utils.timezone", "pk": 268}, {"fields": {"name": "Pacific/Niue"}, "model": "utils.timezone", "pk": 269}, {"fields": {"name": "Pacific/Norfolk"}, "model": "utils.timezone", "pk": 270}, {"fields": {"name": "Pacific/Noumea"}, "model": "utils.timezone", "pk": 271}, {"fields": {"name": "Pacific/Pago_Pago"}, "model": "utils.timezone", "pk": 272}, {"fields": {"name": "Pacific/Palau"}, "model": "utils.timezone", "pk": 273}, {"fields": {"name": "Pacific/Pitcairn"}, "model": "utils.timezone", "pk": 274}, {"fields": {"name": "Pacific/Pohnpei"}, "model": "utils.timezone", "pk": 275}, {"fields": {"name": "Pacific/Ponape"}, "model": "utils.timezone", "pk": 276}, {"fields": {"name": "Pacific/Port_Moresby"}, "model": "utils.timezone", "pk": 277}, {"fields": {"name": "Pacific/Rarotonga"}, "model": "utils.timezone", "pk": 278}, {"fields": {"name": "Pacific/Saipan"}, "model": "utils.timezone", "pk": 279}, {"fields": {"name": "Pacific/Samoa"}, "model": "utils.timezone", "pk": 280}, {"fields": {"name": "Pacific/Tahiti"}, "model": "utils.timezone", "pk": 281}, {"fields": {"name": "Pacific/Tarawa"}, "model": "utils.timezone", "pk": 282}, {"fields": {"name": "Pacific/Tongatapu"}, "model": "utils.timezone", "pk": 283}, {"fields": {"name": "Pacific/Truk"}, "model": "utils.timezone", "pk": 284}, {"fields": {"name": "Pacific/Wake"}, "model": "utils.timezone", "pk": 285}, {"fields": {"name": "Pacific/Wallis"}, "model": "utils.timezone", "pk": 286}, {"fields": {"name": "Pacific/Yap"}, "model": "utils.timezone", "pk": 287}, {"fields": {"name": "US/Alaska"}, "model": "utils.timezone", "pk": 288}, {"fields": {"name": "US/Aleutian"}, "model": "utils.timezone", "pk": 289}, {"fields": {"name": "US/Arizona"}, "model": "utils.timezone", "pk": 290}, {"fields": {"name": "US/Central"}, "model": "utils.timezone", "pk": 291}, {"fields": {"name": "US/East-Indiana"}, "model": "utils.timezone", "pk": 292}, {"fields": {"name": "US/Eastern"}, "model": "utils.timezone", "pk": 293}, {"fields": {"name": "US/Hawaii"}, "model": "utils.timezone", "pk": 294}, {"fields": {"name": "US/Indiana-Starke"}, "model": "utils.timezone", "pk": 295}, {"fields": {"name": "US/Michigan"}, "model": "utils.timezone", "pk": 296}, {"fields": {"name": "US/Mountain"}, "model": "utils.timezone", "pk": 297}, {"fields": {"name": "US/Pacific"}, "model": "utils.timezone", "pk": 298}, {"fields": {"name": "US/Pacific-New"}, "model": "utils.timezone", "pk": 299}, {"fields": {"name": "US/Samoa"}, "model": "utils.timezone", "pk": 300}, {"fields": {"name": "Etc/GMT"}, "model": "utils.timezone", "pk": 301}, {"fields": {"name": "Etc/GMT+0"}, "model": "utils.timezone", "pk": 302}, {"fields": {"name": "Etc/GMT+1"}, "model": "utils.timezone", "pk": 303}, {"fields": {"name": "Etc/GMT+10"}, "model": "utils.timezone", "pk": 304}, {"fields": {"name": "Etc/GMT+11"}, "model": "utils.timezone", "pk": 305}, {"fields": {"name": "Etc/GMT+12"}, "model": "utils.timezone", "pk": 306}, {"fields": {"name": "Etc/GMT+2"}, "model": "utils.timezone", "pk": 307}, {"fields": {"name": "Etc/GMT+3"}, "model": "utils.timezone", "pk": 308}, {"fields": {"name": "Etc/GMT+4"}, "model": "utils.timezone", "pk": 309}, {"fields": {"name": "Etc/GMT+5"}, "model": "utils.timezone", "pk": 310}, {"fields": {"name": "Etc/GMT+6"}, "model": "utils.timezone", "pk": 311}, {"fields": {"name": "Etc/GMT+7"}, "model": "utils.timezone", "pk": 312}, {"fields": {"name": "Etc/GMT+8"}, "model": "utils.timezone", "pk": 313}, {"fields": {"name": "Etc/GMT+9"}, "model": "utils.timezone", "pk": 314}, {"fields": {"name": "Etc/GMT-0"}, "model": "utils.timezone", "pk": 315}, {"fields": {"name": "Etc/GMT-1"}, "model": "utils.timezone", "pk": 316}, {"fields": {"name": "Etc/GMT-10"}, "model": "utils.timezone", "pk": 317}, {"fields": {"name": "Etc/GMT-11"}, "model": "utils.timezone", "pk": 318}, {"fields": {"name": "Etc/GMT-12"}, "model": "utils.timezone", "pk": 319}, {"fields": {"name": "Etc/GMT-13"}, "model": "utils.timezone", "pk": 320}, {"fields": {"name": "Etc/GMT-14"}, "model": "utils.timezone", "pk": 321}, {"fields": {"name": "Etc/GMT-2"}, "model": "utils.timezone", "pk": 322}, {"fields": {"name": "Etc/GMT-3"}, "model": "utils.timezone", "pk": 323}, {"fields": {"name": "Etc/GMT-4"}, "model": "utils.timezone", "pk": 324}, {"fields": {"name": "Etc/GMT-5"}, "model": "utils.timezone", "pk": 325}, {"fields": {"name": "Etc/GMT-6"}, "model": "utils.timezone", "pk": 326}, {"fields": {"name": "Etc/GMT-7"}, "model": "utils.timezone", "pk": 327}, {"fields": {"name": "Etc/GMT-8"}, "model": "utils.timezone", "pk": 328}, {"fields": {"name": "Etc/GMT-9"}, "model": "utils.timezone", "pk": 329}, {"fields": {"name": "Etc/GMT0"}, "model": "utils.timezone", "pk": 330}, {"fields": {"name": "Etc/Greenwich"}, "model": "utils.timezone", "pk": 331}, {"fields": {"name": "Etc/UCT"}, "model": "utils.timezone", "pk": 332}, {"fields": {"name": "Etc/UTC"}, "model": "utils.timezone", "pk": 333}, {"fields": {"name": "Etc/Universal"}, "model": "utils.timezone", "pk": 334}, {"fields": {"name": "Etc/Zulu"}, "model": "utils.timezone", "pk": 335}, {"fields": {"timezone": [288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300], "name": "United State of America"}, "model": "utils.country", "pk": 1}, {"fields": {"timezone": [177, 178, 179, 180, 181, 182, 183, 184, 185], "name": "Canada"}, "model": "utils.country", "pk": 2}, {"fields": {"name": "Cardiology"}, "model": "utils.specialty", "pk": 1}, {"fields": {"name": "Oncology"}, "model": "utils.specialty", "pk": 2}, {"fields": {"name": "Anesthesiology"}, "model": "utils.specialty", "pk": 3}, {"fields": {"name": "Otolaryngology"}, "model": "utils.specialty", "pk": 4}, {"fields": {"name": "Ophthalmology"}, "model": "utils.specialty", "pk": 5}, {"fields": {"name": "Dermatology"}, "model": "utils.specialty", "pk": 6}, {"fields": {"name": "Psychiatry"}, "model": "utils.specialty", "pk": 7}, {"fields": {"name": "English"}, "model": "utils.language", "pk": 1}, {"fields": {"name": "Spanish"}, "model": "utils.language", "pk": 2}, {"fields": {"name": "signin"}, "model": "utils.activitytype", "pk": 1}, {"fields": {"name": "signup"}, "model": "utils.activitytype", "pk": 2}, {"fields": {"name": "appointment"}, "model": "utils.activitytype", "pk": 3}, {"fields": {"doctor": 3, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-21", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 162}, {"fields": {"doctor": 3, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-22", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 163}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 164}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-24", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 165}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 166}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 167}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 168}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 169}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 170}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 171}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-31", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 172}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-01", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 173}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-02", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 174}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-03", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 175}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-04", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 176}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-05", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 177}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-06", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 178}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-07", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 179}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-08", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 180}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-09", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 181}, {"fields": {"doctor": 3, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-10", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 182}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-11", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 183}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-12", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 184}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-13", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 185}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-14", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 186}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-15", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 187}, {"fields": {"doctor": 3, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-16", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 188}, {"fields": {"doctor": 3, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-17", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 189}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-21", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 190}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-22", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 191}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 192}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-24", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 193}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 194}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 195}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-27", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 196}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 197}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 198}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 199}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-31", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 200}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-01", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 201}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-02", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 202}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": true, "night_shift": false, "date": "2016-04-03", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 203}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-21", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 204}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-22", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 205}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 206}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-24", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 207}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 208}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 209}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": true, "night_shift": false, "date": "2016-03-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 210}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 211}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 212}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 213}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-31", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 214}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-01", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 215}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-02", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 216}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-03", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 217}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-21", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 218}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-22", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 219}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 220}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-24", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 221}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 222}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 223}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-27", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 224}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 225}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 226}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 227}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-31", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 228}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-01", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 229}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-02", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 230}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-03", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 231}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-21", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 232}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-22", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 233}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 234}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-24", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 235}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 236}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 237}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-27", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 238}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 239}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 240}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 241}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-31", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 242}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-01", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 243}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-02", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 244}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-03", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 245}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-21", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 246}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-22", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 247}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 248}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-24", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 249}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 250}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 251}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-03-27", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 252}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 253}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 254}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 255}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-03-31", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 256}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-01", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 257}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-02", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 258}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-03", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 259}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-04", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 260}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-05", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 261}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-06", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 262}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-07", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 263}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-08", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 264}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-09", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 265}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-10", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 266}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-11", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 267}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-12", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 268}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-13", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 269}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-14", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 270}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-15", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 271}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-16", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 272}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-17", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 273}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-18", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 274}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-19", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 275}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-20", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 276}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-21", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 277}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-22", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 278}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 279}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-24", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 280}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 281}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 282}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 283}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 284}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 285}, {"fields": {"doctor": 4, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 286}, {"fields": {"doctor": 4, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-05-01", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 287}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-04", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 288}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-05", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 289}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-06", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 290}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-07", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 291}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-08", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 292}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-09", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 293}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-10", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 294}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-11", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 295}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-12", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 296}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-13", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 297}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-14", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 298}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-15", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 299}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-16", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 300}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-17", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 301}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-18", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 302}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-19", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 303}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-20", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 304}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-21", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 305}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-22", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 306}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 307}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-24", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 308}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 309}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 310}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 311}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 312}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 313}, {"fields": {"doctor": 5, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 314}, {"fields": {"doctor": 5, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-05-01", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 315}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-04", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 316}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-05", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 317}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-06", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 318}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-07", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 319}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-08", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 320}, {"fields": {"doctor": 6, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-09", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 321}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-10", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 322}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-11", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 323}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-12", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 324}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-13", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 325}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-14", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 326}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-15", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 327}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-16", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 328}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-17", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 329}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-18", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 330}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-19", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 331}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-20", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 332}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-21", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 333}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-22", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 334}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 335}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-24", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 336}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 337}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 338}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 339}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 340}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 341}, {"fields": {"doctor": 6, "night_to": "23:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 342}, {"fields": {"doctor": 6, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-05-01", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 343}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-04", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 344}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-05", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 345}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-06", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 346}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-07", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 347}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-08", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 348}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-09", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 349}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-10", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 350}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-11", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 351}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-12", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 352}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-13", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 353}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-14", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 354}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-15", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 355}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-16", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 356}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-17", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 357}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-18", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 358}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-19", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 359}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-20", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 360}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-21", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 361}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-22", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 362}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 363}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-24", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 364}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 365}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 366}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 367}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 368}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 369}, {"fields": {"doctor": 7, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 370}, {"fields": {"doctor": 7, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-05-01", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 371}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-04", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 372}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-05", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 373}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-06", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 374}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-07", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 375}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-08", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 376}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-09", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 377}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-10", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 378}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-11", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 379}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-12", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 380}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-13", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 381}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-14", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 382}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-15", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 383}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-16", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 384}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-17", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 385}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-18", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 386}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-19", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 387}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-20", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 388}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-21", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 389}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-22", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 390}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-23", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 391}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-04-24", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 392}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-25", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 393}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-26", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 394}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-27", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 395}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-28", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 396}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-29", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 397}, {"fields": {"doctor": 8, "night_to": "19:00:00", "night_from": "16:00:00", "day_shift": true, "night_shift": true, "date": "2016-04-30", "day_from": "09:00:00", "day_to": "14:00:00", "duration": 15}, "model": "utils.appointmentschedule", "pk": 398}, {"fields": {"doctor": 8, "night_to": null, "night_from": null, "day_shift": false, "night_shift": false, "date": "2016-05-01", "day_from": null, "day_to": null, "duration": 15}, "model": "utils.appointmentschedule", "pk": 399}, {"fields": {"timezone": 38, "responsibility": 1, "user": 5}, "model": "utils.supportuser", "pk": 1}, {"fields": {"case": 25, "message": 1}, "model": "utils.casemessage", "pk": 1}, {"fields": {"case": 35, "message": 4}, "model": "utils.casemessage", "pk": 3}, {"fields": {"case": 98, "message": 5}, "model": "utils.casemessage", "pk": 4}, {"fields": {"case": 35, "message": 9}, "model": "utils.casemessage", "pk": 5}, {"fields": {"customer": 32434198, "user": 28}, "model": "utils.customeruser", "pk": 20}, {"fields": {"customer": 66972805, "user": 29}, "model": "utils.customeruser", "pk": 21}, {"fields": {"customer": 65878127, "user": 30}, "model": "utils.customeruser", "pk": 22}, {"fields": {"customer": 33150010, "user": 31}, "model": "utils.customeruser", "pk": 23}, {"fields": {"customer": 28452277, "user": 32}, "model": "utils.customeruser", "pk": 24}, {"fields": {"customer": 80279107, "user": 33}, "model": "utils.customeruser", "pk": 25}, {"fields": {"customer": 23593830, "user": 53}, "model": "utils.customeruser", "pk": 43}, {"fields": {"customer": 29695518, "user": 54}, "model": "utils.customeruser", "pk": 44}, {"fields": {"customer": 68618655, "user": 55}, "model": "utils.customeruser", "pk": 45}, {"fields": {"customer": 14897730, "user": 56}, "model": "utils.customeruser", "pk": 46}, {"fields": {"customer": 87233510, "user": 57}, "model": "utils.customeruser", "pk": 47}, {"fields": {"customer": 80207062, "user": 58}, "model": "utils.customeruser", "pk": 48}, {"fields": {"customer": 34601640, "user": 59}, "model": "utils.customeruser", "pk": 49}, {"fields": {"customer": 51037190, "user": 60}, "model": "utils.customeruser", "pk": 50}, {"fields": {"customer": 17488742, "user": 61}, "model": "utils.customeruser", "pk": 51}]
+[
+  {
+    "fields": {
+      "name": "Madrid"
+    },
+    "model": "utils.city",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Miami"
+    },
+    "model": "utils.city",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "Buenas Aires"
+    },
+    "model": "utils.city",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "Mexico"
+    },
+    "model": "utils.city",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "America/Adak"
+    },
+    "model": "utils.timezone",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "America/Anchorage"
+    },
+    "model": "utils.timezone",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "America/Anguilla"
+    },
+    "model": "utils.timezone",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "America/Antigua"
+    },
+    "model": "utils.timezone",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "America/Araguaina"
+    },
+    "model": "utils.timezone",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Buenos_Aires"
+    },
+    "model": "utils.timezone",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Catamarca"
+    },
+    "model": "utils.timezone",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/ComodRivadavia"
+    },
+    "model": "utils.timezone",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Cordoba"
+    },
+    "model": "utils.timezone",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Jujuy"
+    },
+    "model": "utils.timezone",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/La_Rioja"
+    },
+    "model": "utils.timezone",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Mendoza"
+    },
+    "model": "utils.timezone",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Rio_Gallegos"
+    },
+    "model": "utils.timezone",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Salta"
+    },
+    "model": "utils.timezone",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/San_Juan"
+    },
+    "model": "utils.timezone",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/San_Luis"
+    },
+    "model": "utils.timezone",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Tucuman"
+    },
+    "model": "utils.timezone",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "name": "America/Argentina/Ushuaia"
+    },
+    "model": "utils.timezone",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "name": "America/Aruba"
+    },
+    "model": "utils.timezone",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "name": "America/Asuncion"
+    },
+    "model": "utils.timezone",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "name": "America/Atikokan"
+    },
+    "model": "utils.timezone",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "name": "America/Atka"
+    },
+    "model": "utils.timezone",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "name": "America/Bahia"
+    },
+    "model": "utils.timezone",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "name": "America/Bahia_Banderas"
+    },
+    "model": "utils.timezone",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "name": "America/Barbados"
+    },
+    "model": "utils.timezone",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "name": "America/Belem"
+    },
+    "model": "utils.timezone",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "name": "America/Belize"
+    },
+    "model": "utils.timezone",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "name": "America/Blanc-Sablon"
+    },
+    "model": "utils.timezone",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "name": "America/Boa_Vista"
+    },
+    "model": "utils.timezone",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "name": "America/Bogota"
+    },
+    "model": "utils.timezone",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "name": "America/Boise"
+    },
+    "model": "utils.timezone",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "name": "America/Buenos_Aires"
+    },
+    "model": "utils.timezone",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "name": "America/Cambridge_Bay"
+    },
+    "model": "utils.timezone",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "name": "America/Campo_Grande"
+    },
+    "model": "utils.timezone",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "name": "America/Cancun"
+    },
+    "model": "utils.timezone",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "name": "America/Caracas"
+    },
+    "model": "utils.timezone",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "name": "America/Catamarca"
+    },
+    "model": "utils.timezone",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "name": "America/Cayenne"
+    },
+    "model": "utils.timezone",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "name": "America/Cayman"
+    },
+    "model": "utils.timezone",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "name": "America/Chicago"
+    },
+    "model": "utils.timezone",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "name": "America/Chihuahua"
+    },
+    "model": "utils.timezone",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "name": "America/Coral_Harbour"
+    },
+    "model": "utils.timezone",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "name": "America/Cordoba"
+    },
+    "model": "utils.timezone",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "name": "America/Costa_Rica"
+    },
+    "model": "utils.timezone",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "name": "America/Creston"
+    },
+    "model": "utils.timezone",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "name": "America/Cuiaba"
+    },
+    "model": "utils.timezone",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "name": "America/Curacao"
+    },
+    "model": "utils.timezone",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "name": "America/Danmarkshavn"
+    },
+    "model": "utils.timezone",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "name": "America/Dawson"
+    },
+    "model": "utils.timezone",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "name": "America/Dawson_Creek"
+    },
+    "model": "utils.timezone",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "name": "America/Denver"
+    },
+    "model": "utils.timezone",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "name": "America/Detroit"
+    },
+    "model": "utils.timezone",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "name": "America/Dominica"
+    },
+    "model": "utils.timezone",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "name": "America/Edmonton"
+    },
+    "model": "utils.timezone",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "name": "America/Eirunepe"
+    },
+    "model": "utils.timezone",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "name": "America/El_Salvador"
+    },
+    "model": "utils.timezone",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "name": "America/Ensenada"
+    },
+    "model": "utils.timezone",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "name": "America/Fort_Wayne"
+    },
+    "model": "utils.timezone",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "name": "America/Fortaleza"
+    },
+    "model": "utils.timezone",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "name": "America/Glace_Bay"
+    },
+    "model": "utils.timezone",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "name": "America/Godthab"
+    },
+    "model": "utils.timezone",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "name": "America/Goose_Bay"
+    },
+    "model": "utils.timezone",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "name": "America/Grand_Turk"
+    },
+    "model": "utils.timezone",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "name": "America/Grenada"
+    },
+    "model": "utils.timezone",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "name": "America/Guadeloupe"
+    },
+    "model": "utils.timezone",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "name": "America/Guatemala"
+    },
+    "model": "utils.timezone",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "name": "America/Guayaquil"
+    },
+    "model": "utils.timezone",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "name": "America/Guyana"
+    },
+    "model": "utils.timezone",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "name": "America/Halifax"
+    },
+    "model": "utils.timezone",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "name": "America/Havana"
+    },
+    "model": "utils.timezone",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "name": "America/Hermosillo"
+    },
+    "model": "utils.timezone",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Indianapolis"
+    },
+    "model": "utils.timezone",
+    "pk": 72
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Knox"
+    },
+    "model": "utils.timezone",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Marengo"
+    },
+    "model": "utils.timezone",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Petersburg"
+    },
+    "model": "utils.timezone",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Tell_City"
+    },
+    "model": "utils.timezone",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Vevay"
+    },
+    "model": "utils.timezone",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Vincennes"
+    },
+    "model": "utils.timezone",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "name": "America/Indiana/Winamac"
+    },
+    "model": "utils.timezone",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "name": "America/Indianapolis"
+    },
+    "model": "utils.timezone",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "name": "America/Inuvik"
+    },
+    "model": "utils.timezone",
+    "pk": 81
+  },
+  {
+    "fields": {
+      "name": "America/Iqaluit"
+    },
+    "model": "utils.timezone",
+    "pk": 82
+  },
+  {
+    "fields": {
+      "name": "America/Jamaica"
+    },
+    "model": "utils.timezone",
+    "pk": 83
+  },
+  {
+    "fields": {
+      "name": "America/Jujuy"
+    },
+    "model": "utils.timezone",
+    "pk": 84
+  },
+  {
+    "fields": {
+      "name": "America/Juneau"
+    },
+    "model": "utils.timezone",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "name": "America/Kentucky/Louisville"
+    },
+    "model": "utils.timezone",
+    "pk": 86
+  },
+  {
+    "fields": {
+      "name": "America/Kentucky/Monticello"
+    },
+    "model": "utils.timezone",
+    "pk": 87
+  },
+  {
+    "fields": {
+      "name": "America/Knox_IN"
+    },
+    "model": "utils.timezone",
+    "pk": 88
+  },
+  {
+    "fields": {
+      "name": "America/Kralendijk"
+    },
+    "model": "utils.timezone",
+    "pk": 89
+  },
+  {
+    "fields": {
+      "name": "America/La_Paz"
+    },
+    "model": "utils.timezone",
+    "pk": 90
+  },
+  {
+    "fields": {
+      "name": "America/Lima"
+    },
+    "model": "utils.timezone",
+    "pk": 91
+  },
+  {
+    "fields": {
+      "name": "America/Los_Angeles"
+    },
+    "model": "utils.timezone",
+    "pk": 92
+  },
+  {
+    "fields": {
+      "name": "America/Louisville"
+    },
+    "model": "utils.timezone",
+    "pk": 93
+  },
+  {
+    "fields": {
+      "name": "America/Lower_Princes"
+    },
+    "model": "utils.timezone",
+    "pk": 94
+  },
+  {
+    "fields": {
+      "name": "America/Maceio"
+    },
+    "model": "utils.timezone",
+    "pk": 95
+  },
+  {
+    "fields": {
+      "name": "America/Managua"
+    },
+    "model": "utils.timezone",
+    "pk": 96
+  },
+  {
+    "fields": {
+      "name": "America/Manaus"
+    },
+    "model": "utils.timezone",
+    "pk": 97
+  },
+  {
+    "fields": {
+      "name": "America/Marigot"
+    },
+    "model": "utils.timezone",
+    "pk": 98
+  },
+  {
+    "fields": {
+      "name": "America/Martinique"
+    },
+    "model": "utils.timezone",
+    "pk": 99
+  },
+  {
+    "fields": {
+      "name": "America/Matamoros"
+    },
+    "model": "utils.timezone",
+    "pk": 100
+  },
+  {
+    "fields": {
+      "name": "America/Mazatlan"
+    },
+    "model": "utils.timezone",
+    "pk": 101
+  },
+  {
+    "fields": {
+      "name": "America/Mendoza"
+    },
+    "model": "utils.timezone",
+    "pk": 102
+  },
+  {
+    "fields": {
+      "name": "America/Menominee"
+    },
+    "model": "utils.timezone",
+    "pk": 103
+  },
+  {
+    "fields": {
+      "name": "America/Merida"
+    },
+    "model": "utils.timezone",
+    "pk": 104
+  },
+  {
+    "fields": {
+      "name": "America/Metlakatla"
+    },
+    "model": "utils.timezone",
+    "pk": 105
+  },
+  {
+    "fields": {
+      "name": "America/Mexico_City"
+    },
+    "model": "utils.timezone",
+    "pk": 106
+  },
+  {
+    "fields": {
+      "name": "America/Miquelon"
+    },
+    "model": "utils.timezone",
+    "pk": 107
+  },
+  {
+    "fields": {
+      "name": "America/Moncton"
+    },
+    "model": "utils.timezone",
+    "pk": 108
+  },
+  {
+    "fields": {
+      "name": "America/Monterrey"
+    },
+    "model": "utils.timezone",
+    "pk": 109
+  },
+  {
+    "fields": {
+      "name": "America/Montevideo"
+    },
+    "model": "utils.timezone",
+    "pk": 110
+  },
+  {
+    "fields": {
+      "name": "America/Montreal"
+    },
+    "model": "utils.timezone",
+    "pk": 111
+  },
+  {
+    "fields": {
+      "name": "America/Montserrat"
+    },
+    "model": "utils.timezone",
+    "pk": 112
+  },
+  {
+    "fields": {
+      "name": "America/Nassau"
+    },
+    "model": "utils.timezone",
+    "pk": 113
+  },
+  {
+    "fields": {
+      "name": "America/New_York"
+    },
+    "model": "utils.timezone",
+    "pk": 114
+  },
+  {
+    "fields": {
+      "name": "America/Nipigon"
+    },
+    "model": "utils.timezone",
+    "pk": 115
+  },
+  {
+    "fields": {
+      "name": "America/Nome"
+    },
+    "model": "utils.timezone",
+    "pk": 116
+  },
+  {
+    "fields": {
+      "name": "America/Noronha"
+    },
+    "model": "utils.timezone",
+    "pk": 117
+  },
+  {
+    "fields": {
+      "name": "America/North_Dakota/Beulah"
+    },
+    "model": "utils.timezone",
+    "pk": 118
+  },
+  {
+    "fields": {
+      "name": "America/North_Dakota/Center"
+    },
+    "model": "utils.timezone",
+    "pk": 119
+  },
+  {
+    "fields": {
+      "name": "America/North_Dakota/New_Salem"
+    },
+    "model": "utils.timezone",
+    "pk": 120
+  },
+  {
+    "fields": {
+      "name": "America/Ojinaga"
+    },
+    "model": "utils.timezone",
+    "pk": 121
+  },
+  {
+    "fields": {
+      "name": "America/Panama"
+    },
+    "model": "utils.timezone",
+    "pk": 122
+  },
+  {
+    "fields": {
+      "name": "America/Pangnirtung"
+    },
+    "model": "utils.timezone",
+    "pk": 123
+  },
+  {
+    "fields": {
+      "name": "America/Paramaribo"
+    },
+    "model": "utils.timezone",
+    "pk": 124
+  },
+  {
+    "fields": {
+      "name": "America/Phoenix"
+    },
+    "model": "utils.timezone",
+    "pk": 125
+  },
+  {
+    "fields": {
+      "name": "America/Port-au-Prince"
+    },
+    "model": "utils.timezone",
+    "pk": 126
+  },
+  {
+    "fields": {
+      "name": "America/Port_of_Spain"
+    },
+    "model": "utils.timezone",
+    "pk": 127
+  },
+  {
+    "fields": {
+      "name": "America/Porto_Acre"
+    },
+    "model": "utils.timezone",
+    "pk": 128
+  },
+  {
+    "fields": {
+      "name": "America/Porto_Velho"
+    },
+    "model": "utils.timezone",
+    "pk": 129
+  },
+  {
+    "fields": {
+      "name": "America/Puerto_Rico"
+    },
+    "model": "utils.timezone",
+    "pk": 130
+  },
+  {
+    "fields": {
+      "name": "America/Rainy_River"
+    },
+    "model": "utils.timezone",
+    "pk": 131
+  },
+  {
+    "fields": {
+      "name": "America/Rankin_Inlet"
+    },
+    "model": "utils.timezone",
+    "pk": 132
+  },
+  {
+    "fields": {
+      "name": "America/Recife"
+    },
+    "model": "utils.timezone",
+    "pk": 133
+  },
+  {
+    "fields": {
+      "name": "America/Regina"
+    },
+    "model": "utils.timezone",
+    "pk": 134
+  },
+  {
+    "fields": {
+      "name": "America/Resolute"
+    },
+    "model": "utils.timezone",
+    "pk": 135
+  },
+  {
+    "fields": {
+      "name": "America/Rio_Branco"
+    },
+    "model": "utils.timezone",
+    "pk": 136
+  },
+  {
+    "fields": {
+      "name": "America/Rosario"
+    },
+    "model": "utils.timezone",
+    "pk": 137
+  },
+  {
+    "fields": {
+      "name": "America/Santa_Isabel"
+    },
+    "model": "utils.timezone",
+    "pk": 138
+  },
+  {
+    "fields": {
+      "name": "America/Santarem"
+    },
+    "model": "utils.timezone",
+    "pk": 139
+  },
+  {
+    "fields": {
+      "name": "America/Santiago"
+    },
+    "model": "utils.timezone",
+    "pk": 140
+  },
+  {
+    "fields": {
+      "name": "America/Santo_Domingo"
+    },
+    "model": "utils.timezone",
+    "pk": 141
+  },
+  {
+    "fields": {
+      "name": "America/Sao_Paulo"
+    },
+    "model": "utils.timezone",
+    "pk": 142
+  },
+  {
+    "fields": {
+      "name": "America/Scoresbysund"
+    },
+    "model": "utils.timezone",
+    "pk": 143
+  },
+  {
+    "fields": {
+      "name": "America/Shiprock"
+    },
+    "model": "utils.timezone",
+    "pk": 144
+  },
+  {
+    "fields": {
+      "name": "America/Sitka"
+    },
+    "model": "utils.timezone",
+    "pk": 145
+  },
+  {
+    "fields": {
+      "name": "America/St_Barthelemy"
+    },
+    "model": "utils.timezone",
+    "pk": 146
+  },
+  {
+    "fields": {
+      "name": "America/St_Johns"
+    },
+    "model": "utils.timezone",
+    "pk": 147
+  },
+  {
+    "fields": {
+      "name": "America/St_Kitts"
+    },
+    "model": "utils.timezone",
+    "pk": 148
+  },
+  {
+    "fields": {
+      "name": "America/St_Lucia"
+    },
+    "model": "utils.timezone",
+    "pk": 149
+  },
+  {
+    "fields": {
+      "name": "America/St_Thomas"
+    },
+    "model": "utils.timezone",
+    "pk": 150
+  },
+  {
+    "fields": {
+      "name": "America/St_Vincent"
+    },
+    "model": "utils.timezone",
+    "pk": 151
+  },
+  {
+    "fields": {
+      "name": "America/Swift_Current"
+    },
+    "model": "utils.timezone",
+    "pk": 152
+  },
+  {
+    "fields": {
+      "name": "America/Tegucigalpa"
+    },
+    "model": "utils.timezone",
+    "pk": 153
+  },
+  {
+    "fields": {
+      "name": "America/Thule"
+    },
+    "model": "utils.timezone",
+    "pk": 154
+  },
+  {
+    "fields": {
+      "name": "America/Thunder_Bay"
+    },
+    "model": "utils.timezone",
+    "pk": 155
+  },
+  {
+    "fields": {
+      "name": "America/Tijuana"
+    },
+    "model": "utils.timezone",
+    "pk": 156
+  },
+  {
+    "fields": {
+      "name": "America/Toronto"
+    },
+    "model": "utils.timezone",
+    "pk": 157
+  },
+  {
+    "fields": {
+      "name": "America/Tortola"
+    },
+    "model": "utils.timezone",
+    "pk": 158
+  },
+  {
+    "fields": {
+      "name": "America/Vancouver"
+    },
+    "model": "utils.timezone",
+    "pk": 159
+  },
+  {
+    "fields": {
+      "name": "America/Virgin"
+    },
+    "model": "utils.timezone",
+    "pk": 160
+  },
+  {
+    "fields": {
+      "name": "America/Whitehorse"
+    },
+    "model": "utils.timezone",
+    "pk": 161
+  },
+  {
+    "fields": {
+      "name": "America/Winnipeg"
+    },
+    "model": "utils.timezone",
+    "pk": 162
+  },
+  {
+    "fields": {
+      "name": "America/Yakutat"
+    },
+    "model": "utils.timezone",
+    "pk": 163
+  },
+  {
+    "fields": {
+      "name": "America/Yellowknife"
+    },
+    "model": "utils.timezone",
+    "pk": 164
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Azores"
+    },
+    "model": "utils.timezone",
+    "pk": 165
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Bermuda"
+    },
+    "model": "utils.timezone",
+    "pk": 166
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Canary"
+    },
+    "model": "utils.timezone",
+    "pk": 167
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Cape_Verde"
+    },
+    "model": "utils.timezone",
+    "pk": 168
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Faeroe"
+    },
+    "model": "utils.timezone",
+    "pk": 169
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Faroe"
+    },
+    "model": "utils.timezone",
+    "pk": 170
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Jan_Mayen"
+    },
+    "model": "utils.timezone",
+    "pk": 171
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Madeira"
+    },
+    "model": "utils.timezone",
+    "pk": 172
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Reykjavik"
+    },
+    "model": "utils.timezone",
+    "pk": 173
+  },
+  {
+    "fields": {
+      "name": "Atlantic/South_Georgia"
+    },
+    "model": "utils.timezone",
+    "pk": 174
+  },
+  {
+    "fields": {
+      "name": "Atlantic/St_Helena"
+    },
+    "model": "utils.timezone",
+    "pk": 175
+  },
+  {
+    "fields": {
+      "name": "Atlantic/Stanley"
+    },
+    "model": "utils.timezone",
+    "pk": 176
+  },
+  {
+    "fields": {
+      "name": "Canada/Atlantic"
+    },
+    "model": "utils.timezone",
+    "pk": 177
+  },
+  {
+    "fields": {
+      "name": "Canada/Central"
+    },
+    "model": "utils.timezone",
+    "pk": 178
+  },
+  {
+    "fields": {
+      "name": "Canada/East-Saskatchewan"
+    },
+    "model": "utils.timezone",
+    "pk": 179
+  },
+  {
+    "fields": {
+      "name": "Canada/Eastern"
+    },
+    "model": "utils.timezone",
+    "pk": 180
+  },
+  {
+    "fields": {
+      "name": "Canada/Mountain"
+    },
+    "model": "utils.timezone",
+    "pk": 181
+  },
+  {
+    "fields": {
+      "name": "Canada/Newfoundland"
+    },
+    "model": "utils.timezone",
+    "pk": 182
+  },
+  {
+    "fields": {
+      "name": "Canada/Pacific"
+    },
+    "model": "utils.timezone",
+    "pk": 183
+  },
+  {
+    "fields": {
+      "name": "Canada/Saskatchewan"
+    },
+    "model": "utils.timezone",
+    "pk": 184
+  },
+  {
+    "fields": {
+      "name": "Canada/Yukon"
+    },
+    "model": "utils.timezone",
+    "pk": 185
+  },
+  {
+    "fields": {
+      "name": "Europe/Amsterdam"
+    },
+    "model": "utils.timezone",
+    "pk": 186
+  },
+  {
+    "fields": {
+      "name": "Europe/Andorra"
+    },
+    "model": "utils.timezone",
+    "pk": 187
+  },
+  {
+    "fields": {
+      "name": "Europe/Athens"
+    },
+    "model": "utils.timezone",
+    "pk": 188
+  },
+  {
+    "fields": {
+      "name": "Europe/Belfast"
+    },
+    "model": "utils.timezone",
+    "pk": 189
+  },
+  {
+    "fields": {
+      "name": "Europe/Belgrade"
+    },
+    "model": "utils.timezone",
+    "pk": 190
+  },
+  {
+    "fields": {
+      "name": "Europe/Berlin"
+    },
+    "model": "utils.timezone",
+    "pk": 191
+  },
+  {
+    "fields": {
+      "name": "Europe/Bratislava"
+    },
+    "model": "utils.timezone",
+    "pk": 192
+  },
+  {
+    "fields": {
+      "name": "Europe/Brussels"
+    },
+    "model": "utils.timezone",
+    "pk": 193
+  },
+  {
+    "fields": {
+      "name": "Europe/Bucharest"
+    },
+    "model": "utils.timezone",
+    "pk": 194
+  },
+  {
+    "fields": {
+      "name": "Europe/Budapest"
+    },
+    "model": "utils.timezone",
+    "pk": 195
+  },
+  {
+    "fields": {
+      "name": "Europe/Busingen"
+    },
+    "model": "utils.timezone",
+    "pk": 196
+  },
+  {
+    "fields": {
+      "name": "Europe/Chisinau"
+    },
+    "model": "utils.timezone",
+    "pk": 197
+  },
+  {
+    "fields": {
+      "name": "Europe/Copenhagen"
+    },
+    "model": "utils.timezone",
+    "pk": 198
+  },
+  {
+    "fields": {
+      "name": "Europe/Dublin"
+    },
+    "model": "utils.timezone",
+    "pk": 199
+  },
+  {
+    "fields": {
+      "name": "Europe/Gibraltar"
+    },
+    "model": "utils.timezone",
+    "pk": 200
+  },
+  {
+    "fields": {
+      "name": "Europe/Guernsey"
+    },
+    "model": "utils.timezone",
+    "pk": 201
+  },
+  {
+    "fields": {
+      "name": "Europe/Helsinki"
+    },
+    "model": "utils.timezone",
+    "pk": 202
+  },
+  {
+    "fields": {
+      "name": "Europe/Isle_of_Man"
+    },
+    "model": "utils.timezone",
+    "pk": 203
+  },
+  {
+    "fields": {
+      "name": "Europe/Istanbul"
+    },
+    "model": "utils.timezone",
+    "pk": 204
+  },
+  {
+    "fields": {
+      "name": "Europe/Jersey"
+    },
+    "model": "utils.timezone",
+    "pk": 205
+  },
+  {
+    "fields": {
+      "name": "Europe/Kaliningrad"
+    },
+    "model": "utils.timezone",
+    "pk": 206
+  },
+  {
+    "fields": {
+      "name": "Europe/Kiev"
+    },
+    "model": "utils.timezone",
+    "pk": 207
+  },
+  {
+    "fields": {
+      "name": "Europe/Lisbon"
+    },
+    "model": "utils.timezone",
+    "pk": 208
+  },
+  {
+    "fields": {
+      "name": "Europe/Ljubljana"
+    },
+    "model": "utils.timezone",
+    "pk": 209
+  },
+  {
+    "fields": {
+      "name": "Europe/London"
+    },
+    "model": "utils.timezone",
+    "pk": 210
+  },
+  {
+    "fields": {
+      "name": "Europe/Luxembourg"
+    },
+    "model": "utils.timezone",
+    "pk": 211
+  },
+  {
+    "fields": {
+      "name": "Europe/Madrid"
+    },
+    "model": "utils.timezone",
+    "pk": 212
+  },
+  {
+    "fields": {
+      "name": "Europe/Malta"
+    },
+    "model": "utils.timezone",
+    "pk": 213
+  },
+  {
+    "fields": {
+      "name": "Europe/Mariehamn"
+    },
+    "model": "utils.timezone",
+    "pk": 214
+  },
+  {
+    "fields": {
+      "name": "Europe/Minsk"
+    },
+    "model": "utils.timezone",
+    "pk": 215
+  },
+  {
+    "fields": {
+      "name": "Europe/Monaco"
+    },
+    "model": "utils.timezone",
+    "pk": 216
+  },
+  {
+    "fields": {
+      "name": "Europe/Moscow"
+    },
+    "model": "utils.timezone",
+    "pk": 217
+  },
+  {
+    "fields": {
+      "name": "Europe/Nicosia"
+    },
+    "model": "utils.timezone",
+    "pk": 218
+  },
+  {
+    "fields": {
+      "name": "Europe/Oslo"
+    },
+    "model": "utils.timezone",
+    "pk": 219
+  },
+  {
+    "fields": {
+      "name": "Europe/Paris"
+    },
+    "model": "utils.timezone",
+    "pk": 220
+  },
+  {
+    "fields": {
+      "name": "Europe/Podgorica"
+    },
+    "model": "utils.timezone",
+    "pk": 221
+  },
+  {
+    "fields": {
+      "name": "Europe/Prague"
+    },
+    "model": "utils.timezone",
+    "pk": 222
+  },
+  {
+    "fields": {
+      "name": "Europe/Riga"
+    },
+    "model": "utils.timezone",
+    "pk": 223
+  },
+  {
+    "fields": {
+      "name": "Europe/Rome"
+    },
+    "model": "utils.timezone",
+    "pk": 224
+  },
+  {
+    "fields": {
+      "name": "Europe/Samara"
+    },
+    "model": "utils.timezone",
+    "pk": 225
+  },
+  {
+    "fields": {
+      "name": "Europe/San_Marino"
+    },
+    "model": "utils.timezone",
+    "pk": 226
+  },
+  {
+    "fields": {
+      "name": "Europe/Sarajevo"
+    },
+    "model": "utils.timezone",
+    "pk": 227
+  },
+  {
+    "fields": {
+      "name": "Europe/Simferopol"
+    },
+    "model": "utils.timezone",
+    "pk": 228
+  },
+  {
+    "fields": {
+      "name": "Europe/Skopje"
+    },
+    "model": "utils.timezone",
+    "pk": 229
+  },
+  {
+    "fields": {
+      "name": "Europe/Sofia"
+    },
+    "model": "utils.timezone",
+    "pk": 230
+  },
+  {
+    "fields": {
+      "name": "Europe/Stockholm"
+    },
+    "model": "utils.timezone",
+    "pk": 231
+  },
+  {
+    "fields": {
+      "name": "Europe/Tallinn"
+    },
+    "model": "utils.timezone",
+    "pk": 232
+  },
+  {
+    "fields": {
+      "name": "Europe/Tirane"
+    },
+    "model": "utils.timezone",
+    "pk": 233
+  },
+  {
+    "fields": {
+      "name": "Europe/Tiraspol"
+    },
+    "model": "utils.timezone",
+    "pk": 234
+  },
+  {
+    "fields": {
+      "name": "Europe/Uzhgorod"
+    },
+    "model": "utils.timezone",
+    "pk": 235
+  },
+  {
+    "fields": {
+      "name": "Europe/Vaduz"
+    },
+    "model": "utils.timezone",
+    "pk": 236
+  },
+  {
+    "fields": {
+      "name": "Europe/Vatican"
+    },
+    "model": "utils.timezone",
+    "pk": 237
+  },
+  {
+    "fields": {
+      "name": "Europe/Vienna"
+    },
+    "model": "utils.timezone",
+    "pk": 238
+  },
+  {
+    "fields": {
+      "name": "Europe/Vilnius"
+    },
+    "model": "utils.timezone",
+    "pk": 239
+  },
+  {
+    "fields": {
+      "name": "Europe/Volgograd"
+    },
+    "model": "utils.timezone",
+    "pk": 240
+  },
+  {
+    "fields": {
+      "name": "Europe/Warsaw"
+    },
+    "model": "utils.timezone",
+    "pk": 241
+  },
+  {
+    "fields": {
+      "name": "Europe/Zagreb"
+    },
+    "model": "utils.timezone",
+    "pk": 242
+  },
+  {
+    "fields": {
+      "name": "Europe/Zaporozhye"
+    },
+    "model": "utils.timezone",
+    "pk": 243
+  },
+  {
+    "fields": {
+      "name": "Europe/Zurich"
+    },
+    "model": "utils.timezone",
+    "pk": 244
+  },
+  {
+    "fields": {
+      "name": "Pacific/Apia"
+    },
+    "model": "utils.timezone",
+    "pk": 245
+  },
+  {
+    "fields": {
+      "name": "Pacific/Auckland"
+    },
+    "model": "utils.timezone",
+    "pk": 246
+  },
+  {
+    "fields": {
+      "name": "Pacific/Bougainville"
+    },
+    "model": "utils.timezone",
+    "pk": 247
+  },
+  {
+    "fields": {
+      "name": "Pacific/Chatham"
+    },
+    "model": "utils.timezone",
+    "pk": 248
+  },
+  {
+    "fields": {
+      "name": "Pacific/Chuuk"
+    },
+    "model": "utils.timezone",
+    "pk": 249
+  },
+  {
+    "fields": {
+      "name": "Pacific/Easter"
+    },
+    "model": "utils.timezone",
+    "pk": 250
+  },
+  {
+    "fields": {
+      "name": "Pacific/Efate"
+    },
+    "model": "utils.timezone",
+    "pk": 251
+  },
+  {
+    "fields": {
+      "name": "Pacific/Enderbury"
+    },
+    "model": "utils.timezone",
+    "pk": 252
+  },
+  {
+    "fields": {
+      "name": "Pacific/Fakaofo"
+    },
+    "model": "utils.timezone",
+    "pk": 253
+  },
+  {
+    "fields": {
+      "name": "Pacific/Fiji"
+    },
+    "model": "utils.timezone",
+    "pk": 254
+  },
+  {
+    "fields": {
+      "name": "Pacific/Funafuti"
+    },
+    "model": "utils.timezone",
+    "pk": 255
+  },
+  {
+    "fields": {
+      "name": "Pacific/Galapagos"
+    },
+    "model": "utils.timezone",
+    "pk": 256
+  },
+  {
+    "fields": {
+      "name": "Pacific/Gambier"
+    },
+    "model": "utils.timezone",
+    "pk": 257
+  },
+  {
+    "fields": {
+      "name": "Pacific/Guadalcanal"
+    },
+    "model": "utils.timezone",
+    "pk": 258
+  },
+  {
+    "fields": {
+      "name": "Pacific/Guam"
+    },
+    "model": "utils.timezone",
+    "pk": 259
+  },
+  {
+    "fields": {
+      "name": "Pacific/Honolulu"
+    },
+    "model": "utils.timezone",
+    "pk": 260
+  },
+  {
+    "fields": {
+      "name": "Pacific/Johnston"
+    },
+    "model": "utils.timezone",
+    "pk": 261
+  },
+  {
+    "fields": {
+      "name": "Pacific/Kiritimati"
+    },
+    "model": "utils.timezone",
+    "pk": 262
+  },
+  {
+    "fields": {
+      "name": "Pacific/Kosrae"
+    },
+    "model": "utils.timezone",
+    "pk": 263
+  },
+  {
+    "fields": {
+      "name": "Pacific/Kwajalein"
+    },
+    "model": "utils.timezone",
+    "pk": 264
+  },
+  {
+    "fields": {
+      "name": "Pacific/Majuro"
+    },
+    "model": "utils.timezone",
+    "pk": 265
+  },
+  {
+    "fields": {
+      "name": "Pacific/Marquesas"
+    },
+    "model": "utils.timezone",
+    "pk": 266
+  },
+  {
+    "fields": {
+      "name": "Pacific/Midway"
+    },
+    "model": "utils.timezone",
+    "pk": 267
+  },
+  {
+    "fields": {
+      "name": "Pacific/Nauru"
+    },
+    "model": "utils.timezone",
+    "pk": 268
+  },
+  {
+    "fields": {
+      "name": "Pacific/Niue"
+    },
+    "model": "utils.timezone",
+    "pk": 269
+  },
+  {
+    "fields": {
+      "name": "Pacific/Norfolk"
+    },
+    "model": "utils.timezone",
+    "pk": 270
+  },
+  {
+    "fields": {
+      "name": "Pacific/Noumea"
+    },
+    "model": "utils.timezone",
+    "pk": 271
+  },
+  {
+    "fields": {
+      "name": "Pacific/Pago_Pago"
+    },
+    "model": "utils.timezone",
+    "pk": 272
+  },
+  {
+    "fields": {
+      "name": "Pacific/Palau"
+    },
+    "model": "utils.timezone",
+    "pk": 273
+  },
+  {
+    "fields": {
+      "name": "Pacific/Pitcairn"
+    },
+    "model": "utils.timezone",
+    "pk": 274
+  },
+  {
+    "fields": {
+      "name": "Pacific/Pohnpei"
+    },
+    "model": "utils.timezone",
+    "pk": 275
+  },
+  {
+    "fields": {
+      "name": "Pacific/Ponape"
+    },
+    "model": "utils.timezone",
+    "pk": 276
+  },
+  {
+    "fields": {
+      "name": "Pacific/Port_Moresby"
+    },
+    "model": "utils.timezone",
+    "pk": 277
+  },
+  {
+    "fields": {
+      "name": "Pacific/Rarotonga"
+    },
+    "model": "utils.timezone",
+    "pk": 278
+  },
+  {
+    "fields": {
+      "name": "Pacific/Saipan"
+    },
+    "model": "utils.timezone",
+    "pk": 279
+  },
+  {
+    "fields": {
+      "name": "Pacific/Samoa"
+    },
+    "model": "utils.timezone",
+    "pk": 280
+  },
+  {
+    "fields": {
+      "name": "Pacific/Tahiti"
+    },
+    "model": "utils.timezone",
+    "pk": 281
+  },
+  {
+    "fields": {
+      "name": "Pacific/Tarawa"
+    },
+    "model": "utils.timezone",
+    "pk": 282
+  },
+  {
+    "fields": {
+      "name": "Pacific/Tongatapu"
+    },
+    "model": "utils.timezone",
+    "pk": 283
+  },
+  {
+    "fields": {
+      "name": "Pacific/Truk"
+    },
+    "model": "utils.timezone",
+    "pk": 284
+  },
+  {
+    "fields": {
+      "name": "Pacific/Wake"
+    },
+    "model": "utils.timezone",
+    "pk": 285
+  },
+  {
+    "fields": {
+      "name": "Pacific/Wallis"
+    },
+    "model": "utils.timezone",
+    "pk": 286
+  },
+  {
+    "fields": {
+      "name": "Pacific/Yap"
+    },
+    "model": "utils.timezone",
+    "pk": 287
+  },
+  {
+    "fields": {
+      "name": "US/Alaska"
+    },
+    "model": "utils.timezone",
+    "pk": 288
+  },
+  {
+    "fields": {
+      "name": "US/Aleutian"
+    },
+    "model": "utils.timezone",
+    "pk": 289
+  },
+  {
+    "fields": {
+      "name": "US/Arizona"
+    },
+    "model": "utils.timezone",
+    "pk": 290
+  },
+  {
+    "fields": {
+      "name": "US/Central"
+    },
+    "model": "utils.timezone",
+    "pk": 291
+  },
+  {
+    "fields": {
+      "name": "US/East-Indiana"
+    },
+    "model": "utils.timezone",
+    "pk": 292
+  },
+  {
+    "fields": {
+      "name": "US/Eastern"
+    },
+    "model": "utils.timezone",
+    "pk": 293
+  },
+  {
+    "fields": {
+      "name": "US/Hawaii"
+    },
+    "model": "utils.timezone",
+    "pk": 294
+  },
+  {
+    "fields": {
+      "name": "US/Indiana-Starke"
+    },
+    "model": "utils.timezone",
+    "pk": 295
+  },
+  {
+    "fields": {
+      "name": "US/Michigan"
+    },
+    "model": "utils.timezone",
+    "pk": 296
+  },
+  {
+    "fields": {
+      "name": "US/Mountain"
+    },
+    "model": "utils.timezone",
+    "pk": 297
+  },
+  {
+    "fields": {
+      "name": "US/Pacific"
+    },
+    "model": "utils.timezone",
+    "pk": 298
+  },
+  {
+    "fields": {
+      "name": "US/Pacific-New"
+    },
+    "model": "utils.timezone",
+    "pk": 299
+  },
+  {
+    "fields": {
+      "name": "US/Samoa"
+    },
+    "model": "utils.timezone",
+    "pk": 300
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT"
+    },
+    "model": "utils.timezone",
+    "pk": 301
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+0"
+    },
+    "model": "utils.timezone",
+    "pk": 302
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+1"
+    },
+    "model": "utils.timezone",
+    "pk": 303
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+10"
+    },
+    "model": "utils.timezone",
+    "pk": 304
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+11"
+    },
+    "model": "utils.timezone",
+    "pk": 305
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+12"
+    },
+    "model": "utils.timezone",
+    "pk": 306
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+2"
+    },
+    "model": "utils.timezone",
+    "pk": 307
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+3"
+    },
+    "model": "utils.timezone",
+    "pk": 308
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+4"
+    },
+    "model": "utils.timezone",
+    "pk": 309
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+5"
+    },
+    "model": "utils.timezone",
+    "pk": 310
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+6"
+    },
+    "model": "utils.timezone",
+    "pk": 311
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+7"
+    },
+    "model": "utils.timezone",
+    "pk": 312
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+8"
+    },
+    "model": "utils.timezone",
+    "pk": 313
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT+9"
+    },
+    "model": "utils.timezone",
+    "pk": 314
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-0"
+    },
+    "model": "utils.timezone",
+    "pk": 315
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-1"
+    },
+    "model": "utils.timezone",
+    "pk": 316
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-10"
+    },
+    "model": "utils.timezone",
+    "pk": 317
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-11"
+    },
+    "model": "utils.timezone",
+    "pk": 318
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-12"
+    },
+    "model": "utils.timezone",
+    "pk": 319
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-13"
+    },
+    "model": "utils.timezone",
+    "pk": 320
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-14"
+    },
+    "model": "utils.timezone",
+    "pk": 321
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-2"
+    },
+    "model": "utils.timezone",
+    "pk": 322
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-3"
+    },
+    "model": "utils.timezone",
+    "pk": 323
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-4"
+    },
+    "model": "utils.timezone",
+    "pk": 324
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-5"
+    },
+    "model": "utils.timezone",
+    "pk": 325
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-6"
+    },
+    "model": "utils.timezone",
+    "pk": 326
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-7"
+    },
+    "model": "utils.timezone",
+    "pk": 327
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-8"
+    },
+    "model": "utils.timezone",
+    "pk": 328
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT-9"
+    },
+    "model": "utils.timezone",
+    "pk": 329
+  },
+  {
+    "fields": {
+      "name": "Etc/GMT0"
+    },
+    "model": "utils.timezone",
+    "pk": 330
+  },
+  {
+    "fields": {
+      "name": "Etc/Greenwich"
+    },
+    "model": "utils.timezone",
+    "pk": 331
+  },
+  {
+    "fields": {
+      "name": "Etc/UCT"
+    },
+    "model": "utils.timezone",
+    "pk": 332
+  },
+  {
+    "fields": {
+      "name": "Etc/UTC"
+    },
+    "model": "utils.timezone",
+    "pk": 333
+  },
+  {
+    "fields": {
+      "name": "Etc/Universal"
+    },
+    "model": "utils.timezone",
+    "pk": 334
+  },
+  {
+    "fields": {
+      "name": "Etc/Zulu"
+    },
+    "model": "utils.timezone",
+    "pk": 335
+  },
+  {
+    "fields": {
+      "timezone": [
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300
+      ],
+      "name": "United State of America"
+    },
+    "model": "utils.country",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "timezone": [
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ],
+      "name": "Canada"
+    },
+    "model": "utils.country",
+    "pk": 2
+  },
+    {
+    "fields": {
+      "name": "Proctology"
+    },
+    "model": "utils.specialty",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Hepatology"
+    },
+    "model": "utils.specialty",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "Children's digestive"
+    },
+    "model": "utils.specialty",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "General surgery"
+    },
+    "model": "utils.specialty",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "Gastroenterology"
+    },
+    "model": "utils.specialty",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "name": "Radiology"
+    },
+    "model": "utils.specialty",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "name": "Obesity"
+    },
+    "model": "utils.specialty",
+    "pk": 7
+  },
+    {
+    "fields": {
+      "name": "IBD/Crohn's disease"
+    },
+    "model": "utils.specialty",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "name": "Colorectal"
+    },
+    "model": "utils.specialty",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "name": "English"
+    },
+    "model": "utils.language",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Spanish"
+    },
+    "model": "utils.language",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "signin"
+    },
+    "model": "utils.activitytype",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "signup"
+    },
+    "model": "utils.activitytype",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "appointment"
+    },
+    "model": "utils.activitytype",
+    "pk": 3
+  },
+
+  {
+    "fields": {
+      "timezone": 38,
+      "responsibility": 1,
+      "user": 5
+    },
+    "model": "utils.supportuser",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "customer": 32434198,
+      "user": 28
+    },
+    "model": "utils.customeruser",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "customer": 66972805,
+      "user": 29
+    },
+    "model": "utils.customeruser",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "customer": 65878127,
+      "user": 30
+    },
+    "model": "utils.customeruser",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "customer": 33150010,
+      "user": 31
+    },
+    "model": "utils.customeruser",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "customer": 28452277,
+      "user": 32
+    },
+    "model": "utils.customeruser",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "customer": 80279107,
+      "user": 33
+    },
+    "model": "utils.customeruser",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "customer": 23593830,
+      "user": 53
+    },
+    "model": "utils.customeruser",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "customer": 29695518,
+      "user": 54
+    },
+    "model": "utils.customeruser",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "customer": 68618655,
+      "user": 55
+    },
+    "model": "utils.customeruser",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "customer": 14897730,
+      "user": 56
+    },
+    "model": "utils.customeruser",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "customer": 87233510,
+      "user": 57
+    },
+    "model": "utils.customeruser",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "customer": 80207062,
+      "user": 58
+    },
+    "model": "utils.customeruser",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "customer": 34601640,
+      "user": 59
+    },
+    "model": "utils.customeruser",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "customer": 51037190,
+      "user": 60
+    },
+    "model": "utils.customeruser",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "customer": 17488742,
+      "user": 61
+    },
+    "model": "utils.customeruser",
+    "pk": 51
+  }
+]

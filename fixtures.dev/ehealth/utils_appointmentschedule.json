@@ -1,0 +1,3571 @@
+[{
+    "fields": {
+      "doctor": 3,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-21",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 162
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-22",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 163
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 164
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-24",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 165
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 166
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 167
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 168
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 169
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 170
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 171
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-31",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 172
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-01",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 173
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-02",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 174
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-03",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 175
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-04",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 176
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-05",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 177
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-06",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 178
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-07",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 179
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-08",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 180
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-09",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 181
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-10",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 182
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-11",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 183
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-12",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 184
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-13",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 185
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-14",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 186
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-15",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 187
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-16",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 188
+  },
+  {
+    "fields": {
+      "doctor": 3,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-17",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 189
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-21",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 190
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-22",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 191
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 192
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-24",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 193
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 194
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 195
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-27",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 196
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 197
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 198
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 199
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-31",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 200
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-01",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 201
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-02",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 202
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": true,
+      "night_shift": false,
+      "date": "2016-04-03",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 203
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-21",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 204
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-22",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 205
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 206
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-24",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 207
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 208
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 209
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": true,
+      "night_shift": false,
+      "date": "2016-03-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 210
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 211
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 212
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 213
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-31",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 214
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-01",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 215
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-02",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 216
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-03",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 217
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-21",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 218
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-22",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 219
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 220
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-24",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 221
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 222
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 223
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-27",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 224
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 225
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 226
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 227
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-31",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 228
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-01",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 229
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-02",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 230
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-03",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 231
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-21",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 232
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-22",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 233
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 234
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-24",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 235
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 236
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 237
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-27",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 238
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 239
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 240
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 241
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-31",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 242
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-01",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 243
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-02",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 244
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-03",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 245
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-21",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 246
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-22",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 247
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 248
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-24",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 249
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 250
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 251
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-03-27",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 252
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 253
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 254
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 255
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-03-31",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 256
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-01",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 257
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-02",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 258
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-03",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 259
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-04",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 260
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-05",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 261
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-06",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 262
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-07",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 263
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-08",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 264
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-09",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 265
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-10",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 266
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-11",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 267
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-12",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 268
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-13",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 269
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-14",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 270
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-15",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 271
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-16",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 272
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-17",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 273
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-18",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 274
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-19",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 275
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-20",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 276
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-21",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 277
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-22",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 278
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 279
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-24",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 280
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 281
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 282
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 283
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 284
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 285
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 286
+  },
+  {
+    "fields": {
+      "doctor": 4,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-05-01",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 287
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-04",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 288
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-05",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 289
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-06",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 290
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-07",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 291
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-08",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 292
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-09",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 293
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-10",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 294
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-11",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 295
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-12",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 296
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-13",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 297
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-14",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 298
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-15",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 299
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-16",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 300
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-17",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 301
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-18",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 302
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-19",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 303
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-20",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 304
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-21",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 305
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-22",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 306
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 307
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-24",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 308
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 309
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 310
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 311
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 312
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 313
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 314
+  },
+  {
+    "fields": {
+      "doctor": 5,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-05-01",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 315
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-04",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 316
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-05",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 317
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-06",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 318
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-07",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 319
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-08",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 320
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-09",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 321
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-10",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 322
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-11",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 323
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-12",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 324
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-13",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 325
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-14",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 326
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-15",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 327
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-16",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 328
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-17",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 329
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-18",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 330
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-19",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 331
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-20",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 332
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-21",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 333
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-22",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 334
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 335
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-24",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 336
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 337
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 338
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 339
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 340
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 341
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": "23:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 342
+  },
+  {
+    "fields": {
+      "doctor": 6,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-05-01",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 343
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-04",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 344
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-05",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 345
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-06",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 346
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-07",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 347
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-08",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 348
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-09",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 349
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-10",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 350
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-11",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 351
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-12",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 352
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-13",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 353
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-14",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 354
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-15",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 355
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-16",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 356
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-17",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 357
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-18",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 358
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-19",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 359
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-20",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 360
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-21",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 361
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-22",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 362
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 363
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-24",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 364
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 365
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 366
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 367
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 368
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 369
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 370
+  },
+  {
+    "fields": {
+      "doctor": 7,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-05-01",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 371
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-04",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 372
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-05",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 373
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-06",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 374
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-07",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 375
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-08",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 376
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-09",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 377
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-10",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 378
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-11",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 379
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-12",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 380
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-13",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 381
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-14",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 382
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-15",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 383
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-16",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 384
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-17",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 385
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-18",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 386
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-19",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 387
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-20",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 388
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-21",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 389
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-22",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 390
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-23",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 391
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-04-24",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 392
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-25",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 393
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-26",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 394
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-27",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 395
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-28",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 396
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-29",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 397
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": "19:00:00",
+      "night_from": "16:00:00",
+      "day_shift": true,
+      "night_shift": true,
+      "date": "2016-04-30",
+      "day_from": "09:00:00",
+      "day_to": "14:00:00",
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 398
+  },
+  {
+    "fields": {
+      "doctor": 8,
+      "night_to": null,
+      "night_from": null,
+      "day_shift": false,
+      "night_shift": false,
+      "date": "2016-05-01",
+      "day_from": null,
+      "day_to": null,
+      "duration": 15
+    },
+    "model": "utils.appointmentschedule",
+    "pk": 399
+  }
+]
