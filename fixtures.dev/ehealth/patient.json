@@ -255,7 +255,7 @@
     "fields": {
       "medications": true,
       "patient": 47,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -268,7 +268,7 @@
     "fields": {
       "medications": true,
       "patient": 46,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -281,7 +281,7 @@
     "fields": {
       "medications": true,
       "patient": 48,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -294,7 +294,7 @@
     "fields": {
       "medications": true,
       "patient": 54,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -307,7 +307,7 @@
     "fields": {
       "medications": true,
       "patient": 49,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -320,7 +320,7 @@
     "fields": {
       "medications": true,
       "patient": 50,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -333,7 +333,7 @@
     "fields": {
       "medications": true,
       "patient": 51,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -346,7 +346,7 @@
     "fields": {
       "medications": true,
       "patient": 53,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -359,7 +359,7 @@
     "fields": {
       "medications": true,
       "patient": 52,
-      "medications_info": "DRUGGGS",
+      "medications_info": "Vitamin B2, Vitamin D2, Tylenol PM",
       "surgeries_info": "",
       "health_conditions": false,
       "health_conditions_info": "",
@@ -2282,62 +2282,6 @@
     "fields": {
       "status": 1,
       "patient": 46,
-      "description": "asd",
-      "doctor": 3,
-      "opentok_session": "1_MX40NTUxNzA5Mn5-MTQ1ODY0MjA1NjYwNn51bzhiWUxGQlA1cTRXeitaejFqTUlPeHp-fg",
-      "problem": "asdasd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 25
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 46,
-      "description": "asdasd",
-      "doctor": 4,
-      "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODY0MjA3OTc1N35GYThqaUdDQzNRUlpTNGFhaUpQQ0RZV0l-fg",
-      "problem": "asd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 26
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 46,
-      "description": "asdas",
-      "doctor": 5,
-      "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODY0MjEwNzczMX54bTRWZHZWS1l4cFpNOWZjUG5tMU1BeFN-fg",
-      "problem": "asd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 27
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 46,
-      "description": "asdsad",
-      "doctor": 3,
-      "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODY0OTQxMzEwMX5uRXQ4NVJIem9RUmpjdlB2M0JVamlBMjZ-fg",
-      "problem": "asd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 28
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 46,
       "description": "Test Comment",
       "doctor": 3,
       "opentok_session": "1_MX40NTUxNzA5Mn5-MTQ1ODY1MzkwMzg2NH5Uc1V1UzdGL1BjdFloaTY4ZWRORUMrN25-fg",
@@ -2645,34 +2589,6 @@
   {
     "fields": {
       "status": 1,
-      "patient": 49,
-      "description": "asd",
-      "doctor": 3,
-      "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODY1OTEzODMyOX5QZGtVd1VjSDQybytyT2dMQ0JhVmlzLzR-fg",
-      "problem": "asd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 64
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 49,
-      "description": "asd",
-      "doctor": 3,
-      "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODY1OTIwNjc0OH43REhXckNTU1pqZW1aZ3BPWHl0ZFN6WVh-fg",
-      "problem": "asd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 66
-  },
-  {
-    "fields": {
-      "status": 1,
       "patient": 50,
       "description": "Test Comment",
       "doctor": 3,
@@ -2837,48 +2753,6 @@
     },
     "model": "patient.patientcase",
     "pk": 78
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 53,
-      "description": "asdasd",
-      "doctor": 3,
-      "opentok_session": "1_MX40NTUxNzA5Mn5-MTQ1ODY2Mjk2MzIzOX45clV1VktsVjJXZDBhb1Vvdkd1dGovYUR-fg",
-      "problem": "asdasd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 79
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 53,
-      "description": "\u0444\u044b\u0432",
-      "doctor": 3,
-      "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODcxNDcwMTkxOH43cUloS3lQMEpiRm5DZEpCN1VEdVJxaXZ-fg",
-      "problem": "\u0444\u044b\u0432",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 80
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 53,
-      "description": "dasd",
-      "doctor": 3,
-      "opentok_session": "1_MX40NTUxNzA5Mn5-MTQ1ODcxNDcyNTEyMn5LUkFRMytUTC8rRmVJaDd0UEl6YkZoZFp-fg",
-      "problem": "asASDadsasd",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 81
   },
   {
     "fields": {
@@ -11060,20 +10934,6 @@
     "fields": {
       "status": 1,
       "patient": 46,
-      "description": "\u0432\u0444\u044b",
-      "doctor": 8,
-      "opentok_session": "1_MX40NTUxNzA5Mn5-MTQ1ODg4OTc5NjczMX5zQWR5YkU1QnVnTHVXVFVLb3JMUzhETDZ-fg",
-      "problem": "\u0444\u044b",
-      "test_file_records": [],
-      "is_second_opinion": false
-    },
-    "model": "patient.patientcase",
-    "pk": 677
-  },
-  {
-    "fields": {
-      "status": 1,
-      "patient": 46,
       "description": "Test Comment 1",
       "doctor": 3,
       "opentok_session": "2_MX40NTUxNzA5Mn5-MTQ1ODg4OTkwMDkxNn5yOVFpYytoNzNHR2RURUJhVDdtRHVabWZ-fg",
@@ -11268,11 +11128,9 @@
   },
   {
     "fields": {
-      "case": [
-        79
-      ],
+      "case": [],
       "description": "descr",
-      "conclusions": "suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "",
@@ -11320,7 +11178,7 @@
         96
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11352,7 +11210,7 @@
         98
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11368,7 +11226,7 @@
         99
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_InJO9fo.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11416,7 +11274,7 @@
         102
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_q6BaobH.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11448,7 +11306,7 @@
         105
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_UZgW3Vk.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11464,7 +11322,7 @@
         106
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_Mrvyim5.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11480,7 +11338,7 @@
         107
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_yR7OCkc.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11544,7 +11402,7 @@
         111
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11560,7 +11418,7 @@
         112
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_mBIW1xv.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11576,7 +11434,7 @@
         113
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_MGRcYhj.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11592,7 +11450,7 @@
         114
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_rbvuWex.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11608,7 +11466,7 @@
         115
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_LS4UFsw.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11640,7 +11498,7 @@
         117
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11656,7 +11514,7 @@
         118
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_ARlXxTT.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11672,7 +11530,7 @@
         119
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_kAXsdmo.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11688,7 +11546,7 @@
         120
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_Rv6SuwL.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11704,7 +11562,7 @@
         121
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_8hUSNwE.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11736,7 +11594,7 @@
         123
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11752,7 +11610,7 @@
         124
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_RqJZHmE.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11768,7 +11626,7 @@
         125
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_IB0bnOo.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11784,7 +11642,7 @@
         126
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_ivRuAx1.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11800,7 +11658,7 @@
         127
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_uAePpe3.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11832,7 +11690,7 @@
         129
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11848,7 +11706,7 @@
         130
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_ZnLREdx.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11864,7 +11722,7 @@
         131
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_Zl5rrMU.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11880,7 +11738,7 @@
         132
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_bx4hXMN.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11896,7 +11754,7 @@
         133
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_d4VihWO.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11944,7 +11802,7 @@
         136
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_r8iaWxq.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11960,7 +11818,7 @@
         137
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_ywhOm2z.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11976,7 +11834,7 @@
         138
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_2ZNrE1C.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -11992,7 +11850,7 @@
         139
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_wH9E3NZ.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12056,7 +11914,7 @@
         143
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_WwKgYpQ.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12072,7 +11930,7 @@
         144
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_QeN1InP.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12088,7 +11946,7 @@
         145
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_2vvp5WD.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12152,7 +12010,7 @@
         149
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_r1nHfLY.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12168,7 +12026,7 @@
         150
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_IpAwkLd.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12184,7 +12042,7 @@
         151
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_aM8o1IO.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12264,7 +12122,7 @@
         156
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_fXXNAm5.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -12280,7 +12138,7 @@
         157
       ],
       "description": "Autotest Description",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_wPdATOm.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request",
@@ -13158,7 +13016,7 @@
         215
       ],
       "description": "Autotest Description1",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_FDMiSLI.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria1",
@@ -13446,7 +13304,7 @@
         233
       ],
       "description": "Autotest Description1",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/UAT MANOMETRIA PRUEBA_pYxSq8q.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria1",
@@ -13542,7 +13400,7 @@
         239
       ],
       "description": "Autotest Description1",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/UAT MANOMETRIA PRUEBA_JpVlUmN.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria1",
@@ -14038,7 +13896,7 @@
         270
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_vGOFSbf.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14134,7 +13992,7 @@
         276
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_QSZTiEH.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14150,7 +14008,7 @@
         277
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/UAT MANOMETRIA PRUEBA_EDMEXJf.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14230,7 +14088,7 @@
         282
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_9obUyTr.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14246,7 +14104,7 @@
         283
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/UAT MANOMETRIA PRUEBA_5qOiTS0.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14326,7 +14184,7 @@
         288
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_E41OoK4.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14342,7 +14200,7 @@
         289
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/UAT MANOMETRIA PRUEBA_H0kFITC.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14422,7 +14280,7 @@
         294
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_U7buXmI.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14438,7 +14296,7 @@
         295
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/UAT MANOMETRIA PRUEBA_esLNJWj.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14454,7 +14312,7 @@
         296
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_aGxbQof.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14518,7 +14376,7 @@
         300
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_T9ewo8P.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14534,7 +14392,7 @@
         301
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/UAT MANOMETRIA PRUEBA_Mm0pri7.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14550,7 +14408,7 @@
         302
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_otte1R0.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14614,7 +14472,7 @@
         306
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_9kbg3B8.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14630,7 +14488,7 @@
         307
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/UAT MANOMETRIA PRUEBA_ZFw2mLx.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14646,7 +14504,7 @@
         308
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_qYMyRLI.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14662,7 +14520,7 @@
         309
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/UAT MANOMETRIA PRUEBA_PuYm7uf.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14678,7 +14536,7 @@
         310
       ],
       "description": "Autotest Description2",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_G53vTm8.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request2",
@@ -14710,7 +14568,7 @@
         312
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/Clinic Report_fRxOWDx.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14726,7 +14584,7 @@
         313
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_yGUNlqH.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14742,7 +14600,7 @@
         314
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/Clinic Report_LTK1t2U.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14758,7 +14616,7 @@
         315
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_4qoSNsm.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14774,7 +14632,7 @@
         316
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest1@gmail.com/Clinic Report_cWWB4DZ.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14790,7 +14648,7 @@
         317
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/UAT MANOMETRIA PRUEBA_GELa8zV.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria3",
@@ -14806,7 +14664,7 @@
         318
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_PMZfBlb.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14822,7 +14680,7 @@
         319
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/UAT MANOMETRIA PRUEBA_lQzqqRv.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14838,7 +14696,7 @@
         320
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_hivrfQL.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14854,7 +14712,7 @@
         321
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/UAT MANOMETRIA PRUEBA_7TXfgI5.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14870,7 +14728,7 @@
         322
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest2@gmail.com/Clinic Report_d9YWGv0.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14918,7 +14776,7 @@
         325
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/UAT MANOMETRIA PRUEBA_ASiPlyJ.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14934,7 +14792,7 @@
         326
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_osjleAE.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14950,7 +14808,7 @@
         327
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/UAT MANOMETRIA PRUEBA_XZmiYMj.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -14966,7 +14824,7 @@
         328
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/Clinic Report_jHq4NBZ.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15030,7 +14888,7 @@
         332
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_QeNo96X.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15046,7 +14904,7 @@
         333
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/UAT MANOMETRIA PRUEBA_TXD9lCT.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15062,7 +14920,7 @@
         334
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/Clinic Report_eb262di.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15126,7 +14984,7 @@
         338
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_NyITQ2R.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15142,7 +15000,7 @@
         339
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/UAT MANOMETRIA PRUEBA_eH0m8Er.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15158,7 +15016,7 @@
         340
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest5@gmail.com/Clinic Report_o3O1nlf.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15174,7 +15032,7 @@
         341
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/UAT MANOMETRIA PRUEBA_jmPV6LK.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria3",
@@ -15222,7 +15080,7 @@
         344
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_NfycABW.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15238,7 +15096,7 @@
         345
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/UAT MANOMETRIA PRUEBA_mQ95Kza.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15254,7 +15112,7 @@
         346
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest6@gmail.com/Clinic Report_luP2bhK.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15270,7 +15128,7 @@
         347
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/UAT MANOMETRIA PRUEBA_BtWKsM5.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria3",
@@ -15334,7 +15192,7 @@
         351
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/UAT MANOMETRIA PRUEBA_Xn5mx0c.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15350,7 +15208,7 @@
         352
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest7@gmail.com/Clinic Report_ARdpXbc.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15366,7 +15224,7 @@
         353
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/UAT MANOMETRIA PRUEBA_i7l14wO.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria3",
@@ -15430,7 +15288,7 @@
         357
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/UAT MANOMETRIA PRUEBA_4Ab7rqf.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15446,7 +15304,7 @@
         358
       ],
       "description": "Autotest Description3",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest8@gmail.com/Clinic Report_KV9QiYk.docx",
       "result_report_or_record": "",
       "requested_by": "Autotest request3",
@@ -15654,7 +15512,7 @@
         371
       ],
       "description": "Autotest Description4",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest3@gmail.com/UAT MANOMETRIA PRUEBA_se9zfdR.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria4",
@@ -15750,7 +15608,7 @@
         377
       ],
       "description": "Autotest Description4",
-      "conclusions": "Suck to be you",
+      "conclusions": "",
       "request_form": "files/emedicaltest4@gmail.com/UAT MANOMETRIA PRUEBA_dqKbDfz.docx",
       "result_report_or_record": "",
       "requested_by": "Manometria4",
@@ -26702,19 +26560,6 @@
   },
   {
     "fields": {
-      "appointment": 677,
-      "public_notes": null,
-      "additional_tests": null,
-      "anamnesis": null,
-      "exploration": null,
-      "treatment": null,
-      "diagnosis": null
-    },
-    "model": "patient.appointmentnote",
-    "pk": 677
-  },
-  {
-    "fields": {
       "appointment": 679,
       "public_notes": null,
       "additional_tests": null,
@@ -33794,21 +33639,6 @@
     },
     "model": "patient.patientappointment",
     "pk": 676
-  },
-  {
-    "fields": {
-      "case": 677,
-      "consult_paid": false,
-      "appointment_status": 1,
-      "opentok_token": null,
-      "appointment_type": "v",
-      "deposit_paid": true,
-      "appointment_time": 8818,
-      "deposit_transaction": "hprk6c",
-      "consult_transaction": null
-    },
-    "model": "patient.patientappointment",
-    "pk": 677
   },
   {
     "fields": {

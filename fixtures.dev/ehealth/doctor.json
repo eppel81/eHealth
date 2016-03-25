@@ -330,8 +330,8 @@
   },
   {
     "fields": {
-      "care_facility": "asdasd",
-      "position": "sdasd",
+      "care_facility": "Anesthesiology",
+      "position": "Anesthesiologist",
       "start_date": "2016-03-02",
       "end_date": "2016-04-03",
       "doctor": 3
@@ -341,30 +341,8 @@
   },
   {
     "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
-      "start_date": "2016-03-02",
-      "end_date": "2016-04-03",
-      "doctor": 3
-    },
-    "model": "doctor.doctorworkexperience",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
-      "start_date": "2016-03-02",
-      "end_date": "2016-04-03",
-      "doctor": 3
-    },
-    "model": "doctor.doctorworkexperience",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
+      "care_facility": "Anesthesiology",
+      "position": "Anesthesiologist",
       "start_date": "2016-03-02",
       "end_date": "2016-04-03",
       "doctor": 4
@@ -374,8 +352,8 @@
   },
   {
     "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
+      "care_facility": "Anesthesiology",
+      "position": "Anesthesiologist",
       "start_date": "2016-03-02",
       "end_date": "2016-04-03",
       "doctor": 5
@@ -385,8 +363,8 @@
   },
   {
     "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
+      "care_facility": "Anesthesiology",
+      "position": "Anesthesiologist",
       "start_date": "2016-03-02",
       "end_date": "2016-04-03",
       "doctor": 6
@@ -396,8 +374,8 @@
   },
   {
     "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
+      "care_facility": "Anesthesiology",
+      "position": "Anesthesiologist",
       "start_date": "2016-03-02",
       "end_date": "2016-04-03",
       "doctor": 7
@@ -407,8 +385,8 @@
   },
   {
     "fields": {
-      "care_facility": "Aensteziology",
-      "position": "Anasteziolog",
+      "care_facility": "Anesthesiology",
+      "position": "Anesthesiologist",
       "start_date": "2016-03-02",
       "end_date": "2016-04-03",
       "doctor": 8

@@ -197,19 +197,24 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
                 start_date = current_timezone.localize(
                     datetime.datetime.strptime(start_date, "%m/%d/%Y"))
                 query = query.filter(
-                    doctorappointmenttime__start_time__gte=start_date)
+                    doctorappointmenttime__start_time__gte=start_date,
+                    doctorappointmenttime__free=True)
+
             if end_date:
                 end_date = current_timezone.localize(
                     datetime.datetime.strptime(end_date, "%m/%d/%Y"))
                 query = query.filter(
-                    doctorappointmenttime__start_time__lte=end_date)
+                    doctorappointmenttime__start_time__lte=end_date,
+                    doctorappointmenttime__free=True)
+
             if doctor_specialty:
                 query = query.filter(doctorspecialty__specialty=doctor_specialty)
         elif 'find_doctor_now' in self.request.GET:
             now = timezone.now()
             hour_delta = now + datetime.timedelta(minutes=60)
             query = query.filter(doctorappointmenttime__start_time__gte=now,
-                                 doctorappointmenttime__start_time__lte=hour_delta)
+                                 doctorappointmenttime__start_time__lte=hour_delta,
+                                 doctorappointmenttime__free=True)
             if doctor_specialty_now:
                 query = query.filter(doctorspecialty__specialty=doctor_specialty_now)
 
