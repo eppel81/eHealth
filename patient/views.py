@@ -20,6 +20,7 @@ from postman import models as postman_models
 from postman.forms import AnonymousWriteForm
 from postman.models import Message
 from django.conf import settings
+import pytz
 
 from utils import models as util_models, forms as utils_forms
 from utils import views as utils_views
@@ -192,16 +193,16 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
         doctor_specialty_now = self.request.GET.get('doctor_specialty_now', None)
 
         if 'find_doctor' in self.request.GET:
-            current_timezone = timezone.get_current_timezone()
+            utc = pytz.utc
             if start_date:
-                start_date = current_timezone.localize(
+                start_date = utc.localize(
                     datetime.datetime.strptime(start_date, "%m/%d/%Y"))
                 query = query.filter(
                     doctorappointmenttime__start_time__gte=start_date,
                     doctorappointmenttime__free=True)
 
             if end_date:
-                end_date = current_timezone.localize(
+                end_date = utc.localize(
                     datetime.datetime.strptime(end_date, "%m/%d/%Y"))
                 query = query.filter(
                     doctorappointmenttime__start_time__lte=end_date,

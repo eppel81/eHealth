@@ -12,7 +12,7 @@
       "lifestyle_complete": true,
       "user": 53,
       "photo": "photo/36848_tHngZXX.jpg",
-      "timezone": 14
+      "timezone": 114
     },
     "model": "patient.patient",
     "pk": 46
@@ -30,7 +30,7 @@
       "lifestyle_complete": true,
       "user": 54,
       "photo": "photo/36848_s618AGC.jpg",
-      "timezone": 14
+      "timezone": 130
     },
     "model": "patient.patient",
     "pk": 47
@@ -48,7 +48,7 @@
       "lifestyle_complete": true,
       "user": 55,
       "photo": "photo/36848_KNYqUpH.jpg",
-      "timezone": 14
+      "timezone": 140
     },
     "model": "patient.patient",
     "pk": 48
@@ -66,7 +66,7 @@
       "lifestyle_complete": true,
       "user": 56,
       "photo": "photo/36848_ag6wTyb.jpg",
-      "timezone": 14
+      "timezone": 151
     },
     "model": "patient.patient",
     "pk": 49
@@ -84,7 +84,7 @@
       "lifestyle_complete": true,
       "user": 57,
       "photo": "photo/36848_nmwCMer.jpg",
-      "timezone": 14
+      "timezone": 157
     },
     "model": "patient.patient",
     "pk": 50
@@ -102,7 +102,7 @@
       "lifestyle_complete": true,
       "user": 58,
       "photo": "photo/36848_1a4xRNk.jpg",
-      "timezone": 14
+      "timezone": 159
     },
     "model": "patient.patient",
     "pk": 51
@@ -120,7 +120,7 @@
       "lifestyle_complete": true,
       "user": 59,
       "photo": "photo/36848_FIRUvzy.jpg",
-      "timezone": 14
+      "timezone": 162
     },
     "model": "patient.patient",
     "pk": 52
@@ -138,7 +138,7 @@
       "lifestyle_complete": true,
       "user": 60,
       "photo": "photo/36848_PMNWDCC.jpg",
-      "timezone": 14
+      "timezone": 163
     },
     "model": "patient.patient",
     "pk": 53
@@ -156,7 +156,7 @@
       "lifestyle_complete": true,
       "user": 61,
       "photo": "photo/36848_sNh8r5W.jpg",
-      "timezone": 14
+      "timezone": 6
     },
     "model": "patient.patient",
     "pk": 54
