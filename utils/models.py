@@ -167,7 +167,7 @@ def create_customer_on_patient_create(sender, instance, created, **kwargs):
     first_name = user.first_name
     last_name = user.last_name
     email = user.email
-    if created and not user.customeruser.customer:
+    if created and not hasattr(user, 'customeruser'):
         result = braintree.Customer.create({
             "first_name": first_name,
             "last_name": last_name,
