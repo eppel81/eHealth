@@ -369,14 +369,14 @@ class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
 
             new_appointment = []
             today = date.today()
-            if obj.day_shift and obj.day_from and obj.day_to:
+            if obj.day_shift and obj.day_from is not None and obj.day_to is not None:
                 minutes = (datetime.combine(today, obj.day_to) -
                            datetime.combine(today,
                                             obj.day_from)).total_seconds() / 60
                 count_appointment = minutes / obj.duration
                 new_appointment += self.get_appointment_to_create(
                     obj, count_appointment, obj.day_from, obj.day_to)
-            if obj.night_shift and obj.night_from and obj.night_to:
+            if obj.night_shift and obj.night_from is not None and obj.night_to is not None:
                 minutes = (datetime.combine(today, obj.night_to) -
                            datetime.combine(today,
                                             obj.night_from)).total_seconds() / 60

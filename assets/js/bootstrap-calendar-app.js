@@ -22,6 +22,13 @@ $(function () {
             });
                     };
 
+    var scrollToFirstAppointment = function () {
+        var firstAppointment = $('.cell-appointment').first();
+        $(calendarContainer).animate({
+            scrollTop: $(firstAppointment).css('margin-top')
+        }, 750);
+
+    };
     var setCalendarView = function (calendar) {
         $('div.calendar-header').find('h3').text(calendar.getTitle());
         $('.span11.col-xs-11.cal-cell').text('Appointments');
@@ -33,11 +40,10 @@ $(function () {
             'width': '100%'
         });
         var cellWidth = $(cells).first().css('width');
-        $('.pull-left.day-event.day-highlight.move-left').css('margin-left', '-' + cellWidth)
+        $('.pull-left.day-event.day-highlight.move-left').css('margin-left', '-' + cellWidth);
         $('.event-item').click(eventItem);
 
     };
-    var date = new Date();
     var showCalendar = function() {
         $.ajax({
             url: url,
@@ -60,13 +66,12 @@ $(function () {
                         day: startDate,
                         events_source: eventSource,
                         time_start: '00:00',
-		                time_end: '23:30'
+		                time_end: '24:00'
                     });
                     setCalendarView(calendar);
                     getNextDate(calendar);
                     $('#day-prev, #day-next').removeClass('hidden');
-
-
+                    scrollToFirstAppointment();
                 }
             }
         });
@@ -76,9 +81,7 @@ $(function () {
     };
 
     $('.show-schedule').on('click', showCalendar);
-
-
-
+    
     $('#day-next, #day-prev').on('click', function () {
         var jump = $(this).attr('id');
         var nextDay = getNewDay(calendar.options.day, jump);
@@ -88,6 +91,8 @@ $(function () {
             calendar.view();
             setCalendarView(calendar);
             getNextDate(calendar);
+            scrollToFirstAppointment();
+
         }
 
 
