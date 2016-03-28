@@ -5,6 +5,7 @@ rm ./patient/migrations/0*
 rm ./utils/migrations/0*
 rm db.sqlite3
 
+mkdir media
 cp -r assets_media/* media
 
 ./manage.py makemigrations
