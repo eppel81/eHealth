@@ -26,7 +26,7 @@ public class Emedical_Main_Class {
 
     private boolean acceptNextAlert = true;
     private WebDriver driver;
-    private String baseUrl = "http://light-it-06.tk/";
+    private String baseUrl = "http://ehealth.3continents.pro/";
     private StringBuffer verificationErrors = new StringBuffer();
     int a;
     int i;
@@ -65,19 +65,17 @@ public class Emedical_Main_Class {
 
 
 
-
-
             //region CREATE SOME APPOINTMENTS FROM PATIENTS INCLUCING PAYMENT METHOD
 //~~~~~~~~~~~~~~~~~~CREATE SOME APPOINTMENTS FROM PATIENTS INCLUCING PAYMENT METHOD
             for(appointmentcount = 1; appointmentcount < 10;appointmentcount++) {
-                for (emailnumber = 1; emailnumber < 9; emailnumber++) {
+                for (emailnumber = 2; emailnumber < 9; emailnumber++) {
                     driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
                     driver.get(baseUrl + "en/");
                     driver.findElement(By.partialLinkText("LOGIN")).click();
                     driver.findElement(By.id("id_login")).clear();
                     driver.findElement(By.id("id_login")).sendKeys("emedicaltest" + emailnumber + "@gmail.com");
                     driver.findElement(By.id("id_password")).clear();
-                    driver.findElement(By.id("id_password")).sendKeys("zaq123");
+                    driver.findElement(By.id("id_password")).sendKeys(Password);
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
 
                     driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/ul/li[2]/a")).click();
@@ -90,20 +88,28 @@ public class Emedical_Main_Class {
                     Thread.sleep(2000);
                     driver.findElement(By.cssSelector("button.btn-u.show-schedule")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.partialLinkText("Make appointment on")).click();
 
-                    driver.findElement(By.id("id_problem")).sendKeys("Test Problem " + appointmentcount);
-                    driver.findElement(By.id("id_comments")).sendKeys("Test Comment " + appointmentcount);
+                    driver.findElement(By.cssSelector("html body.modal-open div.wrapper div div.container.content.profile div.row div.talk-to-doctor-container div#cur-doctor.modal.fade.in div.modal-dialog.modal-lg.doctor-info div.modal-content div.modal-header div.profile-info.row div.easy-block-v3.no-border div.col-sm-12.padding-top-25 div#calendar.cal-context div#cal-day-box div#cal-day-panel.clearfix a.event-item div.text-center.pull-left.day-event.day-highlight.dh-event-info.cell-appointment")).click();
+                    Thread.sleep(2000);
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("headache");
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("headache");
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("After strenuous exercise, a strong headache in the back of the head");//+ appointmentcount);
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("After strenuous exercise, a strong headache in the back of the head");
                     IsElementPresent(By.id("id_is_second_opinion"));
                     IsElementPresent(By.id("id_follow_up"));
                     driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
-                    Thread.sleep(7000);
-                    Robot_payment_from_appointment();
+                    Thread.sleep(10000);
+                    //Robot_payment_from_appointment();
+                    driver.findElement(By.id("continuePayment")).click();
                     Thread.sleep(2000);
                     driver.findElement(By.partialLinkText("Continue")).click();
                     Thread.sleep(2000);
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Fill some patient data for new user~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    try {
+              /*      try {
                         try {
                             driver.findElement(By.id("id_health_conditions_0")).click();
                             driver.findElement(By.id("id_medications_0")).click();
@@ -136,7 +142,7 @@ public class Emedical_Main_Class {
                         driver.findElement(By.xpath("(//button[@type='submit'])[5]")).click();
                     } catch (Exception e) {
 
-                    }
+                    }*/
                     try {
                         driver.findElement(By.partialLinkText("Continue")).click();
                     } catch (Exception e) {
@@ -144,11 +150,12 @@ public class Emedical_Main_Class {
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/a/h3")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[2]/a")).click();
                     new Select(driver.findElement(By.name("type"))).selectByVisibleText("Test");
-                    driver.findElement(By.id("id_description")).sendKeys("Autotest Description" + appointmentcount);
-                    driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/UAT MANOMETRIA PRUEBA.docx");
+                    driver.findElement(By.id("id_description")).sendKeys("Manometria prueba");// + appointmentcount);
+                    driver.findElement(By.id("id_request_form")).clear();
+                    driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/Clinic Report.docx");
                     IsElementPresent(By.id("id_result_report_or_record"));
-                    driver.findElement(By.id("id_requested_by")).sendKeys("Manometria" + appointmentcount);
-                    driver.findElement(By.id("id_completed_by")).sendKeys("Completed by Autotest" + appointmentcount);
+                    driver.findElement(By.id("id_requested_by")).sendKeys("Azcona Guerra");// + appointmentcount);
+                    driver.findElement(By.id("id_completed_by")).sendKeys("Salvator Mundi International Hospital");// + appointmentcount);
                     IsElementPresent(By.id("id_additionalfile_set-0-file"));
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
                     Thread.sleep(10000);
@@ -162,10 +169,12 @@ public class Emedical_Main_Class {
                     Thread.sleep(2000);
                     driver.findElement(By.cssSelector("button.btn-u.show-schedule")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.partialLinkText("Make appointment on")).click();
+                    driver.findElement(By.cssSelector("html body.modal-open div.wrapper div div.container.content.profile div.row div.talk-to-doctor-container div#cur-doctor.modal.fade.in div.modal-dialog.modal-lg.doctor-info div.modal-content div.modal-header div.profile-info.row div.easy-block-v3.no-border div.col-sm-12.padding-top-25 div#calendar.cal-context div#cal-day-box div#cal-day-panel.clearfix a.event-item div.text-center.pull-left.day-event.day-highlight.dh-event-info.cell-appointment")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.id("id_problem")).sendKeys("Test Problem" + appointmentcount );
-                    driver.findElement(By.id("id_comments")).sendKeys("Test Comment" + appointmentcount);
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("distortion in the leg");// + appointmentcount );
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("I've injured my leg on the training");// + appointmentcount);
                     IsElementPresent(By.id("id_is_second_opinion"));
                     IsElementPresent(By.id("id_follow_up"));
                     driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
@@ -176,16 +185,17 @@ public class Emedical_Main_Class {
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/a/h3")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[2]/a")).click();
                     new Select(driver.findElement(By.name("type"))).selectByVisibleText("Test");
-                    driver.findElement(By.id("id_description")).sendKeys("Autotest Description" + appointmentcount);
+                    driver.findElement(By.id("id_description")).sendKeys("Clinic report");// + appointmentcount);
+                    driver.findElement(By.id("id_request_form")).clear();
                     driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/Clinic Report.docx");
                     IsElementPresent(By.id("id_result_report_or_record"));
-                    driver.findElement(By.id("id_requested_by")).sendKeys("Autotest request" + appointmentcount);
-                    driver.findElement(By.id("id_completed_by")).sendKeys("Completed by Autotest" + appointmentcount);
+                    driver.findElement(By.id("id_requested_by")).sendKeys("Gomez Castell");// + appointmentcount);
+                    driver.findElement(By.id("id_completed_by")).sendKeys("Salvator Mundi International Hospital");// + appointmentcount);
                     IsElementPresent(By.id("id_additionalfile_set-0-file"));
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
                     Thread.sleep(10000);
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~3d doc appointment~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/ul/li[2]/a")).click();
+                    driver.findElement(By.partialLinkText("Talk to a doctor")).click();
                     driver.findElement(By.partialLinkText("DIEZ DEL CASTILLIO")).click();
                     try {
                         isElementPresent(By.cssSelector("button.btn-u.show-schedule"));
@@ -194,10 +204,11 @@ public class Emedical_Main_Class {
                     Thread.sleep(2000);
                     driver.findElement(By.cssSelector("button.btn-u.show-schedule")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.partialLinkText("Make appointment on")).click();
-
-                    driver.findElement(By.id("id_problem")).sendKeys("Test Problem" + appointmentcount);
-                    driver.findElement(By.id("id_comments")).sendKeys("Test Comment" + appointmentcount);
+                    driver.findElement(By.cssSelector("html body.modal-open div.wrapper div div.container.content.profile div.row div.talk-to-doctor-container div#cur-doctor.modal.fade.in div.modal-dialog.modal-lg.doctor-info div.modal-content div.modal-header div.profile-info.row div.easy-block-v3.no-border div.col-sm-12.padding-top-25 div#calendar.cal-context div#cal-day-box div#cal-day-panel.clearfix a.event-item div.text-center.pull-left.day-event.day-highlight.dh-event-info.cell-appointment")).click();
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("The arm pain");// + appointmentcount);
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("The arm was injured in training");// + appointmentcount);
                     IsElementPresent(By.id("id_is_second_opinion"));
                     IsElementPresent(By.id("id_follow_up"));
                     driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
@@ -208,11 +219,12 @@ public class Emedical_Main_Class {
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/a/h3")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[2]/a")).click();
                     new Select(driver.findElement(By.name("type"))).selectByVisibleText("Test");
-                    driver.findElement(By.id("id_description")).sendKeys("Autotest Description" + appointmentcount);
+                    driver.findElement(By.id("id_description")).sendKeys("Manometria prueba");// + appointmentcount);
+                    driver.findElement(By.id("id_request_form")).clear();
                     driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/UAT MANOMETRIA PRUEBA.docx");
                     IsElementPresent(By.id("id_result_report_or_record"));
-                    driver.findElement(By.id("id_requested_by")).sendKeys("Autotest request" + appointmentcount);
-                    driver.findElement(By.id("id_completed_by")).sendKeys("Completed by Autotest" + appointmentcount);
+                    driver.findElement(By.id("id_requested_by")).sendKeys("Diez Del Castillio");// + appointmentcount);
+                    driver.findElement(By.id("id_completed_by")).sendKeys("Salvator Mundi International Hospital");// + appointmentcount);
                     IsElementPresent(By.id("id_additionalfile_set-0-file"));
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
                     Thread.sleep(10000);
@@ -226,10 +238,12 @@ public class Emedical_Main_Class {
                     Thread.sleep(2000);
                     driver.findElement(By.cssSelector("button.btn-u.show-schedule")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.partialLinkText("Make appointment on")).click();
+                    driver.findElement(By.cssSelector("html body.modal-open div.wrapper div div.container.content.profile div.row div.talk-to-doctor-container div#cur-doctor.modal.fade.in div.modal-dialog.modal-lg.doctor-info div.modal-content div.modal-header div.profile-info.row div.easy-block-v3.no-border div.col-sm-12.padding-top-25 div#calendar.cal-context div#cal-day-box div#cal-day-panel.clearfix a.event-item div.text-center.pull-left.day-event.day-highlight.dh-event-info.cell-appointment")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.id("id_problem")).sendKeys("Test Problem" + appointmentcount);
-                    driver.findElement(By.id("id_comments")).sendKeys("Test Comment" + appointmentcount);
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("abdominal pain");// + appointmentcount);
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("abdominal pain after falling from a bicycle");// + appointmentcount);
                     IsElementPresent(By.id("id_is_second_opinion"));
                     IsElementPresent(By.id("id_follow_up"));
                     driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
@@ -240,11 +254,12 @@ public class Emedical_Main_Class {
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/a/h3")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[2]/a")).click();
                     new Select(driver.findElement(By.name("type"))).selectByVisibleText("Test");
-                    driver.findElement(By.id("id_description")).sendKeys("Autotest Description" + appointmentcount);
+                    driver.findElement(By.id("id_description")).sendKeys("Clinic report");// + appointmentcount);
+                    driver.findElement(By.id("id_request_form")).clear();
                     driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/Clinic Report.docx");
                     IsElementPresent(By.id("id_result_report_or_record"));
-                    driver.findElement(By.id("id_requested_by")).sendKeys("Autotest request" + appointmentcount);
-                    driver.findElement(By.id("id_completed_by")).sendKeys("Completed by Autotest" + appointmentcount);
+                    driver.findElement(By.id("id_requested_by")).sendKeys("Torrez Fierre");// + appointmentcount);
+                    driver.findElement(By.id("id_completed_by")).sendKeys("Salvator Mundi International Hospital");// + appointmentcount);
                     IsElementPresent(By.id("id_additionalfile_set-0-file"));
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
                     Thread.sleep(10000);
@@ -258,10 +273,12 @@ public class Emedical_Main_Class {
                     Thread.sleep(2000);
                     driver.findElement(By.cssSelector("button.btn-u.show-schedule")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.partialLinkText("Make appointment on")).click();
+                    driver.findElement(By.cssSelector("html body.modal-open div.wrapper div div.container.content.profile div.row div.talk-to-doctor-container div#cur-doctor.modal.fade.in div.modal-dialog.modal-lg.doctor-info div.modal-content div.modal-header div.profile-info.row div.easy-block-v3.no-border div.col-sm-12.padding-top-25 div#calendar.cal-context div#cal-day-box div#cal-day-panel.clearfix a.event-item div.text-center.pull-left.day-event.day-highlight.dh-event-info.cell-appointment")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.id("id_problem")).sendKeys("Test Problem" + appointmentcount);
-                    driver.findElement(By.id("id_comments")).sendKeys("Test Comment" + appointmentcount);
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("Migraine");// + appointmentcount);
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("Headache in temples");// + appointmentcount);
                     IsElementPresent(By.id("id_is_second_opinion"));
                     IsElementPresent(By.id("id_follow_up"));
                     driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
@@ -272,11 +289,12 @@ public class Emedical_Main_Class {
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/a/h3")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[2]/a")).click();
                     new Select(driver.findElement(By.name("type"))).selectByVisibleText("Test");
-                    driver.findElement(By.id("id_description")).sendKeys("Autotest Description" + appointmentcount);
+                    driver.findElement(By.id("id_description")).sendKeys("Manometria Prueba");// + appointmentcount);
+                    driver.findElement(By.id("id_request_form")).clear();
                     driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/UAT MANOMETRIA PRUEBA.docx");
                     IsElementPresent(By.id("id_result_report_or_record"));
-                    driver.findElement(By.id("id_requested_by")).sendKeys("Autotest request" + appointmentcount);
-                    driver.findElement(By.id("id_completed_by")).sendKeys("Completed by Autotest" + appointmentcount);
+                    driver.findElement(By.id("id_requested_by")).sendKeys("Sanz Moara");// + appointmentcount);
+                    driver.findElement(By.id("id_completed_by")).sendKeys("Salvator Mundi International Hospital");// + appointmentcount);
                     IsElementPresent(By.id("id_additionalfile_set-0-file"));
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
                     Thread.sleep(10000);
@@ -290,10 +308,12 @@ public class Emedical_Main_Class {
                     Thread.sleep(2000);
                     driver.findElement(By.cssSelector("button.btn-u.show-schedule")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.partialLinkText("Make appointment on")).click();
+                    driver.findElement(By.cssSelector("html body.modal-open div.wrapper div div.container.content.profile div.row div.talk-to-doctor-container div#cur-doctor.modal.fade.in div.modal-dialog.modal-lg.doctor-info div.modal-content div.modal-header div.profile-info.row div.easy-block-v3.no-border div.col-sm-12.padding-top-25 div#calendar.cal-context div#cal-day-box div#cal-day-panel.clearfix a.event-item div.text-center.pull-left.day-event.day-highlight.dh-event-info.cell-appointment")).click();
                     Thread.sleep(4000);
-                    driver.findElement(By.id("id_problem")).sendKeys("Test Problem" + appointmentcount);
-                    driver.findElement(By.id("id_comments")).sendKeys("Test Comment" + appointmentcount);
+                    driver.findElement(By.id("id_problem")).clear();
+                    driver.findElement(By.id("id_problem")).sendKeys("shoulder injury");// + appointmentcount);
+                    driver.findElement(By.id("id_comments")).clear();
+                    driver.findElement(By.id("id_comments")).sendKeys("shoulder pain after an accident with car crash");// + appointmentcount);
                     IsElementPresent(By.id("id_is_second_opinion"));
                     IsElementPresent(By.id("id_follow_up"));
                     driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
@@ -304,11 +324,12 @@ public class Emedical_Main_Class {
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/ul/li[3]/a/h3")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[2]/a")).click();
                     new Select(driver.findElement(By.name("type"))).selectByVisibleText("Test");
-                    driver.findElement(By.id("id_description")).sendKeys("Autotest Description" + appointmentcount);
+                    driver.findElement(By.id("id_description")).sendKeys("Clinic report");// + appointmentcount);
+                    driver.findElement(By.id("id_request_form")).clear();
                     driver.findElement(By.id("id_request_form")).sendKeys("/home/user/Рабочий стол/EMEDICAL DOC DATA/Patient CASE data/Clinic Report.docx");
                     IsElementPresent(By.id("id_result_report_or_record"));
-                    driver.findElement(By.id("id_requested_by")).sendKeys("Autotest request" + appointmentcount);
-                    driver.findElement(By.id("id_completed_by")).sendKeys("Completed by Autotest" + appointmentcount);
+                    driver.findElement(By.id("id_requested_by")).sendKeys("Riu Villar");// + appointmentcount);
+                    driver.findElement(By.id("id_completed_by")).sendKeys("Salvator Mundi International Hospital");// + appointmentcount);
                     IsElementPresent(By.id("id_additionalfile_set-0-file"));
                     driver.findElement(By.xpath("//button[@type='submit']")).click();
 
@@ -318,6 +339,8 @@ public class Emedical_Main_Class {
             }
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             //endregion
+
+            Case_Interactions_from_DOC();
 
             Thread.sleep(2000);
             Registration_and_confrimation();
@@ -390,7 +413,7 @@ public class Emedical_Main_Class {
                     try {
                         driver.findElement(By.partialLinkText("Edit")).click();
                         driver.findElement(By.id("id_conclusions")).clear();
-                        driver.findElement(By.id("id_conclusions")).sendKeys("Test Conclusion" + emailnumber);
+                        driver.findElement(By.id("id_conclusions")).sendKeys("Two analgin tablets after meals");// + emailnumber);
                         driver.findElement(By.xpath("//button[@type='submit']")).click();
                         Thread.sleep(1000);
                     } catch (Exception e) {
@@ -427,8 +450,8 @@ public class Emedical_Main_Class {
             } catch (Exception e) {
             }
             Thread.sleep(2000);
-            driver.findElement(By.id("id_problem")).sendKeys("Test Problem");
-            driver.findElement(By.id("id_comments")).sendKeys("Test Comment");
+            driver.findElement(By.id("id_problem")).sendKeys("Migraine");
+            driver.findElement(By.id("id_comments")).sendKeys("Strong headache");
             IsElementPresent(By.id("id_is_second_opinion"));
             IsElementPresent(By.id("id_follow_up"));
             driver.findElement(By.xpath("(//button[@type='submit'])[4]")).click();
@@ -694,7 +717,7 @@ public class Emedical_Main_Class {
         driver.findElement(By.id("id_health_conditions_0")).click();
         driver.findElement(By.id("id_medications_1")).click();
         driver.findElement(By.id("id_medications_info")).clear();
-        driver.findElement(By.id("id_medications_info")).sendKeys("test medication");
+        driver.findElement(By.id("id_medications_info")).sendKeys("Vitamin B2, Vitamin D2, Tylenol PM");
         driver.findElement(By.id("id_surgeries_0")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
@@ -717,7 +740,7 @@ public class Emedical_Main_Class {
 
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div[2]/ul/li[3]/a")).click();
         new Select(driver.findElement(By.id("id_condition_1"))).selectByVisibleText("Aunt");
-        new Select(driver.findElement(By.id("id_condition_2"))).selectByVisibleText("Aunt");
+       /* new Select(driver.findElement(By.id("id_condition_2"))).selectByVisibleText("Aunt");
         new Select(driver.findElement(By.id("id_condition_3"))).selectByVisibleText("Aunt");
         new Select(driver.findElement(By.id("id_condition_4"))).selectByVisibleText("Aunt");
         new Select(driver.findElement(By.id("id_condition_5"))).selectByVisibleText("Aunt");
@@ -727,7 +750,7 @@ public class Emedical_Main_Class {
         new Select(driver.findElement(By.id("id_condition_9"))).selectByVisibleText("Aunt");
         new Select(driver.findElement(By.id("id_condition_10"))).selectByVisibleText("Aunt");
         new Select(driver.findElement(By.id("id_condition_11"))).selectByVisibleText("Aunt");
-        new Select(driver.findElement(By.id("id_condition_12"))).selectByVisibleText("Aunt");
+        new Select(driver.findElement(By.id("id_condition_12"))).selectByVisibleText("Aunt");*/
         new Select(driver.findElement(By.id("id_condition_13"))).selectByVisibleText("Aunt");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         TextSearch("100%", (By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div[1]/div/div/h4/strong")));}
@@ -968,8 +991,8 @@ public class Emedical_Main_Class {
         try {
             Thread.sleep(1000);
             Actions builder3 = new Actions(driver);
-            builder3.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div/ul/li[5]"))).perform();
-            Thread.sleep(1000);
+            builder3.moveToElement(driver.findElement(By.xpath("//li[5]"))).perform();
+            Thread.sleep(2000);
             driver.findElement(By.partialLinkText("LOGOUT")).click();
         }
         catch (InterruptedException e)
@@ -1396,21 +1419,164 @@ public class Emedical_Main_Class {
 
     public void Patient_account_info()
     {
-        Actions builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div/ul/li[5]"))).perform();
-        driver.findElement(By.partialLinkText("MY ACCOUNT")).click();
-        driver.findElement(By.id("id_first_name")).clear();
-        driver.findElement(By.id("id_first_name")).sendKeys("Autotest first name" +emailnumber);
-        driver.findElement(By.id("id_last_name")).clear();
-        driver.findElement(By.id("id_last_name")).sendKeys("Autotest second name"+emailnumber);
-        IsElementPresent(By.id("id_email"));
-        driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/36848.jpg");
-        new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
-        new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
-        driver.findElement(By.id("update")).click();
+        for(emailnumber=1;emailnumber<10;emailnumber++) {
+            try {
+                driver.get(baseUrl + "en/");
+                Thread.sleep(1000);
+                driver.findElement(By.partialLinkText("LOGIN")).click();
+                driver.findElement(By.id("id_login")).clear();
+                driver.findElement(By.id("id_login")).sendKeys("emedicaltest" + emailnumber + "@gmail.com");
+                driver.findElement(By.id("id_password")).clear();
+                driver.findElement(By.id("id_password")).sendKeys(Password);
+                driver.findElement(By.xpath("//button[@type='submit']")).click();
+             /*   try {
+                    IsElementPresent(By.xpath("/html/body/div[1]/div/form/div[5]"));
+                    driver.findElement(By.id("id_login")).clear();
+                    driver.findElement(By.id("id_login")).sendKeys("sp20914@gmail.com");
+                    driver.findElement(By.id("id_password")).clear();1
+                    driver.findElement(By.id("id_password")).sendKeys("123123");
+                    driver.findElement(By.xpath("//button[@type='submit']")).click();
+                } catch (Exception e) {
+                }*/
 
+                IsElementPresent(By.xpath("/html/body/div[1]/div[1]/div[1]/div/ul/li[5]"));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Actions builder = new Actions(driver);
+            builder.moveToElement(driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div/ul/li[5]"))).perform();
+            driver.findElement(By.partialLinkText("MY ACCOUNT")).click();
+if(emailnumber ==1) {
 
-        //password_changing();
+    driver.findElement(By.id("id_first_name")).clear();
+    driver.findElement(By.id("id_first_name")).sendKeys("David");// +emailnumber);
+    driver.findElement(By.id("id_last_name")).clear();
+    driver.findElement(By.id("id_last_name")).sendKeys("De Gea"); //+emailnumber);
+    IsElementPresent(By.id("id_email"));
+    driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/David.jpg");
+    new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+    new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+    driver.findElement(By.id("update")).click();
+}
+            if(emailnumber ==2)
+            {
+                driver.findElement(By.id("id_first_name")).clear();
+                driver.findElement(By.id("id_first_name")).sendKeys("Iker");// +emailnumber);
+                driver.findElement(By.id("id_last_name")).clear();
+                driver.findElement(By.id("id_last_name")).sendKeys("Casillias"); //+emailnumber);
+                driver.findElement(By.id("id_second_last_name")).clear();
+                driver.findElement(By.id("id_second_last_name")).sendKeys("Fernández");
+                IsElementPresent(By.id("id_email"));
+                driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Iker.jpg");
+                new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+                new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+                driver.findElement(By.id("update")).click();
+            }
+        }
+if(emailnumber==3)
+{
+    driver.findElement(By.id("id_first_name")).clear();
+    driver.findElement(By.id("id_first_name")).sendKeys("Sergio");// +emailnumber);
+    driver.findElement(By.id("id_last_name")).clear();
+    driver.findElement(By.id("id_last_name")).sendKeys("Rico"); //+emailnumber);
+    driver.findElement(By.id("id_second_last_name")).clear();
+    driver.findElement(By.id("id_second_last_name")).sendKeys("González");
+    IsElementPresent(By.id("id_email"));
+    driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Sergio.jpg");
+    new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+    new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+    driver.findElement(By.id("update")).click();
+}
+        if(emailnumber ==4)
+        {
+            driver.findElement(By.id("id_first_name")).clear();
+            driver.findElement(By.id("id_first_name")).sendKeys("Gerard");// +emailnumber);
+            driver.findElement(By.id("id_last_name")).clear();
+            driver.findElement(By.id("id_last_name")).sendKeys("Pique"); //+emailnumber);
+            driver.findElement(By.id("id_second_last_name")).clear();
+            driver.findElement(By.id("id_second_last_name")).sendKeys("Bernabéu");
+            IsElementPresent(By.id("id_email"));
+            driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Gerard.jpg");
+            new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+            new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+            driver.findElement(By.id("update")).click();
+        }
+
+        if(emailnumber ==5)
+        {
+            driver.findElement(By.id("id_first_name")).clear();
+            driver.findElement(By.id("id_first_name")).sendKeys("Jordi");// +emailnumber);
+            driver.findElement(By.id("id_last_name")).clear();
+            driver.findElement(By.id("id_last_name")).sendKeys("Alba"); //+emailnumber);
+            driver.findElement(By.id("id_second_last_name")).clear();
+            driver.findElement(By.id("id_second_last_name")).sendKeys("Ramos");
+            IsElementPresent(By.id("id_email"));
+            driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Jordi.jpg");
+            new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+            new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+            driver.findElement(By.id("update")).click();
+        }
+
+        if(emailnumber ==6)
+        {
+            driver.findElement(By.id("id_first_name")).clear();
+            driver.findElement(By.id("id_first_name")).sendKeys("Mario");// +emailnumber);
+            driver.findElement(By.id("id_last_name")).clear();
+            driver.findElement(By.id("id_last_name")).sendKeys("Gaspar"); //+emailnumber);
+            driver.findElement(By.id("id_second_last_name")).clear();
+            driver.findElement(By.id("id_second_last_name")).sendKeys("Pérez Martínez");
+            IsElementPresent(By.id("id_email"));
+            driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Mario.jpg");
+            new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+            new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+            driver.findElement(By.id("update")).click();
+        }
+
+        if(emailnumber ==7)
+        {
+            driver.findElement(By.id("id_first_name")).clear();
+            driver.findElement(By.id("id_first_name")).sendKeys("Marc");// +emailnumber);
+            driver.findElement(By.id("id_last_name")).clear();
+            driver.findElement(By.id("id_last_name")).sendKeys("Bartra"); //+emailnumber);
+            driver.findElement(By.id("id_second_last_name")).clear();
+            driver.findElement(By.id("id_second_last_name")).sendKeys("Aregall");
+            IsElementPresent(By.id("id_email"));
+            driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Marc.jpg");
+            new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+            new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+            driver.findElement(By.id("update")).click();
+        }
+
+        if(emailnumber ==8)
+        {
+            driver.findElement(By.id("id_first_name")).clear();
+            driver.findElement(By.id("id_first_name")).sendKeys("Mikel");// +emailnumber);
+            driver.findElement(By.id("id_last_name")).clear();
+            driver.findElement(By.id("id_last_name")).sendKeys("San José"); //+emailnumber);
+            driver.findElement(By.id("id_second_last_name")).clear();
+            driver.findElement(By.id("id_second_last_name")).sendKeys("Domínguez");
+            IsElementPresent(By.id("id_email"));
+            driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Mikel.jpg");
+            new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+            new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+            driver.findElement(By.id("update")).click();
+        }
+
+        if(emailnumber ==9)
+        {
+            driver.findElement(By.id("id_first_name")).clear();
+            driver.findElement(By.id("id_first_name")).sendKeys("Nacho");// +emailnumber);
+            driver.findElement(By.id("id_last_name")).clear();
+            driver.findElement(By.id("id_last_name")).sendKeys("Fernandez"); //+emailnumber);
+            driver.findElement(By.id("id_second_last_name")).clear();
+            driver.findElement(By.id("id_second_last_name")).sendKeys("Iglesias");
+            IsElementPresent(By.id("id_email"));
+            driver.findElement(By.id("id_photo")).sendKeys("/home/user/Emedical_test/Nacho.jpg");
+            new Select(driver.findElement(By.id("id_country"))).selectByVisibleText("Canada");
+            new Select(driver.findElement(By.id("id_timezone"))).selectByVisibleText("Europe/Madrid");
+            driver.findElement(By.id("update")).click();
+        }
+
         //endregion
     }
 
