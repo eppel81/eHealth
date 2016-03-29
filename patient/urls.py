@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^my_account/payment/$', views.PaymentView.as_view(), name='payment'),
 
     url(r'^appointment_request/(?P<pk>[0-9]+)/$', views.PatientAppointmentView.as_view(), name='appointment_request'),
+    url(r'^appointment_request_check/$', views.PatientAppointmentCheckView.as_view(), name='appointment_request_check'),
     url(r'^appointment_process/$', views.PatientAppointmentProcessView.as_view(), name='appointment_process'),
     url(r'^appointment_process1/$', views.PatientAppointmentProcess1View.as_view(), name='appointment_process1'),
     url(r'^appointment_process/confirmation/$', views.ConfirmAppointmentProcessView.as_view(), name='confirmation'),

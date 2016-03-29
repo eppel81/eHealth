@@ -350,28 +350,42 @@ def billing_checkout(request):
 def get_appointment_room_availability(all_appointments):
     current_time = timezone.now()
     appointment_availability = dict()
+    appointment_editability = dict()
     if settings.DEBUG:
         for appointment in all_appointments:
             appointment_time = appointment.appointment_time.start_time
             appointment_duration = appointment.appointment_time.duration
 
-            appointment_show_from = appointment_time - datetime.timedelta(minutes=30)
-            appointment_show_to = appointment_time + datetime.timedelta(minutes=appointment_duration)
+            appointment_show_from = appointment_time - datetime.timedelta(
+                minutes=30)
+            appointment_show_to = appointment_time + datetime.timedelta(
+                minutes=appointment_duration)
 
-            appointment_available_from = appointment_time - datetime.timedelta(minutes=5)
+            appointment_available_from = appointment_time - datetime.timedelta(
+                minutes=5)
             appointment_available_to = appointment_show_to
 
             if appointment_show_to >= current_time >= appointment_show_from:
                 appointment_availability[appointment.id] = [True]
                 remain_time = appointment_available_from - current_time
                 remain_time = int((remain_time.total_seconds() % 3600) // 60) + 1
-                appointment_availability[appointment.id].append(remain_time if current_time <= appointment_available_from else 0)
+                appointment_availability[appointment.id].append(
+                    remain_time if current_time <= appointment_available_from
+                    else 0)
             else:
                 appointment_availability[appointment.id] = [False]
 
-            appointment_availability[appointment.id].append(True if appointment_available_to >= current_time >= appointment_available_from else False)
+            appointment_availability[appointment.id].append(
+                True if appointment_available_to >= current_time >=
+                        appointment_available_from else False)
 
-
+            appointment_editability_to = appointment_time - datetime.timedelta(
+                days=1)
+            appointment_editability[appointment.id] = (
+                True if appointment_editability_to >= current_time else False)
     else:
-        appointment_availability = {appointment.id: [True, 0, True] for appointment in all_appointments}
-    return appointment_availability
+        appointment_availability = {appointment.id: [True, 0, True]
+                                    for appointment in all_appointments}
+        appointment_editability = {appointment.id: True
+                                   for appointment in all_appointments}
+    return appointment_availability, appointment_editability

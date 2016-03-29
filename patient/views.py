@@ -152,19 +152,23 @@ class DashboardView(PatientMixin, PatientMenuViewMixin,
             models.PatientAppointment.STATUS_PATIENT_RESCHEDULE,
         ]
         current_appointments = models.PatientAppointment.objects.filter(
-                case__patient=self.request.user.patient,
-                appointment_status__in=appointments_status)
+            case__patient=self.request.user.patient,
+            appointment_status__in=appointments_status)
         today = timezone.now()
         for appointment in current_appointments:
             start_time = appointment.appointment_time.start_time
             duration = appointment.appointment_time.duration
             delta = start_time + datetime.timedelta(minutes=duration)
-            if start_time <= today <= delta and appointment.appointment_status==models.PatientAppointment.STATUS_DOCTOR_APPROVE:
+            if start_time <= today <= delta and \
+                            appointment.appointment_status == \
+                            models.PatientAppointment.STATUS_DOCTOR_APPROVE:
                 today = start_time
-        current_appointments = current_appointments.filter(appointment_time__start_time__gte=today)
+        current_appointments = current_appointments.filter(
+            appointment_time__start_time__gte=today)
         context['current_appointments'] = current_appointments
-        context['appointment_availability'] = get_appointment_room_availability(current_appointments)
-
+        context['appointment_availability'], context['appointment_editability'] \
+            = get_appointment_room_availability(
+            current_appointments)
         return self.render_to_response(context)
 
 
@@ -190,7 +194,8 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
         doctor_specialty = self.request.GET.get('doctor_specialty', None)
         start_date = self.request.GET.get('start_date', None)
         end_date = self.request.GET.get('end_date', None)
-        doctor_specialty_now = self.request.GET.get('doctor_specialty_now', None)
+        doctor_specialty_now = self.request.GET.get('doctor_specialty_now',
+                                                    None)
 
         if 'find_doctor' in self.request.GET:
             utc = pytz.utc
@@ -209,7 +214,8 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
                     doctorappointmenttime__free=True)
 
             if doctor_specialty:
-                query = query.filter(doctorspecialty__specialty=doctor_specialty)
+                query = query.filter(
+                    doctorspecialty__specialty=doctor_specialty)
         elif 'find_doctor_now' in self.request.GET:
             now = timezone.now()
             hour_delta = now + datetime.timedelta(minutes=60)
@@ -217,7 +223,8 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
                                  doctorappointmenttime__start_time__lte=hour_delta,
                                  doctorappointmenttime__free=True)
             if doctor_specialty_now:
-                query = query.filter(doctorspecialty__specialty=doctor_specialty_now)
+                query = query.filter(
+                    doctorspecialty__specialty=doctor_specialty_now)
 
         elif 'find_one_doctor' in self.request.GET:
             if doctor:
@@ -260,7 +267,7 @@ class TalkToADoctor(PatientMixin, PatientMenuViewMixin,
             if chosen_doctor:
                 context['chosen_doctor'] = int(chosen_doctor)
 
-        #consult rate slider context
+        # consult rate slider context
         consult_rate_start = self.request.GET.get('slider_rate_value1', '')
         consult_rate_end = self.request.GET.get('slider_rate_value2', '')
         if consult_rate_start:
@@ -742,7 +749,6 @@ class PaymentView(MyAccountBaseView, generic.TemplateView):
 
         customer = request.user.customeruser.customer
 
-
         if request.is_ajax():
             case = request.GET.get('case')
             client_token = braintree.ClientToken.generate({
@@ -773,7 +779,7 @@ class PaymentView(MyAccountBaseView, generic.TemplateView):
             token = result.payment_method.token
             update_result = braintree.PaymentMethod.update(token, {
                 "options": {
-                  "make_default": True
+                    "make_default": True
                 }
 
             })
@@ -1073,7 +1079,8 @@ class ConfirmProcessView(PatientMenuViewMixin, PatientActiveTabMixin,
                 patientappointment=appointment)
             doctor = doctor_models.Doctor.objects.get(patientcase=case)
             customer_id = self.request.user.customeruser.customer
-            nonce_from_the_client = self.request.POST.get('payment_method_nonce')
+            nonce_from_the_client = self.request.POST.get(
+                'payment_method_nonce')
 
             result = braintree.Transaction.sale({
                 "customer_id": str(customer_id),
@@ -1191,7 +1198,8 @@ class PatientAppointmentView(PatientMixin, generic.FormView):
                 patientappointment=appointment)
             doctor = doctor_models.Doctor.objects.get(patientcase=case)
             customer_id = self.request.user.customeruser.customer
-            nonce_from_the_client = self.request.POST.get('payment_method_nonce')
+            nonce_from_the_client = self.request.POST.get(
+                'payment_method_nonce')
             result = braintree.Transaction.sale({
                 "customer_id": str(customer_id),
                 "amount": str(doctor.deposit),
@@ -1283,6 +1291,19 @@ class PatientAppointmentView(PatientMixin, generic.FormView):
         return JsonResponse(data)
 
 
+class PatientAppointmentCheckView(PatientAppointmentView):
+    form_class = patient_forms.PatientAppointmentForm
+
+    def post(self, request, *args, **kwargs):
+        self.kwargs['pk'] = request.POST.get('appointment_time')
+        form = self.get_form()
+        if form.is_valid():
+            return JsonResponse({'success': True})
+        else:
+            return self.form_invalid(form)
+
+
+
 class ConfirmAppointmentProcessView(PatientMenuViewMixin, PatientActiveTabMixin,
                                     generic.TemplateView, PatientMixin):
     template_name = 'patient/confirmation.html'
@@ -1322,7 +1343,8 @@ class ConfirmAppointmentProcessView(PatientMenuViewMixin, PatientActiveTabMixin,
                 patientappointment=appointment)
             doctor = doctor_models.Doctor.objects.get(patientcase=case)
             customer_id = self.request.user.customeruser.customer
-            nonce_from_the_client = self.request.POST.get('payment_method_nonce')
+            nonce_from_the_client = self.request.POST.get(
+                'payment_method_nonce')
             result = braintree.Transaction.sale({
                 "customer_id": str(customer_id),
                 "amount": str(doctor.deposit),
@@ -1501,12 +1523,12 @@ def get_doctor_day_schedule(request):
                 time_id = appointment_time.id
                 converted_time = appointment_time.start_time.astimezone(tz)
                 title = str(_('Make appointment on'))
-                start = int(converted_time.strftime('%s'))*1000
+                start = int(converted_time.strftime('%s')) * 1000
                 delta = datetime.timedelta(minutes=appointment_time.duration)
-                end = int((converted_time + delta).strftime('%s'))*1000
+                end = int((converted_time + delta).strftime('%s')) * 1000
                 appointments_date.append(str(converted_time.date()))
                 url = str(reverse_lazy('patient:appointment_request',
-                                   kwargs={'pk': time_id}))
+                                       kwargs={'pk': time_id}))
                 appointments_time.append({'id': time_id, 'title': title,
                                           'url': url, 'start': start,
                                           'end': end, 'class': 'event-info'})
@@ -1517,14 +1539,16 @@ def get_doctor_day_schedule(request):
 
             start_date = query.first().start_time.date()
             data['start_date'] = str(start_date)
-            data['success_next_day_header'] = str(_('Next available appointment is on '))
-            data['failure_next_day_header'] = str(_('No further appointments available'))
+            data['success_next_day_header'] = str(
+                _('Next available appointment is on '))
+            data['failure_next_day_header'] = str(
+                _('No further appointments available'))
             data['success'] = True
         else:
             data['success'] = False
             data['header'] = str(_('No available appointment time'))
 
-    return  JsonResponse(data)
+    return JsonResponse(data)
 
 
 class CaseActiveTabMixin(PatientMenuViewMixin, PatientActiveTabMixin):
@@ -1659,7 +1683,8 @@ class PatientCaseAppointmentView(PatientCaseMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(PatientCaseAppointmentView, self).get_context_data(
             **kwargs)
-        context['appointment_availability'] = get_appointment_room_availability(self.object_list)
+        context['appointment_availability'], context['appointment_editability'] \
+            = get_appointment_room_availability(self.object_list)
         return context
 
 
@@ -1869,4 +1894,3 @@ class PatientTestFileRecordDeleteView(PatientCaseMixin, generic.DeleteView):
                 next_url += '?app_process=true&case=true'
             return str(next_url + '&pk=' + pk)
         return next_url
-
