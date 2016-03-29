@@ -107,3 +107,8 @@ div.five-column
 .form-inline .form-group select.form-control {
     width: 100%;
 }
+
+.note-placeholder{
+    max-height: 75vh;
+    overflow: auto;
+}

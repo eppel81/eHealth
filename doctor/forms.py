@@ -76,14 +76,14 @@ class NoteForm(FormControlMixin, forms.ModelForm):
     class Meta:
         model = AppointmentNote
         exclude = ['appointment', 'doctor']
-        widgets = {
-            'anamnesis': forms.Textarea({'rows': 3}),
-            'exploration': forms.Textarea({'rows': 3}),
-            'diagnosis': forms.Textarea({'rows': 3}),
-            'additional_tests': forms.Textarea({'rows': 3}),
-            'treatment': forms.Textarea({'rows': 3}),
-            'public_notes': forms.Textarea({'rows': 3}),
-        }
+
+    def __init__(self, *args, **kwargs):
+        super(NoteForm, self).__init__(*args, **kwargs)
+        for key, field in self.fields.iteritems():
+            if key not in self.exclude_fields:
+                field.widget.attrs.update({'class': 'tinymce'})
+            else:
+                field.widget.attrs.update({'class': ''})
 
 
 class DoctorScheduleForm(FormControlMixin, forms.ModelForm):
