@@ -68,8 +68,12 @@
      <div class="files table-responsive">
          {% if files.exists %}
             <table class="table">
+            {% with all_files=request.GET.all_files %}
                 <thead>
                     <tr class="head-color rounded-th">
+                        {% if all_files %}
+                            <th class="text-center">{% trans 'Case' %}</th>
+                        {% endif %}
                         <th class="text-center">{% trans 'Type' %}</th>
                         <th class="text-center">{% trans 'Description' %}</th>
 
@@ -79,6 +83,9 @@
                 <tbody>
                     {% for file in files %}
                     <tr>
+                        {% if all_files %}
+                            <td class="text-center">{% for case in file.case.all  %}{{ case.problem }}{% endfor %} </td>
+                        {% endif %}
                         <td class="text-center">{{ file.get_type_display|default_if_exists:"-" }}</td>
                         <td class="text-center">{{ file.description|default_if_exists:"-" }}</td>
 
@@ -96,6 +103,7 @@
                     </tr>
                     {% endfor %}
                 </tbody>
+            {% endwith %}
             </table>
         {% else %}
             <div class="text-center"><h2>{% trans 'No previous documents found' %}</h2></div>
