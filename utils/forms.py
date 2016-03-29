@@ -83,3 +83,10 @@ class MySetPassForm(FormControlMixin, SetPasswordForm):
     new_password2 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={'placeholder': _("Confirm password")}))
+
+    def clean_new_password1(self):
+        password = self.cleaned_data.get('new_password1')
+        if len(password) < 6:
+            message = _('Password must be a minimum of 6 characters.')
+            raise ValidationError(message)
+        return password
