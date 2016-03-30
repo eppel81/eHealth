@@ -1,0 +1,23 @@
+{% load i18n %}{% autoescape off %}{% trans "Dear user," %}
+{% if action == 'rejection' %}
+{% blocktrans with object.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_recipient as recipient %}On {{ date }}, you asked to send a message to the user '{{ recipient }}'.{{ recipient.doctor }} {{ recipient.patient }}{% endblocktrans %}
+
+{% trans "Your message has been rejected by the moderator" %}{% if object.moderation_reason %}{% trans ", for the following reason:" %}
+    {{ object.moderation_reason }}{% else %}.{% endif %}
+
+{% else %}{# 'acceptance' #}
+{% if object.parent_id %}{% if object.parent.sender_id == object.recipient_id %}{% blocktrans with object.parent.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_sender as sender %}On {{ date }}, you sent a message to the user '{{ sender }}'.{% endblocktrans %}
+{% trans "Your correspondent has given you an answer." %}
+{% else %}{% blocktrans with object.obfuscated_sender as sender %}You have received a copy of a response from the user '{{ sender }}'.{% endblocktrans %}
+{% endif %}
+{% else %}{% blocktrans with object.obfuscated_sender as sender %}You have received a message from the user '{{ sender }}'.{% endblocktrans %}
+{% endif %}
+{% endif %}{# 'acceptance' #}
+
+{% autoescape off %}{% blocktrans %}Please follow this link to see it {% endblocktrans %}{% with sitedomain=site.domain %}{{ sitedomain }}{% endwith %}{% if object.recipient.patient %}{% url 'patient:inbox' %}{% elif object.recipient.doctor %}{% url 'doctor:inbox' %}{% endif %}{% endautoescape %}
+
+{% trans "Thank you again for your interest in our services." %}
+{% trans "The site administrator" %}
+
+{% blocktrans %}Note: This message is issued by an automated system.
+Do not reply, this would not be taken into account.{% endblocktrans %}{% endautoescape %}

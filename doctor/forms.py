@@ -429,7 +429,7 @@ class WriteMessageForm(FormControlMixin, postman_forms.WriteForm):
                                       queryset=User.objects.all())
     case = forms.ModelChoiceField(
         label=_("Case"),
-        queryset=patient_models.PatientCase.objects.none(),
+        queryset=patient_models.PatientCase.objects.all(),
         required=False)
 
     class Meta(postman_forms.WriteForm.Meta):
