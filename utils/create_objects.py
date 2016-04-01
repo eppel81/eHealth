@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import os
 
 from django.http import QueryDict
@@ -10,6 +13,7 @@ import datetime
 import pytz
 from django.contrib.auth.models import User
 from doctor.models import Doctor, DoctorAppointmentTime
+from patient.models import Patient
 from allauth.account.models import EmailAddress
 from utils.models import AppointmentSchedule
 from django.test.client import RequestFactory
@@ -20,8 +24,8 @@ DATE_NOW = datetime.datetime.utcnow().date()
 
 DOCTORS = [
     {
-        'user': 'emedicaltest1',
-        'email': 'emedicaltest1@mail2tor.com',
+        'username': 'doctor1',
+        'email': 'doctor1@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Azcona',
         'last_name': 'Guerra',
@@ -29,47 +33,150 @@ DOCTORS = [
         'country_id': 2,
         'gender': True,
         'timezone_id': 212,
-        'photo': 'photo/DR._GUERRA_AZCONA_yscUB0V.jpg'
+        'photo': 'photo/DR._GUERRA_AZCONA_pu7zytO.jpg',
+    },
+    {
+        'username': 'doctor2',
+        'email': 'doctor2@mail2tor.com',
+        'password': 'zaq123',
+        'first_name': 'Castell',
+        'last_name': 'Gomez',
+        'city_id': 1,
+        'country_id': 2,
+        'gender': True,
+        'timezone_id': 212,
+        'photo': 'photo/DR._CASTELL_GÓMEZ_37HKDDc.jpg',
+    },
+    {
+        'username': 'doctor3',
+        'email': 'doctor3@mail2tor.com',
+        'password': 'zaq123',
+        'first_name': 'Federico',
+        'last_name': 'Castillo',
+        'city_id': 1,
+        'country_id': 2,
+        'gender': True,
+        'timezone_id': 212,
+        'photo': 'photo/DR._DEL_CASTILLO_DÍEZ.jpg',
+    },
+    {
+        'username': 'doctor4',
+        'email': 'doctor4@mail2tor.com',
+        'password': 'zaq123',
+        'first_name': 'Freire',
+        'last_name': 'Torres',
+        'city_id': 1,
+        'country_id': 2,
+        'gender': True,
+        'timezone_id': 212,
+        'photo': 'photo/DR._FREIRE_TORRES.jpg',
+    },
+    {
+        'username': 'doctor5',
+        'email': 'doctor5@mail2tor.com',
+        'password': 'zaq123',
+        'first_name': 'Mora',
+        'last_name': 'Sanz',
+        'city_id': 1,
+        'country_id': 2,
+        'gender': True,
+        'timezone_id': 212,
+        'photo': 'photo/DR._MORA_SANZ.jpg',
+    },
+    {
+        'username': 'doctor6',
+        'email': 'doctor6@mail2tor.com',
+        'password': 'zaq123',
+        'first_name': 'Villar',
+        'last_name': 'Riu',
+        'city_id': 1,
+        'country_id': 2,
+        'gender': False,
+        'timezone_id': 212,
+        'photo': 'photo/DRA._VILLAR_RIU.jpg',
+    }
+]
+
+PATIENTS = [
+    {
+        'username': 'patient1',
+        'email': 'patient1@gmail.com',
+        'password': 'zaq123',
+        'first_name': 'Meike',
+        'last_name': 'Ritter',
+        'country_id': 2,
+        'timezone_id': 180,
+        'photo': 'photo/patient1.jpg'
+    },
+    {
+        'username': 'patient2',
+        'email': 'patient2@gmail.com',
+        'password': 'zaq123',
+        'first_name': 'Ferdinand',
+        'last_name': 'Lang',
+        'country_id': 2,
+        'timezone_id': 180,
+        'photo': 'photo/patient2.jpg'
+    },
+    {
+        'username': 'patient3',
+        'email': 'patient3@gmail.com',
+        'password': 'zaq123',
+        'first_name': 'Luise',
+        'last_name': 'Breuer',
+        'country_id': 2,
+        'timezone_id': 180,
+        'photo': 'photo/patient3.jpg'
     },
 ]
 
-
-def populate_doctor_appointment_time(doctor, app_schedule, datetime_from, amount_terms):
-    doctor_tz = pytz.timezone(doctor.timezone.name)
-    doctor_tz = pytz.timezone('Europe/Kiev')
-    utc_tz = pytz.timezone('UTC')
-    app_datetime = datetime_from
-    time_shift = datetime.timedelta(minutes=15)
-    for i in xrange(amount_terms):
-        DoctorAppointmentTime.objects.create(
-            doctor=doctor,
-            start_time=app_datetime,
-            duration=app_schedule.duration,
-            schedule=app_schedule
-        )
-        app_datetime += time_shift
-
-def populate_doctor_appointment_day_night(current_day, doctor):
-    # morning
-    date_from = datetime.datetime.combine(current_day.date, current_day.day_from)
-    date_to = datetime.datetime.combine(current_day.date, current_day.day_to)
-    amount_terms = (date_to - date_from).seconds/60/current_day.duration
-
-    populate_doctor_appointment_time(doctor, current_day, date_from, amount_terms)
-
-    # evening
-    date_from = datetime.datetime.combine(current_day.date, current_day.night_from)
-    date_to = datetime.datetime.combine(current_day.date, current_day.night_to)
-    amount_terms = (date_to - date_from).seconds/60/current_day.duration
-
-    populate_doctor_appointment_time(doctor, current_day, date_from, amount_terms)
+def create_super_user():
+    """
+    Create admin-user
+    """
+    user = User.objects.create_superuser('admin', 'admin@admin.loc', 'zaq123')
+    return user
 
 
-def create_doctor_schedule(doctor, day=DATE_NOW.day, month=DATE_NOW.month, year=DATE_NOW.year)
+# def create_doctor(username, email, password, country_id=2, city_id=1,
+#                   timezone_id=212, gender=1):
+def create_doctor(doctor_dict):
+    # Create user for doctor
+    try:
+        user = User.objects.create_user(doctor_dict['username'],
+                                        doctor_dict['email'],
+                                        doctor_dict['password'],
+                                        first_name=doctor_dict['first_name'],
+                                        last_name=doctor_dict['last_name']
+                                        )
+        doctor = Doctor.objects.create(user=user, city_id=doctor_dict['city_id'],
+                                       country_id=doctor_dict['country_id'],
+                                       gender=doctor_dict['gender'],
+                                       timezone_id=doctor_dict['timezone_id'],
+                                       photo=doctor_dict['photo']
+                                       )
+        EmailAddress.objects.create(user=user, verified=True,
+                                    email=doctor_dict['email'])
+    except Exception as e:
+        return None
+    return doctor
+
+
+def get_doctor_by_email(email):
+    """
+    Get doctor by his email
+    """
+    return Doctor.objects.filter(user__email=email).first()
+
+
+def create_doctor_week_schedule(doctor, day=DATE_NOW.day, month=DATE_NOW.month, year=DATE_NOW.year):
+    """
+    Create schedule for week
+    """
     try:
         start_date = datetime.date(year, month, day)
     except ValueError as e:
-        return e.message
+        return None
 
     post_dict = {
         'first_day': '',
@@ -129,47 +236,44 @@ def create_doctor_schedule(doctor, day=DATE_NOW.day, month=DATE_NOW.month, year=
     mdware.process_request(req)
     req.POST = post_querydict
     resp = TimeView.as_view()(req)
+    return True
 
+
+def create_patient(username, email, password, photo=None, country_id=2,
+                   timezone_id=180):
+    # Create user patient
+    try:
+        user = User.objects.create_user(username, email, password)
+        patient = Patient.objects.create(user=user, country_id=country_id,
+                                         timezone_id=timezone_id, photo=photo)
+        EmailAddress.objects.create(user=user, verified=True,
+                                    email=email)
+    except Exception as e:
+        return None
+    return patient
+
+
+def get_patient_by_email(email):
+    """
+    Get doctor by his email
+    """
+    return Patient.objects.filter(user__email=email).first()
+
+
+def complete_patient_history(patient):
+    pass
 
 def main():
-    doctor_obj_list = []
-
-    # Create superuser
-    # User.objects.create_superuser('admin', 'admin@admin.loc', 'zaq123')
-
-    # Create user for doctor
-    # user1 = User.objects.create_user('emedicaltest1', 'emedicaltest1@mail2tor.com', 'zaq123')
-
-    user1 = User.objects.last()
-
-    # doctor1 = Doctor.objects.create(user=user1, city_id=1,
-    #                                 country_id=2, gender=True, timezone_id=212,
-    #                                 photo='photo/DR._GUERRA_AZCONA_yscUB0V.jpg')
-
-    doctor1 = Doctor.objects.last()
-
-    # user1.first_name = 'Azcona'
-    # user1.last_name = 'Guerra'
-    # user1.save()
-    # EmailAddress.objects.create(user=user1, verified=True,
-    #                             email='emedicaltest1@mail2tor.com')
-
-    # Create AppointmentShedule ==================
-    first_date = datetime.datetime.utcnow().date()
-    # day1 = AppointmentSchedule.objects.create(doctor=doctor1, date=first_date,
-    #                                           day_shift=True,
-    #                                           day_from=doctor1.default_morning_start_time,
-    #                                           day_to=doctor1.default_morning_end_time,
-    #                                           night_shift=True,
-    #                                           night_from=doctor1.default_afternoon_start_time,
-    #                                           night_to=doctor1.default_afternoon_end_time)
-
-    # current_day = AppointmentSchedule.objects.last()
-    # populate_doctor_appointment_day_night(current_day, doctor1)
-    # ============================================
+    user = create_doctor(DOCTORS[0])
+    # doctor = get_doctor_by_email('dem@gmail.com')
+    # add_doctor_profile(doctor, 'Dmitry', 'Gogenko', 'photo/DR._GUERRA_AZCONA_yscUB0V.jpg')
+    # create_doctor_week_schedule(doctor, day=1, month=4)
 
 
+    #patient
+    # patient = create_patient('emedicaltestPatient1', 'emedicaltestPatient1@gmail.com', 'zaq123', photo='photo/patient1.jpg')
 
+    print 're'
 
 if __name__ == '__main__':
     main()
