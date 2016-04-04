@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 PAYMENT_NONCES = {
-        'amex': 'fake-valid-amex-nonce',
-        'visa': 'fake-valid-visa-nonce',
-        'paypal': 'fake-paypal-future-nonce'
-    }
+    'amex': 'fake-valid-amex-nonce',
+    'visa': 'fake-valid-visa-nonce',
+    'paypal': 'fake-paypal-future-nonce'
+}
 
 DOCTORS = [
     {
@@ -184,7 +184,6 @@ PATIENTS = [
     }
 ]
 
-
 NOTES = [
     {
         'anamnesis': 'AP:. F - B:-Amigdalectomía. Talasemia minor. Jaquecas '
@@ -232,15 +231,15 @@ TEST_FILES = [
     {
         'file': 'files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_CbVJXds.docx',
         'conclusions': 'Esfinter esofágico inferior normotenso, asimétrico con '
-                        'disfunción por relajaciones ausentes. Motilidad de '
-                        'cuerpo esofágico con peristalsis conservada dentro de '
-                        'la normalidad. Esfinter esofágico superior levemente '
-                        'hipotenso con buena función.'
+                       'disfunción por relajaciones ausentes. Motilidad de '
+                       'cuerpo esofágico con peristalsis conservada dentro de '
+                       'la normalidad. Esfinter esofágico superior levemente '
+                       'hipotenso con buena función.'
     },
     {
         'file': 'files/emedicaltest1@gmail.com/Clinic Report.docx',
         'conclusions': 'probable angioma hepático. Diverticulosis en '
-                        'marco cólico. Resto en el informe'
+                       'marco cólico. Resto en el informe'
     }
 ]
 
@@ -248,14 +247,14 @@ RECORD_FILES = [
     {
         'file': 'files/emedicaltest1@gmail.com/Clinic Report.docx',
         'conclusions': 'Esfinter esofágico inferior normotenso, asimétrico con '
-                        'disfunción por relajaciones ausentes. Motilidad de '
-                        'cuerpo esofágico con peristalsis conservada dentro de '
-                        'la normalidad. Esfinter esofágico superior levemente '
-                        'hipotenso con buena función.'
+                       'disfunción por relajaciones ausentes. Motilidad de '
+                       'cuerpo esofágico con peristalsis conservada dentro de '
+                       'la normalidad. Esfinter esofágico superior levemente '
+                       'hipotenso con buena función.'
     },
     {
         'file': 'files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_CbVJXds.docx',
         'conclusions': 'probable angioma hepático. Diverticulosis en '
-                        'marco cólico. Resto en el informe'
+                       'marco cólico. Resto en el informe'
     }
 ]
