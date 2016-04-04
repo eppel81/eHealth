@@ -1,28 +1,31 @@
-#!/usr/bin/python
-
 import os
+import sys
 import logging
+import datetime
+import traceback
 
-import braintree
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import QueryDict
-
+# configure django
+FILE_PATH = os.path.abspath(os.path.dirname(__file__))
+BASE_PATH = os.path.abspath(os.path.join(FILE_PATH, '..', '..'))
+sys.path.append(BASE_PATH)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ehealth.settings')
 import django
 django.setup()
 
-import datetime
-from ehealth import settings
-from django.contrib.auth.models import User
+import braintree
+from django.conf import settings
+from django.http import QueryDict
 from django.db import transaction
-from doctor.models import Doctor, DoctorAppointmentTime, DoctorSpecialty, \
-    DoctorWorkExperience
-from patient.models import Patient, PatientCase, PatientAppointment, \
-    AppointmentNote, TestFileRecord
-from patient.forms import WriteMessageForm
-from allauth.account.models import EmailAddress
-from utils.models import AppointmentSchedule
+from django.contrib.auth.models import User
 from django.test.client import RequestFactory
+from allauth.account.models import EmailAddress
+
+from doctor.models import (Doctor, DoctorAppointmentTime, DoctorSpecialty,
+                           DoctorWorkExperience)
+from patient.models import (Patient, PatientCase, PatientAppointment,
+                            AppointmentNote, TestFileRecord)
+from patient.forms import WriteMessageForm
+from utils.models import AppointmentSchedule
 from doctor.views import TimeView, WritePatientMessageView
 from patient.views import WriteDoctorMessageView
 from utils.middleware import TimezoneMiddleware
@@ -31,6 +34,8 @@ from utils.models import Specialty
 from test_data import DOCTORS, PATIENTS, NOTES, TEST_FILES, RECORD_FILES, PAYMENT_NONCES
 
 DATE_NOW = datetime.datetime.utcnow().date()
+logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s %(levelname)s]: %(message)s')
+logging.info(BASE_PATH)
 
 
 def try_except_decorator(func):
@@ -38,10 +43,18 @@ def try_except_decorator(func):
         try:
             obj = func(*args, **kwargs)
         except Exception as e:
+            traceback.print_exc()
             logging.error(e.message)
             return None
         return obj
     return wrapper
+
+
+def get_model_instance(model, many=False, **kwargs):
+    data = model.objects.filter(**kwargs)
+    if not many:
+        data = data.first()
+    return data
 
 
 def create_super_user():
@@ -52,38 +65,38 @@ def create_super_user():
     return user
 
 
+@try_except_decorator  # todo: check priority of decorators
 @transaction.atomic
 def create_doctor(doctor_dict):
     """
     :param doctor_dict: doctor's dictionary (in test_data.py)
     :return: Doctor instance
     """
-    try:
-        with transaction.atomic():
-            # Create user for doctor
-            user = User.objects.create_user(doctor_dict['username'],
-                                            doctor_dict['email'],
-                                            doctor_dict['password'],
-                                            first_name=doctor_dict['first_name'],
-                                            last_name=doctor_dict['last_name']
-                                            )
-            doctor = Doctor.objects.create(user=user, city_id=doctor_dict['city_id'],
-                                           country_id=doctor_dict['country_id'],
-                                           gender=doctor_dict['gender'],
-                                           timezone_id=doctor_dict['timezone_id'],
-                                           photo=doctor_dict['photo']
-                                           )
-            EmailAddress.objects.create(user=user, verified=True,
-                                        email=doctor_dict['email'])
-    except Exception as e:
-        logging.error(e.message)
-        return None
+    with transaction.atomic():
+        # Create user for doctor
+        user = User.objects.create_user(
+            doctor_dict['username'], doctor_dict['email'],
+            doctor_dict['password'],
+            first_name=doctor_dict['first_name'],
+            last_name=doctor_dict['last_name']
+        )
+        doctor = Doctor.objects.create(
+            user=user, city_id=doctor_dict['city_id'],
+            country_id=doctor_dict['country_id'],
+            gender=doctor_dict['gender'],
+            timezone_id=doctor_dict['timezone_id'],
+            photo=doctor_dict['photo']
+        )
+        EmailAddress.objects.create(
+            user=user, verified=True, email=doctor_dict['email']
+        )
     return doctor
 
 
 def get_doctor_by_email(email):
     """
     Get doctor by his email
+
     :param email: email
     :return: Doctor instance
     """
@@ -91,29 +104,18 @@ def get_doctor_by_email(email):
 
 
 @try_except_decorator
-def create_doctor_week_schedule(doctor, day=DATE_NOW.day, month=DATE_NOW.month, year=DATE_NOW.year):
+def create_doctor_week_schedule(doctor, start_date):
     """
     Create schedule for week that includes needed date
-    :param doctor: Doctor instance
-    :param day: day of needed date
-    :param month: month of needed date
-    :param year: year of needed date
-    """
-    try:
-        start_date = datetime.date(year, month, day)
-    except ValueError as e:
-        logging.error(e.message)
-        return None
 
-    try:
-        dat = DoctorAppointmentTime.objects.filter(doctor=doctor,
-                                                   start_time__year=year,
-                                                   start_time__month=month,
-                                                   start_time__day=day).first()
-        if dat:
-            raise AssertionError('Schedule is already exists for this day')
-    except ObjectDoesNotExist:
-        pass
+    :param doctor: Doctor instance
+    :param start_date: day, for which week need to create schedule
+    """
+    dat = DoctorAppointmentTime.objects.filter(
+        doctor=doctor, start_time__year=start_date.year,
+        start_time__month=start_date.month, start_time__day=start_date.day
+    )
+    assert not dat.exists(), 'Schedule is already exists for this day'
 
     post_dict = {
         'first_day': '',
@@ -125,11 +127,11 @@ def create_doctor_week_schedule(doctor, day=DATE_NOW.day, month=DATE_NOW.month, 
     }
     post_querydict = QueryDict('', mutable=True)
 
-    current_week_day = datetime.datetime.weekday(start_date)
-    post_dict['first_day'] = (start_date - datetime.timedelta(days=current_week_day))\
-        .strftime('%m/%d/%Y')
-    post_dict['last_day'] = \
-        (start_date + datetime.timedelta(days=(6 - current_week_day))).strftime('%m/%d/%Y')
+    current_week_day = start_date.weekday()
+    day_from = start_date - datetime.timedelta(days=current_week_day)
+    day_to = start_date + datetime.timedelta(days=(6 - current_week_day))
+    post_dict['first_day'] = day_from.strftime('%m/%d/%Y')
+    post_dict['last_day'] = day_to.strftime('%m/%d/%Y')
 
     form_day = start_date - datetime.timedelta(days=current_week_day)
     form_day_delta = datetime.timedelta(days=1)
@@ -179,25 +181,23 @@ def create_doctor_week_schedule(doctor, day=DATE_NOW.day, month=DATE_NOW.month, 
 def add_doctor_specialty(doctor, **kwargs):
     """
     Add specialty for doctor
+
     :param doctor: Doctor instance
-    :param kwargs: may be specialty_id or text
+    :param kwargs: represents speciality
+                   may contain key "speciality" for text representation or
+                   "speciality_id" by which speciality will be retrieved
     :return: DoctorSpecialty instance
     """
-    if kwargs.get('specialty_id', None):
-        specialty = DoctorSpecialty.objects.get_or_create(
-                                            doctor=doctor,
-                                            speciality_id=kwargs.get('specialty_id'),
-                                            primary=kwargs.get('primary', 0))
-    else:
-        if kwargs.get('specialty', None):
-            specialty = get_model_instance(Specialty, name__iexact=kwargs.get('specialty'))
-            assert specialty, 'such specialty is absent'
-            specialty = DoctorSpecialty.objects.get_or_create(
-                                                doctor=doctor,
-                                                specialty=specialty,
-                                                primary=kwargs.get('primary', 0))
-        else:
-            raise AssertionError('specialty_id or specialty must be defined')
+    spec_name = kwargs.get('speciality')
+    spec_id = kwargs.get('speciality_id')
+    assert spec_name or spec_id, 'specialty_id or specialty must be defined'
+    params = {'name__iexact': spec_name} if spec_name else {'pk': spec_id}
+    spec = get_model_instance(Specialty, **params)
+    assert spec, 'there is no speciality with given parameters: {}'.format(params)
+    specialty = DoctorSpecialty.objects.get_or_create(
+        doctor=doctor, speciality=spec,
+        primary=kwargs.get('primary', 0)
+    )
     return specialty
 
 
@@ -211,48 +211,45 @@ def add_doctor_work_experience(doctor, care_facility, position, start_date, end_
     :param end_date: use format yyyy-mm-dd
     :return: DoctorWorkExperience instance
     """
-    obj = DoctorWorkExperience.objects. \
-        get_or_create(doctor=doctor,
-                      care_facility=care_facility,
-                      position=position,
-                      start_date=datetime.datetime.strptime(start_date, '%Y-%m-%d'),
-                      end_date=datetime.datetime.strptime(end_date, '%Y-%m-%d'))
-    return obj[0]
+    obj, created = DoctorWorkExperience.objects.get_or_create(
+        doctor=doctor, care_facility=care_facility, position=position,
+        start_date=datetime.datetime.strptime(start_date, '%Y-%m-%d'),
+        end_date=datetime.datetime.strptime(end_date, '%Y-%m-%d')
+    )
+    return obj
 
 
-@transaction.atomic
+@transaction.atomic  # todo: check priority of decorators
+@try_except_decorator
 def create_patient(patient_dict):
     """
     Create patient
+
     :param patient_dict: patient's dictionary (in test_data.py)
     :return: Patient instance
     """
     # Create user patient
-    try:
-        with transaction.atomic():
-            # Create user for doctor
-            user = User.objects.create_user(patient_dict['username'],
-                                            patient_dict['email'],
-                                            patient_dict['password'],
-                                            first_name=patient_dict['first_name'],
-                                            last_name=patient_dict['last_name']
-                                            )
-            patient = Patient.objects.create(user=user,
-                                             country_id=patient_dict['country_id'],
-                                             timezone_id=patient_dict['timezone_id'],
-                                             photo=patient_dict['photo'])
-            EmailAddress.objects.create(user=user, verified=True,
-                                        email=patient_dict['email'])
-    except Exception as e:
-        logging.error(e.message)
-        return None
+    with transaction.atomic():
+        # Create user for doctor
+        user = User.objects.create_user(
+            patient_dict['username'], patient_dict['email'],
+            patient_dict['password'], first_name=patient_dict['first_name'],
+            last_name=patient_dict['last_name']
+        )
+        patient = Patient.objects.create(
+            user=user, country_id=patient_dict['country_id'],
+            timezone_id=patient_dict['timezone_id'], photo=patient_dict['photo']
+        )
+        EmailAddress.objects.create(
+            user=user, verified=True, email=patient_dict['email']
+        )
     return patient
 
 
 @try_except_decorator
 def get_patient_by_email(email):
     """
-    Get doctor by his email
+    Get patient by his email
     """
     return Patient.objects.filter(user__email=email).first()
 
@@ -260,6 +257,7 @@ def get_patient_by_email(email):
 def add_payment_method(patient, method, default=False):
     """
     Add payment method for patient
+
     :param patient: Patient instance
     :param method: may be 'amex' or 'visa' or 'paypal'
     :return: True if added, otherwise False
@@ -285,11 +283,12 @@ def add_payment_method(patient, method, default=False):
 def get_default_payment_or_first_method(patient):
     """
     Get default payment method
+
     :param patient:
-    :return:
+    :return: payment method
     """
-    payment_methods = braintree.Customer.\
-        find(str(patient.user.customeruser.customer)).payment_methods
+    payment_methods = braintree.Customer.find(
+        str(patient.user.customeruser.customer)).payment_methods
     payment_method = payment_methods[0]
     for item in payment_methods:
         if item.default:
@@ -298,30 +297,24 @@ def get_default_payment_or_first_method(patient):
     return payment_method
 
 
-def get_model_instance(model, many=False, **kwargs):
-    data = model.objects.filter(**kwargs)
-    if not many:
-        data = data.first()
-    return data
-
-
 @try_except_decorator
 def create_patient_case(patient, doctor, problem, description):
     """
     Create case for patient
+
     :param patient: Patient instance
     :param doctor: Doctor instance
     :param problem: text of problem
     :param description: description text
     :return: Case instance
     """
-    case = PatientCase.objects.get_or_create(
+    case, created = PatientCase.objects.get_or_create(
         doctor=doctor,
         patient=patient,
         problem=problem,
         description=description
     )
-    return case[0]
+    return case
 
 
 @try_except_decorator
@@ -331,6 +324,7 @@ def get_appointmenttime_obj(doctor, date_time):
     :param date_time: use format "2016-04-01 09:00:00 (UTC timezone)
     :return: DoctorAppointmentTime instance
     """
+    # todo: maybe convert date to timezone-aware
     dat = datetime.datetime.strptime(date_time, '%Y-%m-%d %H:%M:%S')
     obj = DoctorAppointmentTime.objects.get(doctor=doctor, start_time=dat, free=True)
     return obj
@@ -340,13 +334,14 @@ def get_appointmenttime_obj(doctor, date_time):
 def create_appointment(case, date_time):
     """
     Create appointment instance
+
     :param case: Case instance
     :param date_time: use format "2016-04-01 09:00:00 (UTC timezone)
     :return: PatientAppointment instance
     """
+    # todo: date_time should be "datetime" object, not string
     app_time = get_appointmenttime_obj(case.doctor, date_time)
-    if not app_time:
-        raise AssertionError('AppointmentTime instance is already busy or doesn\'t exist')
+    assert app_time, 'AppointmentTime instance is already busy or doesn\'t exist'
     if app_time.free:
         appointment = PatientAppointment.objects.get_or_create(
             case=case,
@@ -388,7 +383,7 @@ def create_appointment(case, date_time):
 @try_except_decorator
 def delete_all_payment_methods(patient):
     payment_methods = braintree.Customer.find(
-            str(patient.user.customeruser.customer)).payment_methods
+        str(patient.user.customeruser.customer)).payment_methods
     for item in payment_methods:
         res = braintree.PaymentMethod.delete(item.token)
     return True
@@ -398,6 +393,7 @@ def delete_all_payment_methods(patient):
 def complete_appointment(case, appointment):
     """
     Complete appointment
+
     :param case: Case instance
     :param appointment: PatientAppointment instance
     :return: PatientAppointment instance
@@ -405,18 +401,18 @@ def complete_appointment(case, appointment):
     if not appointment.consult_paid:
         payment_method = get_default_payment_or_first_method(case.patient)
         payment = braintree.Transaction.sale({
-                'customer_id': str(case.patient.user.customeruser.customer),
-                'amount': str(case.doctor.consult_rate - case.doctor.deposit),
-                'merchant_account_id': settings.MERCHANT_ID,
-                'payment_method_token': payment_method.token,
-                'custom_fields': {
-                    'type': 'Consult Rate',
-                    'appointment_date': appointment.appointment_time.start_time,
-                    'case': case.problem
-                },
-                'options': {
-                    'submit_for_settlement': True,
-                }
+            'customer_id': str(case.patient.user.customeruser.customer),
+            'amount': str(case.doctor.consult_rate - case.doctor.deposit),
+            'merchant_account_id': settings.MERCHANT_ID,
+            'payment_method_token': payment_method.token,
+            'custom_fields': {
+                'type': 'Consult Rate',
+                'appointment_date': appointment.appointment_time.start_time,
+                'case': case.problem
+            },
+            'options': {
+                'submit_for_settlement': True,
+            }
         })
         if payment.is_success:
             appointment.consult_paid = True
@@ -432,6 +428,7 @@ def complete_appointment(case, appointment):
 def add_appointment_notes(appointment, note):
     """
     Add notes to appointment
+
     :param appointment: appointment instance
     :param note: dictionary (from test_data.py)
     :return: AppointmentNote instance
@@ -452,30 +449,32 @@ def add_test_record(case, type='test', request_form='', result_form='',
     """
     :param case: case instance
     :param type: may be 'test' or 'record'
-    :param file: path to file 'files/emedicaltest8@gmail.com/Clinic Report.docx'
-    :param file2:
+    :param request_form: path to file 'files/emedicaltest8@gmail.com/Clinic Report.docx'
+    :param result_form: same as above
     :return: TestFileRecord object
     """
+    # todo: files should be in media folder? if so, specify
     if type.lower() == 'test':
-        test_record_obj = TestFileRecord.objects.get_or_create(
-                                            type=TestFileRecord.TEST,
-                                            description=description,
-                                            request_form=request_form)
+        params = dict(
+            type=TestFileRecord.TEST, description=description,
+            request_form=request_form
+        )
     else:
-        test_record_obj = TestFileRecord.objects.get_or_create(
-                                            type=TestFileRecord.RECORD,
-                                            description=description,
-                                            request_form=request_form,
-                                            result_report_or_record=result_form)
-    test_record_obj[0].case.add(case)
-    test_record_obj[0].save()
-    return test_record_obj[0]
+        params = dict(
+            type=TestFileRecord.RECORD, description=description,
+            request_form=request_form, result_report_or_record=result_form
+        )
+    test_record_obj, created = TestFileRecord.objects.get_or_create(**params)
+    test_record_obj.case.add(case)
+    test_record_obj.save()
+    return test_record_obj
 
 
 # @try_except_decorator
 def send_message(case, subject='', text='', from_doctor=False):
     """
     Send messages between doctor and patient
+
     :param case: case instance
     :param subject: text
     :param text: text of message
@@ -500,6 +499,7 @@ def send_message(case, subject='', text='', from_doctor=False):
 def evaluate_test_record(test_record, conclusions='conclusions'):
     """
     Add conclusions to test_record instance
+
     :param test_record: instance of test_record
     :param conclusions: text of conclusions
     :return: test_record instance
@@ -511,9 +511,8 @@ def evaluate_test_record(test_record, conclusions='conclusions'):
 
 def close_case(case):
     """
-
     :param case: case instant
-    :return:
+    :return: case
     """
     case.status = PatientCase.CLOSED
     case.save()
