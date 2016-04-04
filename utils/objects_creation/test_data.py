@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+PAYMENT_NONCES = {
+        'amex': 'fake-valid-amex-nonce',
+        'visa': 'fake-valid-visa-nonce',
+        'paypal': 'fake-paypal-future-nonce'
+    }
+
 DOCTORS = [
     {
         'username': 'doctor1',

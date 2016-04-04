@@ -3,6 +3,7 @@
 import os
 import logging
 
+import braintree
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import QueryDict
 
@@ -11,7 +12,7 @@ import django
 django.setup()
 
 import datetime
-import pytz
+from ehealth import settings
 from django.contrib.auth.models import User
 from django.db import transaction
 from doctor.models import Doctor, DoctorAppointmentTime, DoctorSpecialty, \
@@ -27,7 +28,7 @@ from patient.views import WriteDoctorMessageView
 from utils.middleware import TimezoneMiddleware
 from utils.models import Specialty
 
-from test_data import DOCTORS, PATIENTS, NOTES, TEST_FILES, RECORD_FILES
+from test_data import DOCTORS, PATIENTS, NOTES, TEST_FILES, RECORD_FILES, PAYMENT_NONCES
 
 DATE_NOW = datetime.datetime.utcnow().date()
 
@@ -248,11 +249,53 @@ def create_patient(patient_dict):
     return patient
 
 
+@try_except_decorator
 def get_patient_by_email(email):
     """
     Get doctor by his email
     """
     return Patient.objects.filter(user__email=email).first()
+
+
+def add_payment_method(patient, method, default=False):
+    """
+    Add payment method for patient
+    :param patient: Patient instance
+    :param method: may be 'amex' or 'visa' or 'paypal'
+    :return: True if added, otherwise False
+    """
+    payment_dict = {
+        'customer_id': str(patient.user.customeruser.customer),
+        'payment_method_nonce': PAYMENT_NONCES[method],
+        'options': {
+            'fail_on_duplicate_payment_method': True,
+            'make_default': default
+        }
+    }
+    if method.lower() == 'amex':
+        payment_dict['options']['fail_on_duplicate_payment_method'] = False
+
+    res = braintree.PaymentMethod.create(payment_dict)
+    if not res.is_success:
+        logging.error(res.message)
+        return False
+    return True
+
+
+def get_default_payment_or_first_method(patient):
+    """
+    Get default payment method
+    :param patient:
+    :return:
+    """
+    payment_methods = braintree.Customer.\
+        find(str(patient.user.customeruser.customer)).payment_methods
+    payment_method = payment_methods[0]
+    for item in payment_methods:
+        if item.default:
+            payment_method = item
+            break
+    return payment_method
 
 
 def get_model_instance(model, many=False, **kwargs):
@@ -293,6 +336,7 @@ def get_appointmenttime_obj(doctor, date_time):
     return obj
 
 
+@try_except_decorator
 def create_appointment(case, date_time):
     """
     Create appointment instance
@@ -301,20 +345,86 @@ def create_appointment(case, date_time):
     :return: PatientAppointment instance
     """
     app_time = get_appointmenttime_obj(case.doctor, date_time)
-    appointment = PatientAppointment.objects.get_or_create(
-        case=case,
-        appointment_time=app_time,
-        appointment_type='v',
-        appointment_status=2
-    )
-    return appointment[0]
+    if not app_time:
+        raise AssertionError('AppointmentTime instance is already busy or doesn\'t exist')
+    if app_time.free:
+        appointment = PatientAppointment.objects.get_or_create(
+            case=case,
+            appointment_time=app_time,
+            appointment_type='v',
+            appointment_status=2)[0]
+
+        if not appointment.deposit_paid:
+            payment_method = get_default_payment_or_first_method(case.patient)
+            payment = braintree.Transaction.sale({
+                    'customer_id': str(case.patient.user.customeruser.customer),
+                    'amount': str(case.doctor.deposit),
+                    'merchant_account_id': settings.MERCHANT_ID,
+                    'payment_method_token': payment_method.token,
+                    'custom_fields': {
+                        'type': 'Deposit',
+                        'appointment_date': appointment.appointment_time.start_time,
+                        'case': case.problem
+                    },
+                    'options': {
+                        'submit_for_settlement': True,
+                    }
+            })
+            if payment.is_success:
+                appointment.deposit_paid = True
+                appointment.deposit_transaction = payment.transaction.id
+                appointment.save()
+
+                app_time.free = False
+                app_time.save()
+            else:
+                raise AssertionError(payment.message)
+
+        return appointment
+    else:
+        return None
 
 
 @try_except_decorator
-def complete_appointment(appointment):
-    # AppointmentRatePayment view
-    appointment.appointment_status = PatientAppointment.STATUS_COMPLETE
-    appointment.save()
+def delete_all_payment_methods(patient):
+    payment_methods = braintree.Customer.find(
+            str(patient.user.customeruser.customer)).payment_methods
+    for item in payment_methods:
+        res = braintree.PaymentMethod.delete(item.token)
+    return True
+
+
+@try_except_decorator
+def complete_appointment(case, appointment):
+    """
+    Complete appointment
+    :param case: Case instance
+    :param appointment: PatientAppointment instance
+    :return: PatientAppointment instance
+    """
+    if not appointment.consult_paid:
+        payment_method = get_default_payment_or_first_method(case.patient)
+        payment = braintree.Transaction.sale({
+                'customer_id': str(case.patient.user.customeruser.customer),
+                'amount': str(case.doctor.consult_rate - case.doctor.deposit),
+                'merchant_account_id': settings.MERCHANT_ID,
+                'payment_method_token': payment_method.token,
+                'custom_fields': {
+                    'type': 'Consult Rate',
+                    'appointment_date': appointment.appointment_time.start_time,
+                    'case': case.problem
+                },
+                'options': {
+                    'submit_for_settlement': True,
+                }
+        })
+        if payment.is_success:
+            appointment.consult_paid = True
+            appointment.consult_transaction = payment.transaction.id
+            appointment.appointment_status = PatientAppointment.STATUS_COMPLETE
+            appointment.save()
+        else:
+            raise AssertionError(payment.message)
     return appointment
 
 
@@ -420,8 +530,13 @@ def main():
     #patient
     # patient = create_patient(PATIENTS[1])
     patient = get_patient_by_email('patient1@gmail.com')
+
+    # delete_all_payment_methods(patient)
+
+    # add_payment_method(patient, 'visa', default=True)
     case = create_patient_case(patient, doctor, 'Head pain', 'Every day')
-    # appointment = create_appointment(case, '2016-04-05 11:00:00')
+    # appointment = create_appointment(case, '2016-04-05 10:45:00')
+    # complete_appointment(case, appointment)
     # appointment_notes = add_appointment_notes(appointment, NOTES[0])
     # send_message(case, subject='finger fracture', text='Some text of problem', from_doctor=False)
     # add_test_record(case, type='test', request_form=TEST_FILES[0]['file'])
