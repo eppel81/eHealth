@@ -5,12 +5,12 @@ import datetime
 import traceback
 
 # configure django
-FILE_PATH = os.path.abspath(os.path.dirname(__file__))
-BASE_PATH = os.path.abspath(os.path.join(FILE_PATH, '..', '..'))
-sys.path.append(BASE_PATH)
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ehealth.settings')
-import django
-django.setup()
+# FILE_PATH = os.path.abspath(os.path.dirname(__file__))
+# BASE_PATH = os.path.abspath(os.path.join(FILE_PATH, '..', '..'))
+# sys.path.append(BASE_PATH)
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ehealth.settings')
+# import django
+# django.setup()
 
 import braintree
 from django.conf import settings
@@ -35,7 +35,6 @@ from test_data import DOCTORS, PATIENTS, NOTES, TEST_FILES, RECORD_FILES, PAYMEN
 
 DATE_NOW = datetime.datetime.utcnow().date()
 logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s %(levelname)s]: %(message)s')
-logging.info(BASE_PATH)
 
 
 def try_except_decorator(func):
@@ -57,6 +56,12 @@ def get_model_instance(model, many=False, **kwargs):
     return data
 
 
+def check_object(obj, klass):
+    if isinstance(obj, (int, basestring)):
+        obj = get_model_instance(klass, pk=obj)
+    return obj
+
+
 def create_super_user():
     """
     Create admin-user
@@ -65,13 +70,17 @@ def create_super_user():
     return user
 
 
-@try_except_decorator  # todo: check priority of decorators
 @transaction.atomic
+@try_except_decorator
 def create_doctor(doctor_dict):
     """
     :param doctor_dict: doctor's dictionary (in test_data.py)
     :return: Doctor instance
     """
+    doctor = get_doctor_by_email(doctor_dict['email'])
+    if doctor:
+        return doctor
+
     with transaction.atomic():
         # Create user for doctor
         user = User.objects.create_user(
@@ -111,6 +120,11 @@ def create_doctor_week_schedule(doctor, start_date):
     :param doctor: Doctor instance
     :param start_date: day, for which week need to create schedule
     """
+
+    start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
+
+    doctor = check_object(doctor, Doctor)
+
     dat = DoctorAppointmentTime.objects.filter(
         doctor=doctor, start_time__year=start_date.year,
         start_time__month=start_date.month, start_time__day=start_date.day
@@ -183,19 +197,22 @@ def add_doctor_specialty(doctor, **kwargs):
     Add specialty for doctor
 
     :param doctor: Doctor instance
-    :param kwargs: represents speciality
-                   may contain key "speciality" for text representation or
-                   "speciality_id" by which speciality will be retrieved
+    :param kwargs: represents specialty
+                   may contain key "specialty" for text representation or
+                   "specialty_id" by which specialty will be retrieved
     :return: DoctorSpecialty instance
     """
-    spec_name = kwargs.get('speciality')
-    spec_id = kwargs.get('speciality_id')
+
+    doctor = check_object(doctor, Doctor)
+
+    spec_name = kwargs.get('specialty')
+    spec_id = kwargs.get('specialty_id')
     assert spec_name or spec_id, 'specialty_id or specialty must be defined'
     params = {'name__iexact': spec_name} if spec_name else {'pk': spec_id}
     spec = get_model_instance(Specialty, **params)
-    assert spec, 'there is no speciality with given parameters: {}'.format(params)
+    assert spec, 'there is no specialty with given parameters: {}'.format(params)
     specialty = DoctorSpecialty.objects.get_or_create(
-        doctor=doctor, speciality=spec,
+        doctor=doctor, specialty=spec,
         primary=kwargs.get('primary', 0)
     )
     return specialty
@@ -211,6 +228,9 @@ def add_doctor_work_experience(doctor, care_facility, position, start_date, end_
     :param end_date: use format yyyy-mm-dd
     :return: DoctorWorkExperience instance
     """
+
+    doctor = check_object(doctor, Doctor)
+
     obj, created = DoctorWorkExperience.objects.get_or_create(
         doctor=doctor, care_facility=care_facility, position=position,
         start_date=datetime.datetime.strptime(start_date, '%Y-%m-%d'),
@@ -219,8 +239,8 @@ def add_doctor_work_experience(doctor, care_facility, position, start_date, end_
     return obj
 
 
-@transaction.atomic  # todo: check priority of decorators
 @try_except_decorator
+@transaction.atomic
 def create_patient(patient_dict):
     """
     Create patient
@@ -228,6 +248,11 @@ def create_patient(patient_dict):
     :param patient_dict: patient's dictionary (in test_data.py)
     :return: Patient instance
     """
+
+    patient = get_patient_by_email(patient_dict['email'])
+    if patient:
+        return patient
+
     # Create user patient
     with transaction.atomic():
         # Create user for doctor
@@ -262,11 +287,14 @@ def add_payment_method(patient, method, default=False):
     :param method: may be 'amex' or 'visa' or 'paypal'
     :return: True if added, otherwise False
     """
+
+    patient = check_object(patient, Patient)
+
     payment_dict = {
         'customer_id': str(patient.user.customeruser.customer),
         'payment_method_nonce': PAYMENT_NONCES[method],
         'options': {
-            'fail_on_duplicate_payment_method': True,
+            # 'fail_on_duplicate_payment_method': True,
             'make_default': default
         }
     }
@@ -287,6 +315,8 @@ def get_default_payment_or_first_method(patient):
     :param patient:
     :return: payment method
     """
+    patient = check_object(patient, Patient)
+
     payment_methods = braintree.Customer.find(
         str(patient.user.customeruser.customer)).payment_methods
     payment_method = payment_methods[0]
@@ -308,6 +338,9 @@ def create_patient_case(patient, doctor, problem, description):
     :param description: description text
     :return: Case instance
     """
+    patient = check_object(patient, Patient)
+    doctor = check_object(doctor, Doctor)
+
     case, created = PatientCase.objects.get_or_create(
         doctor=doctor,
         patient=patient,
@@ -324,9 +357,11 @@ def get_appointmenttime_obj(doctor, date_time):
     :param date_time: use format "2016-04-01 09:00:00 (UTC timezone)
     :return: DoctorAppointmentTime instance
     """
-    # todo: maybe convert date to timezone-aware
+
+    doctor = check_object(doctor, Doctor)
+
     dat = datetime.datetime.strptime(date_time, '%Y-%m-%d %H:%M:%S')
-    obj = DoctorAppointmentTime.objects.get(doctor=doctor, start_time=dat, free=True)
+    obj = DoctorAppointmentTime.objects.get(doctor=doctor, start_time=dat)
     return obj
 
 
@@ -339,16 +374,19 @@ def create_appointment(case, date_time):
     :param date_time: use format "2016-04-01 09:00:00 (UTC timezone)
     :return: PatientAppointment instance
     """
-    # todo: date_time should be "datetime" object, not string
+
+    case = check_object(case, PatientCase)
+
     app_time = get_appointmenttime_obj(case.doctor, date_time)
-    assert app_time, 'AppointmentTime instance is already busy or doesn\'t exist'
-    if app_time.free:
-        appointment = PatientAppointment.objects.get_or_create(
+    assert app_time, 'AppointmentTime instance doesn\'t exist'
+
+    appointment = PatientAppointment.objects.get_or_create(
             case=case,
             appointment_time=app_time,
             appointment_type='v',
             appointment_status=2)[0]
 
+    if app_time.free:
         if not appointment.deposit_paid:
             payment_method = get_default_payment_or_first_method(case.patient)
             payment = braintree.Transaction.sale({
@@ -375,13 +413,12 @@ def create_appointment(case, date_time):
             else:
                 raise AssertionError(payment.message)
 
-        return appointment
-    else:
-        return None
+    return appointment
 
 
 @try_except_decorator
 def delete_all_payment_methods(patient):
+    patient = check_object(patient, Patient)
     payment_methods = braintree.Customer.find(
         str(patient.user.customeruser.customer)).payment_methods
     for item in payment_methods:
@@ -398,6 +435,10 @@ def complete_appointment(case, appointment):
     :param appointment: PatientAppointment instance
     :return: PatientAppointment instance
     """
+
+    case = check_object(case, PatientCase)
+    appointment = check_object(appointment, PatientAppointment)
+
     if not appointment.consult_paid:
         payment_method = get_default_payment_or_first_method(case.patient)
         payment = braintree.Transaction.sale({
@@ -433,6 +474,8 @@ def add_appointment_notes(appointment, note):
     :param note: dictionary (from test_data.py)
     :return: AppointmentNote instance
     """
+    appointment = check_object(appointment, PatientAppointment)
+
     app_note_obj = AppointmentNote.objects.get_or_create(appointment=appointment)[0]
     app_note_obj.anamnesis = note['anamnesis']
     app_note_obj.exploration = note['exploration']
@@ -444,22 +487,40 @@ def add_appointment_notes(appointment, note):
     return app_note_obj
 
 
+def check_file_path(file_path):
+    """
+    Check file existing
+    :param file_path:  path to file
+    """
+    path = os.path.join(BASE_PATH, 'media', file_path)
+    return True if os.path.isfile(path) else False
+
+
+@try_except_decorator
 def add_test_record(case, type='test', request_form='', result_form='',
                     description='test description'):
     """
     :param case: case instance
     :param type: may be 'test' or 'record'
-    :param request_form: path to file 'files/emedicaltest8@gmail.com/Clinic Report.docx'
+    :param request_form: path to file 'test_files/file_name.ext' in media folder
     :param result_form: same as above
     :return: TestFileRecord object
     """
-    # todo: files should be in media folder? if so, specify
+
+    case = check_object(case, PatientCase)
+
     if type.lower() == 'test':
+        if not check_file_path(request_form):
+            raise AssertionError('%s file doesn\'t exist' % request_form)
         params = dict(
             type=TestFileRecord.TEST, description=description,
             request_form=request_form
         )
     else:
+        if not check_file_path(request_form):
+            raise AssertionError('%s file doesn\'t exist' % request_form)
+        if not check_file_path(result_form):
+            raise AssertionError('%s file doesn\'t exist' % result_form)
         params = dict(
             type=TestFileRecord.RECORD, description=description,
             request_form=request_form, result_report_or_record=result_form
@@ -481,6 +542,8 @@ def send_message(case, subject='', text='', from_doctor=False):
     :param from_doctor: if True then sender is DOCTOR.  Else sender is PATIENT
     :return: True
     """
+    case = check_object(case, PatientCase)
+
     if from_doctor:
         sender = case.doctor.user
         recipient = case.patient.user.id
@@ -504,6 +567,7 @@ def evaluate_test_record(test_record, conclusions='conclusions'):
     :param conclusions: text of conclusions
     :return: test_record instance
     """
+    test_record = check_object(test_record, TestFileRecord)
     test_record.conclusions = conclusions
     test_record.save()
     return test_record
@@ -514,34 +578,49 @@ def close_case(case):
     :param case: case instant
     :return: case
     """
+    case = check_object(case, PatientCase)
     case.status = PatientCase.CLOSED
     case.save()
     return case
 
 
 def main():
-    # user = create_doctor(DOCTORS[1])
-    doctor = get_doctor_by_email('doctor1@mail2tor.com')
-    # create_doctor_week_schedule(doctor, day=5, month=4)
+    pass
+    # doctor = create_doctor(DOCTORS[5])
+
+    # doctor = get_doctor_by_email(DOCTORS[0]['email'])
+
+    # create_doctor_week_schedule(doctor, day=5)
+
     # add_doctor_specialty(doctor, specialty='hepatology')
+
     # add_doctor_work_experience(doctor, 'Anesthesiology', 'Anesthesiologist', '2016-01-02', '2016-03-30')
 
-    #patient
-    # patient = create_patient(PATIENTS[1])
-    patient = get_patient_by_email('patient1@gmail.com')
+    # patient = create_patient(PATIENTS[8])
+
+    # patient = get_patient_by_email(PATIENTS[1]['email'])
 
     # delete_all_payment_methods(patient)
 
     # add_payment_method(patient, 'visa', default=True)
-    case = create_patient_case(patient, doctor, 'Head pain', 'Every day')
-    # appointment = create_appointment(case, '2016-04-05 10:45:00')
+
+    # case = create_patient_case(patient, doctor, 'Head pain', 'Every day')
+
+    # appointment = create_appointment(case, '2016-04-05 09:00:00')
+
     # complete_appointment(case, appointment)
+
     # appointment_notes = add_appointment_notes(appointment, NOTES[0])
+
     # send_message(case, subject='finger fracture', text='Some text of problem', from_doctor=False)
-    # add_test_record(case, type='test', request_form=TEST_FILES[0]['file'])
+
+    # test_record = add_test_record(case, type='test', request_form=TEST_FILES[0]['file'])
+
     # test_record = add_test_record(case, type='record', request_form=TEST_FILES[0]['file'],
     #                 result_form=RECORD_FILES[0]['file'])
+
     # evaluate_test_record(test_record, conclusions=RECORD_FILES[0]['conclusions'])
+
     # close_case(case)
 
 

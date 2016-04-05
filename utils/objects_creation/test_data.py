@@ -8,8 +8,8 @@ PAYMENT_NONCES = {
 
 DOCTORS = [
     {
-        'username': 'doctor1',
-        'email': 'doctor1@mail2tor.com',
+        'username': 'doctor0',
+        'email': 'doctor0@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Azcona',
         'last_name': 'Guerra',
@@ -20,8 +20,8 @@ DOCTORS = [
         'photo': 'photo/DR._GUERRA_AZCONA_pu7zytO.jpg',
     },
     {
-        'username': 'doctor2',
-        'email': 'doctor2@mail2tor.com',
+        'username': 'doctor1',
+        'email': 'doctor1@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Castell',
         'last_name': 'Gomez',
@@ -32,8 +32,8 @@ DOCTORS = [
         'photo': 'photo/DR._CASTELL_GÓMEZ_37HKDDc.jpg',
     },
     {
-        'username': 'doctor3',
-        'email': 'doctor3@mail2tor.com',
+        'username': 'doctor2',
+        'email': 'doctor2@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Federico',
         'last_name': 'Castillo',
@@ -44,8 +44,8 @@ DOCTORS = [
         'photo': 'photo/DR._DEL_CASTILLO_DÍEZ.jpg',
     },
     {
-        'username': 'doctor4',
-        'email': 'doctor4@mail2tor.com',
+        'username': 'doctor3',
+        'email': 'doctor3@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Freire',
         'last_name': 'Torres',
@@ -56,8 +56,8 @@ DOCTORS = [
         'photo': 'photo/DR._FREIRE_TORRES.jpg',
     },
     {
-        'username': 'doctor5',
-        'email': 'doctor5@mail2tor.com',
+        'username': 'doctor4',
+        'email': 'doctor4@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Mora',
         'last_name': 'Sanz',
@@ -68,8 +68,8 @@ DOCTORS = [
         'photo': 'photo/DR._MORA_SANZ.jpg',
     },
     {
-        'username': 'doctor6',
-        'email': 'doctor6@mail2tor.com',
+        'username': 'doctor5',
+        'email': 'doctor5@mail2tor.com',
         'password': 'zaq123',
         'first_name': 'Villar',
         'last_name': 'Riu',
@@ -83,11 +83,21 @@ DOCTORS = [
 
 PATIENTS = [
     {
-        'username': 'patient1',
-        'email': 'patient1@gmail.com',
+        'username': 'patient0',
+        'email': 'patient0@gmail.com',
         'password': 'zaq123',
         'first_name': 'Meike',
         'last_name': 'Ritter',
+        'country_id': 2,
+        'timezone_id': 180,
+        'photo': 'photo/patient0.jpg'
+    },
+    {
+        'username': 'patient1',
+        'email': 'patient1@gmail.com',
+        'password': 'zaq123',
+        'first_name': 'Ferdinand',
+        'last_name': 'Lang',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient1.jpg'
@@ -96,8 +106,8 @@ PATIENTS = [
         'username': 'patient2',
         'email': 'patient2@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Ferdinand',
-        'last_name': 'Lang',
+        'first_name': 'Luise',
+        'last_name': 'Breuer',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient2.jpg'
@@ -106,8 +116,8 @@ PATIENTS = [
         'username': 'patient3',
         'email': 'patient3@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Luise',
-        'last_name': 'Breuer',
+        'first_name': 'Brad',
+        'last_name': 'Sullivan',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient3.jpg'
@@ -116,8 +126,8 @@ PATIENTS = [
         'username': 'patient4',
         'email': 'patient4@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Brad',
-        'last_name': 'Sullivan',
+        'first_name': 'Leonard',
+        'last_name': 'Beck',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient4.jpg'
@@ -126,8 +136,8 @@ PATIENTS = [
         'username': 'patient5',
         'email': 'patient5@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Leonard',
-        'last_name': 'Beck',
+        'first_name': 'Perry',
+        'last_name': 'Pearson',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient5.jpg'
@@ -136,8 +146,8 @@ PATIENTS = [
         'username': 'patient6',
         'email': 'patient6@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Perry',
-        'last_name': 'Pearson',
+        'first_name': 'Gabriel',
+        'last_name': 'Omahony',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient6.jpg'
@@ -146,8 +156,8 @@ PATIENTS = [
         'username': 'patient7',
         'email': 'patient7@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Gabriel',
-        'last_name': 'Omahony',
+        'first_name': 'Karen',
+        'last_name': 'Murphy',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient7.jpg'
@@ -156,8 +166,8 @@ PATIENTS = [
         'username': 'patient8',
         'email': 'patient8@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Karen',
-        'last_name': 'Murphy',
+        'first_name': 'Katherine',
+        'last_name': 'Warren',
         'country_id': 2,
         'timezone_id': 180,
         'photo': 'photo/patient8.jpg'
@@ -166,21 +176,11 @@ PATIENTS = [
         'username': 'patient9',
         'email': 'patient9@gmail.com',
         'password': 'zaq123',
-        'first_name': 'Katherine',
-        'last_name': 'Warren',
-        'country_id': 2,
-        'timezone_id': 180,
-        'photo': 'photo/patient9.jpg'
-    },
-    {
-        'username': 'patient10',
-        'email': 'patient10@gmail.com',
-        'password': 'zaq123',
         'first_name': 'Jay',
         'last_name': 'Spencer',
         'country_id': 2,
         'timezone_id': 180,
-        'photo': 'photo/patient10.jpg'
+        'photo': 'photo/patient9.jpg'
     }
 ]
 
@@ -229,7 +229,7 @@ NOTES = [
 
 TEST_FILES = [
     {
-        'file': 'files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_CbVJXds.docx',
+        'file': 'test_files/UAT MANOMETRIA PRUEBA.docx',
         'conclusions': 'Esfinter esofágico inferior normotenso, asimétrico con '
                        'disfunción por relajaciones ausentes. Motilidad de '
                        'cuerpo esofágico con peristalsis conservada dentro de '
@@ -237,7 +237,7 @@ TEST_FILES = [
                        'hipotenso con buena función.'
     },
     {
-        'file': 'files/emedicaltest1@gmail.com/Clinic Report.docx',
+        'file': 'test_files/PRUEBAS tipo UAT.docx',
         'conclusions': 'probable angioma hepático. Diverticulosis en '
                        'marco cólico. Resto en el informe'
     }
@@ -245,7 +245,7 @@ TEST_FILES = [
 
 RECORD_FILES = [
     {
-        'file': 'files/emedicaltest1@gmail.com/Clinic Report.docx',
+        'file': 'test_files/UAT MANOMETRIA PRUEBA.docx',
         'conclusions': 'Esfinter esofágico inferior normotenso, asimétrico con '
                        'disfunción por relajaciones ausentes. Motilidad de '
                        'cuerpo esofágico con peristalsis conservada dentro de '
@@ -253,7 +253,7 @@ RECORD_FILES = [
                        'hipotenso con buena función.'
     },
     {
-        'file': 'files/emedicaltest1@gmail.com/UAT MANOMETRIA PRUEBA_CbVJXds.docx',
+        'file': 'test_files/PRUEBAS tipo UAT.docx',
         'conclusions': 'probable angioma hepático. Diverticulosis en '
                        'marco cólico. Resto en el informe'
     }
