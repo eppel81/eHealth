@@ -1,16 +1,8 @@
 import os
-import sys
 import logging
 import datetime
 import traceback
 
-# configure django
-# FILE_PATH = os.path.abspath(os.path.dirname(__file__))
-# BASE_PATH = os.path.abspath(os.path.join(FILE_PATH, '..', '..'))
-# sys.path.append(BASE_PATH)
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ehealth.settings')
-# import django
-# django.setup()
 
 import braintree
 from django.conf import settings
@@ -25,25 +17,30 @@ from doctor.models import (Doctor, DoctorAppointmentTime, DoctorSpecialty,
 from patient.models import (Patient, PatientCase, PatientAppointment,
                             AppointmentNote, TestFileRecord)
 from patient.forms import WriteMessageForm
-from utils.models import AppointmentSchedule
-from doctor.views import TimeView, WritePatientMessageView
-from patient.views import WriteDoctorMessageView
+from doctor.views import TimeView
 from utils.middleware import TimezoneMiddleware
 from utils.models import Specialty
 
-from test_data import DOCTORS, PATIENTS, NOTES, TEST_FILES, RECORD_FILES, PAYMENT_NONCES
+from test_data import PAYMENT_NONCES
+
+FILE_PATH = os.path.abspath(os.path.dirname(__file__))
+BASE_PATH = os.path.abspath(os.path.join(FILE_PATH, '..', '..'))
 
 DATE_NOW = datetime.datetime.utcnow().date()
-logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s %(levelname)s]: %(message)s')
+logging.basicConfig(level=logging.ERROR, format='[%(asctime)s %(levelname)s]: %(message)s')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.WARNING)
 
 
 def try_except_decorator(func):
     def wrapper(*args, **kwargs):
         try:
+            logger.info('starting %s', func.__name__)
             obj = func(*args, **kwargs)
+            logger.info('finished %s', func.__name__)
         except Exception as e:
-            traceback.print_exc()
-            logging.error(e.message)
+            # traceback.print_exc()
+            logger.error(e.message)
             return None
         return obj
     return wrapper
@@ -303,7 +300,7 @@ def add_payment_method(patient, method, default=False):
 
     res = braintree.PaymentMethod.create(payment_dict)
     if not res.is_success:
-        logging.error(res.message)
+        logger.error(res.message)
         return False
     return True
 
@@ -583,46 +580,3 @@ def close_case(case):
     case.save()
     return case
 
-
-def main():
-    pass
-    # doctor = create_doctor(DOCTORS[5])
-
-    # doctor = get_doctor_by_email(DOCTORS[0]['email'])
-
-    # create_doctor_week_schedule(doctor, day=5)
-
-    # add_doctor_specialty(doctor, specialty='hepatology')
-
-    # add_doctor_work_experience(doctor, 'Anesthesiology', 'Anesthesiologist', '2016-01-02', '2016-03-30')
-
-    # patient = create_patient(PATIENTS[8])
-
-    # patient = get_patient_by_email(PATIENTS[1]['email'])
-
-    # delete_all_payment_methods(patient)
-
-    # add_payment_method(patient, 'visa', default=True)
-
-    # case = create_patient_case(patient, doctor, 'Head pain', 'Every day')
-
-    # appointment = create_appointment(case, '2016-04-05 09:00:00')
-
-    # complete_appointment(case, appointment)
-
-    # appointment_notes = add_appointment_notes(appointment, NOTES[0])
-
-    # send_message(case, subject='finger fracture', text='Some text of problem', from_doctor=False)
-
-    # test_record = add_test_record(case, type='test', request_form=TEST_FILES[0]['file'])
-
-    # test_record = add_test_record(case, type='record', request_form=TEST_FILES[0]['file'],
-    #                 result_form=RECORD_FILES[0]['file'])
-
-    # evaluate_test_record(test_record, conclusions=RECORD_FILES[0]['conclusions'])
-
-    # close_case(case)
-
-
-if __name__ == '__main__':
-    main()
