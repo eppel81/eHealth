@@ -490,7 +490,7 @@ def check_file_path(file_path):
     :param file_path:  path to file
     """
     path = os.path.join(BASE_PATH, 'media', file_path)
-    return True if os.path.isfile(path) else False
+    return os.path.isfile(path)
 
 
 @try_except_decorator
