@@ -39,7 +39,7 @@ def try_except_decorator(func):
             obj = func(*args, **kwargs)
             logger.info('finished %s', func.__name__)
         except Exception as e:
-            # traceback.print_exc()
+            traceback.print_exc()
             logger.error(e.message)
             return None
         return obj
